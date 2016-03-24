@@ -7,12 +7,13 @@
                 <div class="form-group">
                     <div class="input-group">
                         <input name="rus-word" type="text" class="form-control" placeholder="Введите слово" required >
-                            <span class="input-group-btn">
-                                <button type="submit" class="btn btn-primary">Найти</button>
-                            </span>
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn btn-primary">Найти</button>
+                        </span>
                     </div>
                 </div>
             </form>
+            <button class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Добавить слово</button>
         </div>
     </div>
     <div class="col-sm-6">
@@ -23,15 +24,16 @@
                 <div class="form-group">
                     <div class="input-group">
                         <input name="bur-word" type="text" class="form-control" placeholder="Бэшэгты" required >
-                            <span class="input-group-btn">
-                                <button type="button" class="btn btn-default">ү</button>
-                                <button type="button" class="btn btn-default">һ</button>
-                                <button type="button" class="btn btn-default">ө</button>
-                                <button type="submit" class="btn btn-primary">Найти</button>
-                            </span>
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default">ү</button>
+                            <button type="button" class="btn btn-default">һ</button>
+                            <button type="button" class="btn btn-default">ө</button>
+                            <button type="submit" class="btn btn-primary">Найти</button>
+                        </span>
                     </div>
                 </div>
             </form>
+            <button class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Добавить слово</button>
         </div>
     </div>
 </div>
