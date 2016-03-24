@@ -1,7 +1,7 @@
 burlang.ru
 ==========
 
-INSTALLATION
+Installation
 ------------
 
 ### 1. Install dependencies
