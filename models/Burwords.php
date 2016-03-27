@@ -48,4 +48,9 @@ class Burwords extends \yii\db\ActiveRecord
             'bb_id' => Yii::t('app', 'Bb ID'),
         ];
     }
+
+    public function getTranslation()
+    {
+        return $this->hasMany(Rutranslations::className(), ['burword_id' => 'id']);
+    }
 }

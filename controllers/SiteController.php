@@ -106,4 +106,30 @@ class SiteController extends Controller
             ->all();
         return json_encode($result);
     }
+
+    public function actionRus2bur($rusword)
+    {
+        $word = Ruwords::findOne(['name' => $rusword]);
+        if (Yii::$app->request->isAjax) {
+            return $this->renderAjax('_translate', [
+                'word' => $word
+            ]);
+        }
+        return $this->render('index', [
+            'rusword' => $word
+        ]);
+    }
+
+    public function actionBur2rus($burword)
+    {
+        $word = Burwords::findOne(['name' => $burword]);
+        if (Yii::$app->request->isAjax) {
+            return $this->renderAjax('_translate', [
+                'word' => $word
+            ]);
+        }
+        return $this->render('index', [
+            'burword' => $word
+        ]);
+    }
 }

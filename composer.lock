@@ -4,9 +4,31 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "97cd80e0dfd7e30cda71543a8b91762a",
-    "content-hash": "8432d8ed9ef12c8160ad0db38abc37cb",
+    "hash": "49a62845fe40875016ced59acf90d951",
+    "content-hash": "e601f38d3ce5ac528bd5200df4a439b9",
     "packages": [
+        {
+            "name": "bower-asset/bililiteRange",
+            "version": "v2.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dwachss/bililiteRange.git",
+                "reference": "f22f85d4b3f91c2efa5122484876dd4f285996e6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dwachss/bililiteRange/zipball/f22f85d4b3f91c2efa5122484876dd4f285996e6",
+                "reference": "f22f85d4b3f91c2efa5122484876dd4f285996e6",
+                "shasum": ""
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "bililiteRange.js",
+                "bower-asset-ignore": [
+                    "test/**/*"
+                ]
+            }
+        },
         {
             "name": "bower-asset/bootstrap",
             "version": "v3.3.5",

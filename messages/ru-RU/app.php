@@ -26,6 +26,7 @@ return [
     'Updated At' => 'Последнее изменение',
     'Sort' => 'Сортировка',
     'Active' => 'Активный',
+    'Find' => 'Найти',
 
     //main
     'About project' => 'О проекте',
@@ -38,5 +39,9 @@ return [
 
     //national
     'Russian-Buryat, Buryat-Russian electronic dictionary' => 'Русско-Бурятский, Бурятско-Русский электронный словарь',
+    'Russian-Buryat dictionary' => 'Русско-Бурятский словарь',
+    'Buryat-Russian dictionary' => 'Бурятско-Русский словарь',
+
+    'No translation' => 'Первода нет',
 
 ];
