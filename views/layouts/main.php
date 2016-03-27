@@ -36,16 +36,16 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Главная', 'url' => ['/site/index']],
-            ['label' => 'О проекте', 'url' => ['/site/about']],
-            ['label' => 'Контакты', 'url' => ['/site/contact']],
+            ['label' => Yii::t('app', 'Main'), 'url' => ['/site/index']],
+            ['label' => Yii::t('app', 'About project'), 'url' => ['/site/about']],
+            ['label' => Yii::t('app', 'Contacts'), 'url' => ['/site/contact']],
             Yii::$app->user->isGuest ? (
-                ['label' => 'Войти', 'url' => ['/site/login']]
+                ['label' => Yii::t('app', 'Login'), 'url' => ['/site/login']]
             ) : (
                 '<li>'
                 . Html::beginForm(['/site/logout'], 'post', ['class' => 'navbar-form'])
                 . Html::submitButton(
-                    'Выйти (' . Yii::$app->user->identity->username . ')',
+                    Yii::t('app', 'Logout') . ' (' . Yii::$app->user->identity->username . ')',
                     ['class' => 'btn btn-link']
                 )
                 . Html::endForm()

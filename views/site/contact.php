@@ -8,7 +8,7 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\captcha\Captcha;
 
-$this->title = 'Контакты';
+$this->title = Yii::t('app', 'Contacts');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-contact">
