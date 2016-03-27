@@ -13,7 +13,6 @@
                     </div>
                 </div>
             </form>
-            <button class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Добавить слово</button>
         </div>
     </div>
     <div class="col-sm-6">
@@ -33,7 +32,6 @@
                     </div>
                 </div>
             </form>
-            <button class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Добавить слово</button>
         </div>
     </div>
 </div>
