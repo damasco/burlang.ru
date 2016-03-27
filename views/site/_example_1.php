@@ -6,7 +6,17 @@
             <form action="" method="get">
                 <div class="form-group">
                     <div class="input-group">
-                        <input name="rus-word" type="text" class="form-control" placeholder="Введите слово" required >
+                        <?= \yii\jui\AutoComplete::widget([
+                            'name' => 'rus-word',
+                            'options' => [
+                                'class' => 'form-control',
+                                'placeholder' => 'Введите слово',
+                                'required' => true,
+                            ],
+                            'clientOptions' => [
+                                'source' => '/site/rus'
+                            ]
+                        ]) ?>
                         <span class="input-group-btn">
                             <button type="submit" class="btn btn-primary">Найти</button>
                         </span>
@@ -22,7 +32,17 @@
             <form action="" method="get">
                 <div class="form-group">
                     <div class="input-group">
-                        <input name="bur-word" type="text" class="form-control" placeholder="Бэшэгты" required >
+                        <?= \yii\jui\AutoComplete::widget([
+                            'name' => 'bur-word',
+                            'options' => [
+                                'class' => 'form-control',
+                                'placeholder' => 'Бэшэгты',
+                                'required' => true,
+                            ],
+                            'clientOptions' => [
+                                'source' => '/site/bur'
+                            ]
+                        ]) ?>
                         <span class="input-group-btn">
                             <button type="button" class="btn btn-default">ү</button>
                             <button type="button" class="btn btn-default">һ</button>

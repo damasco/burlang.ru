@@ -2,12 +2,13 @@
 
 namespace app\controllers;
 
+use app\models\Burwords;
+use app\models\Ruwords;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
-use app\models\ContactForm;
 
 class SiteController extends Controller
 {
@@ -82,5 +83,27 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+
+    public function actionRus()
+    {
+        $result = Ruwords::find()
+            ->select(['name as value'])
+            ->filterWhere(['like', 'name', Yii::$app->request->get('term') . '%', false])
+            ->limit(10)
+            ->asArray()
+            ->all();
+        return json_encode($result);
+    }
+
+    public function actionBur()
+    {
+        $result = Burwords::find()
+            ->select(['name as value'])
+            ->filterWhere(['like', 'name', Yii::$app->request->get('term') . '%', false])
+            ->limit(10)
+            ->asArray()
+            ->all();
+        return json_encode($result);
     }
 }
