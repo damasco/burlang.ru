@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "49a62845fe40875016ced59acf90d951",
-    "content-hash": "e601f38d3ce5ac528bd5200df4a439b9",
+    "hash": "ccd960c8ad2573a3838df00076e0729e",
+    "content-hash": "dac9709055ca2cca407bbd88fffecba6",
     "packages": [
         {
             "name": "bower-asset/bililiteRange",
@@ -345,6 +345,52 @@
                 "html"
             ],
             "time": "2013-11-30 08:25:19"
+        },
+        {
+            "name": "ijackua/yii2-lepture-markdown-editor-widget",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/iJackUA/yii2-lepture-markdown-editor-widget.git",
+                "reference": "c270e33f6df4b50ab493ee14fb40403e024fb522"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/iJackUA/yii2-lepture-markdown-editor-widget/zipball/c270e33f6df4b50ab493ee14fb40403e024fb522",
+                "reference": "c270e33f6df4b50ab493ee14fb40403e024fb522",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "ijackua\\lepture\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Evgeniy Kuzminov",
+                    "email": "kyzminov@gmail.com",
+                    "homepage": "http://stdout.in"
+                }
+            ],
+            "description": "Yii2 widget for Lepture Markdown Editor (https://github.com/lepture/editor) - A markdown editor you really want",
+            "homepage": "https://github.com/iJackUA/yii2-lepture-markdown-editor-widget",
+            "keywords": [
+                "editor",
+                "extension",
+                "lepture",
+                "markdown",
+                "widget",
+                "yii"
+            ],
+            "time": "2014-03-29 19:06:57"
         },
         {
             "name": "swiftmailer/swiftmailer",
