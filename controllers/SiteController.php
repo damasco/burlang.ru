@@ -41,10 +41,6 @@ class SiteController extends Controller
             'error' => [
                 'class' => 'yii\web\ErrorAction',
             ],
-            'captcha' => [
-                'class' => 'yii\captcha\CaptchaAction',
-                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
-            ],
         ];
     }
 
@@ -85,7 +81,7 @@ class SiteController extends Controller
         return $this->render('about');
     }
 
-    public function actionRus()
+    public function actionGetRuswords()
     {
         $result = Ruwords::find()
             ->select(['name as value'])
@@ -96,7 +92,7 @@ class SiteController extends Controller
         return json_encode($result);
     }
 
-    public function actionBur()
+    public function actionGetBurwords()
     {
         $result = Burwords::find()
             ->select(['name as value'])

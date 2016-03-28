@@ -1,14 +1,12 @@
 <?php
 
 /* @var $this yii\web\View */
+/* @var $rusword mixed */
+/* @var $burword mixed */
 
 $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-Russian electronic dictionary');
 ?>
 <div class="site-index">
-    <?php
-    /* @var $rusword mixed */
-    /* @var $burword mixed */
-    ?>
     <div class="row">
         <div class="col-sm-6">
             <div class="well">
@@ -26,7 +24,7 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
                                     'required' => true,
                                 ],
                                 'clientOptions' => [
-                                    'source' => '/site/rus',
+                                    'source' => '/site/get-ruswords',
                                     'select' => new \yii\web\JsExpression('function (event, ui) {
                                     $.ajax({
                                         url: \'/site/rus2bur\',
@@ -39,8 +37,8 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
                                 ]
                             ]) ?>
                             <span class="input-group-btn">
-                            <button type="submit" class="btn btn-primary"><?= Yii::t('app', 'Find') ?></button>
-                        </span>
+                                <button type="submit" class="btn btn-primary"><?= Yii::t('app', 'Find') ?></button>
+                            </span>
                         </div>
                     </div>
                 </form>
@@ -68,7 +66,7 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
                                     'required' => true
                                 ],
                                 'clientOptions' => [
-                                    'source' => '/site/bur',
+                                    'source' => '/site/get-burwords',
                                     'select' => new \yii\web\JsExpression('function (event, ui) {
                                     $.ajax({
                                         url: \'/site/bur2rus\',
@@ -81,11 +79,11 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
                                 ]
                             ]) ?>
                             <span class="input-group-btn">
-                            <button type="button" class="btn btn-default add-bur-word">ү</button>
-                            <button type="button" class="btn btn-default add-bur-word">һ</button>
-                            <button type="button" class="btn btn-default add-bur-word">ө</button>
-                            <button type="submit" class="btn btn-primary"><?= Yii::t('app', 'Find') ?></button>
-                        </span>
+                                <button type="button" class="btn btn-default add-bur-word">ү</button>
+                                <button type="button" class="btn btn-default add-bur-word">һ</button>
+                                <button type="button" class="btn btn-default add-bur-word">ө</button>
+                                <button type="submit" class="btn btn-primary"><?= Yii::t('app', 'Find') ?></button>
+                            </span>
                         </div>
                     </div>
                 </form>
