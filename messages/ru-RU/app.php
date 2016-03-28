@@ -42,6 +42,6 @@ return [
     'Russian-Buryat dictionary' => 'Русско-Бурятский словарь',
     'Buryat-Russian dictionary' => 'Бурятско-Русский словарь',
 
-    'No translation' => 'Первода нет',
+    'No translation' => 'Перевода нет',
 
 ];
