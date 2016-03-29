@@ -98,19 +98,7 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
     <br/>
     <div class="row">
         <div class="col-sm-6">
-            <h3>News</h3>
-            <div style="margin-bottom: 15px;">
-                <h4><a href="">Lorem ipsum</a></h4>
-                <p class="text-danger">21.03.2016</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore eaque ipsam laboriosam? Ad architecto beatae, eius est explicabo fugiat molestias natus, numquam omnis ratione sed ullam. Corporis dolor quas voluptatum.</p>
-                <a href="">Read</a>
-            </div>
-            <div style="margin-bottom: 15px;">
-                <h4><a href="">Lorem ipsum</a></h4>
-                <p class="text-danger">21.03.2016</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore eaque ipsam laboriosam? Ad architecto beatae, eius est explicabo fugiat molestias natus, numquam omnis ratione sed ullam. Corporis dolor quas voluptatum.</p>
-                <a href="">Read</a>
-            </div>
+            <?= \app\widgets\NewsWidget::widget() ?>
         </div>
         <div class="col-sm-6">
             <h3>Comments:</h3>
