@@ -1,7 +1,8 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\DetailView;
+use yii\helpers\Markdown;
+use yii\helpers\HtmlPurifier;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\News */
@@ -25,15 +26,10 @@ $this->params['breadcrumbs'][] = $this->title;
         ]) ?>
     </p>
 
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'id',
-            'title',
-            'content:ntext',
-            'created_at',
-            'updated_at',
-        ],
-    ]) ?>
+    <p class="text-danger"><?= Yii::$app->formatter->asDate($model->created_at) ?></p>
+
+    <div class="content">
+        <?= HtmlPurifier::process(Markdown::process($model->content, 'gfm')) ?>
+    </div>
 
 </div>

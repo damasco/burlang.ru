@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use ijackua\lepture\Markdowneditor;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\News */
@@ -14,7 +15,10 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
+    <?= Markdowneditor::widget([
+        'model' => $model,
+        'attribute' => 'content'
+    ]) ?>
 
     <div class="form-group">
         <?= Html::submitButton(
