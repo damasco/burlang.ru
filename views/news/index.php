@@ -1,8 +1,9 @@
 <?php
 
 use yii\helpers\Html;
-use yii\grid\GridView;
 use yii\widgets\Pjax;
+use yii\widgets\ListView;
+
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\NewsSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -19,18 +20,8 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a(Yii::t('app', 'Create News'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 <?php Pjax::begin() ?>
-    <?= GridView::widget([
+    <?= ListView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
-            'title',
-            'created_at:date',
-            'updated_at:date',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
+        'itemView' => '_view'
     ]) ?>
 <?php Pjax::end() ?></div>
