@@ -10,13 +10,14 @@ return [
     'Add' => 'Добавить',
     'Search' => 'Поиск',
     'Reset' => 'Сбросить',
-    'Update {modelClass}' => 'Редактировать {modelClass}',
+    'Update {modelClass}: ' => 'Редактировать {modelClass}: ',
     'Main' => 'Главная',
     'New' => 'Новый',
     'Error' => 'Ошибка',
     'Yes' => 'Да',
     'No' => 'Нет',
     'Title' => 'Заголовок',
+    'Content' => 'Контент',
     'Confirm' => 'Подтвердить',
     'Date' => 'Дата',
     'Time' => 'Время',
@@ -27,6 +28,9 @@ return [
     'Sort' => 'Сортировка',
     'Active' => 'Активный',
     'Find' => 'Найти',
+
+    //site
+    'No translation' => 'Перевода нет',
 
     //main
     'About project' => 'О проекте',
@@ -42,6 +46,8 @@ return [
     'Russian-Buryat dictionary' => 'Русско-Бурятский словарь',
     'Buryat-Russian dictionary' => 'Бурятско-Русский словарь',
 
-    'No translation' => 'Перевода нет',
+    //news
+    'News' => 'Новости',
+    'Create News' => 'Создать новость',
 
 ];
