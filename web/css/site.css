@@ -93,3 +93,7 @@ a.desc:after {
 .news-item {
     margin-bottom: 25px;
 }
+
+.translate-list {
+    padding-left: 15px;
+}
