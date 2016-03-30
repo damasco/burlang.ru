@@ -19,6 +19,7 @@
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
         "yiisoft/yii2-jui": "~2.0.0",
+        "dektrium/yii2-user": "0.9.*@dev",
         "ijackua/yii2-lepture-markdown-editor-widget": "~1.0.0",
         "bower-asset/bililiteRange": "*"
     },
