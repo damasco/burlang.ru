@@ -56,6 +56,12 @@ $config = [
             ],
         ],
     ],
+    'modules' => [
+        'user' => [
+            'class' => 'dektrium\user\Module',
+            'enableRegistration' => false,
+        ],
+    ],
     'params' => $params,
 
     // URLs with trailing slashes should be redirected to URLs without trailig slashes

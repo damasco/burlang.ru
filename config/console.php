@@ -12,6 +12,12 @@ $config = [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'app\commands',
+    'modules' => [
+        'gii' => 'yii\gii\Module',
+        'user' => [
+            'class' => 'dektrium\user\Module',
+        ],
+    ],
     'components' => [
         'db' => $params['components.db'],
         'cache' => $params['components.cache'],
