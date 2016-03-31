@@ -29,10 +29,6 @@ $config = [
         'request' => [
             'cookieValidationKey' => 'l-2C_lNvBwQDe4_LLC5eaUhQmvV9yQRm',
         ],
-        'user' => [
-            'identityClass' => 'app\models\User',
-            'enableAutoLogin' => true,
-        ],
         'i18n' => [
             'translations' => [
                 'app*' => [
@@ -60,6 +56,7 @@ $config = [
         'user' => [
             'class' => 'dektrium\user\Module',
             'enableRegistration' => false,
+            'admins' => ['admin']
         ],
     ],
     'params' => $params,

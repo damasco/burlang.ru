@@ -34,3 +34,9 @@ php yii migrate
 php yii user/create <email> <username> [password] [...options...]
 ```
 
+##### Example
+
+```
+php yii user/create example@gmail.com admin password
+```
+
