@@ -20,7 +20,7 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
                                 'value' => Yii::$app->request->get('rusword'),
                                 'options' => [
                                     'class' => 'form-control',
-                                    'placeholder' => 'Введите слово',
+                                    'placeholder' => Yii::t('app', 'Add word'),
                                     'required' => true,
                                 ],
                                 'clientOptions' => [
@@ -62,7 +62,7 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
                                 'options' => [
                                     'class' => 'form-control',
                                     'id' => 'bur-input',
-                                    'placeholder' => 'Введите слово',
+                                    'placeholder' => Yii::t('app', 'Add word'),
                                     'required' => true
                                 ],
                                 'clientOptions' => [

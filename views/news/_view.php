@@ -9,7 +9,7 @@ use yii\helpers\Html;
     <h3><?= Html::a(Html::encode($model->title), ['view', 'id' => $model->id]) ?></h3>
     <p class="text-danger"><?= Yii::$app->formatter->asDate($model->created_at) ?></p>
     <div class="description">
-        <?= Html::encode($model->description) ?>
+        <?= nl2br(Html::encode($model->description)) ?>
     </div>
 </div>
 

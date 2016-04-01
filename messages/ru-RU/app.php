@@ -30,9 +30,6 @@ return [
     'Active' => 'Активный',
     'Find' => 'Найти',
 
-    //site
-    'No translation' => 'Перевода нет',
-
     //main
     'About project' => 'О проекте',
     'Contacts' => 'Контакты',
@@ -41,6 +38,10 @@ return [
     'username' => 'Логин',
     'password' => 'Пароль',
     'Remember Me' => 'Запомнить меня',
+
+    //site
+    'No translation' => 'Перевода нет',
+    'Add word' => 'Введите слово',
 
     //national
     'Russian-Buryat, Buryat-Russian electronic dictionary' => 'Русско-Бурятский, Бурятско-Русский электронный словарь',
