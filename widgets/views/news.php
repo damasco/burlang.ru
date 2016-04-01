@@ -8,12 +8,13 @@ use yii\helpers\Markdown;
 ?>
 
 <h3><?= Yii::t('app', 'News') ?></h3>
+
 <?php foreach ($model as $news): ?>
     <div class="news-item">
-        <h4><?= Html::a($news->title, ['news/view', 'id' => $news->id]) ?></h4>
+        <h4><?= Html::a(Html::encode($news->title), ['news/view', 'id' => $news->id]) ?></h4>
         <p class="text-danger"><?= Yii::$app->formatter->asDate($news->created_at) ?></p>
-        <div class="content">
-            <?= HtmlPurifier::process(Markdown::process($news->content, 'gfm')) ?>
+        <div class="description">
+            <?= Html::encode($news->description) ?>
         </div>
     </div>
 <?php endforeach ?>

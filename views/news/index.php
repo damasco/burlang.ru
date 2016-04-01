@@ -1,7 +1,6 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\Pjax;
 use yii\widgets\ListView;
 
 /* @var $this yii\web\View */
@@ -14,7 +13,6 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="news-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <?php if (!Yii::$app->user->isGuest): ?>
         <p>
@@ -22,10 +20,8 @@ $this->params['breadcrumbs'][] = $this->title;
         </p>
     <?php endif ?>
 
-<?php Pjax::begin() ?>
     <?= ListView::widget([
         'dataProvider' => $dataProvider,
         'itemView' => '_view'
     ]) ?>
-<?php Pjax::end() ?>
 </div>

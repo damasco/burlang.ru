@@ -15,6 +15,8 @@ use ijackua\lepture\Markdowneditor;
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'description')->textarea(['rows' => 5]) ?>
+
     <?= Markdowneditor::widget([
         'model' => $model,
         'attribute' => 'content'
