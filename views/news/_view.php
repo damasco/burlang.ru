@@ -11,6 +11,7 @@ use yii\helpers\Html;
     <div class="description">
         <?= nl2br(Html::encode($model->description)) ?>
     </div>
+    <p><?= Html::a(Yii::t('app', 'Read more'), ['/news/view', 'id' => $model->id]) ?></p>
 </div>
 
 
