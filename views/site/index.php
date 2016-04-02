@@ -101,7 +101,7 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
             <?= \app\widgets\NewsWidget::widget() ?>
         </div>
         <div class="col-sm-6">
-            <h3>Comments:</h3>
+            <?= $this->render('//_comments') ?>
         </div>
     </div>
 </div>

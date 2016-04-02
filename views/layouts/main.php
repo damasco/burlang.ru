@@ -71,7 +71,7 @@ AppAsset::register($this);
         <p class="pull-right"><?= Yii::powered() ?></p>
     </div>
 </footer>
-
+<?= $this->render('//_end_body') ?>
 <?php $this->endBody() ?>
 </body>
 </html>

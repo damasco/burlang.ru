@@ -32,3 +32,5 @@ phpunit.phar
 /config/web-local.php
 /config/params-local.php
 /web/index.php
+/views/_comments.php
+/views/_end_body.php
