@@ -25,37 +25,29 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 
 <div class="wrap">
-    <?php
-    NavBar::begin([
+    <?php NavBar::begin([
         'brandLabel' => Yii::$app->name,
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
-    ]);
-    echo Nav::widget([
+    ]) ?>
+    <?= Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             ['label' => Yii::t('app', 'Main'), 'url' => ['/site/index']],
-            ['label' => Yii::t('app', 'News'), 'url' => ['/news/index']],
+            ['label' => Yii::t('app', 'News'), 'url' => ['/news/index'], 'active' => Yii::$app->controller->id == 'news'],
             ['label' => Yii::t('app', 'About project'), 'url' => ['/site/about']],
-            ['label' => Yii::t('app', 'Contacts'), 'url' => ['/site/contact']],
-            Yii::$app->user->isGuest ? (
-                ['label' => Yii::t('app', 'Login'), 'url' => ['/user/login']]
-            ) : (
-                '<li>'
-                . Html::beginForm(['/user/logout'], 'post', ['class' => 'navbar-form'])
-                . Html::submitButton(
-                    Yii::t('app', 'Logout') . ' (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'btn btn-link']
-                )
-                . Html::endForm()
-                . '</li>'
-            )
+            Yii::$app->user->isGuest ?
+                ['label' => Yii::t('app', 'Login'), 'url' => ['/user/security/login']] :
+                [
+                    'label' => Yii::t('app', 'Logout') . ' (' . Yii::$app->user->identity->username . ')',
+                    'url' => ['/user/security/logout'],
+                    'linkOptions' => ['data-method' => 'post']
+                ],
         ],
-    ]);
-    NavBar::end();
-    ?>
+    ]) ?>
+    <?php NavBar::end() ?>
 
     <div class="container">
         <?= Breadcrumbs::widget([
@@ -67,7 +59,7 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; <?= Yii::$app->name ?> <?= date('Y') ?></p>
+        <p class="pull-left">&copy; <?= Yii::$app->name ?> 2013 - <?= date('Y') ?></p>
         <p class="pull-right"><?= Yii::powered() ?></p>
     </div>
 </footer>

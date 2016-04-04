@@ -18,21 +18,28 @@ class SiteController extends Controller
         ];
     }
 
+    /**
+     * Main page
+     * @return mixed
+     */
     public function actionIndex()
     {
         return $this->render('index');
     }
 
-    public function actionContact()
-    {
-        return $this->render('contact');
-    }
-
+    /**
+     * About page
+     * @return mixed
+     */
     public function actionAbout()
     {
         return $this->render('about');
     }
 
+    /**
+     * Get list russian words for autocomplete
+     * @return mixed
+     */
     public function actionGetRuswords()
     {
         $result = Ruwords::find()
@@ -44,6 +51,10 @@ class SiteController extends Controller
         return json_encode($result);
     }
 
+    /**
+     * Get list buryat words for autocomplete
+     * @return mixed
+     */
     public function actionGetBurwords()
     {
         $result = Burwords::find()
@@ -55,6 +66,11 @@ class SiteController extends Controller
         return json_encode($result);
     }
 
+    /**
+     * Get translate for russian word
+     * @param string $rusword
+     * @return mixed
+     */
     public function actionRus2bur($rusword)
     {
         $word = Ruwords::findOne(['name' => $rusword]);
@@ -68,6 +84,11 @@ class SiteController extends Controller
         ]);
     }
 
+    /**
+     * Get translate for buryat word
+     * @param string $burword
+     * @return mixed
+     */
     public function actionBur2rus($burword)
     {
         $word = Burwords::findOne(['name' => $burword]);
