@@ -84,6 +84,24 @@ a.desc:after {
     margin: 0 0 15px 0;
 }
 
+/* autocomplete */
+
+ul.ui-autocomplete.ui-menu {
+    border-color: #ccc;
+}
+
+ul.ui-autocomplete.ui-menu li {
+    color: #555;
+    font-family: "Helvetica Neue", sans-serif;
+}
+
+ul.ui-autocomplete.ui-menu li.ui-state-focus {
+    background: #dedede;
+    border: 1px solid #dedede;
+}
+
+/* custom */
+
 .news-item {
     margin-bottom: 25px;
 }
@@ -91,3 +109,4 @@ a.desc:after {
 .translate-list {
     padding-left: 15px;
 }
+
