@@ -97,11 +97,11 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
     </div>
     <br/>
     <div class="row">
-        <div class="col-sm-6">
-            <?= \app\widgets\NewsWidget::widget() ?>
-        </div>
-        <div class="col-sm-6">
+        <div class="col-sm-8">
             <?= $this->render('//_comments') ?>
+        </div>
+        <div class="col-sm-4">
+            <?= \app\widgets\NewsWidget::widget() ?>
         </div>
     </div>
 </div>

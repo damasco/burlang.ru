@@ -37,7 +37,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <br/>
 
     <div class="row">
-        <div class="col-sm-6 col-sm-offset-3">
+        <div class="col-sm-8 col-sm-offset-2">
             <?= $this->render('//_comments') ?>
         </div>
     </div>
