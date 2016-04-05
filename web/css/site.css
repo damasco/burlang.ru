@@ -100,6 +100,18 @@ ul.ui-autocomplete.ui-menu li.ui-state-focus {
     border: 1px solid #dedede;
 }
 
+/* bootstrap */
+
+.navbar-inverse {
+    background-color: #333;
+    border-color: #181818;
+}
+
+.navbar-brand {
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 21px;
+}
+
 /* custom */
 
 .news-item {
@@ -108,5 +120,9 @@ ul.ui-autocomplete.ui-menu li.ui-state-focus {
 
 .translate-list {
     padding-left: 15px;
+}
+
+#rus-translation .alert, #bur-translation .alert {
+    margin-bottom: 0;
 }
 
