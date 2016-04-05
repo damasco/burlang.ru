@@ -20,6 +20,9 @@ AppAsset::register($this);
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
+    <?php if (isset($this->blocks['head'])): ?>
+        <?= $this->blocks['head'] ?>
+    <?php endif ?>
 </head>
 <body>
 <?php $this->beginBody() ?>
