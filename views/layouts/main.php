@@ -35,7 +35,7 @@ AppAsset::register($this);
     <?= Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => Yii::t('app', 'Main'), 'url' => ['/site/index']],
+            ['label' => Yii::t('app', 'Main'), 'url' => Yii::$app->homeUrl],
             ['label' => Yii::t('app', 'News'), 'url' => ['/news/index'], 'active' => Yii::$app->controller->id == 'news'],
             ['label' => Yii::t('app', 'About project'), 'url' => ['/site/about']],
             Yii::$app->user->isGuest ?
