@@ -64,7 +64,11 @@ AppAsset::register($this);
 <footer class="footer">
     <div class="container">
         <p class="pull-left">&copy; <?= Yii::$app->name ?> 2013 - <?= date('Y') ?></p>
-        <p class="pull-right"><?= Yii::powered() ?></p>
+        <p class="pull-right">
+            <?= Yii::t('app', 'Powered by {yii}', [
+                'yii' => Html::a('Yii Framework', 'http://www.yiiframework.com/', ['target' => '_blank'])
+            ]) ?>
+        </p>
     </div>
 </footer>
 <?= $this->render('//_end_body') ?>

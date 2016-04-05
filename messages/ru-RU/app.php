@@ -42,6 +42,7 @@ return [
     //site
     'No translation' => 'Перевода нет',
     'Add word' => 'Введите слово',
+    'Powered by {yii}' => 'Сделано на {yii}',
 
     //national
     'Russian-Buryat, Buryat-Russian electronic dictionary' => 'Русско-Бурятский, Бурятско-Русский электронный словарь',
