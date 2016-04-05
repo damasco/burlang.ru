@@ -34,11 +34,11 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= HtmlPurifier::process(Markdown::process($model->content, 'gfm')) ?>
     </div>
 
-    <br/>
-
     <div class="row">
         <div class="col-sm-8 col-sm-offset-2">
-            <?= $this->render('//_comments') ?>
+            <div class="comment-block">
+                <?= $this->render('//_comments') ?>
+            </div>
         </div>
     </div>
 

@@ -95,13 +95,14 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
             </div>
         </div>
     </div>
-    <br/>
     <div class="row">
-        <div class="col-sm-8">
-            <?= $this->render('//_comments') ?>
-        </div>
-        <div class="col-sm-4">
+        <div class="col-sm-4 col-sm-push-8">
             <?= \app\widgets\NewsWidget::widget() ?>
+        </div>
+        <div class="col-sm-8 col-sm-pull-4">
+            <div class="comment-block">
+                <?= $this->render('//_comments') ?>
+            </div>
         </div>
     </div>
 </div>
