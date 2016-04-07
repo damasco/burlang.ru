@@ -48,6 +48,8 @@ return [
     'Russian-Buryat, Buryat-Russian electronic dictionary' => 'Русско-Бурятский, Бурятско-Русский электронный словарь',
     'Russian-Buryat dictionary' => 'Русско-Бурятский словарь',
     'Buryat-Russian dictionary' => 'Бурятско-Русский словарь',
+    'Bur. words' => 'Бур. слова',
+    'Ru. words' => 'Рус. слова',
 
     //news
     'News' => 'Новости',

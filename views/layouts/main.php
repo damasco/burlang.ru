@@ -45,6 +45,8 @@ AppAsset::register($this);
             ],
             ['label' => Yii::t('app', 'News'), 'url' => ['/news/index'], 'active' => Yii::$app->controller->id == 'news'],
             ['label' => Yii::t('app', 'About project'), 'url' => ['/site/about']],
+            ['label' => Yii::t('app', 'Bur. words'), 'url' => ['/burwords/index'], 'visible' => !Yii::$app->user->isGuest],
+            ['label' => Yii::t('app', 'Ru. words'), 'url' => ['/ruwords/index'], 'visible' => !Yii::$app->user->isGuest],
             Yii::$app->user->isGuest ?
                 ['label' => Yii::t('app', 'Login'), 'url' => ['/user/security/login']] :
                 [
