@@ -48,4 +48,12 @@ class Rutranslations extends \yii\db\ActiveRecord
             'description' => Yii::t('app', 'Description'),
         ];
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getBurword()
+    {
+        return $this->hasOne(Burwords::className(), ['id' => 'burword_id']);
+    }
 }

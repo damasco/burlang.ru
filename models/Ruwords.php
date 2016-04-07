@@ -42,6 +42,9 @@ class Ruwords extends \yii\db\ActiveRecord
         ];
     }
 
+    /**
+     * @return \yii\db\ActiveQuery
+     */
     public function getTranslation()
     {
         return $this->hasMany(Burtranslations::className(), ['ruword_id' => 'id']);

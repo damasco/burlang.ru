@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\db\ActiveQuery;
 
 /**
  * This is the model class for table "burwords".
@@ -49,6 +50,9 @@ class Burwords extends \yii\db\ActiveRecord
         ];
     }
 
+    /**
+     * @return \yii\db\ActiveQuery
+     */
     public function getTranslation()
     {
         return $this->hasMany(Rutranslations::className(), ['burword_id' => 'id']);
