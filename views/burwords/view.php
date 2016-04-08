@@ -29,10 +29,11 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'chr_id',
             'name',
-            'frequency',
-            'bb_id',
+            [
+                'attribute' => 'translate',
+                'label' => Yii::t('app', 'Translate')
+            ],
         ],
     ]) ?>
 

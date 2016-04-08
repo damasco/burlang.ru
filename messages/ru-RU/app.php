@@ -40,6 +40,7 @@ return [
     'Remember Me' => 'Запомнить меня',
 
     //site
+    'Translate' => 'Перевод',
     'No translation' => 'Перевода нет',
     'Add word' => 'Введите слово',
     'Powered by {yii}' => 'Сделано на {yii}',

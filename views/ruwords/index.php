@@ -24,8 +24,11 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
             'name',
+            [
+                'attribute' => 'translate',
+                'label' => Yii::t('app', 'Translate')
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
