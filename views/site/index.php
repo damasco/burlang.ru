@@ -1,5 +1,7 @@
 <?php
 
+use yii\jui\AutoComplete;
+
 /* @var $this yii\web\View */
 /* @var $ruword mixed */
 /* @var $burword mixed */
@@ -16,7 +18,7 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
                 <form action="/site/ru2bur" method="get" id="ru-form">
                     <div class="form-group">
                         <div class="input-group">
-                            <?= \yii\jui\AutoComplete::widget([
+                            <?= AutoComplete::widget([
                                 'name' => 'ruword',
                                 'value' => Yii::$app->request->get('ruword'),
                                 'options' => [
@@ -57,7 +59,7 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
                 <form action="/site/bur2ru" method="get" id="bur-form">
                     <div class="form-group">
                         <div class="input-group">
-                            <?= \yii\jui\AutoComplete::widget([
+                            <?= AutoComplete::widget([
                                 'name' => 'burword',
                                 'value' => Yii::$app->request->get('burword'),
                                 'options' => [
@@ -104,7 +106,7 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
                     <form action="/site/burname" method="get" id="burname-form">
                         <div class="form-group">
                             <div class="input-group">
-                                <?= \yii\jui\AutoComplete::widget([
+                                <?= AutoComplete::widget([
                                     'name' => 'burname',
                                     'value' => Yii::$app->request->get('burname'),
                                     'options' => [
@@ -143,7 +145,11 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
             </div>
         </div>
         <div class="col-sm-4">
-            <div class="mt20"></div>
+            <div class="mt20">
+                <div class="well text-muted">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid architecto blanditiis deleniti, deserunt dicta doloribus eveniet exercitationem, illum itaque iusto labore laborum minima obcaecati praesentium repellat saepe sint ut voluptates.</p>
+                </div>
+            </div>
         </div>
     </div>
     <div class="row">

@@ -104,11 +104,6 @@ ul.ui-autocomplete.ui-menu li.ui-state-focus {
 
 /* bootstrap */
 
-.navbar-inverse {
-    background-color: #333;
-    border-color: #181818;
-}
-
 .navbar-brand {
     font-family: Verdana, Arial, sans-serif;
     font-size: 21px;
