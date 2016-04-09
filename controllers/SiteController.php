@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\models\Burwords;
+use app\models\BuryatName;
 use app\models\Ruwords;
 use Yii;
 use yii\web\Controller;
@@ -45,6 +46,7 @@ class SiteController extends Controller
         $result = Ruwords::find()
             ->select(['name as value'])
             ->filterWhere(['like', 'name', Yii::$app->request->get('term') . '%', false])
+            ->orderBy('name')
             ->limit(10)
             ->asArray()
             ->all();
@@ -60,6 +62,23 @@ class SiteController extends Controller
         $result = Burwords::find()
             ->select(['name as value'])
             ->filterWhere(['like', 'name', Yii::$app->request->get('term') . '%', false])
+            ->orderBy('name')
+            ->limit(10)
+            ->asArray()
+            ->all();
+        return json_encode($result);
+    }
+
+    /**
+     * Get list buryat names for autocomplete
+     * @return mixed
+     */
+    public function actionGetBurnames()
+    {
+        $result = BuryatName::find()
+            ->select(['name as value'])
+            ->filterWhere(['like', 'name', Yii::$app->request->get('term') . '%', false])
+            ->orderBy('name')
             ->limit(10)
             ->asArray()
             ->all();
@@ -99,6 +118,24 @@ class SiteController extends Controller
         }
         return $this->render('index', [
             'burword' => $word
+        ]);
+    }
+
+    /**
+     * Get description for buryat name
+     * @param string $burname
+     * @return mixed
+     */
+    public function actionBurname($burname)
+    {
+        $burname = BuryatName::findOne(['name' => $burname]);
+        if (Yii::$app->request->isAjax) {
+            return $this->renderAjax('_burname', [
+                'burname' => $burname
+            ]);
+        }
+        return $this->render('index', [
+            'burname' => $burname
         ]);
     }
 }

@@ -43,7 +43,9 @@ return [
     'Translate' => 'Перевод',
     'No translation' => 'Перевода нет',
     'Add word' => 'Введите слово',
+    'Add buryat name' => 'Введите бурятское имя',
     'Powered by {yii}' => 'Сделано на {yii}',
+    'Name not found' => 'Имя не найдено',
 
     //national
     'Russian-Buryat, Buryat-Russian electronic dictionary' => 'Русско-Бурятский, Бурятско-Русский электронный словарь',
@@ -52,6 +54,7 @@ return [
     'Bur. words' => 'Бур. слова',
     'Ru. words' => 'Рус. слова',
     'Bur. names' => 'Бур. имена',
+    'Buryat names' => 'Бурятские имена',
 
     //news
     'News' => 'Новости',
@@ -62,5 +65,6 @@ return [
     'Note' => 'Заметка',
     'Male' => 'Мужской',
     'Female' => 'Женский',
-
+    'Male name' => 'Мужское имя',
+    'Female name' => 'Женское имя',
 ];

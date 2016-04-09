@@ -118,6 +118,17 @@ ul.ui-autocomplete.ui-menu li.ui-state-focus {
     margin-top: 0;
 }
 
+.label {
+    font-weight: normal;
+    font-family: Verdana, Arial, sans-serif;
+}
+
+/* helpers */
+
+.mt20 {
+    margin-top: 20px;
+}
+
 /* custom */
 
 .news-item {
@@ -128,11 +139,7 @@ ul.ui-autocomplete.ui-menu li.ui-state-focus {
     padding-left: 15px;
 }
 
-#ru-translation .alert, #bur-translation .alert {
+#ru-translation .alert, #bur-translation .alert, #burname-response .alert {
     margin-bottom: 0;
-}
-
-.comment-block {
-    margin-top: 20px;
 }
 

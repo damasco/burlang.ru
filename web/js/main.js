@@ -21,7 +21,18 @@ $(document).ready(function() {
         });
     });
 
+    $('#burname-form').on('submit', function(e) {
+        e.preventDefault();
+        $.ajax({
+            url: '/site/burname',
+            data: $(this).serialize(),
+            success: function (response) {
+                $('#burname-response').html(response);
+            }
+        });
+    });
+
     $('button.add-bur-word').on('click', function() {
-        $('#bur-input').sendkeys($(this).text());
+        $(this).parent('span').siblings('input').sendkeys($(this).text());
     });
 });

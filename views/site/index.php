@@ -3,6 +3,7 @@
 /* @var $this yii\web\View */
 /* @var $ruword mixed */
 /* @var $burword mixed */
+/* @var $burname mixed */
 
 $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-Russian electronic dictionary');
 ?>
@@ -61,7 +62,6 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
                                 'value' => Yii::$app->request->get('burword'),
                                 'options' => [
                                     'class' => 'form-control',
-                                    'id' => 'bur-input',
                                     'placeholder' => Yii::t('app', 'Add word'),
                                     'required' => true
                                 ],
@@ -96,11 +96,62 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
         </div>
     </div>
     <div class="row">
+        <div class="col-sm-8">
+            <div class="mt20">
+                <div class="well">
+                    <h3><?= Yii::t('app', 'Buryat names') ?></h3>
+                    <hr>
+                    <form action="/site/burname" method="get" id="burname-form">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <?= \yii\jui\AutoComplete::widget([
+                                    'name' => 'burname',
+                                    'value' => Yii::$app->request->get('burname'),
+                                    'options' => [
+                                        'class' => 'form-control',
+                                        'placeholder' => Yii::t('app', 'Add buryat name'),
+                                        'required' => true,
+                                    ],
+                                    'clientOptions' => [
+                                        'source' => '/site/get-burnames',
+                                        'select' => new \yii\web\JsExpression('function (event, ui) {
+                                    $.ajax({
+                                        url: \'/site/burname\',
+                                        data: {burname: ui.item.value},
+                                        success: function(response) {
+                                            $(\'#burname-response\').html(response);
+                                        }
+                                    });
+                                }')
+                                    ]
+                                ]) ?>
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default add-bur-word">ү</button>
+                                    <button type="button" class="btn btn-default add-bur-word">һ</button>
+                                    <button type="button" class="btn btn-default add-bur-word">ө</button>
+                                    <button type="submit" class="btn btn-success"><?= Yii::t('app', 'Find') ?></button>
+                                </span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="burname-response">
+                        <?php if (isset($burname)): ?>
+                            <?= $this->render('_burname', ['word' => $burname]) ?>
+                        <?php endif ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="mt20"></div>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-sm-4 col-sm-push-8">
             <?= \app\widgets\NewsWidget::widget() ?>
         </div>
         <div class="col-sm-8 col-sm-pull-4">
-            <div class="comment-block">
+            <div class="mt20">
                 <?= $this->render('//_comments') ?>
             </div>
         </div>
