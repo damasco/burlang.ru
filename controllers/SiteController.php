@@ -40,7 +40,7 @@ class SiteController extends Controller
      * Get list russian words for autocomplete
      * @return mixed
      */
-    public function actionGetRuswords()
+    public function actionGetRuwords()
     {
         $result = Ruwords::find()
             ->select(['name as value'])
@@ -68,19 +68,19 @@ class SiteController extends Controller
 
     /**
      * Get translate for russian word
-     * @param string $rusword
+     * @param string $ruword
      * @return mixed
      */
-    public function actionRus2bur($rusword)
+    public function actionRu2bur($ruword)
     {
-        $word = Ruwords::findOne(['name' => $rusword]);
+        $word = Ruwords::findOne(['name' => $ruword]);
         if (Yii::$app->request->isAjax) {
             return $this->renderAjax('_translate', [
                 'word' => $word
             ]);
         }
         return $this->render('index', [
-            'rusword' => $word
+            'ruword' => $word
         ]);
     }
 
@@ -89,7 +89,7 @@ class SiteController extends Controller
      * @param string $burword
      * @return mixed
      */
-    public function actionBur2rus($burword)
+    public function actionBur2ru($burword)
     {
         $word = Burwords::findOne(['name' => $burword]);
         if (Yii::$app->request->isAjax) {

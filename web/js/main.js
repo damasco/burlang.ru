@@ -1,11 +1,11 @@
 $(document).ready(function() {
-    $('#rus-form').on('submit', function(e) {
+    $('#ru-form').on('submit', function(e) {
         e.preventDefault();
         $.ajax({
-            url: '/site/rus2bur',
+            url: '/site/ru2bur',
             data: $(this).serialize(),
             success: function (response) {
-                $('#rus-translation').html(response);
+                $('#ru-translation').html(response);
             }
         });
     });
@@ -13,7 +13,7 @@ $(document).ready(function() {
     $('#bur-form').on('submit', function(e) {
         e.preventDefault();
         $.ajax({
-            url: '/site/bur2rus',
+            url: '/site/bur2ru',
             data: $(this).serialize(),
             success: function (response) {
                 $('#bur-translation').html(response);

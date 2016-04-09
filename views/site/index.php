@@ -1,7 +1,7 @@
 <?php
 
 /* @var $this yii\web\View */
-/* @var $rusword mixed */
+/* @var $ruword mixed */
 /* @var $burword mixed */
 
 $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-Russian electronic dictionary');
@@ -12,25 +12,25 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
             <div class="well">
                 <h3><?= Yii::t('app', 'Russian-Buryat dictionary') ?></h3>
                 <hr>
-                <form action="/site/rus2bur" method="get" id="rus-form">
+                <form action="/site/ru2bur" method="get" id="ru-form">
                     <div class="form-group">
                         <div class="input-group">
                             <?= \yii\jui\AutoComplete::widget([
-                                'name' => 'rusword',
-                                'value' => Yii::$app->request->get('rusword'),
+                                'name' => 'ruword',
+                                'value' => Yii::$app->request->get('ruword'),
                                 'options' => [
                                     'class' => 'form-control',
                                     'placeholder' => Yii::t('app', 'Add word'),
                                     'required' => true,
                                 ],
                                 'clientOptions' => [
-                                    'source' => '/site/get-ruswords',
+                                    'source' => '/site/get-ruwords',
                                     'select' => new \yii\web\JsExpression('function (event, ui) {
                                     $.ajax({
-                                        url: \'/site/rus2bur\',
-                                        data: {rusword: ui.item.value},
+                                        url: \'/site/ru2bur\',
+                                        data: {ruword: ui.item.value},
                                         success: function(response) {
-                                            $(\'#rus-translation\').html(response);
+                                            $(\'#ru-translation\').html(response);
                                         }
                                     });
                                 }')
@@ -42,9 +42,9 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
                         </div>
                     </div>
                 </form>
-                <div id="rus-translation">
-                    <?php if (isset($rusword)): ?>
-                        <?= $this->render('_translate', ['word' => $rusword]) ?>
+                <div id="ru-translation">
+                    <?php if (isset($ruword)): ?>
+                        <?= $this->render('_translate', ['word' => $ruword]) ?>
                     <?php endif ?>
                 </div>
             </div>
@@ -53,7 +53,7 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
             <div class="well">
                 <h3><?= Yii::t('app', 'Buryat-Russian dictionary') ?></h3>
                 <hr>
-                <form action="/site/bur2rus" method="get" id="bur-form">
+                <form action="/site/bur2ru" method="get" id="bur-form">
                     <div class="form-group">
                         <div class="input-group">
                             <?= \yii\jui\AutoComplete::widget([
@@ -69,7 +69,7 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
                                     'source' => '/site/get-burwords',
                                     'select' => new \yii\web\JsExpression('function (event, ui) {
                                     $.ajax({
-                                        url: \'/site/bur2rus\',
+                                        url: \'/site/bur2ru\',
                                         data: {burword: ui.item.value},
                                         success: function(response) {
                                             $(\'#bur-translation\').html(response);
