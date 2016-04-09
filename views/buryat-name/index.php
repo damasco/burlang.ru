@@ -4,19 +4,19 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\RuwordsSearch */
+/* @var $searchModel app\models\BuryatNameSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Ruwords');
+$this->title = Yii::t('app', 'Buryat Names');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="ruwords-index">
+<div class="buryat-name-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Create Ruwords'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Create Buryat Name'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 <?php Pjax::begin(); ?>
     <?= GridView::widget([
@@ -26,10 +26,10 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'name',
-            [
-                'attribute' => 'translate',
-                'label' => Yii::t('app', 'Translate')
-            ],
+            'description',
+            'note:ntext',
+            'male:boolean',
+            'female:boolean',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

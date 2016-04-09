@@ -51,10 +51,16 @@ return [
     'Buryat-Russian dictionary' => 'Бурятско-Русский словарь',
     'Bur. words' => 'Бур. слова',
     'Ru. words' => 'Рус. слова',
+    'Bur. names' => 'Бур. имена',
 
     //news
     'News' => 'Новости',
     'Create News' => 'Создать новость',
     'Read more' => 'Читать подробнее',
+
+    //buryat-name
+    'Note' => 'Заметка',
+    'Male' => 'Мужской',
+    'Female' => 'Женский',
 
 ];
