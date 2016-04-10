@@ -38,6 +38,7 @@ return [
     'username' => 'Логин',
     'password' => 'Пароль',
     'Remember Me' => 'Запомнить меня',
+    'Control' => 'Управление',
 
     //site
     'Translate' => 'Перевод',

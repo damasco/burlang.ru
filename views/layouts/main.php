@@ -45,16 +45,27 @@ AppAsset::register($this);
             ],
             ['label' => Yii::t('app', 'News'), 'url' => ['/news/index'], 'active' => Yii::$app->controller->id == 'news'],
             ['label' => Yii::t('app', 'About project'), 'url' => ['/site/about']],
-            ['label' => Yii::t('app', 'Bur. names'), 'url' => ['/buryat-name/index'], 'visible' => !Yii::$app->user->isGuest],
-            ['label' => Yii::t('app', 'Bur. words'), 'url' => ['/burwords/index'], 'visible' => !Yii::$app->user->isGuest],
-            ['label' => Yii::t('app', 'Ru. words'), 'url' => ['/ruwords/index'], 'visible' => !Yii::$app->user->isGuest],
+            !Yii::$app->user->isGuest ?
+            [
+                'label' => Yii::t('app', 'Control'),
+                'items' => [
+                    ['label' => Yii::t('app', 'Bur. names'), 'url' => ['/buryat-name/index']],
+                    ['label' => Yii::t('app', 'Bur. words'), 'url' => ['/burwords/index']],
+                    ['label' => Yii::t('app', 'Ru. words'), 'url' => ['/ruwords/index']],
+                    ['label' => Yii::t('user', 'Users'), 'url' => ['/user/admin/index']],
+                ],
+            ] : '',
             Yii::$app->user->isGuest ?
                 ['label' => Yii::t('app', 'Login'), 'url' => ['/user/security/login']] :
                 [
-                    'label' => Yii::t('app', 'Logout') . ' (' . Yii::$app->user->identity->username . ')',
-                    'url' => ['/user/security/logout'],
-                    'linkOptions' => ['data-method' => 'post']
-                ],
+                    'label' => Yii::$app->user->identity->username,
+                    'items' => [
+                        ['label' => Yii::t('user', 'Profile'), 'url' => ['/user/profile/show', 'id' => Yii::$app->user->identity->id]],
+                        ['label' => Yii::t('user', 'Profile settings'), 'url' => ['/user/settings/profile', 'id' => Yii::$app->user->identity->id]],
+                        '<li role="separator" class="divider"></li>',
+                        ['label' => Yii::t('user', 'Logout'), 'url' => ['/user/security/logout'], 'linkOptions' => ['data-method' => 'post']]
+                    ]
+                ]
         ],
     ]) ?>
     <?php NavBar::end() ?>
