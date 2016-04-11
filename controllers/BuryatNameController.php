@@ -29,6 +29,7 @@ class BuryatNameController extends Controller
             ],
             'access' => [
                 'class' => AccessControl::className(),
+                'except' => ['list'],
                 'rules' => [
                     [
                         'allow' => true,
@@ -37,6 +38,21 @@ class BuryatNameController extends Controller
                 ],
             ],
         ];
+    }
+
+    /**
+     * Lists all BuryatName models.
+     * @return mixed
+     */
+    public function actionList()
+    {
+        $searchModel = new BuryatNameSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('list', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
     }
 
     /**

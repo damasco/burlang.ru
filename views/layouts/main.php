@@ -43,6 +43,11 @@ AppAsset::register($this);
                 'url' => Yii::$app->homeUrl,
                 'active' => Yii::$app->controller->id == 'site' && Yii::$app->controller->action->id == 'index'
             ],
+            [
+                'label' => Yii::t('app', 'Bur. names'),
+                'url' => ['/buryat-name/list'],
+                'active' => Yii::$app->controller->id == 'buryat-name' && Yii::$app->controller->action->id == 'list'
+            ],
             ['label' => Yii::t('app', 'News'), 'url' => ['/news/index'], 'active' => Yii::$app->controller->id == 'news'],
             ['label' => Yii::t('app', 'About project'), 'url' => ['/site/about']],
             !Yii::$app->user->isGuest ?
