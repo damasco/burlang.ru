@@ -69,9 +69,15 @@ class BuryatNameController extends Controller
     public function actionGetName($name)
     {
         if (($model = BuryatName::findOne(['name' => $name])) !== null) {
-            return $this->render('get-name', [
-                'model' => $model
-            ]);
+            if (Yii::$app->request->isAjax) {
+                return $this->renderAjax('get-name', [
+                    'model' => $model
+                ]);
+            } else {
+                return $this->render('get-name', [
+                    'model' => $model
+                ]);
+            }
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }

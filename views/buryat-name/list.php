@@ -22,6 +22,15 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <ul class="list-inline list-name">
     <?php foreach ($names as $name): ?>
-        <li><?= Html::a($name['name'], ['get-name', 'name' => $name['name']], ['class' => 'btn btn-default']) ?></li>
+        <li><?= Html::a($name['name'], ['get-name', 'name' => $name['name']], ['class' => 'btn btn-default link-name']) ?></li>
     <?php endforeach ?>
 </ul>
+
+<div class="modal fade" id="detail-name-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+            </div>
+        </div>
+    </div>
+</div>
