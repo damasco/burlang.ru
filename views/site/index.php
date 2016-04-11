@@ -12,7 +12,7 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
 <div class="site-index">
     <div class="row">
         <div class="col-sm-6">
-            <div class="panel panel-default">
+            <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h2 class="panel-title"><?= Yii::t('app', 'Russian-Buryat dictionary') ?></h2>
                 </div>
@@ -56,7 +56,7 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
             </div>
         </div>
         <div class="col-sm-6">
-            <div class="panel panel-default">
+            <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h2 class="panel-title"><?= Yii::t('app', 'Buryat-Russian dictionary') ?></h2>
                 </div>
@@ -149,6 +149,7 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
                                 <?= $this->render('_burname', ['word' => $burname]) ?>
                             <?php endif ?>
                         </div>
+                        <p><?= \yii\helpers\Html::a('Посмотреть имена по алфавиту', ['buryat-name/list'], ['class' => 'btn btn-warning']) ?></p>
                     </div>
                 </div>
             </div>

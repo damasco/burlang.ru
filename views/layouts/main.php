@@ -44,7 +44,7 @@ AppAsset::register($this);
                 'active' => Yii::$app->controller->id == 'site' && Yii::$app->controller->action->id == 'index'
             ],
             [
-                'label' => Yii::t('app', 'Bur. names'),
+                'label' => Yii::t('app', 'Buryat names'),
                 'url' => ['/buryat-name/list'],
                 'active' => Yii::$app->controller->id == 'buryat-name' && Yii::$app->controller->action->id == 'list'
             ],
