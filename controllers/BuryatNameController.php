@@ -46,10 +46,12 @@ class BuryatNameController extends Controller
      */
     public function actionList()
     {
+        $alphabet = ['А','Б','В','Г','Д','Е','Ж','З','И','К','Л','М','Н','О','П','Р','С','Т','У','Х','Ц','Ч','Ш','Э','Ю','Я'];
         $searchModel = new BuryatNameSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('list', [
+            'alphabet' => $alphabet,
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
