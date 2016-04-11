@@ -29,7 +29,7 @@ class BuryatNameController extends Controller
             ],
             'access' => [
                 'class' => AccessControl::className(),
-                'except' => ['list'],
+                'except' => ['list', 'get-name'],
                 'rules' => [
                     [
                         'allow' => true,
@@ -42,19 +42,39 @@ class BuryatNameController extends Controller
 
     /**
      * Lists all BuryatName models.
+     * @param string $first_word
      * @return mixed
      */
-    public function actionList()
+    public function actionList($first_word = null)
     {
+        $names = [];
+        if ($first_word !== null) {
+            $names = BuryatName::find()->where(['like', 'name', $first_word . '%', false])->asArray()->all();
+        }
+
         $alphabet = ['А','Б','В','Г','Д','Е','Ж','З','И','К','Л','М','Н','О','П','Р','С','Т','У','Х','Ц','Ч','Ш','Э','Ю','Я'];
-        $searchModel = new BuryatNameSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('list', [
             'alphabet' => $alphabet,
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+            'names' => $names,
         ]);
+    }
+
+    /**
+     * Displays a single BuryatName model.
+     * @param string $name
+     * @return mixed
+     * @throws NotFoundHttpException if the model cannot be found
+     */
+    public function actionGetName($name)
+    {
+        if (($model = BuryatName::findOne(['name' => $name])) !== null) {
+            return $this->render('get-name', [
+                'model' => $model
+            ]);
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
     }
 
     /**

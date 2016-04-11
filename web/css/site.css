@@ -143,3 +143,7 @@ ul.ui-autocomplete.ui-menu li.ui-state-focus {
     width: 60px;
 }
 
+.list-name li {
+    margin-bottom: 10px;
+}
+
