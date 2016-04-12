@@ -42,7 +42,7 @@ class BuryatNameController extends Controller
 
     /**
      * Lists all BuryatName models.
-     * @param string $first_word
+     * @param string $first_letter
      * @return mixed
      */
     public function actionList($first_letter = null)
