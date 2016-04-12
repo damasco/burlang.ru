@@ -12,93 +12,87 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
 <div class="site-index">
     <div class="row">
         <div class="col-sm-6">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h2 class="panel-title"><?= Yii::t('app', 'Russian-Buryat dictionary') ?></h2>
-                </div>
-                <div class="panel-body">
-                    <form action="/site/ru2bur" method="get" id="ru-form">
-                        <div class="form-group">
-                            <div class="input-group">
-                                <?= AutoComplete::widget([
-                                    'name' => 'ruword',
-                                    'value' => Yii::$app->request->get('ruword'),
-                                    'options' => [
-                                        'class' => 'form-control',
-                                        'placeholder' => Yii::t('app', 'Add word'),
-                                        'required' => true,
-                                    ],
-                                    'clientOptions' => [
-                                        'source' => '/site/get-ruwords',
-                                        'select' => new \yii\web\JsExpression('function (event, ui) {
-                                    $.ajax({
-                                        url: \'/site/ru2bur\',
-                                        data: {ruword: ui.item.value},
-                                        success: function(response) {
-                                            $(\'#ru-translation\').html(response);
-                                        }
-                                    });
-                                }')
-                                    ]
-                                ]) ?>
-                                <span class="input-group-btn">
-                                <button type="submit" class="btn btn-primary"><?= Yii::t('app', 'Find') ?></button>
-                            </span>
-                            </div>
+            <div class="well">
+                <h4><?= Yii::t('app', 'Russian-Buryat dictionary') ?></h4>
+                <hr>
+                <form action="/site/ru2bur" method="get" id="ru-form">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <?= AutoComplete::widget([
+                                'name' => 'ruword',
+                                'value' => Yii::$app->request->get('ruword'),
+                                'options' => [
+                                    'class' => 'form-control',
+                                    'placeholder' => Yii::t('app', 'Add word'),
+                                    'required' => true,
+                                ],
+                                'clientOptions' => [
+                                    'source' => '/site/get-ruwords',
+                                    'select' => new \yii\web\JsExpression('function (event, ui) {
+                                $.ajax({
+                                    url: \'/site/ru2bur\',
+                                    data: {ruword: ui.item.value},
+                                    success: function(response) {
+                                        $(\'#ru-translation\').html(response);
+                                    }
+                                });
+                            }')
+                                ]
+                            ]) ?>
+                            <span class="input-group-btn">
+                            <button type="submit" class="btn btn-primary"><?= Yii::t('app', 'Find') ?></button>
+                        </span>
                         </div>
-                    </form>
-                    <div id="ru-translation">
-                        <?php if (isset($ruword)): ?>
-                            <?= $this->render('_translate', ['word' => $ruword]) ?>
-                        <?php endif ?>
                     </div>
+                </form>
+                <div id="ru-translation">
+                    <?php if (isset($ruword)): ?>
+                        <?= $this->render('_translate', ['word' => $ruword]) ?>
+                    <?php endif ?>
                 </div>
             </div>
         </div>
         <div class="col-sm-6">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h2 class="panel-title"><?= Yii::t('app', 'Buryat-Russian dictionary') ?></h2>
-                </div>
-                <div class="panel-body">
-                    <form action="/site/bur2ru" method="get" id="bur-form">
-                        <div class="form-group">
-                            <div class="input-group">
-                                <?= AutoComplete::widget([
-                                    'name' => 'burword',
-                                    'value' => Yii::$app->request->get('burword'),
-                                    'options' => [
-                                        'class' => 'form-control',
-                                        'placeholder' => Yii::t('app', 'Add word'),
-                                        'required' => true
-                                    ],
-                                    'clientOptions' => [
-                                        'source' => '/site/get-burwords',
-                                        'select' => new \yii\web\JsExpression('function (event, ui) {
-                                    $.ajax({
-                                        url: \'/site/bur2ru\',
-                                        data: {burword: ui.item.value},
-                                        success: function(response) {
-                                            $(\'#bur-translation\').html(response);
-                                        }
-                                    });
-                                }')
-                                    ]
-                                ]) ?>
-                                <span class="input-group-btn">
-                                <button type="button" class="btn btn-default add-bur-word">ү</button>
-                                <button type="button" class="btn btn-default add-bur-word">һ</button>
-                                <button type="button" class="btn btn-default add-bur-word">ө</button>
-                                <button type="submit" class="btn btn-primary"><?= Yii::t('app', 'Find') ?></button>
-                            </span>
-                            </div>
+            <div class="well">
+                <h2 class="panel-title"><?= Yii::t('app', 'Buryat-Russian dictionary') ?></h2>
+                <hr>
+                <form action="/site/bur2ru" method="get" id="bur-form">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <?= AutoComplete::widget([
+                                'name' => 'burword',
+                                'value' => Yii::$app->request->get('burword'),
+                                'options' => [
+                                    'class' => 'form-control',
+                                    'placeholder' => Yii::t('app', 'Add word'),
+                                    'required' => true
+                                ],
+                                'clientOptions' => [
+                                    'source' => '/site/get-burwords',
+                                    'select' => new \yii\web\JsExpression('function (event, ui) {
+                            $.ajax({
+                                url: \'/site/bur2ru\',
+                                data: {burword: ui.item.value},
+                                success: function(response) {
+                                    $(\'#bur-translation\').html(response);
+                                }
+                            });
+                        }')
+                                ]
+                            ]) ?>
+                            <span class="input-group-btn">
+                        <button type="button" class="btn btn-default add-bur-word">ү</button>
+                        <button type="button" class="btn btn-default add-bur-word">һ</button>
+                        <button type="button" class="btn btn-default add-bur-word">ө</button>
+                        <button type="submit" class="btn btn-primary"><?= Yii::t('app', 'Find') ?></button>
+                    </span>
                         </div>
-                    </form>
-                    <div id="bur-translation">
-                        <?php if (isset($burword)): ?>
-                            <?= $this->render('_translate', ['word' => $burword]) ?>
-                        <?php endif ?>
                     </div>
+                </form>
+                <div id="bur-translation">
+                    <?php if (isset($burword)): ?>
+                        <?= $this->render('_translate', ['word' => $burword]) ?>
+                    <?php endif ?>
                 </div>
             </div>
         </div>
