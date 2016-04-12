@@ -45,11 +45,11 @@ class BuryatNameController extends Controller
      * @param string $first_word
      * @return mixed
      */
-    public function actionList($first_word = null)
+    public function actionList($first_letter = null)
     {
         $names = [];
-        if ($first_word !== null) {
-            $names = BuryatName::find()->where(['like', 'name', $first_word . '%', false])->asArray()->all();
+        if ($first_letter !== null) {
+            $names = BuryatName::find()->where(['like', 'name', $first_letter . '%', false])->asArray()->all();
         }
 
         $alphabet = ['А','Б','В','Г','Д','Е','Ж','З','И','К','Л','М','Н','О','П','Р','С','Т','У','Х','Ц','Ч','Ш','Э','Ю','Я'];

@@ -10,10 +10,10 @@ $this->title = Yii::t('app', 'Buryat names');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-<ul class="list-inline list-word">
-    <?php foreach ($alphabet as $word): ?>
+<ul class="list-inline list-letter">
+    <?php foreach ($alphabet as $letter): ?>
         <li>
-            <?= Html::a($word, ['/buryat-name/list', 'first_word' => $word], ['class' => 'btn btn-warning btn-lg btn-block']) ?>
+            <?= Html::a($letter, ['/buryat-name/list', 'first_letter' => $letter], ['class' => 'btn btn-warning btn-lg btn-block']) ?>
         </li>
     <?php endforeach ?>
 </ul>
