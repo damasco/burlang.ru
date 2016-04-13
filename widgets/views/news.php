@@ -14,6 +14,6 @@ use yii\helpers\Html;
         <div class="description">
             <?= nl2br(Html::encode($news->description)) ?>
         </div>
-        <p class="pull-right"><?= Html::a(Yii::t('app', 'Read more'), ['/news/view', 'id' => $news->id]) ?></p>
+        <p"><?= Html::a(Yii::t('app', 'Read more'), ['/news/view', 'id' => $news->id]) ?></p>
     </div>
 <?php endforeach ?>
