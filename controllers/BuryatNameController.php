@@ -57,6 +57,7 @@ class BuryatNameController extends Controller
         return $this->render('list', [
             'alphabet' => $alphabet,
             'names' => $names,
+            'first_letter' => $first_letter
         ]);
     }
 
