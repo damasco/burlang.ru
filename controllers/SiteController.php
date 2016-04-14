@@ -39,13 +39,14 @@ class SiteController extends Controller
 
     /**
      * Get list russian words for autocomplete
+     * @param $term string
      * @return mixed
      */
-    public function actionGetRuwords()
+    public function actionGetRuwords($term)
     {
         $result = Ruwords::find()
             ->select(['name as value'])
-            ->filterWhere(['like', 'name', Yii::$app->request->get('term') . '%', false])
+            ->filterWhere(['like', 'name', $term . '%', false])
             ->orderBy('name')
             ->limit(10)
             ->asArray()
@@ -55,13 +56,14 @@ class SiteController extends Controller
 
     /**
      * Get list buryat words for autocomplete
+     * @param $term string
      * @return mixed
      */
-    public function actionGetBurwords()
+    public function actionGetBurwords($term)
     {
         $result = Burwords::find()
             ->select(['name as value'])
-            ->filterWhere(['like', 'name', Yii::$app->request->get('term') . '%', false])
+            ->filterWhere(['like', 'name', $term . '%', false])
             ->orderBy('name')
             ->limit(10)
             ->asArray()
@@ -71,13 +73,14 @@ class SiteController extends Controller
 
     /**
      * Get list buryat names for autocomplete
+     * @param $term string
      * @return mixed
      */
-    public function actionGetBurnames()
+    public function actionGetBurnames($term)
     {
         $result = BuryatName::find()
             ->select(['name as value'])
-            ->filterWhere(['like', 'name', Yii::$app->request->get('term') . '%', false])
+            ->filterWhere(['like', 'name', $term . '%', false])
             ->orderBy('name')
             ->limit(10)
             ->asArray()
