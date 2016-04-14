@@ -11,10 +11,7 @@ $this->title = Yii::t('app', 'Buryat Names');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="buryat-name-index">
-
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
     <p>
         <?= Html::a(Yii::t('app', 'Create Buryat Name'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
