@@ -143,7 +143,7 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
                                 <?= $this->render('_burname', ['word' => $burname]) ?>
                             <?php endif ?>
                         </div>
-                        <p><?= \yii\helpers\Html::a('Посмотреть имена по алфавиту', ['buryat-name/list'], ['class' => 'btn btn-warning']) ?></p>
+                        <p><?= \yii\helpers\Html::a(Yii::t('app', 'View the names in alphabetical order'), ['buryat-name/list'], ['class' => 'btn btn-warning']) ?></p>
                     </div>
                 </div>
             </div>

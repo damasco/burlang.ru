@@ -47,6 +47,7 @@ return [
     'Add buryat name' => 'Введите бурятское имя',
     'Powered by {yii}' => 'Сделано на {yii}',
     'Name not found' => 'Имя не найдено',
+    'View the names in alphabetical order' => 'Посмотреть имена по алфавиту',
 
     //national
     'Russian-Buryat, Buryat-Russian electronic dictionary' => 'Русско-Бурятский, Бурятско-Русский электронный словарь',
