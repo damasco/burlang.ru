@@ -106,7 +106,7 @@ ul.ui-autocomplete.ui-menu li.ui-state-focus {
 
 .navbar-inverse {
     background-color: #2c3e50;
-    border-color: #1e2b38;
+    border-bottom: 5px solid #1e2b38;
 }
 
 .navbar-inverse .navbar-nav > li > a {
@@ -140,6 +140,7 @@ ul.ui-autocomplete.ui-menu li.ui-state-focus {
     font-family: Verdana, Arial, sans-serif;
     font-size: 21px;
     color: #fff;
+    font-weight: bold;
 }
 
 .well h4 {
@@ -178,5 +179,17 @@ ul.ui-autocomplete.ui-menu li.ui-state-focus {
 
 .list-name li {
     margin-bottom: 10px;
+}
+
+.btn-custom {
+    color: #fff;
+    background: #2c3e50;
+    border-color: #1e2b38;
+}
+
+.btn-custom:hover, .btn-custom:focus {
+    color: #fff;
+    background: #273747;
+    border-color: #1e2b38;
 }
 
