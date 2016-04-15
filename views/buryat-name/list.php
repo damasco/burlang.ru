@@ -8,21 +8,28 @@ use yii\helpers\Html;
 /* @var $first_letter string */
 
 $this->title = Yii::t('app', 'Buryat names');
-$this->params['breadcrumbs'][] = $this->title;
+if ($first_letter) {
+    $this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['list']];
+    $this->params['breadcrumbs'][] = $first_letter;
+} else {
+    $this->params['breadcrumbs'][] = $this->title;
+}
 ?>
 
-<ul class="list-inline list-letter">
-    <?php foreach ($alphabet as $letter): ?>
-        <li>
-            <?= Html::a(
-                $letter,
-                ['/buryat-name/list', 'first_letter' => $letter],
-                ['class' => ($first_letter == $letter) ? 'btn btn-warning btn-lg btn-block active' : 'btn btn-warning btn-lg btn-block']
-            ) ?>
-        </li>
-    <?php endforeach ?>
-</ul>
-<br/>
+<?php if (!$first_letter): ?>
+    <ul class="list-inline list-letter">
+        <?php foreach ($alphabet as $letter): ?>
+            <li>
+                <?= Html::a(
+                    $letter,
+                    ['/buryat-name/list', 'first_letter' => $letter],
+                    ['class' => 'btn btn-warning btn-lg btn-block']
+                ) ?>
+            </li>
+        <?php endforeach ?>
+    </ul>
+    <br/>
+<?php endif ?>
 <?php if ($names): ?>
     <ul class="list-inline list-name">
         <?php foreach ($names as $name): ?>
