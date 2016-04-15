@@ -45,7 +45,6 @@ return [
     'No translation' => 'Перевода нет',
     'Add word' => 'Введите слово',
     'Add buryat name' => 'Введите бурятское имя',
-    'Powered by {yii}' => 'Сделано на {yii}',
     'Name not found' => 'Имя не найдено',
     'View the names in alphabetical order' => 'Посмотреть имена по алфавиту',
 
