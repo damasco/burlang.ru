@@ -104,9 +104,42 @@ ul.ui-autocomplete.ui-menu li.ui-state-focus {
 
 /* bootstrap */
 
-.navbar-brand {
+.navbar-inverse {
+    background-color: #2c3e50;
+    border-color: #1e2b38;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #fff;
+    font-family: Verdana, Arial, sans-serif;
+}
+
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+    color: #fff;
+    background-color: #1e2b38;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+    color: #fff;
+    background-color: #273747;
+}
+
+.navbar-inverse .navbar-toggle {
+    border-color: #fff;
+}
+
+.navbar-inverse .navbar-toggle:hover,
+.navbar-inverse .navbar-toggle:focus {
+    background-color: #1e2b38;
+}
+
+.navbar-inverse .navbar-brand {
     font-family: Verdana, Arial, sans-serif;
     font-size: 21px;
+    color: #fff;
 }
 
 .well h4 {
