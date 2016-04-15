@@ -16,14 +16,14 @@ if ($first_letter) {
 }
 ?>
 
-<?php if (!$first_letter): ?>
+<?php if (!$first_letter || !Yii::$app->devicedetect->isMobile()): ?>
     <ul class="list-inline list-letter">
         <?php foreach ($alphabet as $letter): ?>
             <li>
                 <?= Html::a(
                     $letter,
                     ['/buryat-name/list', 'first_letter' => $letter],
-                    ['class' => 'btn btn-warning btn-lg btn-block']
+                    ['class' => ($first_letter == $letter) ? 'btn btn-warning btn-lg btn-block active' : 'btn btn-warning btn-lg btn-block']
                 ) ?>
             </li>
         <?php endforeach ?>

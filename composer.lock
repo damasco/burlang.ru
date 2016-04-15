@@ -4,9 +4,57 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "367af06c05c42fab91324d33699e192f",
-    "content-hash": "de85c342278ace13a655b12a4c44e728",
+    "hash": "9e75d9477b78f115042633a9de122995",
+    "content-hash": "51a20c4a3f3c1284d318612dcbc085ca",
     "packages": [
+        {
+            "name": "alexandernst/yii2-device-detect",
+            "version": "0.0.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/alexandernst/yii2-device-detect.git",
+                "reference": "efb05131d0303c8d4ee19d6476d06d031ef88ad9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/alexandernst/yii2-device-detect/zipball/efb05131d0303c8d4ee19d6476d06d031ef88ad9",
+                "reference": "efb05131d0303c8d4ee19d6476d06d031ef88ad9",
+                "shasum": ""
+            },
+            "require": {
+                "mobiledetect/mobiledetectlib": "~2.8",
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "alexandernst\\devicedetect\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GNU General Public License v3"
+            ],
+            "authors": [
+                {
+                    "name": "Alexander Nestorov",
+                    "email": "alexandernst@gmail.com"
+                }
+            ],
+            "description": "Yii2 extension for Mobile-Detect library",
+            "keywords": [
+                "desktop",
+                "detect",
+                "device",
+                "extension",
+                "mobile",
+                "phone",
+                "tablet",
+                "widget",
+                "yii2"
+            ],
+            "time": "2015-04-22 23:30:31"
+        },
         {
             "name": "bower-asset/bililiteRange",
             "version": "v2.5.1",
@@ -80,16 +128,16 @@
         },
         {
             "name": "bower-asset/jquery",
-            "version": "2.2.2",
+            "version": "2.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jquery/jquery-dist.git",
-                "reference": "086d381cd2f3b4b8b0af85ecb2c9593a61e5b4bd"
+                "reference": "af22a351b2ea5801ffb1695abb3bb34d5bed9198"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jquery/jquery-dist/zipball/086d381cd2f3b4b8b0af85ecb2c9593a61e5b4bd",
-                "reference": "086d381cd2f3b4b8b0af85ecb2c9593a61e5b4bd",
+                "url": "https://api.github.com/repos/jquery/jquery-dist/zipball/af22a351b2ea5801ffb1695abb3bb34d5bed9198",
+                "reference": "af22a351b2ea5801ffb1695abb3bb34d5bed9198",
                 "shasum": ""
             },
             "type": "bower-asset-library",
@@ -454,6 +502,60 @@
                 "yii"
             ],
             "time": "2014-03-29 19:06:57"
+        },
+        {
+            "name": "mobiledetect/mobiledetectlib",
+            "version": "2.8.20",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/serbanghita/Mobile-Detect.git",
+                "reference": "d772569880e7becaec564274a3b93501b3fde700"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/serbanghita/Mobile-Detect/zipball/d772569880e7becaec564274a3b93501b3fde700",
+                "reference": "d772569880e7becaec564274a3b93501b3fde700",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.0.0"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "dev-master",
+                "johnkary/phpunit-speedtrap": "~1.0@dev",
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "Mobile_Detect.php"
+                ],
+                "psr-0": {
+                    "Detection": "namespaced/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Serban Ghita",
+                    "email": "serbanghita@gmail.com",
+                    "homepage": "http://mobiledetect.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Mobile_Detect is a lightweight PHP class for detecting mobile devices. It uses the User-Agent string combined with specific HTTP headers to detect the mobile environment.",
+            "homepage": "https://github.com/serbanghita/Mobile-Detect",
+            "keywords": [
+                "detect mobile devices",
+                "mobile",
+                "mobile detect",
+                "mobile detector",
+                "php mobile detect"
+            ],
+            "time": "2016-03-24 09:06:37"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -930,19 +1032,24 @@
         },
         {
             "name": "phpspec/php-diff",
-            "version": "v1.0.2",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/php-diff.git",
-                "reference": "30e103d19519fe678ae64a60d77884ef3d71b28a"
+                "reference": "0464787bfa7cd13576c5a1e318709768798bec6a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/php-diff/zipball/30e103d19519fe678ae64a60d77884ef3d71b28a",
-                "reference": "30e103d19519fe678ae64a60d77884ef3d71b28a",
+                "url": "https://api.github.com/repos/phpspec/php-diff/zipball/0464787bfa7cd13576c5a1e318709768798bec6a",
+                "reference": "0464787bfa7cd13576c5a1e318709768798bec6a",
                 "shasum": ""
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "Diff": "lib/"
@@ -955,12 +1062,11 @@
             "authors": [
                 {
                     "name": "Chris Boulton",
-                    "homepage": "http://github.com/chrisboulton",
-                    "role": "Original developer"
+                    "homepage": "http://github.com/chrisboulton"
                 }
             ],
             "description": "A comprehensive library for generating differences between two hashable objects (strings or arrays).",
-            "time": "2013-11-01 13:02:21"
+            "time": "2016-04-07 12:29:16"
         },
         {
             "name": "yiisoft/yii2-codeception",

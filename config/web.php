@@ -58,6 +58,9 @@ $config = [
                 ],
             ],
         ],
+        'devicedetect' => [
+            'class' => 'alexandernst\devicedetect\DeviceDetect'
+        ],
     ],
     'modules' => [
         'user' => [

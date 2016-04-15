@@ -21,7 +21,8 @@
         "yiisoft/yii2-jui": "~2.0.0",
         "dektrium/yii2-user": "0.9.*@dev",
         "ijackua/yii2-lepture-markdown-editor-widget": "~1.0.0",
-        "bower-asset/bililiteRange": "*"
+        "bower-asset/bililiteRange": "*",
+        "alexandernst/yii2-device-detect": "0.0.9"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
