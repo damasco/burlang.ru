@@ -133,7 +133,7 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
                                     <button type="button" class="btn btn-default add-bur-word">ү</button>
                                     <button type="button" class="btn btn-default add-bur-word">һ</button>
                                     <button type="button" class="btn btn-default add-bur-word">ө</button>
-                                    <button type="submit" class="btn btn-success"><?= Yii::t('app', 'Find') ?></button>
+                                    <button type="submit" class="btn btn-custom"><?= Yii::t('app', 'Find') ?></button>
                                 </span>
                                 </div>
                             </div>
