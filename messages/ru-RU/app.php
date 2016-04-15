@@ -60,7 +60,7 @@ return [
     //news
     'News' => 'Новости',
     'Create News' => 'Создать новость',
-    'Read more' => 'Читать подробнее',
+    'Read more' => 'Читать далее',
 
     //buryat-name
     'Note' => 'Заметка',

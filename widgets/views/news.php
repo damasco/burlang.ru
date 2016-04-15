@@ -11,9 +11,9 @@ use yii\helpers\Html;
     <div class="news-item">
         <h4><?= Html::a(Html::encode($news->title), ['news/view', 'id' => $news->id]) ?></h4>
         <p class="text-danger"><?= Yii::$app->formatter->asDate($news->created_at) ?></p>
-        <div class="description">
+        <p class="description">
             <?= nl2br(Html::encode($news->description)) ?>
-        </div>
-        <p"><?= Html::a(Yii::t('app', 'Read more'), ['/news/view', 'id' => $news->id]) ?></p>
+        </p>
+        <?= Html::a(Yii::t('app', 'Read more'), ['/news/view', 'id' => $news->id], ['class' => 'btn btn-default btn-sm']) ?>
     </div>
 <?php endforeach ?>
