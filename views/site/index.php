@@ -147,23 +147,12 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="mt20">
-                <div class="well text-muted">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid architecto blanditiis deleniti, deserunt dicta doloribus eveniet exercitationem.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-4 col-sm-push-8">
-            <?= \app\widgets\NewsWidget::widget() ?>
-        </div>
-        <div class="col-sm-8 col-sm-pull-4">
             <div class="mt20">
                 <?= $this->render('//_comments') ?>
             </div>
+        </div>
+        <div class="col-sm-4">
+            <?= \app\widgets\NewsWidget::widget() ?>
         </div>
     </div>
 </div>
