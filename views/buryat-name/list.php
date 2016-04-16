@@ -16,7 +16,7 @@ if ($first_letter) {
 }
 ?>
 
-<?php if (!$first_letter || !Yii::$app->devicedetect->isMobile()): ?>
+<?php if (!$first_letter || !Yii::$app->devicedetect->isMobile() || Yii::$app->devicedetect->isTablet()): ?>
     <ul class="list-inline list-letter">
         <?php foreach ($alphabet as $letter): ?>
             <li>
