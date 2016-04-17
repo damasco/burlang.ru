@@ -36,7 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <?= $form->field($model, 'email')->textInput(['autofocus' => true]) ?>
 
-                <?= Html::submitButton(Yii::t('user', 'Continue'), ['class' => 'btn btn-primary btn-block']) ?><br>
+                <?= Html::submitButton(Yii::t('user', 'Continue'), ['class' => 'btn btn-custom btn-block']) ?><br>
 
                 <?php ActiveForm::end(); ?>
             </div>
