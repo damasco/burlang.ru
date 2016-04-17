@@ -36,7 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div class="row">
         <div class="col-sm-8 col-sm-offset-2">
-            <div class="comment-block">
+            <div class="mt20 comment-block">
                 <?= $this->render('//_comments') ?>
             </div>
         </div>
