@@ -7,6 +7,7 @@ use app\models\BuryatName;
 use app\models\Ruwords;
 use Yii;
 use yii\web\Controller;
+use yii\helpers\Json;
 
 class SiteController extends Controller
 {
@@ -51,7 +52,7 @@ class SiteController extends Controller
             ->limit(10)
             ->asArray()
             ->all();
-        return json_encode($result);
+        return Json::encode($result);
     }
 
     /**
@@ -68,7 +69,7 @@ class SiteController extends Controller
             ->limit(10)
             ->asArray()
             ->all();
-        return json_encode($result);
+        return Json::encode($result);
     }
 
     /**
@@ -85,7 +86,7 @@ class SiteController extends Controller
             ->limit(10)
             ->asArray()
             ->all();
-        return json_encode($result);
+        return Json::encode($result);
     }
 
     /**
