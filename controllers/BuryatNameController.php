@@ -80,7 +80,7 @@ class BuryatNameController extends Controller
                 ]);
             }
         } else {
-            throw new NotFoundHttpException('The requested page does not exist.');
+            throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
         }
     }
 
@@ -173,7 +173,7 @@ class BuryatNameController extends Controller
         if (($model = BuryatName::findOne($id)) !== null) {
             return $model;
         } else {
-            throw new NotFoundHttpException('The requested page does not exist.');
+            throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
         }
     }
 }

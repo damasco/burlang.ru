@@ -68,4 +68,7 @@ return [
     'Female' => 'Женский',
     'Male name' => 'Мужское имя',
     'Female name' => 'Женское имя',
+
+    //error
+    'The requested page does not exist.' => 'Запрашиваемая страница не существует.',
 ];
