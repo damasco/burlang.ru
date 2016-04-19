@@ -3,10 +3,9 @@ $(document).ready(function() {
         e.preventDefault();
         $.ajax({
             url: '/site/ru2bur',
-            data: $(this).serialize(),
-            success: function(response) {
-                $('#ru-translation').html(response);
-            }
+            data: $(this).serialize()
+        }).done(function(response) {
+            $('#ru-translation').html(response);
         });
     });
 
@@ -14,10 +13,9 @@ $(document).ready(function() {
         e.preventDefault();
         $.ajax({
             url: '/site/bur2ru',
-            data: $(this).serialize(),
-            success: function(response) {
-                $('#bur-translation').html(response);
-            }
+            data: $(this).serialize()
+        }).done(function(response) {
+            $('#bur-translation').html(response);
         });
     });
 
@@ -25,10 +23,9 @@ $(document).ready(function() {
         e.preventDefault();
         $.ajax({
             url: '/site/burname',
-            data: $(this).serialize(),
-            success: function(response) {
-                $('#burname-response').html(response);
-            }
+            data: $(this).serialize()
+        }).done(function(response) {
+            $('#burname-response').html(response);
         });
     });
 
@@ -40,15 +37,12 @@ $(document).ready(function() {
         e.preventDefault();
         var $this = $(this);
         var $modal = $('#detail-name-modal');
-        var html = '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>';
         $.ajax({
             url: '/buryat-name/get-name',
-            data: {name: $this.text()},
-            success: function(response) {
-                $modal.find('.modal-title').text($this.text());
-                $modal.find('.modal-body').html(html + response);
-                $('#detail-name-modal').modal('show');
-            }
+            data: {name: $this.text()}
+        }).done(function(response) {
+            $modal.find('.response-content').html(response);
+            $modal.modal('show');
         });
     });
 });
