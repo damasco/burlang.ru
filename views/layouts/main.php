@@ -70,7 +70,7 @@ AppAsset::register($this);
                 'active' => Yii::$app->controller->id == 'buryat-name' && Yii::$app->controller->action->id == 'list'
             ],
             ['label' => Yii::t('app', 'News'), 'url' => ['/news/index'], 'active' => Yii::$app->controller->id == 'news'],
-            ['label' => Yii::t('app', 'About project'), 'url' => ['/site/about']],
+//            ['label' => Yii::t('app', 'About project'), 'url' => ['/site/about']],
             !Yii::$app->user->isGuest ?
             [
                 'label' => Yii::t('app', 'Control'),
