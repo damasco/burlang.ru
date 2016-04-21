@@ -12,7 +12,4 @@ class SendKeysAsset extends AssetBundle
         'bililiteRange.js',
         'jquery.sendkeys.js'
     ];
-
-    public $css = [
-    ];
 }

@@ -30,14 +30,14 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
                                 'clientOptions' => [
                                     'source' => '/site/get-ruwords',
                                     'select' => new \yii\web\JsExpression('function (event, ui) {
-                                $.ajax({
-                                    url: \'/site/ru2bur\',
-                                    data: {ruword: ui.item.value},
-                                    success: function(response) {
-                                        $(\'#ru-translation\').html(response);
-                                    }
-                                });
-                            }')
+                                        $.ajax({
+                                            url: \'/site/ru2bur\',
+                                            data: {ruword: ui.item.value},
+                                            success: function(response) {
+                                                $(\'#ru-translation\').html(response);
+                                            }
+                                        });
+                                    }')
                                 ]
                             ]) ?>
                             <span class="input-group-btn">
@@ -72,14 +72,14 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
                                 'clientOptions' => [
                                     'source' => '/site/get-burwords',
                                     'select' => new \yii\web\JsExpression('function (event, ui) {
-                            $.ajax({
-                                url: \'/site/bur2ru\',
-                                data: {burword: ui.item.value},
-                                success: function(response) {
-                                    $(\'#bur-translation\').html(response);
-                                }
-                            });
-                        }')
+                                        $.ajax({
+                                            url: \'/site/bur2ru\',
+                                            data: {burword: ui.item.value},
+                                            success: function(response) {
+                                                $(\'#bur-translation\').html(response);
+                                            }
+                                        });
+                                    }')
                                 ]
                             ]) ?>
                             <span class="input-group-btn">
@@ -122,14 +122,14 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
                                         'clientOptions' => [
                                             'source' => '/site/get-burnames',
                                             'select' => new \yii\web\JsExpression('function (event, ui) {
-                                    $.ajax({
-                                        url: \'/site/burname\',
-                                        data: {burname: ui.item.value},
-                                        success: function(response) {
-                                            $(\'#burname-response\').html(response);
-                                        }
-                                    });
-                                }')
+                                                $.ajax({
+                                                    url: \'/site/burname\',
+                                                    data: {burname: ui.item.value},
+                                                    success: function(response) {
+                                                        $(\'#burname-response\').html(response);
+                                                    }
+                                                });
+                                            }')
                                         ]
                                     ]) ?>
                                     <span class="input-group-btn">
@@ -146,7 +146,10 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
                                 <?= $this->render('_burname', ['word' => $burname]) ?>
                             <?php endif ?>
                         </div>
-                        <p><?= \yii\helpers\Html::a(Yii::t('app', 'View the names in alphabetical order'), ['buryat-name/list'], ['class' => 'btn btn-warning']) ?></p>
+                        <p>
+                            <?= \yii\helpers\Html::a(Yii::t('app', 'View the names in alphabetical order'),
+                                ['buryat-name/list'], ['class' => 'btn btn-warning']) ?>
+                        </p>
                     </div>
                 </div>
             </div>

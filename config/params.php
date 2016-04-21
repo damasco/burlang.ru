@@ -6,6 +6,7 @@ return [
         'username' => 'root',
         'password' => '',
         'charset' => 'utf8',
+        'enableSchemaCache' => true
     ],
     'components.cache' => [
         'class' => 'yii\caching\FileCache',
@@ -20,5 +21,4 @@ return [
     'authclients' => [],
 
     'adminEmail' => 'dbulats88@gmail.com',
-
 ];
