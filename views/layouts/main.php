@@ -38,14 +38,14 @@ AppAsset::register($this);
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
+    <?= Html::csrfMetaTags() ?>
+    <title><?= Html::encode($this->title) ?></title>
+
     <meta property="og:site_name" content="Burlang.ru" />
     <meta property="og:title" content="<?= !empty($this->title) ? Html::encode($this->title) : Yii::t('app', 'Russian-Buryat, Buryat-Russian electronic dictionary') ?>" />
     <meta property="og:image" content="<?= Url::to(Yii::getAlias('@web/img/cover.png'), true) ?>" />
     <meta property="og:url" content="<?= Url::to() ?>" />
     <meta property="og:description" content="<?= Yii::t('app', 'Russian-Buryat, Buryat-Russian electronic dictionary') ?>" />
-
-    <?= Html::csrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
 
     <?php $this->head() ?>
     <?php $this->registerMetaTag(['name' => 'keywords', 'content' => 'burlang, burlang.ru, buryat-lang, buryat-lang.ru, buryat, бурятский словарь, бурятские имена, онлайн словарь']) ?>
