@@ -45,7 +45,10 @@ AppAsset::register($this);
 
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
+
     <?php $this->head() ?>
+    <?php $this->registerMetaTag(['name' => 'keywords', 'content' => 'burlang, burlang.ru, buryat-lang, buryat-lang.ru, buryat, бурятский словарь, бурятские имена, онлайн словарь']) ?>
+    <?php $this->registerMetaTag(['name' => 'description', 'content' => Yii::t('app', 'Russian-Buryat, Buryat-Russian electronic dictionary')]) ?>
 
     <?php if (isset($this->blocks['head'])): ?>
         <?= $this->blocks['head'] ?>
