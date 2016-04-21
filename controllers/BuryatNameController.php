@@ -15,6 +15,9 @@ use yii\filters\AccessControl;
  */
 class BuryatNameController extends Controller
 {
+
+    public $alphabet = ['А','Б','В','Г','Д','Е','Ж','З','И','К','Л','М','Н','О','П','Р','С','Т','У','Х','Ц','Ч','Ш','Э','Ю','Я'];
+
     /**
      * @inheritdoc
      */
@@ -44,18 +47,21 @@ class BuryatNameController extends Controller
      * Lists all BuryatName models.
      * @param string $first_letter
      * @return mixed
+     * @throws NotFoundHttpException if the first letter cannot be found
      */
     public function actionList($first_letter = null)
     {
         $names = [];
+
         if ($first_letter !== null) {
+            if (!in_array($first_letter, $this->alphabet)) {
+                throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+            }
             $names = BuryatName::find()->where(['like', 'name', $first_letter . '%', false])->asArray()->all();
         }
 
-        $alphabet = ['А','Б','В','Г','Д','Е','Ж','З','И','К','Л','М','Н','О','П','Р','С','Т','У','Х','Ц','Ч','Ш','Э','Ю','Я'];
-
         return $this->render('list', [
-            'alphabet' => $alphabet,
+            'alphabet' => $this->alphabet,
             'names' => $names,
             'first_letter' => $first_letter
         ]);

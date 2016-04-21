@@ -53,7 +53,6 @@ AppAsset::register($this);
 </head>
 <body>
 <?php $this->beginBody() ?>
-
 <div class="wrap">
     <?php NavBar::begin([
         'brandLabel' => Yii::$app->name,
@@ -73,9 +72,13 @@ AppAsset::register($this);
             [
                 'label' => Yii::t('app', 'Buryat names'),
                 'url' => ['/buryat-name/list'],
-                'active' => Yii::$app->controller->id == 'buryat-name' && Yii::$app->controller->action->id == 'list'
+                'active' => Yii::$app->controller->id == 'buryat-name' &&
+                    (Yii::$app->controller->action->id == 'list' || Yii::$app->controller->action->id == 'get-name')
             ],
-            ['label' => Yii::t('app', 'News'), 'url' => ['/news/index'], 'active' => Yii::$app->controller->id == 'news'],
+            [
+                'label' => Yii::t('app', 'News'),
+                'url' => ['/news/index'], 'active' => Yii::$app->controller->id == 'news'
+            ],
 //            ['label' => Yii::t('app', 'About project'), 'url' => ['/site/about']],
             !Yii::$app->user->isGuest ?
             [
@@ -101,7 +104,6 @@ AppAsset::register($this);
         ],
     ]) ?>
     <?php NavBar::end() ?>
-
     <div class="container">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
@@ -109,7 +111,6 @@ AppAsset::register($this);
         <?= $content ?>
     </div>
 </div>
-
 <footer class="footer">
     <div class="container">
         <p class="pull-left">&copy; <?= Yii::$app->name ?> 2013 - <?= date('Y') ?></p>
