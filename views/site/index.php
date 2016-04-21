@@ -16,6 +16,7 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
                 <h4><?= Yii::t('app', 'Russian-Buryat dictionary') ?></h4>
                 <hr>
                 <form action="/site/ru2bur" method="get" id="ru-form">
+                    <input type="hidden" name="<?= Yii::$app->request->csrfParam ?>" value="<?= Yii::$app->request->getCsrfToken() ?>" />
                     <div class="form-group">
                         <div class="input-group">
                             <?= AutoComplete::widget([
@@ -57,6 +58,7 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
                 <h2 class="panel-title"><?= Yii::t('app', 'Buryat-Russian dictionary') ?></h2>
                 <hr>
                 <form action="/site/bur2ru" method="get" id="bur-form">
+                    <input type="hidden" name="<?= Yii::$app->request->csrfParam ?>" value="<?= Yii::$app->request->getCsrfToken() ?>" />
                     <div class="form-group">
                         <div class="input-group">
                             <?= AutoComplete::widget([
@@ -106,6 +108,7 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
                     </div>
                     <div class="panel-body">
                         <form action="/site/burname" method="get" id="burname-form">
+                            <input type="hidden" name="<?=Yii::$app->request->csrfParam ?>" value="<?= Yii::$app->request->getCsrfToken() ?>" />
                             <div class="form-group">
                                 <div class="input-group">
                                     <?= AutoComplete::widget([
