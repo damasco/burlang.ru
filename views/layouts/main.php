@@ -8,6 +8,7 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use yii\helpers\Url;
 
 AppAsset::register($this);
 ?>
@@ -38,9 +39,9 @@ AppAsset::register($this);
     <meta name="theme-color" content="#ffffff">
 
     <meta property="og:site_name" content="Burlang.ru" />
-    <meta property="og:title" content="<?= Html::encode($this->title) ?>" />
-    <meta property="og:image" content="/img/cover.png" />
-    <meta property="og:url" content="/" />
+    <meta property="og:title" content="<?= !empty($this->title) ? Html::encode($this->title) : Yii::t('app', 'Russian-Buryat, Buryat-Russian electronic dictionary') ?>" />
+    <meta property="og:image" content="<?= Url::to(Yii::getAlias('@web/img/cover.png'), true) ?>" />
+    <meta property="og:url" content="<?= Url::to() ?>" />
     <meta property="og:description" content="<?= Yii::t('app', 'Russian-Buryat, Buryat-Russian electronic dictionary') ?>" />
 
     <?= Html::csrfMetaTags() ?>
