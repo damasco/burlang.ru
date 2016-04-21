@@ -39,7 +39,7 @@ AppAsset::register($this);
 
     <meta property="og:site_name" content="Burlang.ru" />
     <meta property="og:title" content="<?= Html::encode($this->title) ?>" />
-    <meta property="og:image" content="/img/cover.jpg" />
+    <meta property="og:image" content="/img/cover.png" />
     <meta property="og:url" content="/" />
     <meta property="og:description" content="<?= Yii::t('app', 'Russian-Buryat, Buryat-Russian electronic dictionary') ?>" />
 
