@@ -18,6 +18,7 @@ AppAsset::register($this);
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
@@ -43,9 +44,9 @@ AppAsset::register($this);
 
     <meta property="og:site_name" content="Burlang.ru" />
     <meta property="og:title" content="<?= !empty($this->title) ? Html::encode($this->title) : Yii::t('app', 'Russian-Buryat, Buryat-Russian electronic dictionary') ?>" />
+    <meta property="og:url" content="<?= Url::to('', true) ?>" />
     <meta property="og:image" content="<?= Url::to(Yii::getAlias('@web/img/cover.png'), true) ?>" />
-    <meta property="og:url" content="<?= Url::to() ?>" />
-    <meta property="og:description" content="<?= Yii::t('app', 'Russian-Buryat, Buryat-Russian electronic dictionary') ?>" />
+    <meta property="og:description" content="" />
 
     <?php $this->head() ?>
     <?php $this->registerMetaTag(['name' => 'keywords', 'content' => 'burlang, burlang.ru, buryat-lang, buryat-lang.ru, buryat, бурятский словарь, бурятские имена, онлайн словарь']) ?>

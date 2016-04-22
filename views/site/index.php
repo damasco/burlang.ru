@@ -32,10 +32,9 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
                                     'select' => new \yii\web\JsExpression('function (event, ui) {
                                         $.ajax({
                                             url: \'/site/ru2bur\',
-                                            data: {ruword: ui.item.value},
-                                            success: function(response) {
-                                                $(\'#ru-translation\').html(response);
-                                            }
+                                            data: {ruword: ui.item.value}
+                                        }).done(function(response) {
+                                            $(\'#ru-translation\').html(response);
                                         });
                                     }')
                                 ]
@@ -74,10 +73,9 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
                                     'select' => new \yii\web\JsExpression('function (event, ui) {
                                         $.ajax({
                                             url: \'/site/bur2ru\',
-                                            data: {burword: ui.item.value},
-                                            success: function(response) {
-                                                $(\'#bur-translation\').html(response);
-                                            }
+                                            data: {burword: ui.item.value}
+                                        }).done(function(response) {
+                                            $(\'#bur-translation\').html(response);
                                         });
                                     }')
                                 ]
@@ -124,10 +122,9 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
                                             'select' => new \yii\web\JsExpression('function (event, ui) {
                                                 $.ajax({
                                                     url: \'/site/burname\',
-                                                    data: {burname: ui.item.value},
-                                                    success: function(response) {
-                                                        $(\'#burname-response\').html(response);
-                                                    }
+                                                    data: {burname: ui.item.value}
+                                                }).done(function(response) {
+                                                    $(\'#burname-response\').html(response);
                                                 });
                                             }')
                                         ]
