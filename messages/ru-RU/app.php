@@ -69,6 +69,12 @@ return [
     'Male name' => 'Мужское имя',
     'Female name' => 'Женское имя',
 
+    //buryat words
+    'Buryat words' => 'Бурятские слова',
+
+    //russian words
+    'Russian words' => 'Русские слова',
+
     //error
     'The requested page does not exist.' => 'Запрашиваемая страница не существует.',
 ];

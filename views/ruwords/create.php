@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Ruwords */
 
-$this->title = Yii::t('app', 'Create Ruwords');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Ruwords'), 'url' => ['index']];
+$this->title = Yii::t('app', 'Create');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Russian words'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="ruwords-create">

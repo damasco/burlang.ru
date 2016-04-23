@@ -8,13 +8,13 @@ use yii\widgets\Pjax;
 /* @var $searchModel app\models\RuwordsSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Ruwords');
+$this->title = Yii::t('app', 'Russian words');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="ruwords-index">
     <h1><?= Html::encode($this->title) ?></h1>
     <p>
-        <?= Html::a(Yii::t('app', 'Create Ruwords'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Create'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 <?php Pjax::begin(); ?>
     <?= GridView::widget([

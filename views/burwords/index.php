@@ -7,13 +7,13 @@ use yii\widgets\Pjax;
 /* @var $searchModel app\models\BurwordsSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Burwords');
+$this->title = Yii::t('app', 'Buryat words');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="burwords-index">
     <h1><?= Html::encode($this->title) ?></h1>
     <p>
-        <?= Html::a(Yii::t('app', 'Create Burwords'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Create'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 <?php Pjax::begin(); ?>
     <?= GridView::widget([
