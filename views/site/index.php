@@ -40,8 +40,8 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
                                 ]
                             ]) ?>
                             <span class="input-group-btn">
-                            <button type="submit" class="btn btn-custom"><?= Yii::t('app', 'Find') ?></button>
-                        </span>
+                                <button type="submit" class="btn btn-custom"><?= Yii::t('app', 'Find') ?></button>
+                            </span>
                         </div>
                     </div>
                 </form>
@@ -81,11 +81,11 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
                                 ]
                             ]) ?>
                             <span class="input-group-btn">
-                        <button type="button" class="btn btn-default add-bur-word">ү</button>
-                        <button type="button" class="btn btn-default add-bur-word">һ</button>
-                        <button type="button" class="btn btn-default add-bur-word">ө</button>
-                        <button type="submit" class="btn btn-custom"><?= Yii::t('app', 'Find') ?></button>
-                    </span>
+                                <button type="button" class="btn btn-default add-bur-word">ү</button>
+                                <button type="button" class="btn btn-default add-bur-word">һ</button>
+                                <button type="button" class="btn btn-default add-bur-word">ө</button>
+                                <button type="submit" class="btn btn-custom"><?= Yii::t('app', 'Find') ?></button>
+                            </span>
                         </div>
                     </div>
                 </form>
@@ -130,11 +130,11 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
                                         ]
                                     ]) ?>
                                     <span class="input-group-btn">
-                                    <button type="button" class="btn btn-default add-bur-word">ү</button>
-                                    <button type="button" class="btn btn-default add-bur-word">һ</button>
-                                    <button type="button" class="btn btn-default add-bur-word">ө</button>
-                                    <button type="submit" class="btn btn-custom"><?= Yii::t('app', 'Find') ?></button>
-                                </span>
+                                        <button type="button" class="btn btn-default add-bur-word">ү</button>
+                                        <button type="button" class="btn btn-default add-bur-word">һ</button>
+                                        <button type="button" class="btn btn-default add-bur-word">ө</button>
+                                        <button type="submit" class="btn btn-custom"><?= Yii::t('app', 'Find') ?></button>
+                                    </span>
                                 </div>
                             </div>
                         </form>
