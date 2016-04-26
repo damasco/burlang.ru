@@ -18,7 +18,7 @@ class BurwordsSearch extends Burwords
     public function rules()
     {
         return [
-            [['id', 'chr_id', 'frequency', 'bb_id'], 'integer'],
+            [['id'], 'integer'],
             [['name'], 'safe'],
         ];
     }
@@ -60,9 +60,6 @@ class BurwordsSearch extends Burwords
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'chr_id' => $this->chr_id,
-            'frequency' => $this->frequency,
-            'bb_id' => $this->bb_id,
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name]);

@@ -9,10 +9,7 @@ use yii\helpers\ArrayHelper;
  * This is the model class for table "burwords".
  *
  * @property integer $id
- * @property integer $chr_id
  * @property string $name
- * @property integer $frequency
- * @property integer $bb_id
  */
 class Burwords extends \yii\db\ActiveRecord
 {
@@ -30,7 +27,6 @@ class Burwords extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['chr_id', 'frequency', 'bb_id'], 'integer'],
             [['name'], 'required'],
             [['name'], 'string', 'max' => 50],
         ];
@@ -43,10 +39,7 @@ class Burwords extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'chr_id' => Yii::t('app', 'Chr ID'),
             'name' => Yii::t('app', 'Name'),
-            'frequency' => Yii::t('app', 'Frequency'),
-            'bb_id' => Yii::t('app', 'Bb ID'),
         ];
     }
 
