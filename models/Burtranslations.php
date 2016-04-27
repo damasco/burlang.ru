@@ -27,7 +27,7 @@ class Burtranslations extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['ruword_id'], 'required'],
+            [['ruword_id', 'name'], 'required'],
             [['ruword_id'], 'integer'],
             [['name'], 'string', 'max' => 100],
         ];
