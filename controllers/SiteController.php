@@ -40,7 +40,7 @@ class SiteController extends Controller
 
     /**
      * Get list russian words for autocomplete
-     * @param $term string
+     * @param string $term
      * @return mixed
      */
     public function actionGetRuwords($term)
@@ -57,7 +57,7 @@ class SiteController extends Controller
 
     /**
      * Get list buryat words for autocomplete
-     * @param $term string
+     * @param string $term
      * @return mixed
      */
     public function actionGetBurwords($term)
@@ -74,7 +74,7 @@ class SiteController extends Controller
 
     /**
      * Get list buryat names for autocomplete
-     * @param $term string
+     * @param string $term
      * @return mixed
      */
     public function actionGetBurnames($term)

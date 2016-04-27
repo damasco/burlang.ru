@@ -2,6 +2,8 @@
 
 namespace app\controllers;
 
+use app\models\Dictionaries;
+use app\models\Rutranslations;
 use Yii;
 use app\models\Burwords;
 use app\models\BurwordsSearch;
@@ -25,6 +27,7 @@ class BurwordsController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
+                    'delete-translate' => ['POST'],
                 ],
             ],
             'access' => [
@@ -61,8 +64,19 @@ class BurwordsController extends Controller
      */
     public function actionView($id)
     {
+        $model = $this->findModel($id);
+        $dictionaries = Dictionaries::find()->asArray()->all();
+
+        $translateForm = new Rutranslations();
+        $translateForm->burword_id = $model->id;
+        if ($translateForm->load(Yii::$app->request->post()) && $translateForm->save()) {
+            return $this->refresh();
+        }
+
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $model,
+            'translateForm' => $translateForm,
+            'dictionaries' => $dictionaries
         ]);
     }
 
@@ -127,6 +141,23 @@ class BurwordsController extends Controller
     {
         if (($model = Burwords::findOne($id)) !== null) {
             return $model;
+        } else {
+            throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+        }
+    }
+
+    /**
+     * Deletes an existing Rutranslations model
+     * If the model is not found, a 404 HTTP exception will be thrown.
+     * @param integer $id
+     * @return mixed
+     * @throws NotFoundHttpException if the translate cannot be found
+     */
+    public function actionDeleteTranslate($id)
+    {
+        if (($translate = Rutranslations::findOne($id)) !== null) {
+            $translate->delete();
+            return $this->redirect(['view', 'id' => $translate->burword_id]);
         } else {
             throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
         }

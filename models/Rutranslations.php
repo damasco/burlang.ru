@@ -28,6 +28,7 @@ class Rutranslations extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['name', 'burword_id'], 'required'],
             [['burword_id', 'dict_id'], 'integer'],
             [['name'], 'string', 'max' => 2000],
         ];
@@ -41,7 +42,7 @@ class Rutranslations extends \yii\db\ActiveRecord
         return [
             'id' => Yii::t('app', 'ID'),
             'burword_id' => Yii::t('app', 'Burword ID'),
-            'dict_id' => Yii::t('app', 'Dict ID'),
+            'dict_id' => Yii::t('app', 'Dictionary'),
             'name' => Yii::t('app', 'Name'),
         ];
     }
