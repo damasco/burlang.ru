@@ -11,7 +11,6 @@ use Yii;
  * @property integer $burword_id
  * @property integer $dict_id
  * @property string $name
- * @property string $description
  */
 class Rutranslations extends \yii\db\ActiveRecord
 {
@@ -31,7 +30,6 @@ class Rutranslations extends \yii\db\ActiveRecord
         return [
             [['burword_id', 'dict_id'], 'integer'],
             [['name'], 'string', 'max' => 2000],
-            [['description'], 'string', 'max' => 500],
         ];
     }
 
@@ -45,7 +43,6 @@ class Rutranslations extends \yii\db\ActiveRecord
             'burword_id' => Yii::t('app', 'Burword ID'),
             'dict_id' => Yii::t('app', 'Dict ID'),
             'name' => Yii::t('app', 'Name'),
-            'description' => Yii::t('app', 'Description'),
         ];
     }
 
