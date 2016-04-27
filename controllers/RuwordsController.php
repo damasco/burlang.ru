@@ -2,6 +2,8 @@
 
 namespace app\controllers;
 
+use app\models\Burtranslations;
+use app\models\Dictionaries;
 use Yii;
 use app\models\Ruwords;
 use app\models\RuwordsSearch;
@@ -61,8 +63,19 @@ class RuwordsController extends Controller
      */
     public function actionView($id)
     {
+        $model = $this->findModel($id);
+        $dictionaries = Dictionaries::find()->asArray()->all();
+
+        $translationForm = new Burtranslations();
+        $translationForm->ruword_id = $model->id;
+        if ($translationForm->load(Yii::$app->request->post()) && $translationForm->save()) {
+            return $this->refresh();
+        }
+
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $model,
+            'translationForm' => $translationForm,
+            'dictionaries' => $dictionaries
         ]);
     }
 
@@ -127,6 +140,23 @@ class RuwordsController extends Controller
     {
         if (($model = Ruwords::findOne($id)) !== null) {
             return $model;
+        } else {
+            throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+        }
+    }
+
+    /**
+     * Deletes an existing Burtranslations model
+     * If the model is not found, a 404 HTTP exception will be thrown.
+     * @param integer $id
+     * @return mixed
+     * @throws NotFoundHttpException if the translate cannot be found
+     */
+    public function actionDeleteTranslate($id)
+    {
+        if (($translate = Burtranslations::findOne($id)) !== null) {
+            $translate->delete();
+            return $this->redirect(['view', 'id' => $translate->ruword_id]);
         } else {
             throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
         }

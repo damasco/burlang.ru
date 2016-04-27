@@ -54,4 +54,12 @@ class Rutranslations extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Burwords::className(), ['id' => 'burword_id']);
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getDictionary()
+    {
+        return $this->hasOne(Dictionaries::className(), ['id' => 'dict_id']);
+    }
 }

@@ -67,15 +67,15 @@ class BurwordsController extends Controller
         $model = $this->findModel($id);
         $dictionaries = Dictionaries::find()->asArray()->all();
 
-        $translateForm = new Rutranslations();
-        $translateForm->burword_id = $model->id;
-        if ($translateForm->load(Yii::$app->request->post()) && $translateForm->save()) {
+        $translationForm = new Rutranslations();
+        $translationForm->burword_id = $model->id;
+        if ($translationForm->load(Yii::$app->request->post()) && $translationForm->save()) {
             return $this->refresh();
         }
 
         return $this->render('view', [
             'model' => $model,
-            'translateForm' => $translateForm,
+            'translationForm' => $translationForm,
             'dictionaries' => $dictionaries
         ]);
     }

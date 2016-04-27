@@ -5,6 +5,8 @@ use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Ruwords */
+/* @var $translationForm app\models\Burtranslations */
+/* @var $dictionaries app\models\Dictionaries[] */
 
 $this->title = $model->name;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Russian words'), 'url' => ['index']];
@@ -25,16 +27,14 @@ $this->params['breadcrumbs'][] = $this->title;
         ]) ?>
     </p>
 
-    <?= DetailView::widget([
+    <?= $this->render('_translation', [
+        'model' => $model
+    ]) ?>
+
+    <?= $this->render('_translation_form', [
         'model' => $model,
-        'attributes' => [
-            'id',
-            'name',
-            [
-                'attribute' => 'translate',
-                'label' => Yii::t('app', 'Translate')
-            ],
-        ],
+        'translationForm' => $translationForm,
+        'dictionaries' => $dictionaries
     ]) ?>
 
 </div>
