@@ -15,10 +15,23 @@ AppAsset::register($this);
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
-<head>
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <link rel="image_src" href="<?= Url::to(Yii::getAlias('@web/img/cover.jpg'), true) ?>">
+    <meta name="image" content="<?= Url::to(Yii::getAlias('@web/img/cover.jpg'), true) ?>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Burlang.ru" />
+    <meta property="og:title" content="<?= !empty($this->title) ? Html::encode($this->title) : Yii::t('app', 'Russian-Buryat, Buryat-Russian electronic dictionary') ?>" />
+    <meta property="og:description" content="" />
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:url" content="<?= Url::to('', true) ?>" />
+    <meta property="og:image" content="<?= Url::to(Yii::getAlias('@web/img/cover.jpg'), true) ?>" />
+    <meta property="og:image:type" content="image/jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
 
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
@@ -41,16 +54,6 @@ AppAsset::register($this);
 
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
-
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Burlang.ru" />
-    <meta property="og:title" content="<?= !empty($this->title) ? Html::encode($this->title) : Yii::t('app', 'Russian-Buryat, Buryat-Russian electronic dictionary') ?>" />
-    <meta property="og:description" content="" />
-    <meta property="og:locale" content="ru_RU" />
-    <meta property="og:url" content="<?= Url::to('', true) ?>" />
-    <meta property="og:image" content="<?= Url::to(Yii::getAlias('@web/img/cover.png'), true) ?>" />
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
 
     <?php $this->head() ?>
     <?php $this->registerMetaTag(['name' => 'keywords', 'content' => 'burlang, burlang.ru, buryat-lang, buryat-lang.ru, buryat, бурятский словарь, бурятские имена, онлайн словарь']) ?>
