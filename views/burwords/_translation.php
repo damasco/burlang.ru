@@ -31,7 +31,7 @@ use yii\data\ActiveDataProvider;
                     'buttons' => [
                         'delete' => function ($url, $model) {
                             return Html::a('<span class="glyphicon glyphicon-trash"></span>',
-                                ['delete-translate', 'id' => $model->id],
+                                ['delete-translation', 'id' => $model->id],
                                 [
                                     'title' => Yii::t('app', 'Delete'),
                                     'data' => [

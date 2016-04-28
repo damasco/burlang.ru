@@ -54,7 +54,7 @@ class Burwords extends \yii\db\ActiveRecord
     /**
      * @return string
      */
-    public function getTranslate()
+    public function getTranslationList()
     {
         return implode(' | ', ArrayHelper::getColumn($this->translation, 'name'));
     }

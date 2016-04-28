@@ -25,8 +25,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'name',
             [
-                'attribute' => 'translate',
-                'label' => Yii::t('app', 'Translate')
+                'attribute' => 'translationList',
+                'label' => Yii::t('app', 'Translation')
             ],
 
             ['class' => 'yii\grid\ActionColumn'],

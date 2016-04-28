@@ -41,7 +41,7 @@ return [
     'Control' => 'Управление',
 
     //site
-    'Translate' => 'Перевод',
+    'Translation' => 'Перевод',
     'No translation' => 'Перевода нет',
     'Add word' => 'Введите слово',
     'Add buryat name' => 'Введите бурятское имя',

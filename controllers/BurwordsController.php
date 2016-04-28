@@ -153,7 +153,7 @@ class BurwordsController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the translate cannot be found
      */
-    public function actionDeleteTranslate($id)
+    public function actionDeleteTranslation($id)
     {
         if (($translate = Rutranslations::findOne($id)) !== null) {
             $translate->delete();
