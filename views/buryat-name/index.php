@@ -26,8 +26,16 @@ $this->params['breadcrumbs'][] = $this->title;
             'name',
             'description',
             'note:ntext',
-            'male:boolean',
-            'female:boolean',
+            [
+                'attribute' => 'male',
+                'format' => 'boolean',
+                'filter' => ['1' => Yii::t('app', 'Yes'), '0' => Yii::t('app', 'No')]
+            ],
+            [
+                'attribute' => 'female',
+                'format' => 'boolean',
+                'filter' => ['1' => Yii::t('app', 'Yes'), '0' => Yii::t('app', 'No')]
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
