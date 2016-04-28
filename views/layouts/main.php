@@ -42,11 +42,15 @@ AppAsset::register($this);
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
 
+    <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Burlang.ru" />
     <meta property="og:title" content="<?= !empty($this->title) ? Html::encode($this->title) : Yii::t('app', 'Russian-Buryat, Buryat-Russian electronic dictionary') ?>" />
+    <meta property="og:description" content="" />
+    <meta property="og:locale" content="ru_RU" />
     <meta property="og:url" content="<?= Url::to('', true) ?>" />
     <meta property="og:image" content="<?= Url::to(Yii::getAlias('@web/img/cover.png'), true) ?>" />
-    <meta property="og:description" content="" />
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
 
     <?php $this->head() ?>
     <?php $this->registerMetaTag(['name' => 'keywords', 'content' => 'burlang, burlang.ru, buryat-lang, buryat-lang.ru, buryat, бурятский словарь, бурятские имена, онлайн словарь']) ?>
