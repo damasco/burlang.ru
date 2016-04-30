@@ -158,10 +158,6 @@ ul.ui-autocomplete.ui-menu li.ui-state-focus {
     background-color: #247ba0;
 }
 
-.navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
-    color: #fff;
-}
-
 .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover,
 .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:focus {
     color: #fff;
