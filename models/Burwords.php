@@ -51,12 +51,4 @@ class Burwords extends \yii\db\ActiveRecord
         return $this->hasMany(Rutranslations::className(), ['burword_id' => 'id']);
     }
 
-    /**
-     * @return string
-     */
-    public function getTranslationList()
-    {
-        return implode(' | ', ArrayHelper::getColumn($this->translation, 'name'));
-    }
-
 }

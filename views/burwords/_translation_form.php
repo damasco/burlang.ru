@@ -3,16 +3,51 @@
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
+use yii\grid\GridView;
+use yii\data\ActiveDataProvider;
 
 /* @var $translationForm mixed */
 /* @var $dictionaries \app\models\Dictionaries[] */
 ?>
 
-<div class="panel panel-info">
+<div class="panel panel-default">
     <div class="panel-heading">
-        <h4 class="panel-title"><?= Yii::t('app', 'Add translation') ?></h4>
+        <h4 class="panel-title"><?= Yii::t('app', 'Translation') ?></h4>
     </div>
     <div class="panel-body">
+        <?= GridView::widget([
+            'dataProvider' => (new ActiveDataProvider([
+                'query' => $model->getTranslation(),
+                'pagination' => false
+            ])),
+            'summary' => false,
+            'columns' => [
+                ['class' => 'yii\grid\SerialColumn'],
+                'name',
+                [
+                    'attribute' => 'dict_id',
+                    'value' => 'dictionary.name'
+                ],
+                [
+                    'class' => 'yii\grid\ActionColumn',
+                    'template' => '{delete}',
+                    'buttons' => [
+                        'delete' => function ($url, $model) {
+                            return Html::a('<span class="glyphicon glyphicon-trash"></span>',
+                                ['delete-translation', 'id' => $model->id],
+                                [
+                                    'title' => Yii::t('app', 'Delete'),
+                                    'data' => [
+                                        'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
+                                        'method' => 'post',
+                                    ]
+                                ]);
+                        }
+                    ],
+                ],
+            ],
+        ]); ?>
+
         <?php $form = ActiveForm::begin() ?>
 
         <?= $form->field($translationForm, 'name')->textInput() ?>

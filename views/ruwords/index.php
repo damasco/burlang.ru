@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
+use yii\helpers\ArrayHelper;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\RuwordsSearch */
@@ -29,11 +30,17 @@ $this->params['breadcrumbs'][] = $this->title;
 
                     'name',
                     [
-                        'attribute' => 'translationList',
-                        'label' => Yii::t('app', 'Translation')
+                        'label' => Yii::t('app', 'Translation'),
+                        'value' => function ($model) {
+                            return Html::ul(ArrayHelper::getColumn($model->translation, 'name'));
+                        },
+                        'format' => 'raw'
                     ],
 
-                    ['class' => 'yii\grid\ActionColumn'],
+                    [
+                        'class' => 'yii\grid\ActionColumn',
+                        'template' => '{update} {delete}',
+                    ],
                 ],
             ]); ?>
         </div>

@@ -57,29 +57,6 @@ class RuwordsController extends Controller
     }
 
     /**
-     * Displays a single Ruwords model.
-     * @param integer $id
-     * @return mixed
-     */
-    public function actionView($id)
-    {
-        $model = $this->findModel($id);
-        $dictionaries = Dictionaries::find()->asArray()->all();
-
-        $translationForm = new Burtranslations();
-        $translationForm->ruword_id = $model->id;
-        if ($translationForm->load(Yii::$app->request->post()) && $translationForm->save()) {
-            return $this->refresh();
-        }
-
-        return $this->render('view', [
-            'model' => $model,
-            'translationForm' => $translationForm,
-            'dictionaries' => $dictionaries
-        ]);
-    }
-
-    /**
      * Creates a new Ruwords model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
@@ -106,12 +83,22 @@ class RuwordsController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $dictionaries = Dictionaries::find()->asArray()->all();
+
+        $translationForm = new Burtranslations();
+        $translationForm->ruword_id = $model->id;
+        if ($translationForm->load(Yii::$app->request->post()) && $translationForm->save()) {
+            return $this->refresh();
+        }
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            Yii::$app->session->setFlash('success', Yii::t('app', 'Data updated'));
+            return $this->refresh();
         } else {
             return $this->render('update', [
                 'model' => $model,
+                'translationForm' => $translationForm,
+                'dictionaries' => $dictionaries
             ]);
         }
     }
@@ -156,7 +143,7 @@ class RuwordsController extends Controller
     {
         if (($translate = Burtranslations::findOne($id)) !== null) {
             $translate->delete();
-            return $this->redirect(['view', 'id' => $translate->ruword_id]);
+            return $this->redirect(['update', 'id' => $translate->ruword_id]);
         } else {
             throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
         }
