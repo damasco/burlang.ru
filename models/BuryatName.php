@@ -30,9 +30,10 @@ class BuryatName extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['male', 'female'], 'required'],
+            [['name', 'male', 'female'], 'required'],
             [['male', 'female'], 'integer'],
-            [['name', 'description'], 'string', 'max' => 255],
+            [['name'], 'string', 'max' => 50],
+            [['description'], 'string', 'max' => 255],
             [['note'], 'string'],
         ];
     }
