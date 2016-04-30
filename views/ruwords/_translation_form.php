@@ -14,7 +14,18 @@ use yii\helpers\Html;
     <div class="panel-body">
         <?php $form = ActiveForm::begin() ?>
 
-        <?= $form->field($translationForm, 'name')->textInput() ?>
+        <?= $form->field($translationForm, 'name', ['template' => '
+            {label}
+            <div class="input-group">
+                {input}
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default add-bur-word">ү</button>
+                    <button type="button" class="btn btn-default add-bur-word">һ</button>
+                    <button type="button" class="btn btn-default add-bur-word">ө</button>
+                </span>
+            </div>
+            {error}{hint}
+        '])->textInput() ?>
 
         <?= $form->field($translationForm, 'ruword_id')->hiddenInput(['value' => $model->id])->label(false) ?>
 
