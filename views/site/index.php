@@ -114,7 +114,7 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
                                         'value' => Yii::$app->request->get('burname'),
                                         'options' => [
                                             'class' => 'form-control',
-                                            'placeholder' => Yii::t('app', 'Enter the Buryat name'),
+                                            'placeholder' => Yii::t('app', 'Enter the buryat name'),
                                             'required' => true,
                                         ],
                                         'clientOptions' => [
