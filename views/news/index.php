@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?php if (!Yii::$app->user->isGuest): ?>
         <p>
-            <?= Html::a(Yii::t('app', 'Create News'), ['create'], ['class' => 'btn btn-success']) ?>
+            <?= Html::a(Yii::t('app', 'Create news'), ['create'], ['class' => 'btn btn-success']) ?>
         </p>
     <?php endif ?>
 

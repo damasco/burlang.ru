@@ -66,7 +66,8 @@ class RuwordsController extends Controller
         $model = new Ruwords();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            Yii::$app->session->setFlash('success', Yii::t('app', 'The word is added'));
+            return $this->redirect(['update', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,

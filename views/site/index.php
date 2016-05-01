@@ -24,7 +24,7 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
                                 'value' => Yii::$app->request->get('ruword'),
                                 'options' => [
                                     'class' => 'form-control',
-                                    'placeholder' => Yii::t('app', 'Add word'),
+                                    'placeholder' => Yii::t('app', 'Enter the word'),
                                     'required' => true,
                                 ],
                                 'clientOptions' => [
@@ -65,7 +65,7 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
                                 'value' => Yii::$app->request->get('burword'),
                                 'options' => [
                                     'class' => 'form-control',
-                                    'placeholder' => Yii::t('app', 'Add word'),
+                                    'placeholder' => Yii::t('app', 'Enter the word'),
                                     'required' => true
                                 ],
                                 'clientOptions' => [
@@ -114,7 +114,7 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
                                         'value' => Yii::$app->request->get('burname'),
                                         'options' => [
                                             'class' => 'form-control',
-                                            'placeholder' => Yii::t('app', 'Add buryat name'),
+                                            'placeholder' => Yii::t('app', 'Enter the Buryat name'),
                                             'required' => true,
                                         ],
                                         'clientOptions' => [

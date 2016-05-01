@@ -30,7 +30,6 @@ return [
     'Sort' => 'Сортировка',
     'Active' => 'Активный',
     'Find' => 'Найти',
-    'Data updated' => 'Данные обновлены',
 
     //main
     'About project' => 'О проекте',
@@ -45,12 +44,14 @@ return [
     //site
     'Translation' => 'Перевод',
     'No translation' => 'Перевода нет',
-    'Add word' => 'Введите слово',
-    'Add buryat name' => 'Введите бурятское имя',
+    'Enter the word' => 'Введите слово',
+    'Enter the buryat name' => 'Введите бурятское имя',
     'Name not found' => 'Имя не найдено',
     'View the names in alphabetical order' => 'Посмотреть имена по алфавиту',
     'Add translation' => 'Добавить перевод',
     'Dictionary' => 'Словарь',
+    'Data updated' => 'Данные обновлены',
+    'The word is added' => 'Слово добавлено',
 
     //national
     'Russian-Buryat, Buryat-Russian electronic dictionary' => 'Русско-Бурятский, Бурятско-Русский электронный словарь',
@@ -63,7 +64,7 @@ return [
 
     //news
     'News' => 'Новости',
-    'Create News' => 'Создать новость',
+    'Create news' => 'Создать новость',
     'Read more' => 'Читать далее',
 
     //buryat-name
