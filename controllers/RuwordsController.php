@@ -89,6 +89,7 @@ class RuwordsController extends Controller
         $translationForm = new Burtranslations();
         $translationForm->ruword_id = $model->id;
         if ($translationForm->load(Yii::$app->request->post()) && $translationForm->save()) {
+            Yii::$app->session->setFlash('success', Yii::t('app', 'Translation added'));
             return $this->refresh();
         }
 
@@ -144,6 +145,7 @@ class RuwordsController extends Controller
     {
         if (($translate = Burtranslations::findOne($id)) !== null) {
             $translate->delete();
+            Yii::$app->session->setFlash('success', Yii::t('app', 'Translation removed'));
             return $this->redirect(['update', 'id' => $translate->ruword_id]);
         } else {
             throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));

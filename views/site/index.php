@@ -1,6 +1,7 @@
 <?php
 
 use yii\jui\AutoComplete;
+use yii\web\JsExpression;
 
 /* @var $this yii\web\View */
 /* @var $ruword mixed */
@@ -29,7 +30,7 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
                                 ],
                                 'clientOptions' => [
                                     'source' => '/site/get-ruwords',
-                                    'select' => new \yii\web\JsExpression('function (event, ui) {
+                                    'select' => new JsExpression('function (event, ui) {
                                         $.ajax({
                                             url: \'/site/ru2bur\',
                                             data: {ruword: ui.item.value}
@@ -70,7 +71,7 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
                                 ],
                                 'clientOptions' => [
                                     'source' => '/site/get-burwords',
-                                    'select' => new \yii\web\JsExpression('function (event, ui) {
+                                    'select' => new JsExpression('function (event, ui) {
                                         $.ajax({
                                             url: \'/site/bur2ru\',
                                             data: {burword: ui.item.value}
@@ -119,7 +120,7 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
                                         ],
                                         'clientOptions' => [
                                             'source' => '/site/get-burnames',
-                                            'select' => new \yii\web\JsExpression('function (event, ui) {
+                                            'select' => new JsExpression('function (event, ui) {
                                                 $.ajax({
                                                     url: \'/site/burname\',
                                                     data: {burname: ui.item.value}
@@ -151,7 +152,7 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
                 </div>
             </div>
             <div class="mt20">
-                <?= $this->render('//_comments') ?>
+                <?= $this->render('/_comments') ?>
             </div>
         </div>
         <div class="col-sm-4">

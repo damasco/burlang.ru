@@ -52,6 +52,10 @@ return [
     'Dictionary' => 'Словарь',
     'Data updated' => 'Данные обновлены',
     'The word is added' => 'Слово добавлено',
+    'Translation added' => 'Перевод добавлен',
+    'Translation removed' => 'Перевод удален',
+    'Add word' => 'Добавить слово',
+    'New word' => 'Новое слово',
 
     //national
     'Russian-Buryat, Buryat-Russian electronic dictionary' => 'Русско-Бурятский, Бурятско-Русский электронный словарь',

@@ -91,6 +91,7 @@ class BurwordsController extends Controller
         $translationForm = new Rutranslations();
         $translationForm->burword_id = $model->id;
         if ($translationForm->load(Yii::$app->request->post()) && $translationForm->save()) {
+            Yii::$app->session->setFlash('success', Yii::t('app', 'Translation added'));
             return $this->refresh();
         }
 
@@ -145,6 +146,7 @@ class BurwordsController extends Controller
     public function actionDeleteTranslation($id)
     {
         if (($translate = Rutranslations::findOne($id)) !== null) {
+            Yii::$app->session->setFlash('success', Yii::t('app', 'Translation removed'));
             $translate->delete();
             return $this->redirect(['update', 'id' => $translate->burword_id]);
         } else {
