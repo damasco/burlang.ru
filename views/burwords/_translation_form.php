@@ -8,6 +8,7 @@ use yii\data\ActiveDataProvider;
 
 /* @var $translationForm mixed */
 /* @var $dictionaries \app\models\Dictionaries[] */
+/* @var $model \app\models\Burwords */
 ?>
 
 <div class="panel panel-default">
@@ -36,7 +37,7 @@ use yii\data\ActiveDataProvider;
                             return Html::a('<span class="glyphicon glyphicon-trash"></span>',
                                 ['delete-translation', 'id' => $model->id],
                                 [
-                                    'title' => Yii::t('app', 'Delete'),
+                                    'title' => Yii::t('app', 'Delete translation'),
                                     'data' => [
                                         'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
                                         'method' => 'post',

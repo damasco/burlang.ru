@@ -54,8 +54,11 @@ return [
     'The word is added' => 'Слово добавлено',
     'Translation added' => 'Перевод добавлен',
     'Translation removed' => 'Перевод удален',
+    'Delete translation' => 'Удалить перевод',
     'Add word' => 'Добавить слово',
     'New word' => 'Новое слово',
+    'Delete word' => 'Удалить слово',
+    'Add name' => 'Добавить имя',
 
     //national
     'Russian-Buryat, Buryat-Russian electronic dictionary' => 'Русско-Бурятский, Бурятско-Русский электронный словарь',
