@@ -6,11 +6,11 @@ use yii\helpers\Html;
 /* @var $model app\models\Dictionaries */
 
 $this->title = Yii::t('app', 'Update {modelClass}: ', [
-    'modelClass' => 'Dictionaries',
+    'modelClass' => Yii::t('app', 'dictionary'),
 ]) . $model->name;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Dictionaries'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = Yii::t('app', 'Update');
+$this->params['breadcrumbs'][] = Yii::t('app', 'Edit');
 ?>
 <div class="dictionaries-update">
 

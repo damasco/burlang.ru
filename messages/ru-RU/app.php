@@ -92,4 +92,6 @@ return [
 
     //dictionaries
     'Dictionaries' => 'Словари',
+    'dictionary' => 'словарь',
+    'Add dictionary' => 'Добавить словарь',
 ];

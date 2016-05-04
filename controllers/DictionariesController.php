@@ -4,7 +4,7 @@ namespace app\controllers;
 
 use Yii;
 use app\models\Dictionaries;
-use app\models\DictionariesSearch;
+use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -45,11 +45,11 @@ class DictionariesController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new DictionariesSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider = new ActiveDataProvider([
+            'query' => Dictionaries::find(),
+        ]);
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
     }
