@@ -89,4 +89,7 @@ return [
 
     //error
     'The requested page does not exist.' => 'Запрашиваемая страница не существует.',
+
+    //dictionaries
+    'Dictionaries' => 'Словари',
 ];

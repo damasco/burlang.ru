@@ -1,7 +1,6 @@
 <?php
 
 /* @var $model \app\models\News */
-
 ?>
 
 <h3><?= Yii::t('app', 'News') ?></h3>
