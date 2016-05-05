@@ -43,7 +43,7 @@ class Dictionaries extends \yii\db\ActiveRecord
         return [
             'id' => Yii::t('app', 'ID'),
             'name' => Yii::t('app', 'Name'),
-            'info' => Yii::t('app', 'Info'),
+            'info' => Yii::t('app', 'Information'),
             'isbn' => Yii::t('app', 'Isbn'),
         ];
     }

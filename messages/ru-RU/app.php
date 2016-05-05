@@ -94,4 +94,5 @@ return [
     'Dictionaries' => 'Словари',
     'dictionary' => 'словарь',
     'Add dictionary' => 'Добавить словарь',
+    'Information' => 'Информация',
 ];
