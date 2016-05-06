@@ -5,7 +5,7 @@ use yii\web\JsExpression;
 
 /* @var $this yii\web\View */
 /* @var $ruword mixed */
-/* @var $burword mixed */
+/* @var $buryat_word mixed */
 /* @var $burname mixed */
 
 $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-Russian electronic dictionary');
@@ -62,19 +62,19 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
                     <div class="form-group">
                         <div class="input-group">
                             <?= AutoComplete::widget([
-                                'name' => 'burword',
-                                'value' => Yii::$app->request->get('burword'),
+                                'name' => 'buryat_word',
+                                'value' => Yii::$app->request->get('buryat_word'),
                                 'options' => [
                                     'class' => 'form-control',
                                     'placeholder' => Yii::t('app', 'Enter the word'),
                                     'required' => true
                                 ],
                                 'clientOptions' => [
-                                    'source' => '/site/get-burwords',
+                                    'source' => '/site/get-buryat-word',
                                     'select' => new JsExpression('function (event, ui) {
                                         $.ajax({
                                             url: \'/site/bur2ru\',
-                                            data: {burword: ui.item.value}
+                                            data: {buryat_word: ui.item.value}
                                         }).done(function(response) {
                                             $(\'#bur-translation\').html(response);
                                         });
@@ -91,8 +91,8 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
                     </div>
                 </form>
                 <div id="bur-translation">
-                    <?php if (isset($burword)): ?>
-                        <?= $this->render('_translate', ['word' => $burword]) ?>
+                    <?php if (isset($buryat_word)): ?>
+                        <?= $this->render('_translate', ['word' => $buryat_word]) ?>
                     <?php endif ?>
                 </div>
             </div>

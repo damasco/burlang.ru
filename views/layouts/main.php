@@ -97,7 +97,7 @@ AppAsset::register($this);
                 'label' => Yii::t('app', 'Control'),
                 'items' => [
                     ['label' => Yii::t('app', 'Buryat names'), 'url' => ['/buryat-name/index']],
-                    ['label' => Yii::t('app', 'Buryat words'), 'url' => ['/burwords/index']],
+                    ['label' => Yii::t('app', 'Buryat words'), 'url' => ['/buryat-word/index']],
                     ['label' => Yii::t('app', 'Russian words'), 'url' => ['/ruwords/index']],
                     ['label' => Yii::t('app', 'Dictionaries'), 'url' => ['/dictionary/index']],
                     ['label' => Yii::t('user', 'Users'), 'url' => ['/user/admin/index'], 'visible' => Yii::$app->user->identity->getIsAdmin()],

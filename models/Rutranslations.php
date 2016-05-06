@@ -52,7 +52,7 @@ class Rutranslations extends \yii\db\ActiveRecord
      */
     public function getBurword()
     {
-        return $this->hasOne(Burwords::className(), ['id' => 'burword_id']);
+        return $this->hasOne(BuryatWord::className(), ['id' => 'burword_id']);
     }
 
     /**

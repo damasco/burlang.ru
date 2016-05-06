@@ -7,9 +7,9 @@ use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
 /**
- * BurwordsSearch represents the model behind the search form about `app\models\Burwords`.
+ * BuryatWordSearch represents the model behind the search form about `app\models\BuryatWord`.
  */
-class BurwordsSearch extends Burwords
+class BuryatWordSearch extends BuryatWord
 {
     /**
      * @inheritdoc
@@ -40,7 +40,7 @@ class BurwordsSearch extends Burwords
      */
     public function search($params)
     {
-        $query = Burwords::find();
+        $query = BuryatWord::find();
 
         // add conditions that should always apply here
 

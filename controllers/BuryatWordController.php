@@ -5,17 +5,17 @@ namespace app\controllers;
 use app\models\Dictionary;
 use app\models\Rutranslations;
 use Yii;
-use app\models\Burwords;
-use app\models\BurwordsSearch;
+use app\models\BuryatWord;
+use app\models\BuryatWordSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 
 /**
- * BurwordsController implements the CRUD actions for Burwords model.
+ * BuryatWordController implements the CRUD actions for BuryatWord model.
  */
-class BurwordsController extends Controller
+class BuryatWordController extends Controller
 {
     /**
      * @inheritdoc
@@ -43,12 +43,12 @@ class BurwordsController extends Controller
     }
 
     /**
-     * Lists all Burwords models.
+     * Lists all BuryatWord models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new BurwordsSearch();
+        $searchModel = new BuryatWordSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -58,13 +58,13 @@ class BurwordsController extends Controller
     }
 
     /**
-     * Creates a new Burwords model.
+     * Creates a new BuryatWord model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Burwords();
+        $model = new BuryatWord();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             Yii::$app->session->setFlash('success', Yii::t('app', 'The word is added'));
@@ -77,7 +77,7 @@ class BurwordsController extends Controller
     }
 
     /**
-     * Updates an existing Burwords model.
+     * Updates an existing BuryatWord model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -108,7 +108,7 @@ class BurwordsController extends Controller
     }
 
     /**
-     * Deletes an existing Burwords model.
+     * Deletes an existing BuryatWord model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -121,15 +121,15 @@ class BurwordsController extends Controller
     }
 
     /**
-     * Finds the Burwords model based on its primary key value.
+     * Finds the BuryatWord model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Burwords the loaded model
+     * @return BuryatWord the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Burwords::findOne($id)) !== null) {
+        if (($model = BuryatWord::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));

@@ -49,7 +49,6 @@ return [
     'Name not found' => 'Имя не найдено',
     'View the names in alphabetical order' => 'Посмотреть имена по алфавиту',
     'Add translation' => 'Добавить перевод',
-    'Dictionary' => 'Словарь',
     'Data updated' => 'Данные обновлены',
     'The word is added' => 'Слово добавлено',
     'Translation added' => 'Перевод добавлен',
@@ -64,10 +63,6 @@ return [
     'Russian-Buryat, Buryat-Russian electronic dictionary' => 'Русско-Бурятский, Бурятско-Русский электронный словарь',
     'Russian-Buryat dictionary' => 'Русско-Бурятский словарь',
     'Buryat-Russian dictionary' => 'Бурятско-Русский словарь',
-    'Bur. words' => 'Бур. слова',
-    'Ru. words' => 'Рус. слова',
-    'Bur. names' => 'Бур. имена',
-    'Buryat names' => 'Бурятские имена',
 
     //news
     'News' => 'Новости',
@@ -75,6 +70,8 @@ return [
     'Read more' => 'Читать далее',
 
     //buryat-name
+    'Bur. names' => 'Бур. имена',
+    'Buryat names' => 'Бурятские имена',
     'Note' => 'Заметка',
     'Male' => 'Мужской',
     'Female' => 'Женский',
@@ -83,16 +80,19 @@ return [
 
     //buryat words
     'Buryat words' => 'Бурятские слова',
+    'Bur. words' => 'Бур. слова',
 
     //russian words
     'Russian words' => 'Русские слова',
+    'Ru. words' => 'Рус. слова',
 
     //error
     'The requested page does not exist.' => 'Запрашиваемая страница не существует.',
 
     //dictionaries
-    'Dictionaries' => 'Словари',
+    'Dictionary' => 'Словарь',
     'dictionary' => 'словарь',
+    'Dictionaries' => 'Словари',
     'Add dictionary' => 'Добавить словарь',
     'Information' => 'Информация',
 ];

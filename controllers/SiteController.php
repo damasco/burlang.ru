@@ -2,7 +2,7 @@
 
 namespace app\controllers;
 
-use app\models\Burwords;
+use app\models\BuryatWord;
 use app\models\BuryatName;
 use app\models\Ruwords;
 use Yii;
@@ -60,9 +60,9 @@ class SiteController extends Controller
      * @param string $term
      * @return mixed
      */
-    public function actionGetBurwords($term)
+    public function actionGetBuryatWord($term)
     {
-        $result = Burwords::find()
+        $result = BuryatWord::find()
             ->select(['name as value'])
             ->filterWhere(['like', 'name', $term . '%', false])
             ->orderBy('name')
@@ -109,19 +109,19 @@ class SiteController extends Controller
 
     /**
      * Get translate for buryat word
-     * @param string $burword
+     * @param string $buryat_word
      * @return mixed
      */
-    public function actionBur2ru($burword)
+    public function actionBur2ru($buryat_word)
     {
-        $word = Burwords::findOne(['name' => $burword]);
+        $word = BuryatWord::findOne(['name' => $buryat_word]);
         if (Yii::$app->request->isAjax) {
             return $this->renderAjax('_translate', [
                 'word' => $word
             ]);
         }
         return $this->render('index', [
-            'burword' => $word
+            'buryat_word' => $word
         ]);
     }
 

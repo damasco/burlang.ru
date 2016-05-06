@@ -8,7 +8,7 @@ use yii\data\ActiveDataProvider;
 
 /* @var $translationForm mixed */
 /* @var $dictionaries \app\models\Dictionary[] */
-/* @var $model \app\models\Burwords */
+/* @var $model \app\models\BuryatWord */
 ?>
 
 <div class="panel panel-default">

@@ -4,11 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Burwords */
+/* @var $model app\models\BuryatWord */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="burwords-form">
+<div class="buryat-word-form">
 
     <?php $form = ActiveForm::begin(); ?>
 

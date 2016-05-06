@@ -3,22 +3,21 @@
 namespace app\models;
 
 use Yii;
-use yii\helpers\ArrayHelper;
 
 /**
- * This is the model class for table "burwords".
+ * This is the model class for table "buryat_word".
  *
  * @property integer $id
  * @property string $name
  */
-class Burwords extends \yii\db\ActiveRecord
+class BuryatWord extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'burwords';
+        return 'buryat_word';
     }
 
     /**
