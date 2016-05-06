@@ -2,7 +2,7 @@
 
 namespace app\controllers;
 
-use app\models\Dictionaries;
+use app\models\Dictionary;
 use app\models\Rutranslations;
 use Yii;
 use app\models\Burwords;
@@ -86,7 +86,7 @@ class BurwordsController extends Controller
     {
         $model = $this->findModel($id);
 
-        $dictionaries = Dictionaries::find()->asArray()->all();
+        $dictionaries = Dictionary::find()->asArray()->all();
 
         $translationForm = new Rutranslations();
         $translationForm->burword_id = $model->id;

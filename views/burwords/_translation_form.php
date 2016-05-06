@@ -7,7 +7,7 @@ use yii\grid\GridView;
 use yii\data\ActiveDataProvider;
 
 /* @var $translationForm mixed */
-/* @var $dictionaries \app\models\Dictionaries[] */
+/* @var $dictionaries \app\models\Dictionary[] */
 /* @var $model \app\models\Burwords */
 ?>
 

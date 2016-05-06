@@ -3,7 +3,7 @@
 namespace app\controllers;
 
 use app\models\Burtranslations;
-use app\models\Dictionaries;
+use app\models\Dictionary;
 use Yii;
 use app\models\Ruwords;
 use app\models\RuwordsSearch;
@@ -84,7 +84,6 @@ class RuwordsController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $dictionaries = Dictionaries::find()->asArray()->all();
 
         $translationForm = new Burtranslations();
         $translationForm->ruword_id = $model->id;
@@ -100,7 +99,6 @@ class RuwordsController extends Controller
             return $this->render('update', [
                 'model' => $model,
                 'translationForm' => $translationForm,
-                'dictionaries' => $dictionaries
             ]);
         }
     }

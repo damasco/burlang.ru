@@ -5,7 +5,6 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Ruwords */
 /* @var $translationForm app\models\Burtranslations */
-/* @var $dictionaries app\models\Dictionaries[] */
 
 $this->title = Yii::t('app', 'Edit') . ': ' . $model->name;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Russian words'), 'url' => ['index']];
@@ -24,7 +23,6 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= $this->render('_translation_form', [
         'model' => $model,
         'translationForm' => $translationForm,
-        'dictionaries' => $dictionaries
     ]) ?>
 
     <?= Html::a(Yii::t('app', 'Delete word'), ['delete', 'id' => $model->id], [

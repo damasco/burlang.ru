@@ -6,7 +6,6 @@ use yii\grid\GridView;
 use yii\data\ActiveDataProvider;
 
 /* @var $translationForm mixed */
-/* @var $dictionaries \app\models\Dictionaries[] */
 /* @var $model \app\models\Ruwords */
 ?>
 

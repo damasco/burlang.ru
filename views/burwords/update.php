@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Burwords */
 /* @var $translationForm app\models\Rutranslations */
-/* @var $dictionaries app\models\Dictionaries[] */
+/* @var $dictionaries app\models\Dictionary[] */
 
 $this->title = Yii::t('app', 'Edit') . ': ' . $model->name;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Buryat words'), 'url' => ['index']];
