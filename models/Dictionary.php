@@ -5,21 +5,21 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "dictionaries".
+ * This is the model class for table "dictionary".
  *
  * @property integer $id
  * @property string $name
  * @property string $info
  * @property string $isbn
  */
-class Dictionaries extends \yii\db\ActiveRecord
+class Dictionary extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'dictionaries';
+        return 'dictionary';
     }
 
     /**

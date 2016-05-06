@@ -3,7 +3,7 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Dictionaries;
+use app\models\Dictionary;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -13,7 +13,7 @@ use yii\filters\AccessControl;
 /**
  * DictionariesController implements the CRUD actions for Dictionaries model.
  */
-class DictionariesController extends Controller
+class DictionaryController extends Controller
 {
     /**
      * @inheritdoc
@@ -46,7 +46,7 @@ class DictionariesController extends Controller
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => Dictionaries::find(),
+            'query' => Dictionary::find(),
         ]);
 
         return $this->render('index', [
@@ -73,7 +73,7 @@ class DictionariesController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Dictionaries();
+        $model = new Dictionary();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -120,12 +120,12 @@ class DictionariesController extends Controller
      * Finds the Dictionaries model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Dictionaries the loaded model
+     * @return Dictionary the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Dictionaries::findOne($id)) !== null) {
+        if (($model = Dictionary::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

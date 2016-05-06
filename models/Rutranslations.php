@@ -60,6 +60,6 @@ class Rutranslations extends \yii\db\ActiveRecord
      */
     public function getDictionary()
     {
-        return $this->hasOne(Dictionaries::className(), ['id' => 'dict_id']);
+        return $this->hasOne(Dictionary::className(), ['id' => 'dict_id']);
     }
 }
