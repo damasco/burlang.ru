@@ -18,7 +18,7 @@ class Ruwords extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'ruwords';
+        return 'russian_word';
     }
 
     /**
