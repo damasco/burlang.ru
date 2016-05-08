@@ -48,8 +48,8 @@ class Burtranslations extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getRuword()
+    public function getRussianWord()
     {
-        return $this->hasOne(Ruwords::className(), ['id' => 'ruword_id']);
+        return $this->hasOne(RussianWord::className(), ['id' => 'ruword_id']);
     }
 }

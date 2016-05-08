@@ -3,19 +3,18 @@
 namespace app\controllers;
 
 use app\models\Burtranslations;
-use app\models\Dictionary;
 use Yii;
-use app\models\Ruwords;
-use app\models\RuwordsSearch;
+use app\models\RussianWord;
+use app\models\RussianWordSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 
 /**
- * RuwordsController implements the CRUD actions for Ruwords model.
+ * RussianWordController implements the CRUD actions for RussianWord model.
  */
-class RuwordsController extends Controller
+class RussianWordController extends Controller
 {
     /**
      * @inheritdoc
@@ -42,12 +41,12 @@ class RuwordsController extends Controller
     }
 
     /**
-     * Lists all Ruwords models.
+     * Lists all RussianWord models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new RuwordsSearch();
+        $searchModel = new RussianWordSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -57,13 +56,13 @@ class RuwordsController extends Controller
     }
 
     /**
-     * Creates a new Ruwords model.
+     * Creates a new RussianWord model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Ruwords();
+        $model = new RussianWord();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             Yii::$app->session->setFlash('success', Yii::t('app', 'The word is added'));
@@ -76,7 +75,7 @@ class RuwordsController extends Controller
     }
 
     /**
-     * Updates an existing Ruwords model.
+     * Updates an existing RussianWord model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -104,7 +103,7 @@ class RuwordsController extends Controller
     }
 
     /**
-     * Deletes an existing Ruwords model.
+     * Deletes an existing RussianWord model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -117,15 +116,15 @@ class RuwordsController extends Controller
     }
 
     /**
-     * Finds the Ruwords model based on its primary key value.
+     * Finds the RussianWord model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Ruwords the loaded model
+     * @return RussianWord the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Ruwords::findOne($id)) !== null) {
+        if (($model = RussianWord::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));

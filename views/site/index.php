@@ -4,9 +4,9 @@ use yii\jui\AutoComplete;
 use yii\web\JsExpression;
 
 /* @var $this yii\web\View */
-/* @var $ruword mixed */
+/* @var $russian_word mixed */
 /* @var $buryat_word mixed */
-/* @var $burname mixed */
+/* @var $buryat_name mixed */
 
 $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-Russian electronic dictionary');
 ?>
@@ -16,26 +16,26 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
             <div class="well">
                 <h4><?= Yii::t('app', 'Russian-Buryat dictionary') ?></h4>
                 <hr>
-                <form action="/site/ru2bur" method="get" id="ru-form">
+                <form action="/site/russian-translate" method="get" id="russian-form">
                     <input type="hidden" name="<?= Yii::$app->request->csrfParam ?>" value="<?= Yii::$app->request->getCsrfToken() ?>" />
                     <div class="form-group">
                         <div class="input-group">
                             <?= AutoComplete::widget([
-                                'name' => 'ruword',
-                                'value' => Yii::$app->request->get('ruword'),
+                                'name' => 'russian_word',
+                                'value' => Yii::$app->request->get('russian_word'),
                                 'options' => [
                                     'class' => 'form-control',
                                     'placeholder' => Yii::t('app', 'Enter the word'),
                                     'required' => true,
                                 ],
                                 'clientOptions' => [
-                                    'source' => '/site/get-ruwords',
+                                    'source' => '/site/get-russian-words',
                                     'select' => new JsExpression('function (event, ui) {
                                         $.ajax({
-                                            url: \'/site/ru2bur\',
-                                            data: {ruword: ui.item.value}
+                                            url: \'/site/russian-translate\',
+                                            data: { russian_word: ui.item.value }
                                         }).done(function(response) {
-                                            $(\'#ru-translation\').html(response);
+                                            $(\'#russian-translation\').html(response);
                                         });
                                     }')
                                 ]
@@ -46,9 +46,9 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
                         </div>
                     </div>
                 </form>
-                <div id="ru-translation">
-                    <?php if (isset($ruword)): ?>
-                        <?= $this->render('_translate', ['word' => $ruword]) ?>
+                <div id="russian-translation">
+                    <?php if (isset($russian_word)): ?>
+                        <?= $this->render('_translate', ['word' => $russian_word]) ?>
                     <?php endif ?>
                 </div>
             </div>
@@ -57,7 +57,7 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
             <div class="well">
                 <h2 class="panel-title"><?= Yii::t('app', 'Buryat-Russian dictionary') ?></h2>
                 <hr>
-                <form action="/site/bur2ru" method="get" id="bur-form">
+                <form action="/site/buryat-translate" method="get" id="buryat-form">
                     <input type="hidden" name="<?= Yii::$app->request->csrfParam ?>" value="<?= Yii::$app->request->getCsrfToken() ?>" />
                     <div class="form-group">
                         <div class="input-group">
@@ -70,27 +70,27 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
                                     'required' => true
                                 ],
                                 'clientOptions' => [
-                                    'source' => '/site/get-buryat-word',
+                                    'source' => '/site/get-buryat-words',
                                     'select' => new JsExpression('function (event, ui) {
                                         $.ajax({
-                                            url: \'/site/bur2ru\',
-                                            data: {buryat_word: ui.item.value}
+                                            url: \'/site/buryat-translate\',
+                                            data: { buryat_word: ui.item.value }
                                         }).done(function(response) {
-                                            $(\'#bur-translation\').html(response);
+                                            $(\'#buryat-translation\').html(response);
                                         });
                                     }')
                                 ]
                             ]) ?>
                             <span class="input-group-btn">
-                                <button type="button" class="btn btn-default add-bur-word">ү</button>
-                                <button type="button" class="btn btn-default add-bur-word">һ</button>
-                                <button type="button" class="btn btn-default add-bur-word">ө</button>
+                                <button type="button" class="btn btn-default add-buryat-word">ү</button>
+                                <button type="button" class="btn btn-default add-buryat-word">һ</button>
+                                <button type="button" class="btn btn-default add-buryat-word">ө</button>
                                 <button type="submit" class="btn btn-custom"><?= Yii::t('app', 'Find') ?></button>
                             </span>
                         </div>
                     </div>
                 </form>
-                <div id="bur-translation">
+                <div id="buryat-translation">
                     <?php if (isset($buryat_word)): ?>
                         <?= $this->render('_translate', ['word' => $buryat_word]) ?>
                     <?php endif ?>
@@ -106,26 +106,26 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
                         <h2 class="panel-title"><?= Yii::t('app', 'Buryat names') ?></h2>
                     </div>
                     <div class="panel-body">
-                        <form action="/site/burname" method="get" id="burname-form">
+                        <form action="/site/buryat-name" method="get" id="buryat-name-form">
                             <input type="hidden" name="<?=Yii::$app->request->csrfParam ?>" value="<?= Yii::$app->request->getCsrfToken() ?>" />
                             <div class="form-group">
                                 <div class="input-group">
                                     <?= AutoComplete::widget([
-                                        'name' => 'burname',
-                                        'value' => Yii::$app->request->get('burname'),
+                                        'name' => 'buryat_name',
+                                        'value' => Yii::$app->request->get('buryat-name'),
                                         'options' => [
                                             'class' => 'form-control',
                                             'placeholder' => Yii::t('app', 'Enter the buryat name'),
                                             'required' => true,
                                         ],
                                         'clientOptions' => [
-                                            'source' => '/site/get-burnames',
+                                            'source' => '/site/get-buryat-names',
                                             'select' => new JsExpression('function (event, ui) {
                                                 $.ajax({
-                                                    url: \'/site/burname\',
-                                                    data: {burname: ui.item.value}
+                                                    url: \'/site/buryat-name\',
+                                                    data: { buryat_name: ui.item.value }
                                                 }).done(function(response) {
-                                                    $(\'#burname-response\').html(response);
+                                                    $(\'#buryat-name-response\').html(response);
                                                 });
                                             }')
                                         ]
@@ -139,9 +139,9 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
                                 </div>
                             </div>
                         </form>
-                        <div id="burname-response">
-                            <?php if (isset($burname)): ?>
-                                <?= $this->render('_burname', ['word' => $burname]) ?>
+                        <div id="buryat-name-response">
+                            <?php if (isset($buryat_name)): ?>
+                                <?= $this->render('_buryat_name', ['buryat_name' => $buryat_name]) ?>
                             <?php endif ?>
                         </div>
                         <p>

@@ -6,13 +6,13 @@ use yii\widgets\Pjax;
 use yii\helpers\ArrayHelper;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\RuwordsSearch */
+/* @var $searchModel app\models\RussianWordSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = Yii::t('app', 'Russian words');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="ruwords-index">
+<div class="russian-word-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

@@ -6,7 +6,7 @@ use yii\grid\GridView;
 use yii\data\ActiveDataProvider;
 
 /* @var $translationForm mixed */
-/* @var $model \app\models\Ruwords */
+/* @var $model \app\models\RussianWord */
 ?>
 
 <div class="panel panel-default">

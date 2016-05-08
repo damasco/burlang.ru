@@ -1,35 +1,35 @@
 $(document).ready(function() {
-    $('#ru-form').on('submit', function(e) {
+    $('#russian-form').on('submit', function(e) {
         e.preventDefault();
         $.ajax({
-            url: '/site/ru2bur',
+            url: '/site/russian-translate',
             data: $(this).serialize()
         }).done(function(response) {
-            $('#ru-translation').html(response);
+            $('#russian-translation').html(response);
         });
     });
 
-    $('#bur-form').on('submit', function(e) {
+    $('#buryat-form').on('submit', function(e) {
         e.preventDefault();
         $.ajax({
-            url: '/site/bur2ru',
+            url: '/site/buryat-translate',
             data: $(this).serialize()
         }).done(function(response) {
-            $('#bur-translation').html(response);
+            $('#buryat-translation').html(response);
         });
     });
 
-    $('#burname-form').on('submit', function(e) {
+    $('#buryat-name-form').on('submit', function(e) {
         e.preventDefault();
         $.ajax({
-            url: '/site/burname',
+            url: '/site/buryat-name',
             data: $(this).serialize()
         }).done(function(response) {
-            $('#burname-response').html(response);
+            $('#buryat-name-response').html(response);
         });
     });
 
-    $('button.add-bur-word').on('click', function() {
+    $('button.add-buryat-word').on('click', function() {
         $(this).parent('span').siblings('input').sendkeys($(this).text());
     });
 

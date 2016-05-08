@@ -3,15 +3,14 @@
 namespace app\models;
 
 use Yii;
-use yii\helpers\ArrayHelper;
 
 /**
- * This is the model class for table "ruwords".
+ * This is the model class for table "russian_word".
  *
  * @property integer $id
  * @property string $name
  */
-class Ruwords extends \yii\db\ActiveRecord
+class RussianWord extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc

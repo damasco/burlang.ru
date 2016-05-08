@@ -1,22 +1,22 @@
 <?php
 
-/* @var $burname mixed */
+/* @var $buryat_name mixed */
 ?>
 
-<?php if ($burname): ?>
+<?php if ($buryat_name): ?>
     <div class="alert alert-success">
 
-        <p><strong><?= $burname['description'] ?></strong></p>
+        <p><strong><?= $buryat_name['description'] ?></strong></p>
 
-        <?php if ($burname['note']): ?>
-            <p><?= $burname['note'] ?></p>
+        <?php if ($buryat_name['note']): ?>
+            <p><?= $buryat_name['note'] ?></p>
         <?php endif ?>
 
-        <?php if ($burname['male']): ?>
+        <?php if ($buryat_name['male']): ?>
             <span class="label label-default"><?= Yii::t('app', 'Male name') ?></span>
         <?php endif ?>
 
-        <?php if ($burname['female']): ?>
+        <?php if ($buryat_name['female']): ?>
             <span class="label label-default"><?= Yii::t('app', 'Female name') ?></span>
         <?php endif ?>
 

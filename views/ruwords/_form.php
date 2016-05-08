@@ -4,11 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Ruwords */
+/* @var $model app\models\RussianWord */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="ruwords-form">
+<div class="russian-word-form">
 
     <?php $form = ActiveForm::begin(); ?>
 

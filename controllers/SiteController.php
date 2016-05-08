@@ -4,7 +4,7 @@ namespace app\controllers;
 
 use app\models\BuryatWord;
 use app\models\BuryatName;
-use app\models\Ruwords;
+use app\models\RussianWord;
 use Yii;
 use yii\web\Controller;
 use yii\helpers\Json;
@@ -43,9 +43,9 @@ class SiteController extends Controller
      * @param string $term
      * @return mixed
      */
-    public function actionGetRuwords($term)
+    public function actionGetRussianWords($term)
     {
-        $result = Ruwords::find()
+        $result = RussianWord::find()
             ->select(['name as value'])
             ->filterWhere(['like', 'name', $term . '%', false])
             ->orderBy('name')
@@ -60,7 +60,7 @@ class SiteController extends Controller
      * @param string $term
      * @return mixed
      */
-    public function actionGetBuryatWord($term)
+    public function actionGetBuryatWords($term)
     {
         $result = BuryatWord::find()
             ->select(['name as value'])
@@ -77,7 +77,7 @@ class SiteController extends Controller
      * @param string $term
      * @return mixed
      */
-    public function actionGetBurnames($term)
+    public function actionGetBuryatNames($term)
     {
         $result = BuryatName::find()
             ->select(['name as value'])
@@ -91,19 +91,19 @@ class SiteController extends Controller
 
     /**
      * Get translate for russian word
-     * @param string $ruword
+     * @param string $russian_word
      * @return mixed
      */
-    public function actionRu2bur($ruword)
+    public function actionRussianTranslate($russian_word)
     {
-        $word = Ruwords::findOne(['name' => $ruword]);
+        $word = RussianWord::findOne(['name' => $russian_word]);
         if (Yii::$app->request->isAjax) {
             return $this->renderAjax('_translate', [
                 'word' => $word
             ]);
         }
         return $this->render('index', [
-            'ruword' => $word
+            'russian_word' => $word
         ]);
     }
 
@@ -112,7 +112,7 @@ class SiteController extends Controller
      * @param string $buryat_word
      * @return mixed
      */
-    public function actionBur2ru($buryat_word)
+    public function actionBuryatTranslate($buryat_word)
     {
         $word = BuryatWord::findOne(['name' => $buryat_word]);
         if (Yii::$app->request->isAjax) {
@@ -127,19 +127,19 @@ class SiteController extends Controller
 
     /**
      * Get description for buryat name
-     * @param string $burname
+     * @param string $buryat_name
      * @return mixed
      */
-    public function actionBurname($burname)
+    public function actionBuryatName($buryat_name)
     {
-        $burname = BuryatName::findOne(['name' => $burname]);
+        $name = BuryatName::findOne(['name' => $buryat_name]);
         if (Yii::$app->request->isAjax) {
-            return $this->renderAjax('_burname', [
-                'burname' => $burname
+            return $this->renderAjax('_buryat_name', [
+                'buryat_name' => $name
             ]);
         }
         return $this->render('index', [
-            'burname' => $burname
+            'buryat_name' => $name
         ]);
     }
 }
