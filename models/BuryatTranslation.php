@@ -5,21 +5,21 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "rutranslations".
+ * This is the model class for table "buryat_translation".
  *
  * @property integer $id
  * @property integer $burword_id
  * @property integer $dict_id
  * @property string $name
  */
-class Rutranslations extends \yii\db\ActiveRecord
+class BuryatTranslation extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'rutranslations';
+        return 'buryat_translation';
     }
 
     /**
@@ -50,7 +50,7 @@ class Rutranslations extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getBurword()
+    public function getBuryatWord()
     {
         return $this->hasOne(BuryatWord::className(), ['id' => 'burword_id']);
     }

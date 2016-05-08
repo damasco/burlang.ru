@@ -2,7 +2,7 @@
 
 namespace app\controllers;
 
-use app\models\Burtranslations;
+use app\models\RussianTranslation;
 use Yii;
 use app\models\RussianWord;
 use app\models\RussianWordSearch;
@@ -84,7 +84,7 @@ class RussianWordController extends Controller
     {
         $model = $this->findModel($id);
 
-        $translationForm = new Burtranslations();
+        $translationForm = new RussianTranslation();
         $translationForm->ruword_id = $model->id;
         if ($translationForm->load(Yii::$app->request->post()) && $translationForm->save()) {
             Yii::$app->session->setFlash('success', Yii::t('app', 'Translation added'));
@@ -132,7 +132,7 @@ class RussianWordController extends Controller
     }
 
     /**
-     * Deletes an existing Burtranslations model
+     * Deletes an existing RussianTranslation model
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
      * @return mixed
@@ -140,7 +140,7 @@ class RussianWordController extends Controller
      */
     public function actionDeleteTranslation($id)
     {
-        if (($translate = Burtranslations::findOne($id)) !== null) {
+        if (($translate = RussianTranslation::findOne($id)) !== null) {
             $translate->delete();
             Yii::$app->session->setFlash('success', Yii::t('app', 'Translation removed'));
             return $this->redirect(['update', 'id' => $translate->ruword_id]);

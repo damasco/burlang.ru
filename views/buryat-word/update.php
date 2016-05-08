@@ -4,7 +4,7 @@ use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\BuryatWord */
-/* @var $translationForm app\models\Rutranslations */
+/* @var $translationForm app\models\BuryatTranslation */
 /* @var $dictionaries app\models\Dictionary[] */
 
 $this->title = Yii::t('app', 'Edit') . ': ' . $model->name;

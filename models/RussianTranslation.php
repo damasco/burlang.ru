@@ -5,20 +5,20 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "burtranslations".
+ * This is the model class for table "russian_translation".
  *
  * @property integer $id
  * @property integer $ruword_id
  * @property string $name
  */
-class Burtranslations extends \yii\db\ActiveRecord
+class RussianTranslation extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'burtranslations';
+        return 'russian_translation';
     }
 
     /**

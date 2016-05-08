@@ -47,7 +47,7 @@ class BuryatWord extends \yii\db\ActiveRecord
      */
     public function getTranslation()
     {
-        return $this->hasMany(Rutranslations::className(), ['burword_id' => 'id']);
+        return $this->hasMany(BuryatTranslation::className(), ['burword_id' => 'id']);
     }
 
 }

@@ -47,6 +47,6 @@ class RussianWord extends \yii\db\ActiveRecord
      */
     public function getTranslation()
     {
-        return $this->hasMany(Burtranslations::className(), ['ruword_id' => 'id']);
+        return $this->hasMany(RussianTranslation::className(), ['ruword_id' => 'id']);
     }
 }

@@ -3,7 +3,7 @@
 namespace app\controllers;
 
 use app\models\Dictionary;
-use app\models\Rutranslations;
+use app\models\BuryatTranslation;
 use Yii;
 use app\models\BuryatWord;
 use app\models\BuryatWordSearch;
@@ -88,7 +88,7 @@ class BuryatWordController extends Controller
 
         $dictionaries = Dictionary::find()->asArray()->all();
 
-        $translationForm = new Rutranslations();
+        $translationForm = new BuryatTranslation();
         $translationForm->burword_id = $model->id;
         if ($translationForm->load(Yii::$app->request->post()) && $translationForm->save()) {
             Yii::$app->session->setFlash('success', Yii::t('app', 'Translation added'));
@@ -137,7 +137,7 @@ class BuryatWordController extends Controller
     }
 
     /**
-     * Deletes an existing Rutranslations model
+     * Deletes an existing BuryatTranslation model
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
      * @return mixed
@@ -145,7 +145,7 @@ class BuryatWordController extends Controller
      */
     public function actionDeleteTranslation($id)
     {
-        if (($translate = Rutranslations::findOne($id)) !== null) {
+        if (($translate = BuryatTranslation::findOne($id)) !== null) {
             Yii::$app->session->setFlash('success', Yii::t('app', 'Translation removed'));
             $translate->delete();
             return $this->redirect(['update', 'id' => $translate->burword_id]);
