@@ -3,6 +3,7 @@ body {
     height: 100%;
     font-family: Arial, Tahoma, sans-serif;
 }
+
 .wrap {
     min-height: 100%;
     height: auto;
@@ -163,9 +164,13 @@ ul.ui-autocomplete.ui-menu li.ui-state-focus {
     background-color: #22769a;
 }
 
-.modal-open .navbar-fixed-top,
-.modal-open .navbar-fixed-bottom {
-    padding-right: 15px;
+body.modal-open {
+    overflow-y: auto !important;
+    padding-right: 0 !important;
+}
+
+.modal-scrollbar-measure {
+    overflow: hidden;
 }
 
 .well h4 {
