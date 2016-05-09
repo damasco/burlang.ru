@@ -39,7 +39,7 @@ $(document).ready(function() {
         var $modal = $('#detail-name-modal');
         $.ajax({
             url: '/buryat-name/get-name',
-            data: {name: $this.text()}
+            data: { name: $this.text() }
         }).done(function(response) {
             $modal.find('.response-content').html(response);
             $modal.modal('show');

@@ -3,7 +3,6 @@ body {
     height: 100%;
     font-family: Arial, Tahoma, sans-serif;
 }
-
 .wrap {
     min-height: 100%;
     height: auto;
@@ -162,6 +161,11 @@ ul.ui-autocomplete.ui-menu li.ui-state-focus {
 .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:focus {
     color: #fff;
     background-color: #22769a;
+}
+
+.modal-open .navbar-fixed-top,
+.modal-open .navbar-fixed-bottom {
+    padding-right: 15px;
 }
 
 .well h4 {

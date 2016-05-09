@@ -9,6 +9,8 @@ use Yii;
  *
  * @property integer $id
  * @property string $name
+ *
+ * @property RussianTranslation[] $translation
  */
 class RussianWord extends \yii\db\ActiveRecord
 {

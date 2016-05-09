@@ -10,7 +10,7 @@ $this->title = $model->name;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Dictionaries'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="dictionaries-view">
+<div class="dictionary-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

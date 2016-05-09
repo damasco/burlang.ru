@@ -9,6 +9,8 @@ use Yii;
  *
  * @property integer $id
  * @property string $name
+ *
+ * @property BuryatTranslation[] $translation
  */
 class BuryatWord extends \yii\db\ActiveRecord
 {

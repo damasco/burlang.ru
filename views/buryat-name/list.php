@@ -21,9 +21,11 @@ if ($first_letter) {
     <ul class="list-inline list-letter">
         <?php foreach ($alphabet as $letter): ?>
             <li>
-                <?= Html::a($letter, ['/buryat-name/list', 'first_letter' => $letter],
-                    ['class' => ($first_letter == $letter) ? 'btn btn-warning btn-lg btn-block active' : 'btn btn-warning btn-lg btn-block']
-                ) ?>
+                <?= Html::a($letter, ['/buryat-name/list', 'first_letter' => $letter], [
+                    'class' => ($first_letter == $letter) ?
+                        'btn btn-warning btn-lg btn-block active' :
+                        'btn btn-warning btn-lg btn-block'
+                ]) ?>
             </li>
         <?php endforeach ?>
     </ul>

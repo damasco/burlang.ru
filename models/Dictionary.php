@@ -11,6 +11,8 @@ use Yii;
  * @property string $name
  * @property string $info
  * @property string $isbn
+ *
+ * @property BuryatTranslation[] $buryatTranslation
  */
 class Dictionary extends \yii\db\ActiveRecord
 {
@@ -46,5 +48,13 @@ class Dictionary extends \yii\db\ActiveRecord
             'info' => Yii::t('app', 'Information'),
             'isbn' => Yii::t('app', 'Isbn'),
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getBuryatTranslation()
+    {
+        return $this->hasMany(BuryatTranslation::className(), ['dict_id' => 'id']);
     }
 }

@@ -11,6 +11,9 @@ use Yii;
  * @property integer $burword_id
  * @property integer $dict_id
  * @property string $name
+ *
+ * @property BuryatWord $buraytWord
+ * @property Dictionary $dictionary
  */
 class BuryatTranslation extends \yii\db\ActiveRecord
 {

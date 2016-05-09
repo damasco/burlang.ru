@@ -1,13 +1,13 @@
 <?php
 
-/* @var $word mixed */
+/* @var $word \app\models\BuryatWord|\app\models\RussianWord */
 ?>
 
 <?php if ($word && $word->getTranslation()->exists()): ?>
     <div class="alert alert-success">
         <ul class="translate-list">
         <?php foreach($word->translation as $item): ?>
-            <li><?= $item['name'] ?></li>
+            <li><?= $item->name ?></li>
         <?php endforeach; ?>
         </ul>
     </div>
