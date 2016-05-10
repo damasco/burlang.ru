@@ -1,0 +1,95 @@
+.navbar-inverse {
+  background-color: #1e6887;
+  border-bottom: 5px solid #247ba0;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  color: #fff;
+  font-family: Verdana, Arial, sans-serif;
+}
+
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+  color: #fff;
+  background-color: #247ba0;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+  color: #fff;
+  background-color: #22769a;
+}
+
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus {
+  color: #fff;
+  background-color: #22769a;
+}
+
+.navbar-inverse .navbar-toggle {
+  border-color: #fff;
+}
+
+.navbar-inverse .navbar-toggle:hover,
+.navbar-inverse .navbar-toggle:focus {
+  background-color: #247ba0;
+}
+
+.navbar-inverse .navbar-brand {
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 21px;
+  color: #fff;
+  font-weight: bold;
+}
+
+.navbar-inverse .navbar-nav .open .dropdown-menu > .active > a,
+.navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:hover,
+.navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:focus {
+  color: #fff;
+  background-color: #247ba0;
+}
+
+.navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover,
+.navbar-inverse .navbar-nav .open .dropdown-menu > li > a:focus {
+  color: #fff;
+  background-color: #22769a;
+}
+
+body.modal-open {
+  overflow-y: auto !important;
+  padding-right: 0 !important;
+}
+
+.modal-scrollbar-measure {
+  overflow: hidden;
+}
+
+.well h4 {
+  margin-top: 0;
+}
+
+.label {
+  font-weight: normal;
+  font-family: Verdana, Arial, sans-serif;
+}
+
+a:hover, a:focus {
+  color: #103848;
+}
+
+a {
+  color: #1e6887;
+}
+
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  background-color: #e5e5e5;
+}
+
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus {
+  background-color: #247ba0;
+}

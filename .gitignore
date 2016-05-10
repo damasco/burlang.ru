@@ -37,3 +37,8 @@ phpunit.phar
 /views/_comments.php
 /views/_end_body.php
 /web/index.php
+
+# files automatically generated on dev platform
+/web/js/*
+/web/css/*
+/web/img/*
