@@ -6,17 +6,23 @@
   padding-left: 15px;
 }
 
-#russian-translation .alert, #buryat-translation .alert {
-  margin-bottom: 0;
+#russian-translation, #buryat-translation {
+  .alert {
+    margin-bottom: 0;
+  }
 }
 
-.list-letter li {
-  margin-bottom: 10px;
-  width: 60px;
+.list-letter {
+  li {
+    margin-bottom: 10px;
+    width: 60px;
+  }
 }
 
-.list-name li {
-  margin-bottom: 10px;
+.list-name {
+  li {
+    margin-bottom: 10px;
+  }
 }
 
 .btn-custom {
