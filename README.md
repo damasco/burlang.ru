@@ -34,9 +34,7 @@ php yii migrate
 php yii user/create <email> <username> [password] [...options...]
 ```
 
-##### Example
+### 4. Build
 
-```
-php yii user/create example@gmail.com admin password
-```
+Run `gulp build` - automatically build target CSS/JS files
 
