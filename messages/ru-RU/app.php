@@ -1,6 +1,6 @@
 <?php
 return [
-    //common
+    // common
     'Create' => 'Создать',
     'Update' => 'Обновить',
     'Edit' => 'Редактировать',
@@ -31,17 +31,10 @@ return [
     'Active' => 'Активный',
     'Find' => 'Найти',
 
-    //main
-    'About project' => 'О проекте',
-    'Contacts' => 'Контакты',
-    'Login' => 'Войти',
-    'Logout' => 'Выйти',
-    'username' => 'Логин',
-    'password' => 'Пароль',
-    'Remember Me' => 'Запомнить меня',
-    'Control' => 'Управление',
+    // error
+    'The requested page does not exist.' => 'Запрашиваемая страница не существует.',
 
-    //site
+    // main
     'Translation' => 'Перевод',
     'No translation' => 'Перевода нет',
     'Enter the word' => 'Введите слово',
@@ -58,18 +51,29 @@ return [
     'New word' => 'Новое слово',
     'Delete word' => 'Удалить слово',
     'Add name' => 'Добавить имя',
+    'More' => 'Подробнее',
 
-    //national
+    // national
     'Russian-Buryat, Buryat-Russian electronic dictionary' => 'Русско-Бурятский, Бурятско-Русский электронный словарь',
     'Russian-Buryat dictionary' => 'Русско-Бурятский словарь',
     'Buryat-Russian dictionary' => 'Бурятско-Русский словарь',
 
-    //news
+    // layout/main
+    'About project' => 'О проекте',
+    'Contacts' => 'Контакты',
+    'Login' => 'Войти',
+    'Logout' => 'Выйти',
+    'username' => 'Логин',
+    'password' => 'Пароль',
+    'Remember Me' => 'Запомнить меня',
+    'Control' => 'Управление',
+
+    // news
     'News' => 'Новости',
     'Create news' => 'Создать новость',
     'Read more' => 'Читать далее',
 
-    //buryat-name
+    // buryat-name
     'Bur. names' => 'Бур. имена',
     'Buryat names' => 'Бурятские имена',
     'Note' => 'Заметка',
@@ -78,18 +82,15 @@ return [
     'Male name' => 'Мужское имя',
     'Female name' => 'Женское имя',
 
-    //buryat words
+    // buryat words
     'Buryat words' => 'Бурятские слова',
     'Bur. words' => 'Бур. слова',
 
-    //russian words
+    // russian words
     'Russian words' => 'Русские слова',
     'Ru. words' => 'Рус. слова',
 
-    //error
-    'The requested page does not exist.' => 'Запрашиваемая страница не существует.',
-
-    //dictionaries
+    // dictionaries
     'Dictionary' => 'Словарь',
     'dictionary' => 'словарь',
     'Dictionaries' => 'Словари',

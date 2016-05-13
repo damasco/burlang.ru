@@ -48,7 +48,7 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
                 </form>
                 <div id="russian-translation">
                     <?php if (isset($russian_word)): ?>
-                        <?= $this->render('_translate', ['word' => $russian_word]) ?>
+                        <?= $this->render('_translation', ['word' => $russian_word]) ?>
                     <?php endif ?>
                 </div>
             </div>
@@ -92,7 +92,7 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
                 </form>
                 <div id="buryat-translation">
                     <?php if (isset($buryat_word)): ?>
-                        <?= $this->render('_translate', ['word' => $buryat_word]) ?>
+                        <?= $this->render('_translation', ['word' => $buryat_word]) ?>
                     <?php endif ?>
                 </div>
             </div>
@@ -151,7 +151,7 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
             </div>
         </div>
         <div class="col-sm-4">
-            <div class="well">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur culpa deleniti ea ex libero minus mollitia, nemo nostrum porro, quos repudiandae sapiente sint temporibus veniam vero, voluptas voluptate. Dicta, hic?</div>
+            <?= $this->render('_translation_service') ?>
         </div>
     </div>
     <div class="row mt10">

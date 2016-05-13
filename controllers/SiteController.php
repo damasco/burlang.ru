@@ -98,7 +98,7 @@ class SiteController extends Controller
     {
         $word = RussianWord::findOne(['name' => $russian_word]);
         if (Yii::$app->request->isAjax) {
-            return $this->renderAjax('_translate', [
+            return $this->renderAjax('_translation', [
                 'word' => $word
             ]);
         }
@@ -116,7 +116,7 @@ class SiteController extends Controller
     {
         $word = BuryatWord::findOne(['name' => $buryat_word]);
         if (Yii::$app->request->isAjax) {
-            return $this->renderAjax('_translate', [
+            return $this->renderAjax('_translation', [
                 'word' => $word
             ]);
         }

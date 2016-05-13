@@ -1,9 +1,18 @@
-.translate-list {
-  padding-left: 15px;
+// site/index
+.site-index {
+  .translate-list {
+    padding-left: 15px;
+  }
+
+  #russian-translation, #buryat-translation {
+    .alert {
+      margin-bottom: 0;
+    }
+  }
 }
 
-#russian-translation, #buryat-translation {
-  .alert {
-    margin-bottom: 0;
-  }
+// site/_translation_service
+.site-translation-service {
+  padding: 10px 30px 20px;
+  border: 1px solid #f0ad4e;
 }
