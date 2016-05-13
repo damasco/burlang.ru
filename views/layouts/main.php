@@ -91,6 +91,10 @@ AppAsset::register($this);
                 'label' => Yii::t('app', 'News'),
                 'url' => ['/news/index'], 'active' => Yii::$app->controller->id == 'news'
             ],
+            [
+                'label' => Yii::t('app', 'Translation service'),
+                'url' => ['translation-service/index'],
+            ],
 //            ['label' => Yii::t('app', 'About project'), 'url' => ['/site/about']],
             !Yii::$app->user->isGuest ?
             [

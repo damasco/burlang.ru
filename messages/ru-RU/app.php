@@ -96,4 +96,7 @@ return [
     'Dictionaries' => 'Словари',
     'Add dictionary' => 'Добавить словарь',
     'Information' => 'Информация',
+
+    // translation service
+    'Translation service' => 'Услуги по переводу',
 ];
