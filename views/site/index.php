@@ -11,7 +11,7 @@ use yii\web\JsExpression;
 $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-Russian electronic dictionary');
 ?>
 <div class="site-index">
-    <div class="row mt10">
+    <div class="row mt-10">
         <div class="col-sm-6">
             <div class="well">
                 <h4><?= Yii::t('app', 'Russian-Buryat dictionary') ?></h4>
@@ -98,7 +98,7 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
             </div>
         </div>
     </div>
-    <div class="row mt10">
+    <div class="row mt-10">
         <div class="col-sm-8">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -154,7 +154,7 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
             <?= $this->render('_translation_service') ?>
         </div>
     </div>
-    <div class="row mt10">
+    <div class="row mt-10">
         <div class="col-sm-4 col-sm-push-8">
             <?= \app\widgets\NewsWidget::widget() ?>
         </div>
