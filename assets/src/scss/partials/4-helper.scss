@@ -1,3 +1,11 @@
-.mt20 {
-  margin-top: 20px;
+@mixin margin-top($param) {
+  margin-top: $param;
+}
+
+.mt-20 {
+  @include margin-top(20px);
+}
+
+.mt-10 {
+  @include margin-top(10px);
 }

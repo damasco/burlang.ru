@@ -3,8 +3,12 @@
 /* @var $model \app\models\News */
 ?>
 
-<h3><?= Yii::t('app', 'News') ?></h3>
+<div class="news-widget">
 
-<?php foreach ($model as $news): ?>
-    <?= $this->render('/news/_view', ['model' => $news]) ?>
-<?php endforeach ?>
+    <h3><?= Yii::t('app', 'News') ?></h3>
+
+    <?php foreach ($model as $news): ?>
+        <?= $this->render('/news/_view', ['model' => $news]) ?>
+    <?php endforeach ?>
+
+</div>

@@ -2,4 +2,16 @@
 @import "partials/2-autocomplete";
 @import "partials/3-custom-bootstrap";
 @import "partials/4-helper";
-@import "partials/5-app";
+@import "partials/5-buttons";
+
+//site
+@import "partials/site/all-site";
+
+//burayt-name
+@import "partials/buryat-name/all-buryat-name";
+
+//news
+@import "partials/news/all-news";
+
+//widgets
+@import "partials/widgets/news";

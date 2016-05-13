@@ -2,6 +2,10 @@ $nav-link-color: #fff;
 $nav-item-bg-hover: #22769a;
 $nav-item-bg-active: #247ba0;
 
+.container {
+  max-width: 1024px;
+}
+
 .navbar-inverse {
   background-color: #1e6887;
   border-bottom: 5px solid #247ba0;
