@@ -3,5 +3,7 @@ return [
 //    'about' => 'site/about',
     'news' => 'news/index',
     'buryat-name' => 'buryat-name/list',
-    'translation-service' => 'translation-service/index',
+
+    'page/<action:(create|delete|update|index)>' => 'page/<action>',
+    'page/<link:[\w-]+>' => '/page/view',
 ];

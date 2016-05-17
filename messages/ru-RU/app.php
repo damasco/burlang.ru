@@ -99,4 +99,10 @@ return [
 
     // translation service
     'Translation service' => 'Услуги по переводу',
+
+    // page
+    'Page' => 'Страница',
+    'Pages' => 'Страницы',
+    'Create page' => 'Создать страницу',
+    'Link' => 'Ссылка',
 ];

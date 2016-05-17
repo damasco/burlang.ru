@@ -91,10 +91,9 @@ AppAsset::register($this);
                 'label' => Yii::t('app', 'News'),
                 'url' => ['/news/index'], 'active' => Yii::$app->controller->id == 'news'
             ],
-            [
-                'label' => Yii::t('app', 'Translation service'),
-                'url' => ['translation-service/index'],
-            ],
+
+            Yii::$app->page->getItemMenu('translation-service'),
+
 //            ['label' => Yii::t('app', 'About project'), 'url' => ['/site/about']],
             !Yii::$app->user->isGuest ?
             [
@@ -104,6 +103,7 @@ AppAsset::register($this);
                     ['label' => Yii::t('app', 'Buryat words'), 'url' => ['/buryat-word/index']],
                     ['label' => Yii::t('app', 'Russian words'), 'url' => ['/russian-word/index']],
                     ['label' => Yii::t('app', 'Dictionaries'), 'url' => ['/dictionary/index']],
+                    ['label' => Yii::t('app', 'Pages'), 'url' => ['/page/index']],
                     ['label' => Yii::t('user', 'Users'), 'url' => ['/user/admin/index'], 'visible' => Yii::$app->user->identity->getIsAdmin()],
                 ],
             ] : '',

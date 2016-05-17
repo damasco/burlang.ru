@@ -2,6 +2,7 @@
 
 use yii\jui\AutoComplete;
 use yii\web\JsExpression;
+use app\widgets\TranslationServiceWidget;
 
 /* @var $this yii\web\View */
 /* @var $russian_word mixed */
@@ -151,7 +152,7 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
             </div>
         </div>
         <div class="col-sm-4">
-            <?= $this->render('_translation_service') ?>
+            <?= TranslationServiceWidget::widget() ?>
         </div>
     </div>
     <div class="row mt-10">
