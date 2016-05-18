@@ -19,16 +19,6 @@ $(document).ready(function() {
         });
     });
 
-    $('#buryat-name-form').on('submit', function(e) {
-        e.preventDefault();
-        $.ajax({
-            url: '/site/buryat-name',
-            data: $(this).serialize()
-        }).done(function(response) {
-            $('#buryat-name-response').html(response);
-        });
-    });
-
     $('button.add-buryat-word').on('click', function() {
         $(this).parent('span').siblings('input').sendkeys($(this).text());
     });
