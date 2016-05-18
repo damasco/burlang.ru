@@ -16,7 +16,6 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
         <div class="col-sm-6">
             <div class="well">
                 <h4><?= Yii::t('app', 'Russian-Buryat dictionary') ?></h4>
-                <hr>
                 <form action="/site/russian-translate" method="get" id="russian-form">
                     <input type="hidden" name="<?= Yii::$app->request->csrfParam ?>" value="<?= Yii::$app->request->getCsrfToken() ?>" />
                     <div class="form-group">
@@ -56,8 +55,7 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
         </div>
         <div class="col-sm-6">
             <div class="well">
-                <h2 class="panel-title"><?= Yii::t('app', 'Buryat-Russian dictionary') ?></h2>
-                <hr>
+                <h4><?= Yii::t('app', 'Buryat-Russian dictionary') ?></h4>
                 <form action="/site/buryat-translate" method="get" id="buryat-form">
                     <input type="hidden" name="<?= Yii::$app->request->csrfParam ?>" value="<?= Yii::$app->request->getCsrfToken() ?>" />
                     <div class="form-group">

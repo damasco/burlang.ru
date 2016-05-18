@@ -1,5 +1,14 @@
 // site/index
 .site-index {
+  .well {
+    background-color: #ecf0f1;
+    border-color: #d7e0e2;
+    h4 {
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
+  }
+
   .translate-list {
     padding-left: 15px;
   }

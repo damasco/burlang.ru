@@ -1,6 +1,7 @@
 $nav-link-color: #fff;
 $nav-item-bg-hover: #22769a;
 $nav-item-bg-active: #247ba0;
+$nav-border-divider: #0f4d5c;
 
 .container {
   max-width: 1024px;
@@ -27,27 +28,41 @@ $nav-item-bg-active: #247ba0;
         background-color: $nav-item-bg-active;
       }
     }
-    > .open > a {
-      &,
-      &:hover,
-      &:focus {
-        color: $nav-link-color;
-        background-color: $nav-item-bg-hover;
-      }
+    > .open {
       .dropdown-menu {
         > li > a {
-          &:hover,
-          &:focus {
+          @media (max-width: 767px) {
             color: $nav-link-color;
-            background-color: $nav-item-bg-hover;
           }
         }
-        > .active > a {
-          &,
-          &:hover,
-          &:focus {
-            color: $nav-link-color;
-            background-color: $nav-item-bg-active;
+        .divider {
+          @media (max-width: 767px) {
+            background-color: $nav-border-divider;
+          }
+        }
+      }
+      > a {
+        &,
+        &:hover,
+        &:focus {
+          color: $nav-link-color;
+          background-color: $nav-item-bg-hover;
+        }
+        .dropdown-menu {
+          > li > a {
+            &:hover,
+            &:focus {
+              color: $nav-link-color;
+              background-color: $nav-item-bg-hover;
+            }
+          }
+          > .active > a {
+            &,
+            &:hover,
+            &:focus {
+              color: $nav-link-color;
+              background-color: $nav-item-bg-active;
+            }
           }
         }
       }
@@ -65,6 +80,11 @@ $nav-item-bg-active: #247ba0;
     font-size: 21px;
     color: #fff;
     font-weight: bold;
+  }
+  .navbar-collapse, .navbar-form {
+    @media (max-width: 767px) {
+      border-color: $nav-border-divider;
+    }
   }
 }
 
