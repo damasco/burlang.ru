@@ -30,15 +30,6 @@ class SiteController extends Controller
     }
 
     /**
-     * About page
-     * @return mixed
-     */
-//    public function actionAbout()
-//    {
-//        return $this->render('about');
-//    }
-
-    /**
      * Get list russian words for autocomplete
      * @param string $term
      * @return mixed
