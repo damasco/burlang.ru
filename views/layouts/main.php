@@ -95,23 +95,18 @@ AppAsset::register($this);
             Yii::$app->page->getItemMenu('translation-service'),
             Yii::$app->page->getItemMenu('about'),
 
-            !Yii::$app->user->isGuest ?
-            [
-                'label' => Yii::t('app', 'Control'),
-                'items' => [
-                    ['label' => Yii::t('app', 'Buryat names'), 'url' => ['/buryat-name/index']],
-                    ['label' => Yii::t('app', 'Buryat words'), 'url' => ['/buryat-word/index']],
-                    ['label' => Yii::t('app', 'Russian words'), 'url' => ['/russian-word/index']],
-                    ['label' => Yii::t('app', 'Dictionaries'), 'url' => ['/dictionary/index']],
-                    ['label' => Yii::t('app', 'Pages'), 'url' => ['/page/index']],
-                    ['label' => Yii::t('user', 'Users'), 'url' => ['/user/admin/index'], 'visible' => Yii::$app->user->identity->getIsAdmin()],
-                ],
-            ] : '',
             Yii::$app->user->isGuest ?
                 ['label' => Yii::t('app', 'Login'), 'url' => ['/user/security/login']] :
                 [
                     'label' => Yii::$app->user->identity->username,
                     'items' => [
+                        ['label' => Yii::t('app', 'Buryat names'), 'url' => ['/buryat-name/index']],
+                        ['label' => Yii::t('app', 'Buryat words'), 'url' => ['/buryat-word/index']],
+                        ['label' => Yii::t('app', 'Russian words'), 'url' => ['/russian-word/index']],
+                        ['label' => Yii::t('app', 'Dictionaries'), 'url' => ['/dictionary/index']],
+                        ['label' => Yii::t('app', 'Pages'), 'url' => ['/page/index']],
+                        ['label' => Yii::t('user', 'Users'), 'url' => ['/user/admin/index'], 'visible' => Yii::$app->user->identity->getIsAdmin()],
+                        '<li role="separator" class="divider"></li>',
                         ['label' => Yii::t('user', 'Profile'), 'url' => ['/user/profile/show', 'id' => Yii::$app->user->identity->id]],
                         ['label' => Yii::t('user', 'Profile settings'), 'url' => ['/user/settings/profile', 'id' => Yii::$app->user->identity->id]],
                         '<li role="separator" class="divider"></li>',
