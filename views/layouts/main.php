@@ -93,8 +93,8 @@ AppAsset::register($this);
             ],
 
             Yii::$app->page->getItemMenu('translation-service'),
+            Yii::$app->page->getItemMenu('about'),
 
-//            ['label' => Yii::t('app', 'About project'), 'url' => ['/site/about']],
             !Yii::$app->user->isGuest ?
             [
                 'label' => Yii::t('app', 'Control'),
