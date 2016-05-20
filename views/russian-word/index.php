@@ -40,6 +40,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     [
                         'class' => 'yii\grid\ActionColumn',
                         'template' => '{update} {delete}',
+                        'contentOptions' => [
+                            'style' => 'width: 50px;'
+                        ]
                     ],
                 ],
             ]); ?>

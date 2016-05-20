@@ -17,17 +17,24 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a(Yii::t('app', 'Add dictionary'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+    <div class="table-responsive">
+        <?= GridView::widget([
+            'dataProvider' => $dataProvider,
+            'columns' => [
+                ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'name',
-            'info',
-            'isbn',
+                'id',
+                'name',
+                'info',
+                'isbn',
 
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
+                [
+                    'class' => 'yii\grid\ActionColumn',
+                    'contentOptions' => [
+                        'style' => 'width: 70px;'
+                    ]
+                ],
+            ],
+        ]); ?>
+    </div>
 </div>

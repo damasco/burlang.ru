@@ -41,7 +41,12 @@ $this->params['breadcrumbs'][] = $this->title;
                         'filter' => ['1' => Yii::t('app', 'Yes'), '0' => Yii::t('app', 'No')]
                     ],
 
-                    ['class' => 'yii\grid\ActionColumn'],
+                    [
+                        'class' => 'yii\grid\ActionColumn',
+                        'contentOptions' => [
+                            'style' => 'width: 70px;'
+                        ]
+                    ],
                 ],
             ]); ?>
         </div>
