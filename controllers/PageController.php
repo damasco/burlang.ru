@@ -63,7 +63,10 @@ class PageController extends Controller
      */
     public function actionView($link)
     {
-        if (($model = Page::findOne(['link' => $link])) !== null) {
+        $model = Page::findOne(['link' => $link]);
+
+        /* @var Page $model */
+        if ($model !== null && ($model->active || !Yii::$app->user->getIsGuest())) {
             return $this->render('view', [
                 'model' => $model,
             ]);

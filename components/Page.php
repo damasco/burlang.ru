@@ -13,7 +13,7 @@ class Page extends Component
         $model = PageModel::findOne(['link' => $link]);
 
         /* @var $model \app\models\Page */
-        if ($model) {
+        if ($model !== null && $model->active) {
             return [
                 'label' => $model->title,
                 'url' => ['/page/' . $link ],

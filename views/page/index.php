@@ -23,10 +23,14 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
             'title',
             'link',
             'description',
+            [
+                'attribute' => 'active',
+                'filter' => ['0' => Yii::t('app', 'No'), '1' => Yii::t('app', 'Yes')],
+                'format' => 'boolean',
+            ],
 
             [
                 'class' => 'yii\grid\ActionColumn',
