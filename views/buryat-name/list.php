@@ -19,6 +19,8 @@ if ($first_letter) {
 
 <div class="buryat-name-list">
 
+    <h1><?= Html::encode($this->title) ?></h1>
+
     <?php if (!$first_letter || !Yii::$app->devicedetect->isMobile() || Yii::$app->devicedetect->isTablet()): ?>
         <ul class="list-inline list-letter">
             <?php foreach ($alphabet as $letter): ?>
