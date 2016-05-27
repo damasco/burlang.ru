@@ -3,13 +3,15 @@
 /* @var $scenario Codeception\Scenario */
 
 $I = new AcceptanceTester($scenario);
-$I->wantTo('ensure that news page works');
+
+$I->wantTo('ensure that buryat-name list page works');
 
 $I->amOnPage(Yii::$app->homeUrl);
-$I->seeLink('News');
-$I->click('News');
+$I->seeLink('Buryat names');
+$I->click('Buryat names');
 
 if (method_exists($I, 'wait')) {
     $I->wait(1); // only for selenuim
 }
-$I->see('News', 'h1');
+
+$I->see('Buryat names', 'h1');
