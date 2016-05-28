@@ -24,7 +24,7 @@ class NewsTest extends DbTestCase
 
         expect('model is not valid', $model->validate())->false();
         expect('title is required', $model->errors)->hasKey('title');
-        expect('content is not required', $model->errors)->hasntKey('description');
+        expect('description is not required', $model->errors)->hasntKey('description');
         expect('content is required', $model->errors)->hasKey('content');
 
     }
