@@ -1,5 +1,10 @@
 <?php
 
+namespace tests\codeception\functional;
+
+use FunctionalTester;
+use Yii;
+
 class BuryatNameCest
 {
     public function _before(FunctionalTester $I)

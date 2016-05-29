@@ -1,5 +1,10 @@
 <?php
 
+namespace test\codeception\acceptance;
+
+use AcceptanceTester;
+use Yii;
+
 class NewsCest
 {
     public function _before(AcceptanceTester $I)

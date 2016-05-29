@@ -1,5 +1,10 @@
 <?php
 
+namespace test\codeception\acceptance;
+
+use Yii;
+use AcceptanceTester;
+
 class BuryatNameCest
 {
     public function _before(AcceptanceTester $I)
