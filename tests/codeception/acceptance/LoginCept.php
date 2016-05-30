@@ -26,19 +26,3 @@ if (method_exists($I, 'wait')) {
 }
 $I->expectTo('see validations errors');
 $I->see('Invalid login or password');
-
-$I->amGoingTo('try to login with correct credentials');
-// need to add test information user in /config/param-local.php
-/*
- * Example
- * ...
- * 'test-user' => ['login' => 'test', 'password' => 'password']
- * ...
- * */
-$testUser = Yii::$app->params['test-user'];
-$loginPage->login($testUser['login'], $testUser['password']);
-if (method_exists($I, 'wait')) {
-    $I->wait(3); // only for selenium
-}
-$I->expectTo('see user info');
-$I->see('admin');

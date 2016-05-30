@@ -7,14 +7,6 @@ use Yii;
 
 class NewsCest
 {
-    public function _before(FunctionalTester $I)
-    {
-    }
-
-    public function _after(FunctionalTester $I)
-    {
-    }
-
     public function indexPage(FunctionalTester $I)
     {
         $I->wantTo('ensure that news page works');

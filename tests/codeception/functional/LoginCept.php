@@ -20,16 +20,3 @@ $I->amGoingTo('try to login with wrong credentials');
 $loginPage->login('admin', 'wrong');
 $I->expectTo('see validations errors');
 $I->see('Invalid login or password');
-
-$I->amGoingTo('try to login with correct credentials');
-// need to add information user in /config/param-local.php
-/*
- * Example
- * ...
- * 'test-user' => ['login' => 'test', 'password' => 'password']
- * ...
- * */
-$testUser = Yii::$app->params['test-user'];
-$loginPage->login($testUser['login'], $testUser['password']);
-$I->expectTo('see user info');
-$I->see('admin');

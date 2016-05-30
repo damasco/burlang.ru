@@ -7,14 +7,6 @@ use Yii;
 
 class NewsCest
 {
-    public function _before(AcceptanceTester $I)
-    {
-    }
-
-    public function _after(AcceptanceTester $I)
-    {
-    }
-
     public function indexPage(AcceptanceTester $I)
     {
         $I->wantTo('ensure that news page works');

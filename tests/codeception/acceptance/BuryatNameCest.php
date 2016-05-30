@@ -7,14 +7,6 @@ use AcceptanceTester;
 
 class BuryatNameCest
 {
-    public function _before(AcceptanceTester $I)
-    {
-    }
-
-    public function _after(AcceptanceTester $I)
-    {
-    }
-
     public function listPage(AcceptanceTester $I)
     {
         $I->wantTo('ensure that buryat-name list page works');
