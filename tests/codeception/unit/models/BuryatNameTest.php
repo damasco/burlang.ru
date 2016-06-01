@@ -1,5 +1,7 @@
 <?php
 
+namespace test\codeception\unit;
+
 use app\models\BuryatName;
 use Codeception\Specify;
 use yii\codeception\DbTestCase;
