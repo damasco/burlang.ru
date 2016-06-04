@@ -34,6 +34,7 @@ class BuryatTranslation extends \yii\db\ActiveRecord
             [['name', 'burword_id'], 'required'],
             [['burword_id', 'dict_id'], 'integer'],
             [['name'], 'string', 'max' => 2000],
+            [['burword_id'], 'exist', 'skipOnError' => true, 'targetClass' => BuryatWord::className(), 'targetAttribute' => ['burword_id' => 'id']],
         ];
     }
 
