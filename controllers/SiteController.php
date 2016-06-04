@@ -3,11 +3,11 @@
 namespace app\controllers;
 
 use app\models\BuryatWord;
-use app\models\BuryatName;
 use app\models\RussianWord;
 use Yii;
 use yii\web\Controller;
 use yii\helpers\Json;
+use yii\web\NotFoundHttpException;
 
 class SiteController extends Controller
 {
@@ -33,51 +33,44 @@ class SiteController extends Controller
      * Get list russian words for autocomplete
      * @param string $term
      * @return mixed
+     * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionGetRussianWords($term)
     {
-        $result = RussianWord::find()
-            ->select(['name as value'])
-            ->filterWhere(['like', 'name', $term . '%', false])
-            ->orderBy('name')
-            ->limit(10)
-            ->asArray()
-            ->all();
-        return Json::encode($result);
+        if (Yii::$app->request->isAjax) {
+            $result = RussianWord::find()
+                ->select(['name as value'])
+                ->filterWhere(['like', 'name', $term . '%', false])
+                ->orderBy('name')
+                ->limit(10)
+                ->asArray()
+                ->all();
+            return Json::encode($result);
+        } else {
+            throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+        }
     }
 
     /**
      * Get list buryat words for autocomplete
      * @param string $term
      * @return mixed
+     * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionGetBuryatWords($term)
     {
-        $result = BuryatWord::find()
-            ->select(['name as value'])
-            ->filterWhere(['like', 'name', $term . '%', false])
-            ->orderBy('name')
-            ->limit(10)
-            ->asArray()
-            ->all();
-        return Json::encode($result);
-    }
-
-    /**
-     * Get list buryat names for autocomplete
-     * @param string $term
-     * @return mixed
-     */
-    public function actionGetBuryatNames($term)
-    {
-        $result = BuryatName::find()
-            ->select(['name as value'])
-            ->filterWhere(['like', 'name', $term . '%', false])
-            ->orderBy('name')
-            ->limit(10)
-            ->asArray()
-            ->all();
-        return Json::encode($result);
+        if (Yii::$app->request->isAjax) {
+            $result = BuryatWord::find()
+                ->select(['name as value'])
+                ->filterWhere(['like', 'name', $term . '%', false])
+                ->orderBy('name')
+                ->limit(10)
+                ->asArray()
+                ->all();
+            return Json::encode($result);
+        } else {
+            throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+        }
     }
 
     /**
@@ -113,24 +106,6 @@ class SiteController extends Controller
         }
         return $this->render('index', [
             'buryat_word' => $word
-        ]);
-    }
-
-    /**
-     * Get description for buryat name
-     * @param string $buryat_name
-     * @return mixed
-     */
-    public function actionBuryatName($buryat_name)
-    {
-        $name = BuryatName::findOne(['name' => $buryat_name]);
-        if (Yii::$app->request->isAjax) {
-            return $this->renderAjax('_buryat_name', [
-                'buryat_name' => $name
-            ]);
-        }
-        return $this->render('index', [
-            'buryat_name' => $name
         ]);
     }
 }
