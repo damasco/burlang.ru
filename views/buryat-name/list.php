@@ -5,13 +5,13 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $alphabet array */
 /* @var $names array */
-/* @var $first_letter string */
+/* @var $letter string */
 
 $this->title = Yii::t('app', 'Buryat names');
 
-if ($first_letter) {
+if ($letter !== null) {
     $this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['list']];
-    $this->params['breadcrumbs'][] = $first_letter;
+    $this->params['breadcrumbs'][] = $letter;
 } else {
     $this->params['breadcrumbs'][] = $this->title;
 }
@@ -21,13 +21,13 @@ if ($first_letter) {
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <?php if (!$first_letter || !Yii::$app->devicedetect->isMobile() || Yii::$app->devicedetect->isTablet()): ?>
+    <?php if (!$letter || !Yii::$app->devicedetect->isMobile() || Yii::$app->devicedetect->isTablet()): ?>
         <ul class="list-inline list-letter">
-            <?php foreach ($alphabet as $letter): ?>
+            <?php foreach ($alphabet as $item): ?>
                 <li>
-                    <?= Html::a($letter, ['/buryat-name/list', 'first_letter' => $letter], [
-                        'class' => ($first_letter == $letter) ?
-                            'btn btn-warning btn-lg btn-block active' :
+                    <?= Html::a($item, ['/buryat-name/list', 'letter' => $item], [
+                        'class' => ($letter == $item) ?
+                            'btn btn-custom btn-lg btn-block active' :
                             'btn btn-warning btn-lg btn-block'
                     ]) ?>
                 </li>
@@ -36,24 +36,31 @@ if ($first_letter) {
         <br/>
     <?php endif ?>
 
-    <?php if ($names): ?>
+    <?php if (!empty($names)): ?>
         <ul class="list-inline list-name">
             <?php foreach ($names as $name): ?>
                 <li>
-                    <?= Html::a($name['name'], ['get-name', 'name' => $name['name']],
+                    <?= Html::a($name['name'], ['view-name', 'name' => $name['name']],
                         ['class' => 'btn btn-default link-name']) ?>
                 </li>
             <?php endforeach ?>
         </ul>
 
-        <div class="modal fade" id="detail-name-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal fade" id="view-name-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <div class="modal-body">
+                    <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                         </button>
-                        <div class="response-content"></div>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                            <?= Yii::t('app', 'Close') ?>
+                        </button>
                     </div>
                 </div>
             </div>

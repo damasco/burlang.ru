@@ -40,9 +40,14 @@ $this->params['breadcrumbs'][] = $this->title;
                         'format' => 'boolean',
                         'filter' => ['1' => Yii::t('app', 'Yes'), '0' => Yii::t('app', 'No')]
                     ],
-
                     [
                         'class' => 'yii\grid\ActionColumn',
+                        'template' => '{view} {update} {delete}',
+                        'buttons' => [
+                            'view' => function ($url, $model) {
+                                return Html::a('<span class="glyphicon glyphicon-eye-open"></span>', ['view', 'name' => $model->name]);
+                            }
+                        ],
                         'contentOptions' => [
                             'style' => 'width: 70px;'
                         ]

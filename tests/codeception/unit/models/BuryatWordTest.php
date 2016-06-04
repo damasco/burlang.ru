@@ -6,7 +6,7 @@ use app\models\BuryatWord;
 use Codeception\Specify;
 use yii\codeception\DbTestCase;
 
-class BuraytWordTest extends DbTestCase
+class BuryatWordTest extends DbTestCase
 {
     use Specify;
 

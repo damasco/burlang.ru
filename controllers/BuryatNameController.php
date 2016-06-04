@@ -32,7 +32,7 @@ class BuryatNameController extends Controller
             ],
             'access' => [
                 'class' => AccessControl::className(),
-                'except' => ['list', 'get-name'],
+                'except' => ['list', 'view-name'],
                 'rules' => [
                     [
                         'allow' => true,
@@ -45,25 +45,28 @@ class BuryatNameController extends Controller
 
     /**
      * Lists all BuryatName models.
-     * @param string $first_letter
+     * @param string $letter
      * @return mixed
      * @throws NotFoundHttpException if the first letter cannot be found
      */
-    public function actionList($first_letter = null)
+    public function actionList($letter = null)
     {
         $names = [];
 
-        if ($first_letter !== null) {
-            if (!in_array($first_letter, $this->alphabet)) {
+        if ($letter !== null) {
+            if (!in_array($letter, $this->alphabet)) {
                 throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
             }
-            $names = BuryatName::find()->where(['like', 'name', $first_letter . '%', false])->asArray()->all();
+            $names = BuryatName::find()
+                ->where(['like', 'name', $letter . '%', false])
+                ->asArray()
+                ->all();
         }
 
         return $this->render('list', [
             'alphabet' => $this->alphabet,
             'names' => $names,
-            'first_letter' => $first_letter
+            'letter' => $letter
         ]);
     }
 
@@ -73,15 +76,15 @@ class BuryatNameController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionGetName($name)
+    public function actionViewName($name)
     {
         if (($model = BuryatName::findOne(['name' => $name])) !== null) {
             if (Yii::$app->request->isAjax) {
-                return $this->renderAjax('get-name', [
+                return $this->renderAjax('_description_name', [
                     'model' => $model
                 ]);
             } else {
-                return $this->render('get-name', [
+                return $this->render('view', [
                     'model' => $model
                 ]);
             }

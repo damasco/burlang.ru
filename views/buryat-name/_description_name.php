@@ -1,9 +1,10 @@
 <?php
 
-/* @var $model \app\models\BuryatName */
+/* @var \app\models\BuryatName $model */
+
 ?>
 
-<div class="alert alert-success">
+<div class="alert alert-success mb-0">
 
     <p><strong><?= $model->description ?></strong></p>
 

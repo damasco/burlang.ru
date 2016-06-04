@@ -26,12 +26,14 @@ $(document).ready(function() {
     $('a.link-name').on('click', function(e) {
         e.preventDefault();
         var $this = $(this);
-        var $modal = $('#detail-name-modal');
+        var name = $this.text();
+        var $modal = $('#view-name-modal');
         $.ajax({
-            url: '/buryat-name/get-name',
-            data: { name: $this.text() }
+            url: '/buryat-name/view-name',
+            data: { name: name }
         }).done(function(response) {
-            $modal.find('.response-content').html(response);
+            $modal.find('.modal-title').html(name);
+            $modal.find('.modal-body').html(response);
             $modal.modal('show');
         });
     });

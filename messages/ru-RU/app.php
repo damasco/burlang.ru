@@ -30,6 +30,7 @@ return [
     'Sort' => 'Сортировка',
     'Active' => 'Активный',
     'Find' => 'Найти',
+    'Close' => 'Закрыть',
 
     // error
     'The requested page does not exist.' => 'Запрашиваемая страница не существует.',
