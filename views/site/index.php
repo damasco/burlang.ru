@@ -4,11 +4,12 @@ use yii\jui\AutoComplete;
 use yii\web\JsExpression;
 use app\widgets\TranslationServiceWidget;
 use app\widgets\NewsWidget;
+use yii\helpers\Url;
 
-/* @var $this yii\web\View */
-/* @var $russian_word mixed */
-/* @var $buryat_word mixed */
-/* @var $buryat_name mixed */
+/* @var yii\web\View $this */
+/* @var mixed $russian_word */
+/* @var mixed $buryat_word */
+/* @var mixed $buryat_name */
 
 $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-Russian electronic dictionary');
 ?>
@@ -18,7 +19,7 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
             <div class="well">
                 <h4><?= Yii::t('app', 'Russian-Buryat dictionary') ?></h4>
                 <hr>
-                <form action="/site/russian-translate" method="get" id="russian-form">
+                <form action="<?= Url::to(['site/russian-translate']) ?>" method="get" id="russian-form">
                     <input type="hidden" name="<?= Yii::$app->request->csrfParam ?>" value="<?= Yii::$app->request->getCsrfToken() ?>" />
                     <div class="form-group">
                         <div class="input-group">
@@ -59,7 +60,7 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
             <div class="well">
                 <h4><?= Yii::t('app', 'Buryat-Russian dictionary') ?></h4>
                 <hr>
-                <form action="/site/buryat-translate" method="get" id="buryat-form">
+                <form action="<?= Url::to(['site/buryat-translate']) ?>" method="get" id="buryat-form">
                     <input type="hidden" name="<?= Yii::$app->request->csrfParam ?>" value="<?= Yii::$app->request->getCsrfToken() ?>" />
                     <div class="form-group">
                         <div class="input-group">

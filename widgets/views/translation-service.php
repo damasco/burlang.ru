@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 
-/* @var $model \app\models\Page */
+/* @var \app\models\Page $model */
 ?>
 <div class="translation-service-widget bg-warning text-center">
 

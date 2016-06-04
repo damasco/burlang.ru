@@ -1,7 +1,7 @@
 <?php
 
-/* @var $this \yii\web\View */
-/* @var $content string */
+/* @var \yii\web\View $this */
+/* @var string $content */
 
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
@@ -21,14 +21,15 @@ AppAsset::register($this);
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <link rel="image_src" href="<?= Url::to(Yii::getAlias('@web/img/cover.jpg'), true) ?>">
-    <meta name="image" content="<?= Url::to(Yii::getAlias('@web/img/cover.jpg'), true) ?>" />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Burlang.ru" />
-    <meta property="og:title" content="<?= !empty($this->title) ? Html::encode($this->title) : Yii::t('app', 'Russian-Buryat, Buryat-Russian electronic dictionary') ?>" />
-    <meta property="og:description" content="" />
-    <meta property="og:locale" content="ru_RU" />
-    <meta property="og:url" content="<?= Url::to('', true) ?>" />
-    <meta property="og:image" content="<?= Url::to(Yii::getAlias('@web/img/cover.jpg'), true) ?>" />
+    <meta name="image" content="<?= Url::to(Yii::getAlias('@web/img/cover.jpg'), true) ?>"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:site_name" content="Burlang.ru"/>
+    <meta property="og:title"
+          content="<?= !empty($this->title) ? Html::encode($this->title) : Yii::t('app', 'Russian-Buryat, Buryat-Russian electronic dictionary') ?>"/>
+    <meta property="og:description" content=""/>
+    <meta property="og:locale" content="ru_RU"/>
+    <meta property="og:url" content="<?= Url::to('', true) ?>"/>
+    <meta property="og:image" content="<?= Url::to(Yii::getAlias('@web/img/cover.jpg'), true) ?>"/>
     <meta property="og:image:type" content="image/jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -43,7 +44,7 @@ AppAsset::register($this);
     <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
     <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">

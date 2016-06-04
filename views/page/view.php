@@ -4,15 +4,17 @@ use yii\helpers\Html;
 use yii\helpers\Markdown;
 use yii\helpers\HtmlPurifier;
 
-/* @var $this yii\web\View */
-/* @var $model app\models\Page */
+/* @var yii\web\View $this */
+/* @var app\models\Page $model */
 
 $this->title = $model->title;
+
 if (!Yii::$app->user->isGuest) {
     $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Pages'), 'url' => ['index']];
 }
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+
 <div class="page-view">
 
     <h1><?= Html::encode($this->title) ?></h1>

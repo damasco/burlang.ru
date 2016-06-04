@@ -2,13 +2,14 @@
 
 use yii\helpers\Html;
 
-/* @var $this yii\web\View */
-/* @var $model app\models\BuryatName */
+/* @var yii\web\View $this */
+/* @var app\models\BuryatName $model */
 
 $this->title = $model->name;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Buryat names'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+
 <div class="buryat-name-view">
 
     <h1><?= Html::encode($this->title) ?></h1>

@@ -2,10 +2,10 @@
 
 use yii\helpers\Html;
 
-/* @var $this yii\web\View */
-/* @var $alphabet array */
-/* @var $names array */
-/* @var $letter string */
+/* @var yii\web\View $this */
+/* @var array $alphabet */
+/* @var array $names */
+/* @var string $letter */
 
 $this->title = Yii::t('app', 'Buryat names');
 

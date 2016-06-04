@@ -4,13 +4,14 @@ use yii\helpers\Html;
 use yii\helpers\Markdown;
 use yii\helpers\HtmlPurifier;
 
-/* @var $this yii\web\View */
-/* @var $model app\models\News */
+/* @var yii\web\View $this */
+/* @var app\models\News $model */
 
 $this->title = $model->title;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'News'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+
 <div class="news-view">
 
     <h1><?= Html::encode($this->title) ?></h1>

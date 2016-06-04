@@ -4,9 +4,9 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use ijackua\lepture\Markdowneditor;
 
-/* @var $this yii\web\View */
-/* @var $model app\models\News */
-/* @var $form yii\widgets\ActiveForm */
+/* @var yii\web\View $this */
+/* @var app\models\News $model */
+/* @var yii\widgets\ActiveForm $form */
 ?>
 
 <div class="news-form">

@@ -6,9 +6,9 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\data\ActiveDataProvider;
 
-/* @var $translationForm mixed */
-/* @var $dictionaries \app\models\Dictionary[] */
-/* @var $model \app\models\BuryatWord */
+/* @var mixed $translationForm */
+/* @var \app\models\Dictionary[] $dictionaries */
+/* @var \app\models\BuryatWord $model */
 ?>
 
 <div class="panel panel-default">
@@ -35,8 +35,7 @@ use yii\data\ActiveDataProvider;
                     'buttons' => [
                         'delete' => function ($url, $model) {
                             return Html::a('<span class="glyphicon glyphicon-trash"></span>',
-                                ['delete-translation', 'id' => $model->id],
-                                [
+                                ['delete-translation', 'id' => $model->id], [
                                     'title' => Yii::t('app', 'Delete translation'),
                                     'data' => [
                                         'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),

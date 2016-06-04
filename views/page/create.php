@@ -3,13 +3,14 @@
 use yii\helpers\Html;
 
 
-/* @var $this yii\web\View */
-/* @var $model app\models\Page */
+/* @var yii\web\View $this */
+/* @var app\models\Page $model */
 
 $this->title = Yii::t('app', 'Create page');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Pages'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+
 <div class="page-create">
 
     <h1><?= Html::encode($this->title) ?></h1>

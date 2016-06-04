@@ -2,13 +2,14 @@
 
 use yii\helpers\Html;
 
-/* @var $this yii\web\View */
-/* @var $model app\models\RussianWord */
+/* @var yii\web\View $this */
+/* @var app\models\RussianWord $model */
 
 $this->title = Yii::t('app', 'New word');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Russian words'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+
 <div class="russian-word-create">
 
     <h1><?= Html::encode($this->title) ?></h1>

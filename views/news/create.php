@@ -3,13 +3,14 @@
 use yii\helpers\Html;
 
 
-/* @var $this yii\web\View */
-/* @var $model app\models\News */
+/* @var yii\web\View $this */
+/* @var app\models\News $model */
 
 $this->title = Yii::t('app', 'Create news');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'News'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+
 <div class="news-create">
 
     <h1><?= Html::encode($this->title) ?></h1>

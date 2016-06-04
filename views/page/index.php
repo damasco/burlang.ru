@@ -3,13 +3,14 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 
-/* @var $this yii\web\View */
-/* @var $searchModel app\models\PageSearch */
-/* @var $dataProvider yii\data\ActiveDataProvider */
+/* @var yii\web\View $this */
+/* @var app\models\PageSearch $searchModel */
+/* @var yii\data\ActiveDataProvider $dataProvider */
 
 $this->title = Yii::t('app', 'Pages');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+
 <div class="page-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
@@ -37,7 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'template' => '{view} {update}',
                 'buttons' => [
                     'view' => function ($url, $model) {
-                        return Html::a('<span class="glyphicon glyphicon-eye-open"></span>', ['/page/' . $model->link]);
+                        return Html::a('<span class="glyphicon glyphicon-eye-open"></span>', ['view', 'link' => $model->link]);
                     }
                 ]
             ],
