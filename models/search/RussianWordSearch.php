@@ -1,16 +1,16 @@
 <?php
 
-namespace app\models;
+namespace app\models\search;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Page;
+use app\models\RussianWord;
 
 /**
- * PageSearch represents the model behind the search form about `app\models\Page`.
+ * Search represents the model behind the search form about `app\models\RussianWord`.
  */
-class PageSearch extends Page
+class RussianWordSearch extends RussianWord
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class PageSearch extends Page
     public function rules()
     {
         return [
-            [['id', 'active', 'created_at', 'updated_at'], 'integer'],
-            [['title', 'link', 'description', 'content'], 'safe'],
+            [['id'], 'integer'],
+            [['name'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class PageSearch extends Page
      */
     public function search($params)
     {
-        $query = Page::find();
+        $query = RussianWord::find();
 
         // add conditions that should always apply here
 
@@ -60,15 +60,9 @@ class PageSearch extends Page
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'active' => $this->active,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
         ]);
 
-        $query->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'link', $this->link])
-            ->andFilterWhere(['like', 'description', $this->description])
-            ->andFilterWhere(['like', 'content', $this->content]);
+        $query->andFilterWhere(['like', 'name', $this->name]);
 
         return $dataProvider;
     }

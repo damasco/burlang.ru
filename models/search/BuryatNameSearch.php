@@ -1,15 +1,16 @@
 <?php
 
-namespace app\models;
+namespace app\models\search;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
+use app\models\BuryatName;
 
 /**
- * Search represents the model behind the search form about `app\models\RussianWord`.
+ * BuryatNameSearch represents the model behind the search form about `app\models\BuryatName`.
  */
-class RussianWordSearch extends RussianWord
+class BuryatNameSearch extends BuryatName
 {
     /**
      * @inheritdoc
@@ -17,8 +18,8 @@ class RussianWordSearch extends RussianWord
     public function rules()
     {
         return [
-            [['id'], 'integer'],
-            [['name'], 'safe'],
+            [['id', 'male', 'female'], 'integer'],
+            [['name', 'description', 'note'], 'safe'],
         ];
     }
 
@@ -40,7 +41,7 @@ class RussianWordSearch extends RussianWord
      */
     public function search($params)
     {
-        $query = RussianWord::find();
+        $query = BuryatName::find();
 
         // add conditions that should always apply here
 
@@ -59,9 +60,13 @@ class RussianWordSearch extends RussianWord
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'male' => $this->male,
+            'female' => $this->female,
         ]);
 
-        $query->andFilterWhere(['like', 'name', $this->name]);
+        $query->andFilterWhere(['like', 'name', $this->name])
+            ->andFilterWhere(['like', 'description', $this->description])
+            ->andFilterWhere(['like', 'note', $this->note]);
 
         return $dataProvider;
     }

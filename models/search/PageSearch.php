@@ -1,15 +1,16 @@
 <?php
 
-namespace app\models;
+namespace app\models\search;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
+use app\models\Page;
 
 /**
- * BuryatNameSearch represents the model behind the search form about `app\models\BuryatName`.
+ * PageSearch represents the model behind the search form about `app\models\Page`.
  */
-class BuryatNameSearch extends BuryatName
+class PageSearch extends Page
 {
     /**
      * @inheritdoc
@@ -17,8 +18,8 @@ class BuryatNameSearch extends BuryatName
     public function rules()
     {
         return [
-            [['id', 'male', 'female'], 'integer'],
-            [['name', 'description', 'note'], 'safe'],
+            [['id', 'active', 'created_at', 'updated_at'], 'integer'],
+            [['title', 'link', 'description', 'content'], 'safe'],
         ];
     }
 
@@ -40,7 +41,7 @@ class BuryatNameSearch extends BuryatName
      */
     public function search($params)
     {
-        $query = BuryatName::find();
+        $query = Page::find();
 
         // add conditions that should always apply here
 
@@ -59,13 +60,15 @@ class BuryatNameSearch extends BuryatName
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'male' => $this->male,
-            'female' => $this->female,
+            'active' => $this->active,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
         ]);
 
-        $query->andFilterWhere(['like', 'name', $this->name])
+        $query->andFilterWhere(['like', 'title', $this->title])
+            ->andFilterWhere(['like', 'link', $this->link])
             ->andFilterWhere(['like', 'description', $this->description])
-            ->andFilterWhere(['like', 'note', $this->note]);
+            ->andFilterWhere(['like', 'content', $this->content]);
 
         return $dataProvider;
     }

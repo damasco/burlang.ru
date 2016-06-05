@@ -6,7 +6,7 @@ use app\models\Dictionary;
 use app\models\BuryatTranslation;
 use Yii;
 use app\models\BuryatWord;
-use app\models\BuryatWordSearch;
+use app\models\search\BuryatWordSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -145,6 +145,7 @@ class BuryatWordController extends Controller
      */
     public function actionDeleteTranslation($id)
     {
+        /* @var BuryatTranslation $translate */
         if (($translate = BuryatTranslation::findOne($id)) !== null) {
             Yii::$app->session->setFlash('success', Yii::t('app', 'Translation removed'));
             $translate->delete();

@@ -5,7 +5,7 @@ namespace app\controllers;
 use app\models\RussianTranslation;
 use Yii;
 use app\models\RussianWord;
-use app\models\RussianWordSearch;
+use app\models\search\RussianWordSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -140,6 +140,7 @@ class RussianWordController extends Controller
      */
     public function actionDeleteTranslation($id)
     {
+        /* @var RussianTranslation $translate */
         if (($translate = RussianTranslation::findOne($id)) !== null) {
             $translate->delete();
             Yii::$app->session->setFlash('success', Yii::t('app', 'Translation removed'));
