@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var yii\web\View $this */
-/* @var app\models\PageSearch $searchModel */
+/* @var app\models\search\PageSearch $searchModel */
 /* @var yii\data\ActiveDataProvider $dataProvider */
 
 $this->title = Yii::t('app', 'Pages');

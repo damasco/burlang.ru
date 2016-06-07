@@ -11,6 +11,7 @@ $this->title = Yii::t('app', 'Edit') . ': ' . $model->name;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Buryat words'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+
 <div class="buryat-word-update">
 
     <h1><?= Html::encode($this->title) ?></h1>

@@ -9,18 +9,21 @@ use yii\helpers\Url;
 
 class Page extends Component
 {
+
+    /**
+     * @param string $link
+     * @return array|string
+     */
     public function getItemMenu($link)
     {
         $model = PageModel::findOne(['link' => $link]);
 
-        /* @var $model \app\models\Page */
+        /* @var $model PageModel */
         if ($model !== null && $model->active) {
-            $url = ['/page/view', 'link' => $link ];
-
             return [
                 'label' => $model->title,
-                'url' => $url,
-                'active' => Yii::$app->request->url == Url::to($url)
+                'url' => ['/page/view', 'link' => $link ],
+                'active' => Yii::$app->request->url == Url::to(['/page/view', 'link' => $link ])
             ];
         } else {
             return '';

@@ -6,7 +6,7 @@ use yii\widgets\Pjax;
 use yii\helpers\ArrayHelper;
 
 /* @var yii\web\View $this */
-/* @var app\models\RussianWordSearch $searchModel */
+/* @var app\models\search\RussianWordSearch $searchModel */
 /* @var yii\data\ActiveDataProvider $dataProvider */
 
 $this->title = Yii::t('app', 'Russian words');
