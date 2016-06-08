@@ -35,6 +35,9 @@ return [
     // error
     'The requested page does not exist.' => 'Запрашиваемая страница не существует.',
 
+    // filter
+    'This URL can only call using Ajax.' => 'Этот URL можно вызвать только с помощью Ajax.',
+
     // main
     'Translation' => 'Перевод',
     'No translation' => 'Перевода нет',

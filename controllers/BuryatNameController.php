@@ -15,7 +15,7 @@ use yii\filters\AccessControl;
  */
 class BuryatNameController extends Controller
 {
-
+    /* @var array */
     public $alphabet = ['А','Б','В','Г','Д','Е','Ж','З','И','К','Л','М','Н','О','П','Р','С','Т','У','Х','Ц','Ч','Ш','Э','Ю','Я'];
 
     /**

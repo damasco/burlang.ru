@@ -2,21 +2,40 @@
 
 namespace app\controllers;
 
+use app\filters\AjaxFilter;
 use app\models\BuryatWord;
 use app\models\RussianWord;
 use Yii;
 use yii\web\Controller;
 use yii\helpers\Json;
-use yii\web\NotFoundHttpException;
 
 class SiteController extends Controller
 {
+    /**
+     * @inheritdoc
+     */
     public function actions()
     {
         return [
             'error' => [
                 'class' => 'yii\web\ErrorAction',
             ],
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => AjaxFilter::className(),
+                'actions' => [
+                    'get-russian-words',
+                    'get-buryat-words'
+                ]
+            ]
         ];
     }
 
@@ -32,45 +51,37 @@ class SiteController extends Controller
     /**
      * Get list russian words for autocomplete
      * @param string $term
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
+     * @return string
      */
     public function actionGetRussianWords($term)
     {
-        if (Yii::$app->request->isAjax) {
-            $result = RussianWord::find()
-                ->select(['name as value'])
-                ->filterWhere(['like', 'name', $term . '%', false])
-                ->orderBy('name')
-                ->limit(10)
-                ->asArray()
-                ->all();
-            return Json::encode($result);
-        } else {
-            throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
-        }
+        $result = RussianWord::find()
+            ->select(['name as value'])
+            ->filterWhere(['like', 'name', $term . '%', false])
+            ->orderBy('name')
+            ->limit(10)
+            ->asArray()
+            ->all();
+
+        return Json::encode($result);
     }
 
     /**
      * Get list buryat words for autocomplete
      * @param string $term
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
+     * @return string
      */
     public function actionGetBuryatWords($term)
     {
-        if (Yii::$app->request->isAjax) {
-            $result = BuryatWord::find()
-                ->select(['name as value'])
-                ->filterWhere(['like', 'name', $term . '%', false])
-                ->orderBy('name')
-                ->limit(10)
-                ->asArray()
-                ->all();
-            return Json::encode($result);
-        } else {
-            throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
-        }
+        $result = BuryatWord::find()
+            ->select(['name as value'])
+            ->filterWhere(['like', 'name', $term . '%', false])
+            ->orderBy('name')
+            ->limit(10)
+            ->asArray()
+            ->all();
+
+        return Json::encode($result);
     }
 
     /**

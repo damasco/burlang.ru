@@ -25,6 +25,9 @@ class News extends \yii\db\ActiveRecord
         return 'news';
     }
 
+    /**
+     * @inheritdoc
+     */
     public function behaviors()
     {
         return [

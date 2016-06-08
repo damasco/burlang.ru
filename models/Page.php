@@ -27,6 +27,9 @@ class Page extends \yii\db\ActiveRecord
         return 'page';
     }
 
+    /**
+     * @inheritdoc
+     */
     public function behaviors()
     {
         return [
