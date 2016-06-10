@@ -9,12 +9,11 @@ use yii\helpers\Url;
 
 class Page extends Component
 {
-
     /**
      * @param string $link
      * @return array|string
      */
-    public function getItemMenu($link)
+    public function itemMenu($link)
     {
         $model = PageModel::findOne(['link' => $link]);
 

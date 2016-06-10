@@ -93,8 +93,8 @@ AppAsset::register($this);
                 'url' => ['/news/index'], 'active' => Yii::$app->controller->id == 'news'
             ],
 
-            Yii::$app->page->getItemMenu('translation-service'),
-            Yii::$app->page->getItemMenu('about'),
+            Yii::$app->page->itemMenu('translation-service'),
+            Yii::$app->page->itemMenu('about'),
 
             Yii::$app->user->isGuest ?
                 ['label' => Yii::t('app', 'Login'), 'url' => ['/user/security/login']] :
