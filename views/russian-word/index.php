@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 'name',
                 [
-                    'label' => Yii::t('app', 'Translation'),
+                    'label' => Yii::t('app', 'Translations'),
                     'value' => function ($model) {
                         return Html::ul(ArrayHelper::getColumn($model->translation, 'name'));
                     },

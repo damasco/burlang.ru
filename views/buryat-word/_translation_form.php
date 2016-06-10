@@ -13,7 +13,7 @@ use yii\data\ActiveDataProvider;
 
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h4 class="panel-title"><?= Yii::t('app', 'Translation') ?></h4>
+        <h4 class="panel-title"><?= Yii::t('app', 'Translations') ?></h4>
     </div>
     <div class="panel-body">
         <?= GridView::widget([
@@ -44,6 +44,9 @@ use yii\data\ActiveDataProvider;
                                 ]);
                         }
                     ],
+                    'contentOptions' => [
+                        'style' => 'width: 30px;'
+                    ]
                 ],
             ],
         ]); ?>

@@ -40,6 +40,7 @@ return [
 
     // main
     'Translation' => 'Перевод',
+    'Translations' => 'Переводы',
     'No translation' => 'Перевода нет',
     'Enter the word' => 'Введите слово',
     'Enter the buryat name' => 'Введите бурятское имя',

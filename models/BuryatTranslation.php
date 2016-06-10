@@ -47,7 +47,7 @@ class BuryatTranslation extends \yii\db\ActiveRecord
             'id' => Yii::t('app', 'ID'),
             'burword_id' => Yii::t('app', 'Burword ID'),
             'dict_id' => Yii::t('app', 'Dictionary'),
-            'name' => Yii::t('app', 'Name'),
+            'name' => Yii::t('app', 'Translation'),
         ];
     }
 

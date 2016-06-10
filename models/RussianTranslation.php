@@ -44,7 +44,7 @@ class RussianTranslation extends \yii\db\ActiveRecord
         return [
             'id' => Yii::t('app', 'ID'),
             'ruword_id' => Yii::t('app', 'Ruword ID'),
-            'name' => Yii::t('app', 'Name'),
+            'name' => Yii::t('app', 'Translation'),
         ];
     }
 
