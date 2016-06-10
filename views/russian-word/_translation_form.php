@@ -48,18 +48,7 @@ use yii\data\ActiveDataProvider;
 
         <?php $form = ActiveForm::begin() ?>
 
-        <?= $form->field($translationForm, 'name', ['template' => '
-            {label}
-            <div class="input-group">
-                {input}
-                <span class="input-group-btn">
-                    <button type="button" class="btn btn-default add-buryat-word">ү</button>
-                    <button type="button" class="btn btn-default add-buryat-word">һ</button>
-                    <button type="button" class="btn btn-default add-buryat-word">ө</button>
-                </span>
-            </div>
-            {error}{hint}
-        '])->textInput() ?>
+        <?= $form->field($translationForm, 'name', ['template' => Yii::$app->params['buryat-field-template']])->textInput() ?>
 
         <?= $form->field($translationForm, 'ruword_id')->hiddenInput(['value' => $model->id])->label(false) ?>
 
