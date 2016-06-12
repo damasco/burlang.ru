@@ -22,6 +22,10 @@ $config = [
             'showScriptName' => false,
             'rules' => require(__DIR__ . '/urls.php'),
         ],
+        'assetManager' => [
+            'class' => '\yii\web\AssetManager',
+            'appendTimestamp' => true
+        ],
         'authManager' => [
             'class' => 'yii\rbac\DbManager',
         ],
