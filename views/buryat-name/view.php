@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var app\models\BuryatName $model */
 
 $this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Buryat names'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Buryat names'), 'url' => Yii::$app->user->isGuest ? ['index'] : ['admin']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 

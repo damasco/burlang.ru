@@ -1,8 +1,7 @@
 <?php
 return [
     'news' => 'news/index',
-    'buryat-name' => 'buryat-name/list',
+    'buryat-name' => 'buryat-name/index',
 
-    'page/<action:(create|delete|update|index)>' => 'page/<action>',
-    'page/<link:[\w-]+>' => '/page/view',
+    '<link:[\w-]+>' => '/page/view',
 ];

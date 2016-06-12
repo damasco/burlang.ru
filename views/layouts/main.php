@@ -84,9 +84,9 @@ AppAsset::register($this);
             ],
             [
                 'label' => Yii::t('app', 'Buryat names'),
-                'url' => ['/buryat-name/list'],
+                'url' => ['/buryat-name/index'],
                 'active' => Yii::$app->controller->id == 'buryat-name' &&
-                    (Yii::$app->controller->action->id == 'list' || Yii::$app->controller->action->id == 'get-name')
+                    (Yii::$app->controller->action->id == 'index' || Yii::$app->controller->action->id == 'view-name')
             ],
             [
                 'label' => Yii::t('app', 'News'),
@@ -101,7 +101,7 @@ AppAsset::register($this);
                 [
                     'label' => Yii::$app->user->identity->username,
                     'items' => [
-                        ['label' => Yii::t('app', 'Buryat names'), 'url' => ['/buryat-name/index']],
+                        ['label' => Yii::t('app', 'Buryat names'), 'url' => ['/buryat-name/admin']],
                         ['label' => Yii::t('app', 'Buryat words'), 'url' => ['/buryat-word/index']],
                         ['label' => Yii::t('app', 'Russian words'), 'url' => ['/russian-word/index']],
                         ['label' => Yii::t('app', 'Dictionaries'), 'url' => ['/dictionary/index']],

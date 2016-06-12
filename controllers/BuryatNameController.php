@@ -32,7 +32,7 @@ class BuryatNameController extends Controller
             ],
             'access' => [
                 'class' => AccessControl::className(),
-                'except' => ['list', 'view-name'],
+                'except' => ['index', 'view-name'],
                 'rules' => [
                     [
                         'allow' => true,
@@ -49,7 +49,7 @@ class BuryatNameController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the first letter cannot be found
      */
-    public function actionList($letter = null)
+    public function actionIndex($letter = null)
     {
         $names = [];
 
@@ -63,7 +63,7 @@ class BuryatNameController extends Controller
                 ->all();
         }
 
-        return $this->render('list', [
+        return $this->render('index', [
             'alphabet' => $this->alphabet,
             'names' => $names,
             'letter' => $letter
@@ -97,12 +97,12 @@ class BuryatNameController extends Controller
      * Lists all BuryatName models.
      * @return mixed
      */
-    public function actionIndex()
+    public function actionAdmin()
     {
         $searchModel = new BuryatNameSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        return $this->render('index', [
+        return $this->render('admin', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
@@ -167,7 +167,7 @@ class BuryatNameController extends Controller
     {
         $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+        return $this->redirect(['admin']);
     }
 
     /**

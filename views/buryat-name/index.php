@@ -1,60 +1,70 @@
 <?php
 
 use yii\helpers\Html;
-use yii\grid\GridView;
-use yii\widgets\Pjax;
 
 /* @var yii\web\View $this */
-/* @var app\models\search\BuryatNameSearch $searchModel */
-/* @var yii\data\ActiveDataProvider $dataProvider */
+/* @var array $alphabet */
+/* @var array $names */
+/* @var string $letter */
 
 $this->title = Yii::t('app', 'Buryat names');
-$this->params['breadcrumbs'][] = $this->title;
+
+if ($letter !== null) {
+    $this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['list']];
+    $this->params['breadcrumbs'][] = $letter;
+} else {
+    $this->params['breadcrumbs'][] = $this->title;
+}
 ?>
 
-<div class="buryat-name-index">
+<div class="buryat-name-list">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        <?= Html::a(Yii::t('app', 'Add name'), ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+    <?php if (!$letter || !Yii::$app->devicedetect->isMobile() || Yii::$app->devicedetect->isTablet()): ?>
+        <ul class="list-inline list-letter">
+            <?php foreach ($alphabet as $item): ?>
+                <li>
+                    <?= Html::a($item, ['/buryat-name/index', 'letter' => $item], [
+                        'class' => ($letter == $item) ?
+                            'btn btn-custom btn-lg btn-block active' :
+                            'btn btn-warning btn-lg btn-block'
+                    ]) ?>
+                </li>
+            <?php endforeach ?>
+        </ul>
+        <br/>
+    <?php endif ?>
 
-    <?php Pjax::begin(); ?>
-    <div class="table-responsive">
-        <?= GridView::widget([
-            'dataProvider' => $dataProvider,
-            'filterModel' => $searchModel,
-            'columns' => [
-                ['class' => 'yii\grid\SerialColumn'],
+    <?php if (!empty($names)): ?>
+        <ul class="list-inline list-name">
+            <?php foreach ($names as $name): ?>
+                <li>
+                    <?= Html::a($name['name'], ['view-name', 'name' => $name['name']],
+                        ['class' => 'btn btn-default link-name']) ?>
+                </li>
+            <?php endforeach ?>
+        </ul>
 
-                'name',
-                'description',
-                'note:ntext',
-                [
-                    'attribute' => 'male',
-                    'format' => 'boolean',
-                    'filter' => ['1' => Yii::t('app', 'Yes'), '0' => Yii::t('app', 'No')]
-                ],
-                [
-                    'attribute' => 'female',
-                    'format' => 'boolean',
-                    'filter' => ['1' => Yii::t('app', 'Yes'), '0' => Yii::t('app', 'No')]
-                ],
-                [
-                    'class' => 'yii\grid\ActionColumn',
-                    'template' => '{view} {update} {delete}',
-                    'buttons' => [
-                        'view' => function ($url, $model) {
-                            return Html::a('<span class="glyphicon glyphicon-eye-open"></span>', ['view', 'name' => $model->name]);
-                        }
-                    ],
-                    'contentOptions' => [
-                        'style' => 'width: 70px;'
-                    ]
-                ],
-            ],
-        ]); ?>
-    </div>
-    <?php Pjax::end(); ?>
+        <div class="modal fade" id="view-name-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                        </button>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                            <?= Yii::t('app', 'Close') ?>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php endif ?>
+
 </div>
