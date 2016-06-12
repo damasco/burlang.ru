@@ -9,16 +9,4 @@ return [
 //        'enableSchemaCache' => true
 //    ],
 
-//    'authclients' => [
-//        'vkontakte' => [
-//            'class'        => 'app\components\authclients\VKontakte',
-//            'clientId'     => '',
-//            'clientSecret' => '',
-//        ],
-//        'facebook' => [
-//            'class'        => 'dektrium\user\clients\Facebook',
-//            'clientId'     => '',
-//            'clientSecret' => '',
-//        ],
-//    ],
 ];

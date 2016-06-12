@@ -18,19 +18,10 @@ return [
         // for the mailer to send real emails.
         'useFileTransport' => false,
     ],
-    'authclients' => [],
+    'components.authClientsCollection' => [
+        'class'   => '\yii\authclient\Collection',
+        'clients' => [],
+    ],
 
     'adminEmail' => 'dbulats88@gmail.com',
-
-    'buryat-field-template' => '{label}
-                                <div class="input-group">
-                                    {input}
-                                    <span class="input-group-btn">
-                                        <button type="button" class="btn btn-default add-buryat-word">ү</button>
-                                        <button type="button" class="btn btn-default add-buryat-word">һ</button>
-                                        <button type="button" class="btn btn-default add-buryat-word">ө</button>
-                                    </span>
-                                </div>
-                                {error}{hint}',
-
 ];

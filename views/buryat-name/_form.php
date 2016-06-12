@@ -12,7 +12,7 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'name', ['template' => Yii::$app->params['buryat-field-template']])->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'name', ['template' => $this->render('/_field_template')])->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
 

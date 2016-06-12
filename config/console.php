@@ -20,6 +20,9 @@ $config = [
     'components' => [
         'db' => $params['components.db'],
         'cache' => $params['components.cache'],
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager',
+        ],
         'log' => [
             'targets' => [
                 [

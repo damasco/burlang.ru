@@ -48,7 +48,7 @@ use yii\data\ActiveDataProvider;
 
         <?php $form = ActiveForm::begin() ?>
 
-        <?= $form->field($translationForm, 'name', ['template' => Yii::$app->params['buryat-field-template']])->textInput() ?>
+        <?= $form->field($translationForm, 'name', ['template' => $this->render('/_field_template')])->textInput() ?>
 
         <?= $form->field($translationForm, 'ruword_id')->hiddenInput(['value' => $model->id])->label(false) ?>
 

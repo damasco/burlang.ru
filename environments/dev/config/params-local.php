@@ -9,19 +9,6 @@ return [
 //        'enableSchemaCache' => true
 //    ],
 
-//    'authclients' => [
-//        'vkontakte' => [
-//            'class'        => 'app\components\authclients\VKontakte',
-//            'clientId'     => '',
-//            'clientSecret' => '',
-//        ],
-//        'facebook' => [
-//            'class'        => 'dektrium\user\clients\Facebook',
-//            'clientId'     => '',
-//            'clientSecret' => '',
-//        ],
-//    ],
-
     'components.mailer' => [
         'class' => 'yii\swiftmailer\Mailer',
         // send all mails to a file by default. You have to set
@@ -29,4 +16,5 @@ return [
         // for the mailer to send real emails.
         'useFileTransport' => true,
     ],
+
 ];

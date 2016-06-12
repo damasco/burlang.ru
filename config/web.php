@@ -22,10 +22,9 @@ $config = [
             'showScriptName' => false,
             'rules' => require(__DIR__ . '/urls.php'),
         ],
-//        'authClientCollection' => [
-//            'class'   => '\yii\authclient\Collection',
-//            'clients' => $params['authclients'],
-//        ],
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager',
+        ],
         'request' => [
             'cookieValidationKey' => 'l-2C_lNvBwQDe4_LLC5eaUhQmvV9yQRm',
         ],
@@ -70,6 +69,9 @@ $config = [
             'class' => 'dektrium\user\Module',
             'enableRegistration' => false,
             'admins' => ['admin']
+        ],
+        'rbac' => [
+            'class' => 'dektrium\rbac\Module',
         ],
     ],
     'params' => $params,
