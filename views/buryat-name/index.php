@@ -10,7 +10,7 @@ use yii\helpers\Html;
 $this->title = Yii::t('app', 'Buryat names');
 
 if ($letter !== null) {
-    $this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['list']];
+    $this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['index']];
     $this->params['breadcrumbs'][] = $letter;
 } else {
     $this->params['breadcrumbs'][] = $this->title;
