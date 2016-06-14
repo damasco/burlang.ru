@@ -46,8 +46,14 @@ class NewsController extends Controller
      */
     public function actionIndex()
     {
+        $query = News::find()->orderBy('created_at DESC');
+
+        if (Yii::$app->user->isGuest) {
+            $query->where(['active' => 1]);
+        }
+
         $dataProvider = new ActiveDataProvider([
-            'query' => News::find()->orderBy('created_at DESC'),
+            'query' => $query,
             'pagination' => ['pageSize' => 5],
         ]);
 
@@ -60,12 +66,18 @@ class NewsController extends Controller
      * Displays a single News model.
      * @param integer $id
      * @return mixed
+     * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionView($id)
     {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
+        $model = $this->findModel($id);
+        if (!$model->active && Yii::$app->user->isGuest) {
+            throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+        } else {
+            return $this->render('view', [
+                'model' => $model,
+            ]);
+        }
     }
 
     /**

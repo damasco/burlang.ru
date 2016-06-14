@@ -12,6 +12,7 @@ use yii\behaviors\TimestampBehavior;
  * @property string $title
  * @property string $description
  * @property string $content
+ * @property int $active
  * @property integer $created_at
  * @property integer $updated_at
  */
@@ -41,9 +42,9 @@ class News extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'content'], 'required'],
+            [['title', 'content', 'active'], 'required'],
             [['content', 'description'], 'string'],
-            [['created_at', 'updated_at'], 'integer'],
+            [['active', 'created_at', 'updated_at'], 'integer'],
             [['title'], 'string', 'max' => 255],
         ];
     }
@@ -58,6 +59,7 @@ class News extends \yii\db\ActiveRecord
             'title' => Yii::t('app', 'Title'),
             'description' => Yii::t('app', 'Description'),
             'content' => Yii::t('app', 'Content'),
+            'active' => Yii::t('app', 'Active'),
             'created_at' => Yii::t('app', 'Created At'),
             'updated_at' => Yii::t('app', 'Updated At'),
         ];

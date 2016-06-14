@@ -14,7 +14,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <div class="news-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1>
+        <?= Html::encode($this->title) ?>
+        <?php if (!$model->active): ?>
+            <span class="label label-default"><?= Yii::t('app', 'Inactive') ?></span>
+        <?php endif ?>
+    </h1>
 
     <?php if (!Yii::$app->user->isGuest): ?>
         <p>
