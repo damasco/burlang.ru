@@ -16,6 +16,7 @@ class NewsTest extends DbTestCase
             'title' => 'Title',
             'description' => 'Description',
             'content' => 'Content',
+            'active' => 1,
         ]);
 
         expect('model is valid', $model->validate())->true();
@@ -23,11 +24,13 @@ class NewsTest extends DbTestCase
         $model->title = '';
         $model->description = '';
         $model->content = '';
+        $model->active = '';
 
         expect('model is not valid', $model->validate())->false();
         expect('title is required', $model->errors)->hasKey('title');
         expect('description is not required', $model->errors)->hasntKey('description');
         expect('content is required', $model->errors)->hasKey('content');
+        expect('active is required', $model->errors)->hasKey('active');
 
     }
 

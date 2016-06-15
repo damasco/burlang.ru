@@ -12,7 +12,7 @@ use yii\behaviors\TimestampBehavior;
  * @property string $title
  * @property string $description
  * @property string $content
- * @property int $active
+ * @property integer $active
  * @property integer $created_at
  * @property integer $updated_at
  */
