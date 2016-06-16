@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use app\widgets\BookChapterWidget;
 
 /* @var yii\web\View $this */
 /* @var app\models\Book $model */
@@ -28,13 +29,14 @@ $this->params['breadcrumbs'][] = $this->title;
         </p>
     <?php endif ?>
 
-    <p>
-        <?= Html::encode($model->description) ?>
-    </p>
-
-    <?php /* @var \app\models\BookChapter $chapter */ ?>
-    <?php foreach ($model->chapters as $chapter): ?>
-        <h3><?= Html::a(Html::encode($chapter->title), ['chapter', 'id' => $chapter->id]) ?></h3>
-    <?php endforeach; ?>
-
+    <div class="row">
+        <div class="col-sm-4">
+            <?= BookChapterWidget::widget(['book' => $model]) ?>
+        </div>
+        <div class="col-sm-8 col-xs-12">
+            <p>
+                <?= nl2br(Html::encode($model->description)) ?>
+            </p>
+        </div>
+    </div>
 </div>

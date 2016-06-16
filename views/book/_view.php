@@ -15,7 +15,7 @@ use yii\helpers\Html;
         <?php endif ?>
     </h2>
 
-    <p><?= Html::encode($model->description) ?></p>
+    <p><?= nl2br(Html::encode($model->description)) ?></p>
 
     <hr>
 

@@ -135,3 +135,10 @@ a {
     color: #103848;
   }
 }
+
+.list-group-item.active {
+  &, &:hover, &:focus {
+    background-color: $nav-item-bg-active;
+    border-color: $nav-item-bg-hover;
+  }
+}

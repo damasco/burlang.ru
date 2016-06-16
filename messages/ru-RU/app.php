@@ -118,6 +118,7 @@ return [
     'Create book' => 'Создать книгу',
 
     // book chapter
+    'Chapters' => 'Главы',
     'Add chapter' => 'Добавить главу',
     'Edit chapter' => 'Редактировать главу',
 ];

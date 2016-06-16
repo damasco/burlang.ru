@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\helpers\Markdown;
 use yii\helpers\HtmlPurifier;
+use app\widgets\BookChapterWidget;
 
 /* @var yii\web\View $this */
 /* @var app\models\BookChapter $model */
@@ -15,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <div class="book-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1 class="hidden-xs"><?= Html::encode($model->book->title) ?></h1>
 
     <?php if (!Yii::$app->user->isGuest): ?>
         <p>
@@ -30,8 +31,16 @@ $this->params['breadcrumbs'][] = $this->title;
         </p>
     <?php endif ?>
 
-    <div class="content">
-        <?= HtmlPurifier::process(Markdown::process($model->content, 'gfm')) ?>
+    <div class="row">
+        <div class="col-sm-4 hidden-xs">
+            <?= BookChapterWidget::widget(['book' => $model->book, 'active_id' => $model->id]) ?>
+        </div>
+        <div class="col-sm-4 col-xs-12">
+            <h2><?= Html::encode($model->title) ?></h2>
+            <div class="content">
+                <?= HtmlPurifier::process(Markdown::process($model->content, 'gfm')) ?>
+            </div>
+        </div>
     </div>
 
 </div>

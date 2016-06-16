@@ -24,4 +24,5 @@ $this->params['breadcrumbs'][] = $this->title;
         'summary' => false,
         'itemView' => '_view'
     ]); ?>
+
 </div>
