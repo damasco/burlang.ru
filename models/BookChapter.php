@@ -3,26 +3,27 @@
 namespace app\models;
 
 use Yii;
-use yii\behaviors\TimestampBehavior;
 
 /**
- * This is the model class for table "book".
+ * This is the model class for table "book_chapter".
  *
  * @property integer $id
  * @property string $title
- * @property string $description
- * @property integer $active
+ * @property string $content
+ * @property integer $book_id
  * @property integer $created_at
  * @property integer $updated_at
+ *
+ * @property Book $book
  */
-class Book extends \yii\db\ActiveRecord
+class BookChapter extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'book';
+        return 'book_chapter';
     }
 
     /**
@@ -31,10 +32,11 @@ class Book extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'active'], 'required'],
-            [['description'], 'string'],
-            [['active', 'created_at', 'updated_at'], 'integer'],
+            [['title', 'book_id', 'created_at', 'updated_at'], 'required'],
+            [['content'], 'string'],
+            [['book_id', 'created_at', 'updated_at'], 'integer'],
             [['title'], 'string', 'max' => 255],
+            [['book_id'], 'exist', 'skipOnError' => true, 'targetClass' => Book::className(), 'targetAttribute' => ['book_id' => 'id']],
         ];
     }
 
@@ -46,28 +48,18 @@ class Book extends \yii\db\ActiveRecord
         return [
             'id' => Yii::t('app', 'ID'),
             'title' => Yii::t('app', 'Title'),
-            'description' => Yii::t('app', 'Description'),
-            'active' => Yii::t('app', 'Active'),
+            'content' => Yii::t('app', 'Content'),
+            'book_id' => Yii::t('app', 'Book ID'),
             'created_at' => Yii::t('app', 'Created At'),
             'updated_at' => Yii::t('app', 'Updated At'),
         ];
     }
 
     /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            TimestampBehavior::className()
-        ];
-    }
-
-    /**
      * @return \yii\db\ActiveQuery
      */
-    public function getBookChapters()
+    public function getBook()
     {
-        return $this->hasMany(BookChapter::className(), ['book_id' => 'id']);
+        return $this->hasOne(Book::className(), ['id' => 'book_id']);
     }
 }
