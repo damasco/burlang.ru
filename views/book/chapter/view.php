@@ -43,7 +43,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="col-sm-8 col-xs-12">
             <h3><?= Html::encode($model->title) ?></h3>
             <div class="content">
-                <?= HtmlPurifier::process(Markdown::process($model->content, 'gfm')) ?>
+                <?= HtmlPurifier::process(Markdown::process($model->content, 'extra')) ?>
             </div>
         </div>
     </div>
