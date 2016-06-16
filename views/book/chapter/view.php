@@ -40,7 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="col-sm-4 hidden-xs">
             <?= BookChapterWidget::widget(['book' => $model->book, 'active_id' => $model->id]) ?>
         </div>
-        <div class="col-sm-4 col-xs-12">
+        <div class="col-sm-8 col-xs-12">
             <h3><?= Html::encode($model->title) ?></h3>
             <div class="content">
                 <?= HtmlPurifier::process(Markdown::process($model->content, 'gfm')) ?>
