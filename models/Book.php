@@ -14,6 +14,8 @@ use yii\behaviors\TimestampBehavior;
  * @property integer $active
  * @property integer $created_at
  * @property integer $updated_at
+ *
+ * @property BookChapter[] $chapters
  */
 class Book extends \yii\db\ActiveRecord
 {
@@ -66,7 +68,7 @@ class Book extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getBookChapters()
+    public function getChapters()
     {
         return $this->hasMany(BookChapter::className(), ['book_id' => 'id']);
     }

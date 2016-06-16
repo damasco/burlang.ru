@@ -9,6 +9,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\data\ActiveDataProvider;
+use app\models\BookChapter;
 
 /**
  * BookController implements the CRUD actions for Book model.
@@ -29,6 +30,7 @@ class BookController extends Controller
             ],
             'access' => [
                 'class' => AccessControl::className(),
+                'except' => ['index', 'view', 'chapter'],
                 'rules' => [
                     [
                         'allow' => true,
@@ -141,7 +143,98 @@ class BookController extends Controller
         if (($model = Book::findOne($id)) !== null) {
             return $model;
         } else {
-            throw new NotFoundHttpException('The requested page does not exist.');
+            throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
         }
     }
+
+    /**
+     * Creates a new BookChapter model.
+     * If creation is successful, the browser will be redirected to the 'chapter' page.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionChapterCreate($id)
+    {
+        $book = $this->findModel($id);
+        $model = new BookChapter();
+        $model->book_id = $book->id;
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['chapter', 'id' => $model->id]);
+        } else {
+            return $this->render('chapter/create', [
+                'model' => $model,
+                'book' => $book,
+            ]);
+        }
+    }
+
+    /**
+     * Updates an existing BookChapter model.
+     * If update is successful, the browser will be redirected to the 'chapter' page.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionChapterUpdate($id)
+    {
+        $model = $this->findChapter($id);
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['chapter', 'id' => $model->id]);
+        } else {
+            return $this->render('chapter/update', [
+                'model' => $model,
+            ]);
+        }
+    }
+
+    /**
+     * Displays a single BookChapter model.
+     * @param integer $id
+     * @return mixed
+     * @throws NotFoundHttpException if the model cannot be found
+     */
+    public function actionChapter($id)
+    {
+        $model = $this->findChapter($id);
+
+        if (!$model->book->active && Yii::$app->user->isGuest) {
+            throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+        } else {
+            return $this->render('chapter/view', [
+                'model' => $model,
+            ]);
+        }
+    }
+
+    /**
+     * Deletes an existing BookChapter model.
+     * If deletion is successful, the browser will be redirected to the 'view' page.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionChapterDelete($id)
+    {
+        $model = $this->findChapter($id);
+        $model->delete();
+
+        return $this->redirect(['view', 'id' => $model->book->id]);
+    }
+
+    /**
+     * Finds the BookChapter model based on its primary key value.
+     * If the model is not found, a 404 HTTP exception will be thrown.
+     * @param integer $id
+     * @return BookChapter the loaded model
+     * @throws NotFoundHttpException if the model cannot be found
+     */
+    protected function findChapter($id)
+    {
+        if (($model = BookChapter::findOne($id)) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+        }
+    }
+
 }

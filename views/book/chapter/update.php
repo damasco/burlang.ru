@@ -3,11 +3,11 @@
 use yii\helpers\Html;
 
 /* @var yii\web\View $this */
-/* @var app\models\Book $model */
+/* @var app\models\BookChapter $model */
 
 $this->title = Yii::t('app', 'Edit') . ': ' . $model->title;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Books'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = ['label' => $model->book->title, 'url' => ['view', 'id' => $model->book_id]];
 $this->params['breadcrumbs'][] = Yii::t('app', 'Edit');
 ?>
 

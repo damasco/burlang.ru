@@ -79,7 +79,7 @@ return [
     'Create news' => 'Создать новость',
     'Read more' => 'Читать далее',
 
-    // buryat-name
+    // buryat name
     'Bur. names' => 'Бур. имена',
     'Buryat names' => 'Бурятские имена',
     'Note' => 'Заметка',
@@ -116,4 +116,8 @@ return [
     'Book' => 'Книга',
     'Books' => 'Книги',
     'Create book' => 'Создать книгу',
+
+    // book chapter
+    'Add chapter' => 'Добавить главу',
+    'Edit chapter' => 'Редактировать главу',
 ];

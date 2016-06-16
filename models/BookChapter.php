@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "book_chapter".
@@ -32,7 +33,7 @@ class BookChapter extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'book_id', 'created_at', 'updated_at'], 'required'],
+            [['title', 'book_id'], 'required'],
             [['content'], 'string'],
             [['book_id', 'created_at', 'updated_at'], 'integer'],
             [['title'], 'string', 'max' => 255],
@@ -52,6 +53,16 @@ class BookChapter extends \yii\db\ActiveRecord
             'book_id' => Yii::t('app', 'Book ID'),
             'created_at' => Yii::t('app', 'Created At'),
             'updated_at' => Yii::t('app', 'Updated At'),
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::className()
         ];
     }
 

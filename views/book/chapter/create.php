@@ -3,10 +3,12 @@
 use yii\helpers\Html;
 
 /* @var yii\web\View $this */
-/* @var app\models\Book $model */
+/* @var app\models\BookChapter $model */
+/* @var app\models\Book $book */
 
-$this->title = Yii::t('app', 'Create book');
+$this->title = Yii::t('app', 'Add chapter');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Books'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => $book->title, 'url' => ['view', 'id' => $book->id]];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 

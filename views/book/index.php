@@ -3,8 +3,8 @@
 use yii\helpers\Html;
 use yii\widgets\ListView;
 
-/* @var $this yii\web\View */
-/* @var $dataProvider yii\data\ActiveDataProvider */
+/* @var yii\web\View $this */
+/* @var yii\data\ActiveDataProvider $dataProvider */
 
 $this->title = Yii::t('app', 'Books');
 $this->params['breadcrumbs'][] = $this->title;
@@ -13,9 +13,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        <?= Html::a(Yii::t('app', 'Create book'), ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+    <?php if (!Yii::$app->user->isGuest): ?>
+        <p>
+            <?= Html::a(Yii::t('app', 'Create book'), ['create'], ['class' => 'btn btn-success']) ?>
+        </p>
+    <?php endif ?>
+
     <?= ListView::widget([
         'dataProvider' => $dataProvider,
         'summary' => false,
