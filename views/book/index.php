@@ -19,12 +19,11 @@ $this->params['breadcrumbs'][] = $this->title;
         </p>
     <?php endif ?>
 
-    <div class="row">
-        <?= ListView::widget([
-            'dataProvider' => $dataProvider,
-            'summary' => false,
-            'itemView' => '_view'
-        ]); ?>
-    </div>
+    <?= ListView::widget([
+        'dataProvider' => $dataProvider,
+        'summary' => false,
+        'layout' => "{summary}\n<div class=\"row\">{items}</div>\n{pager}",
+        'itemView' => '_view'
+    ]); ?>
 
 </div>
