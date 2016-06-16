@@ -24,6 +24,8 @@ use yii\helpers\Html;
     <?php endif ?>
 </div>
 
-<p>
-    <?= Html::a(Yii::t('app', 'Add chapter'), ['chapter-create', 'id' => $model->id], ['class' => 'btn btn-success']) ?>
-</p>
+<?php if (!Yii::$app->user->isGuest): ?>
+    <p>
+        <?= Html::a(Yii::t('app', 'Add chapter'), ['chapter-create', 'id' => $model->id], ['class' => 'btn btn-success']) ?>
+    </p>
+<?php endif ?>

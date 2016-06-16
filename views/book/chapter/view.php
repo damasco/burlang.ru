@@ -16,7 +16,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <div class="book-view">
 
-    <h1 class="hidden-xs"><?= Html::encode($model->book->title) ?></h1>
+    <h1 class="hidden-xs">
+        <?= Html::encode($model->book->title) ?>
+        <?php if (!$model->book->active): ?>
+            <span class="label label-default"><?= Yii::t('app', 'Inactive') ?></span>
+        <?php endif ?>
+    </h1>
 
     <?php if (!Yii::$app->user->isGuest): ?>
         <p>
@@ -36,7 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= BookChapterWidget::widget(['book' => $model->book, 'active_id' => $model->id]) ?>
         </div>
         <div class="col-sm-4 col-xs-12">
-            <h2><?= Html::encode($model->title) ?></h2>
+            <h3><?= Html::encode($model->title) ?></h3>
             <div class="content">
                 <?= HtmlPurifier::process(Markdown::process($model->content, 'gfm')) ?>
             </div>
