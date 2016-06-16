@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use app\widgets\BookChapterWidget;
+use yii\helpers\HtmlPurifier;
+use yii\helpers\Markdown;
 
 /* @var yii\web\View $this */
 /* @var app\models\Book $model */
@@ -25,7 +27,6 @@ $this->params['breadcrumbs'][] = $this->title;
                     'method' => 'post',
                 ],
             ]) ?>
-            <?= Html::a(Yii::t('app', 'Add chapter'), ['chapter-create', 'id' => $model->id], ['class' => 'btn btn-success']) ?>
         </p>
     <?php endif ?>
 
@@ -35,7 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
         <div class="col-sm-8 col-xs-12">
             <p>
-                <?= nl2br(Html::encode($model->description)) ?>
+                <?= HtmlPurifier::process(Markdown::process($model->content, 'gfm')) ?>
             </p>
         </div>
     </div>

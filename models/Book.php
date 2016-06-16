@@ -11,6 +11,7 @@ use yii\behaviors\TimestampBehavior;
  * @property integer $id
  * @property string $title
  * @property string $description
+ * @property string $content
  * @property integer $active
  * @property integer $created_at
  * @property integer $updated_at
@@ -34,7 +35,7 @@ class Book extends \yii\db\ActiveRecord
     {
         return [
             [['title', 'active'], 'required'],
-            [['description'], 'string'],
+            [['description', 'content'], 'string'],
             [['active', 'created_at', 'updated_at'], 'integer'],
             [['title'], 'string', 'max' => 255],
         ];
@@ -49,6 +50,7 @@ class Book extends \yii\db\ActiveRecord
             'id' => Yii::t('app', 'ID'),
             'title' => Yii::t('app', 'Title'),
             'description' => Yii::t('app', 'Description'),
+            'content' => Yii::t('app', 'Content'),
             'active' => Yii::t('app', 'Active'),
             'created_at' => Yii::t('app', 'Created At'),
             'updated_at' => Yii::t('app', 'Updated At'),
