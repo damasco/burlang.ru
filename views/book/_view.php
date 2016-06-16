@@ -17,10 +17,6 @@ use yii\helpers\Html;
 
     <p><?= Html::encode($model->description) ?></p>
 
-    <?= Html::a(Yii::t('app', 'Read more') . ' →',
-        ['book/view', 'id' => $model->id],
-        ['class' => 'btn btn-default btn-sm']) ?>
-
     <hr>
 
 </div>
