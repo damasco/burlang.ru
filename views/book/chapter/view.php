@@ -25,8 +25,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?php if (!Yii::$app->user->isGuest): ?>
         <p>
-            <?= Html::a(Yii::t('app', 'Edit chapter'), ['chapter-update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-            <?= Html::a(Yii::t('app', 'Delete'), ['chapter-delete', 'id' => $model->id], [
+            <?= Html::a(Yii::t('app', 'Edit'), ['update', 'id' => $model->book->id], ['class' => 'btn btn-primary']) ?>
+            <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->book->id], [
                 'class' => 'btn btn-danger',
                 'data' => [
                     'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
@@ -41,7 +41,19 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= BookChapterWidget::widget(['book' => $model->book, 'active_id' => $model->id]) ?>
         </div>
         <div class="col-sm-8 col-xs-12">
-            <h3><?= Html::encode($model->title) ?></h3>
+            <h2><?= Html::encode($model->title) ?></h2>
+            <?php if (!Yii::$app->user->isGuest): ?>
+                <p>
+                    <?= Html::a(Yii::t('app', 'Edit chapter'), ['chapter-update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+                    <?= Html::a(Yii::t('app', 'Delete'), ['chapter-delete', 'id' => $model->id], [
+                        'class' => 'btn btn-danger',
+                        'data' => [
+                            'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
+                            'method' => 'post',
+                        ],
+                    ]) ?>
+                </p>
+            <?php endif ?>
             <div class="content">
                 <?= HtmlPurifier::process(Markdown::process($model->content, 'extra')) ?>
             </div>
