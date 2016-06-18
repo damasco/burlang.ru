@@ -41,7 +41,6 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= BookChapterWidget::widget(['book' => $model->book, 'active_id' => $model->id]) ?>
         </div>
         <div class="col-sm-8 col-xs-12">
-            <h2><?= Html::encode($model->title) ?></h2>
             <?php if (!Yii::$app->user->isGuest): ?>
                 <p>
                     <?= Html::a(Yii::t('app', 'Edit chapter'), ['chapter-update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
