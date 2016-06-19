@@ -44,7 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <?php if (!Yii::$app->user->isGuest): ?>
                 <p>
                     <?= Html::a(Yii::t('app', 'Edit chapter'), ['chapter-update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-                    <?= Html::a(Yii::t('app', 'Delete'), ['chapter-delete', 'id' => $model->id], [
+                    <?= Html::a(Yii::t('app', 'Delete chapter'), ['chapter-delete', 'id' => $model->id], [
                         'class' => 'btn btn-danger',
                         'data' => [
                             'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
