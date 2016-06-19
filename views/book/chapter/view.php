@@ -37,10 +37,10 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php endif ?>
 
     <div class="row">
-        <div class="col-sm-4 hidden-xs">
+        <div class="col-sm-3 hidden-xs">
             <?= BookChapterWidget::widget(['book' => $model->book, 'active_id' => $model->id]) ?>
         </div>
-        <div class="col-sm-8 col-xs-12">
+        <div class="col-sm-9 col-xs-12">
             <?php if (!Yii::$app->user->isGuest): ?>
                 <p>
                     <?= Html::a(Yii::t('app', 'Edit chapter'), ['chapter-update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
