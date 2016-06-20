@@ -5,7 +5,7 @@ namespace app\widgets;
 use yii\base\Widget;
 use app\models\Book;
 
-class BookChapterWidget extends Widget
+class ChapterMenuWidget extends Widget
 {
     /* @var Book */
     public $book;
@@ -14,7 +14,7 @@ class BookChapterWidget extends Widget
 
     public function run()
     {
-        return $this->render('book-chapter', [
+        return $this->render('chapter-menu', [
             'model' => $this->book,
             'active_id' => $this->active_id,
         ]);

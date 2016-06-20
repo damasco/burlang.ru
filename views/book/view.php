@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\Html;
-use app\widgets\BookChapterWidget;
+use app\widgets\ChapterMenuWidget;
 use yii\helpers\HtmlPurifier;
 use yii\helpers\Markdown;
 
@@ -37,7 +37,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div class="row">
         <div class="col-sm-3">
-            <?= BookChapterWidget::widget(['book' => $model]) ?>
+            <?= ChapterMenuWidget::widget(['book' => $model]) ?>
         </div>
         <div class="col-sm-9 col-xs-12">
             <p>

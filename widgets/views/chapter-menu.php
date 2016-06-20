@@ -7,7 +7,6 @@ use yii\helpers\Html;
 /* @var int|null $active_id */
 ?>
 
-
 <div class="list-group">
     <a class="<?= $active_id == null ? 'list-group-item active' : 'list-group-item' ?>"
        href="<?= Url::to(['view', 'id' => $model->id]) ?>">

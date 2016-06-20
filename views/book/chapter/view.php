@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 use yii\helpers\Markdown;
 use yii\helpers\HtmlPurifier;
-use app\widgets\BookChapterWidget;
+use app\widgets\ChapterMenuWidget;
 
 /* @var yii\web\View $this */
 /* @var app\models\BookChapter $model */
@@ -38,7 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div class="row">
         <div class="col-sm-3 hidden-xs">
-            <?= BookChapterWidget::widget(['book' => $model->book, 'active_id' => $model->id]) ?>
+            <?= ChapterMenuWidget::widget(['book' => $model->book, 'active_id' => $model->id]) ?>
         </div>
         <div class="col-sm-9 col-xs-12">
             <?php if (!Yii::$app->user->isGuest): ?>
