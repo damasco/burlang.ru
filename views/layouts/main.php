@@ -89,12 +89,6 @@ AppAsset::register($this);
                     (Yii::$app->controller->action->id == 'index' || Yii::$app->controller->action->id == 'view-name')
             ],
             [
-                'label' => Yii::t('app', 'News'),
-                'url' => ['/news/index'],
-                'active' => Yii::$app->controller->id == 'news'
-            ],
-
-            [
                 'label' => Yii::t('app', 'Books'),
                 'url' => ['/book/index'],
                 'active' => Yii::$app->controller->id == 'book',
@@ -102,6 +96,13 @@ AppAsset::register($this);
             ],
 
             Yii::$app->page->itemMenu('translation-service'),
+
+            [
+                'label' => Yii::t('app', 'News'),
+                'url' => ['/news/index'],
+                'active' => Yii::$app->controller->id == 'news'
+            ],
+
             Yii::$app->page->itemMenu('about'),
 
             Yii::$app->user->isGuest ?
