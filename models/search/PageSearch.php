@@ -19,7 +19,7 @@ class PageSearch extends Page
     {
         return [
             [['id', 'active', 'created_at', 'updated_at'], 'integer'],
-            [['title', 'link', 'description', 'content'], 'safe'],
+            [['menu_name', 'title', 'link', 'description', 'content'], 'safe'],
         ];
     }
 
@@ -65,7 +65,8 @@ class PageSearch extends Page
             'updated_at' => $this->updated_at,
         ]);
 
-        $query->andFilterWhere(['like', 'title', $this->title])
+        $query->andFilterWhere(['like', 'menu_name', $this->menu_name])
+            ->andFilterWhere(['like', 'title', $this->title])
             ->andFilterWhere(['like', 'link', $this->link])
             ->andFilterWhere(['like', 'description', $this->description])
             ->andFilterWhere(['like', 'content', $this->content]);

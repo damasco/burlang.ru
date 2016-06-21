@@ -9,6 +9,7 @@ use yii\behaviors\TimestampBehavior;
  * This is the model class for table "page".
  *
  * @property integer $id
+ * @property string $menu_name
  * @property string $title
  * @property string $link
  * @property string $description
@@ -43,10 +44,10 @@ class Page extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'link', 'content', 'active'], 'required'],
+            [['menu_name', 'title', 'link', 'content', 'active'], 'required'],
             [['content'], 'string'],
             [['active', 'created_at', 'updated_at'], 'integer'],
-            [['title', 'description'], 'string', 'max' => 255],
+            [['menu_name', 'title', 'description'], 'string', 'max' => 255],
             [['link'], 'string', 'max' => 100],
             [['link'], 'unique'],
             [['link'], 'filter', 'filter' => 'trim'],
@@ -61,6 +62,7 @@ class Page extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
+            'menu_name' => Yii::t('app', 'Menu name'),
             'title' => Yii::t('app', 'Title'),
             'link' => Yii::t('app', 'Link'),
             'description' => Yii::t('app', 'Description'),

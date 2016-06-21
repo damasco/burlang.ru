@@ -20,7 +20,7 @@ class Page extends Component
         /* @var $model PageModel */
         if ($model !== null && $model->active) {
             return [
-                'label' => $model->title,
+                'label' => $model->menu_name,
                 'url' => ['/page/view', 'link' => $link ],
                 'active' => Yii::$app->request->url == Url::to(['/page/view', 'link' => $link ])
             ];

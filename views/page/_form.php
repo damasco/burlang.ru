@@ -15,6 +15,8 @@ use ijackua\lepture\Markdowneditor;
 
     <?= $form->field($model, 'active')->checkbox() ?>
 
+    <?= $form->field($model, 'menu_name')->textInput(['maxlength' => true]) ?>
+
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'link')->textInput(['maxlength' => true, 'disabled' => $model->isNewRecord ? false : true]) ?>
