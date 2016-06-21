@@ -54,7 +54,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </p>
             <?php endif ?>
             <div class="content">
-                <?= HtmlPurifier::process(Markdown::process($model->content, 'extra')) ?>
+                <?= HtmlPurifier::process(Markdown::process($model->content, 'gfm')) ?>
             </div>
         </div>
     </div>
