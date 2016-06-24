@@ -64,14 +64,15 @@ class NewsController extends Controller
 
     /**
      * Displays a single News model.
-     * @param integer $id
+     * @param string $slug
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($id)
+    public function actionView($slug)
     {
-        $model = $this->findModel($id);
-        if (!$model->active && Yii::$app->user->isGuest) {
+        /* @var News $model */
+        $model = News::findOne(['slug' => $slug]);
+        if (!$model || (!$model->active && Yii::$app->user->isGuest)) {
             throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
         } else {
             return $this->render('view', [
@@ -90,7 +91,7 @@ class NewsController extends Controller
         $model = new News();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'slug' => $model->slug]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -109,7 +110,7 @@ class NewsController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'slug' => $model->slug]);
         } else {
             return $this->render('update', [
                 'model' => $model,

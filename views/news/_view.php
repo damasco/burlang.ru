@@ -8,7 +8,7 @@ use yii\helpers\Html;
 <div class="news-item">
 
     <h2>
-        <?= Html::a(Html::encode($model->title), ['/news/view', 'id' => $model->id]) ?>
+        <?= Html::a(Html::encode($model->title), ['/news/view', 'slug' => $model->slug]) ?>
         <?php if (!$model->active): ?>
             <span class="label label-default"><?= Yii::t('app', 'Inactive') ?></span>
         <?php endif ?>
@@ -21,7 +21,7 @@ use yii\helpers\Html;
     </p>
 
     <?= Html::a(Yii::t('app', 'Read more') . ' →',
-        ['/news/view', 'id' => $model->id],
+        ['/news/view', 'slug' => $model->slug],
         ['class' => 'btn btn-default btn-sm']) ?>
 
 </div>

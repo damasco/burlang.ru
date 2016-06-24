@@ -4,12 +4,14 @@ namespace app\models;
 
 use Yii;
 use yii\behaviors\TimestampBehavior;
+use yii\behaviors\SluggableBehavior;
 
 /**
  * This is the model class for table "news".
  *
  * @property integer $id
  * @property string $title
+ * @property string $slug
  * @property string $description
  * @property string $content
  * @property integer $active
@@ -32,7 +34,11 @@ class News extends \yii\db\ActiveRecord
     public function behaviors()
     {
         return [
-            TimestampBehavior::className()
+            TimestampBehavior::className(),
+            [
+                'class' => SluggableBehavior::className(),
+                'attribute' => 'title',
+            ]
         ];
     }
 
@@ -45,7 +51,7 @@ class News extends \yii\db\ActiveRecord
             [['title', 'content', 'active'], 'required'],
             [['content', 'description'], 'string'],
             [['active', 'created_at', 'updated_at'], 'integer'],
-            [['title'], 'string', 'max' => 255],
+            [['title', 'slug'], 'string', 'max' => 255],
         ];
     }
 
@@ -57,6 +63,7 @@ class News extends \yii\db\ActiveRecord
         return [
             'id' => Yii::t('app', 'ID'),
             'title' => Yii::t('app', 'Title'),
+            'slug' => Yii::t('app', 'Slug'),
             'description' => Yii::t('app', 'Description'),
             'content' => Yii::t('app', 'Content'),
             'active' => Yii::t('app', 'Active'),
