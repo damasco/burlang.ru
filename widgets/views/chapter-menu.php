@@ -9,7 +9,7 @@ use yii\helpers\Html;
 
 <div class="list-group">
     <a class="<?= $active_id == null ? 'list-group-item active' : 'list-group-item' ?>"
-       href="<?= Url::to(['view', 'id' => $model->id]) ?>">
+       href="<?= Url::to(['view', 'slug' => $model->slug]) ?>">
         <?= Yii::t('app', 'Main') ?>
     </a>
     <?php if ($model->getChapters()->exists()): ?>

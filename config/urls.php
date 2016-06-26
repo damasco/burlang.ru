@@ -4,8 +4,11 @@ return [
     'news' => 'news/index',
     'news/<slug>' => 'news/view',
 
-    'buryat-name' => 'buryat-name/index',
+    'book/<action:(create|update|delete|chapter-create|chapter-update|chapter|chapter-delete)>' => 'book/<action>',
     'books' => 'book/index',
+    'book/<slug>' => 'book/view',
+
+    'buryat-name' => 'buryat-name/index',
 
     '<link:[\w-]+>' => '/page/view',
 ];

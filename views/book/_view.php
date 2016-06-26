@@ -11,7 +11,7 @@ use yii\helpers\Html;
     <div class="book-item">
 
         <h2>
-            <?= Html::a(Html::encode($model->title), ['book/view', 'id' => $model->id]) ?>
+            <?= Html::a(Html::encode($model->title), ['book/view', 'slug' => $model->slug]) ?>
             <?php if (!$model->active): ?>
                 <span class="label label-default"><?= Yii::t('app', 'Inactive') ?></span>
             <?php endif ?>
@@ -20,7 +20,7 @@ use yii\helpers\Html;
         <p><?= nl2br(Html::encode($model->description)) ?></p>
 
         <?= Html::a(Yii::t('app', 'More') . ' →',
-            ['/book/view', 'id' => $model->id],
+            ['/book/view', 'slug' => $model->slug],
             ['class' => 'btn btn-custom btn-sm']) ?>
 
     </div>

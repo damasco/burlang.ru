@@ -65,14 +65,15 @@ class BookController extends Controller
 
     /**
      * Displays a single Book model.
-     * @param integer $id
+     * @param string $slug
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($id)
+    public function actionView($slug)
     {
-        $model = $this->findModel($id);
-        if (!$model->active && Yii::$app->user->isGuest) {
+        /* @var Book $model */
+        $model = Book::findOne(['slug' => $slug]);
+        if (!$model || (!$model->active && Yii::$app->user->isGuest)) {
             throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
         } else {
             return $this->render('view', [
@@ -91,7 +92,7 @@ class BookController extends Controller
         $model = new Book();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'slug' => $model->slug]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -110,7 +111,7 @@ class BookController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'slug' => $model->slug]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -218,7 +219,7 @@ class BookController extends Controller
         $model = $this->findChapter($id);
         $model->delete();
 
-        return $this->redirect(['view', 'id' => $model->book->id]);
+        return $this->redirect(['view', 'slug' => $model->book->slug]);
     }
 
     /**
