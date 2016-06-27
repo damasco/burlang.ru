@@ -92,6 +92,7 @@ AppAsset::register($this);
                 'label' => Yii::t('app', 'Books'),
                 'url' => ['/book/index'],
                 'active' => Yii::$app->controller->id == 'book',
+                'visible' => !Yii::$app->user->isGuest,
             ],
 
             Yii::$app->page->itemMenu('translation-service'),
