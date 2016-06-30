@@ -4,12 +4,14 @@ namespace app\models;
 
 use Yii;
 use yii\behaviors\TimestampBehavior;
+use yii\behaviors\SluggableBehavior;
 
 /**
  * This is the model class for table "book_chapter".
  *
  * @property integer $id
  * @property string $title
+ * @property string $slug
  * @property string $content
  * @property integer $book_id
  * @property integer $created_at
@@ -36,7 +38,7 @@ class BookChapter extends \yii\db\ActiveRecord
             [['title', 'book_id'], 'required'],
             [['content'], 'string'],
             [['book_id', 'created_at', 'updated_at'], 'integer'],
-            [['title'], 'string', 'max' => 255],
+            [['title', 'slug'], 'string', 'max' => 255],
             [['book_id'], 'exist', 'skipOnError' => true, 'targetClass' => Book::className(), 'targetAttribute' => ['book_id' => 'id']],
         ];
     }
@@ -49,6 +51,7 @@ class BookChapter extends \yii\db\ActiveRecord
         return [
             'id' => Yii::t('app', 'ID'),
             'title' => Yii::t('app', 'Title'),
+            'slug' => Yii::t('app', 'Slug'),
             'content' => Yii::t('app', 'Content'),
             'book_id' => Yii::t('app', 'Book ID'),
             'created_at' => Yii::t('app', 'Created At'),
@@ -62,7 +65,11 @@ class BookChapter extends \yii\db\ActiveRecord
     public function behaviors()
     {
         return [
-            TimestampBehavior::className()
+            TimestampBehavior::className(),
+            [
+                'class' => SluggableBehavior::className(),
+                'attribute' => 'title',
+            ]
         ];
     }
 
