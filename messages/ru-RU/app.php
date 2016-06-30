@@ -78,6 +78,7 @@ return [
     'News' => 'Новости',
     'Create news' => 'Создать новость',
     'Read more' => 'Читать далее',
+    'This title already exists' => 'Такой заголовок уже существует',
 
     // buryat name
     'Bur. names' => 'Бур. имена',
