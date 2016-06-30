@@ -40,6 +40,7 @@ class BookChapter extends \yii\db\ActiveRecord
             [['book_id', 'created_at', 'updated_at'], 'integer'],
             [['title', 'slug'], 'string', 'max' => 255],
             [['book_id'], 'exist', 'skipOnError' => true, 'targetClass' => Book::className(), 'targetAttribute' => ['book_id' => 'id']],
+            ['title', 'uniqueSlugBook']
         ];
     }
 
@@ -79,5 +80,17 @@ class BookChapter extends \yii\db\ActiveRecord
     public function getBook()
     {
         return $this->hasOne(Book::className(), ['id' => 'book_id']);
+    }
+
+    /**
+     * Validation
+     * @param $attribute
+     */
+    public function uniqueSlugBook($attribute)
+    {
+        $model = BookChapter::findOne(['slug' => $this->slug, 'book_id' => $this->book_id]);
+        if ($model && $model->id !== $this->id) {
+            $this->addError($attribute, Yii::t('app', 'This title already exists'));
+        }
     }
 }

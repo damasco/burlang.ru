@@ -149,6 +149,22 @@ class BookController extends Controller
     }
 
     /**
+     * Finds the Book model based on its slug.
+     * If the model is not found, a 404 HTTP exception will be thrown.
+     * @param string $slug
+     * @return Book the loaded model
+     * @throws NotFoundHttpException if the model cannot be found
+     */
+    protected function slugFindModel($slug)
+    {
+        if (($model = Book::findOne(['slug' => $slug])) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+        }
+    }
+
+    /**
      * Creates a new BookChapter model.
      * If creation is successful, the browser will be redirected to the 'chapter' page.
      * @param integer $id
@@ -161,7 +177,7 @@ class BookController extends Controller
         $model->book_id = $book->id;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['chapter', 'id' => $model->id]);
+            return $this->redirect(['chapter', 'slug' => $model->book->id, 'slug_chapter' => $model->slug]);
         } else {
             return $this->render('chapter/create', [
                 'model' => $model,
@@ -181,7 +197,7 @@ class BookController extends Controller
         $model = $this->findChapter($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['chapter', 'id' => $model->id]);
+            return $this->redirect(['chapter', 'slug' => $model->book->slug, 'slug_chapter' => $model->slug]);
         } else {
             return $this->render('chapter/update', [
                 'model' => $model,
@@ -191,15 +207,17 @@ class BookController extends Controller
 
     /**
      * Displays a single BookChapter model.
-     * @param integer $id
+     * @param string $slug
+     * @param string $slug_chapter
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionChapter($id)
+    public function actionChapter($slug, $slug_chapter)
     {
-        $model = $this->findChapter($id);
+        $book = $this->slugFindModel($slug);
+        $model = $this->slugFindChapter($slug_chapter, $book->id);
 
-        if (!$model->book->active && Yii::$app->user->isGuest) {
+        if (!$book->active && Yii::$app->user->isGuest) {
             throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
         } else {
             return $this->render('chapter/view', [
@@ -232,6 +250,23 @@ class BookController extends Controller
     protected function findChapter($id)
     {
         if (($model = BookChapter::findOne($id)) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+        }
+    }
+
+    /**
+     * Finds the BookChapter model based on its slug.
+     * If the model is not found, a 404 HTTP exception will be thrown.
+     * @param string $slug
+     * @param integer $book_id
+     * @return BookChapter the loaded model
+     * @throws NotFoundHttpException if the model cannot be found
+     */
+    protected function slugFindChapter($slug, $book_id)
+    {
+        if (($model = BookChapter::findOne(['slug' => $slug, 'book_id' => $book_id])) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));

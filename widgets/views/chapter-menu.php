@@ -16,7 +16,7 @@ use yii\helpers\Html;
         <?php /* @var \app\models\BookChapter $chapter */ ?>
         <?php foreach ($model->chapters as $chapter): ?>
             <a class="<?= $chapter->id == $active_id ? 'list-group-item active' : 'list-group-item' ?>"
-               href="<?= Url::to(['chapter', 'id' => $chapter->id]) ?>">
+               href="<?= Url::to(['chapter', 'slug' => $chapter->book->slug, 'slug_chapter' => $chapter->slug]) ?>">
                 <?= Html::encode($chapter->title) ?>
             </a>
         <?php endforeach; ?>

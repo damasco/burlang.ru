@@ -8,7 +8,7 @@ use yii\helpers\Html;
 
 $this->title = Yii::t('app', 'Add chapter');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Books'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $book->title, 'url' => ['view', 'id' => $book->id]];
+$this->params['breadcrumbs'][] = ['label' => $book->title, 'url' => ['view', 'slug' => $book->slug]];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
