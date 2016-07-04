@@ -95,14 +95,13 @@ AppAsset::register($this);
                 'visible' => !Yii::$app->user->isGuest,
             ],
 
-            Yii::$app->page->itemMenu('translation-service'),
-
             [
                 'label' => Yii::t('app', 'News'),
                 'url' => ['/news/index'],
                 'active' => Yii::$app->controller->id == 'news'
             ],
 
+            Yii::$app->page->itemMenu('translation-service'),
             Yii::$app->page->itemMenu('about'),
 
             Yii::$app->user->isGuest ?
