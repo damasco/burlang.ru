@@ -177,7 +177,7 @@ class BookController extends Controller
         $model->book_id = $book->id;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['chapter', 'slug' => $model->book->id, 'slug_chapter' => $model->slug]);
+            return $this->redirect(['chapter', 'slug' => $model->book->slug, 'slug_chapter' => $model->slug]);
         } else {
             return $this->render('chapter/create', [
                 'model' => $model,
