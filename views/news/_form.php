@@ -13,6 +13,8 @@ use ijackua\lepture\Markdowneditor;
 
     <?php $form = ActiveForm::begin(); ?>
 
+    <?= $form->errorSummary($model); ?>
+
     <?= $form->field($model, 'active')->checkbox() ?>
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
