@@ -20,11 +20,8 @@ use ijackua\lepture\Markdowneditor;
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'description')->textarea(['rows' => 5]) ?>
-
-    <?= Markdowneditor::widget([
-        'model' => $model,
-        'attribute' => 'content'
-    ]) ?>
+    
+    <?= $form->field($model, 'content')->widget(Markdowneditor::className()) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Save'),
