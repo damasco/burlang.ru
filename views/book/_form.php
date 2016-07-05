@@ -13,16 +13,15 @@ use ijackua\lepture\Markdowneditor;
 
     <?php $form = ActiveForm::begin(); ?>
 
+    <?= $form->errorSummary($model); ?>
+
     <?= $form->field($model, 'active')->checkbox() ?>
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'description')->textarea(['rows' => 3]) ?>
 
-    <?= Markdowneditor::widget([
-        'model' => $model,
-        'attribute' => 'content'
-    ]) ?>
+    <?= $form->field($model, 'content')->widget(Markdowneditor::className()) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Save'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
