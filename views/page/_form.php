@@ -13,6 +13,8 @@ use ijackua\lepture\Markdowneditor;
 
     <?php $form = ActiveForm::begin(); ?>
 
+    <?= $form->errorSummary($model); ?>
+
     <?= $form->field($model, 'active')->checkbox() ?>
 
     <?= $form->field($model, 'menu_name')->textInput(['maxlength' => true]) ?>
@@ -23,10 +25,7 @@ use ijackua\lepture\Markdowneditor;
 
     <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
 
-    <?= Markdowneditor::widget([
-        'model' => $model,
-        'attribute' => 'content'
-    ]) ?>
+    <?= $form->field($model, 'content')->widget(Markdowneditor::className()) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Save'),
