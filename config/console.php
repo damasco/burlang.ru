@@ -16,6 +16,9 @@ $config = [
         'user' => [
             'class' => 'dektrium\user\Module',
         ],
+        'rbac' => [
+            'class' => 'dektrium\rbac\Module',
+        ],
     ],
     'components' => [
         'db' => $params['components.db'],
