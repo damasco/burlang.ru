@@ -2,12 +2,13 @@
 
 namespace app\commands;
 
+use Yii;
 use yii\console\Controller;
 
 class InitController extends Controller
 {
-    public function actionIndex()
+    public function actionInit()
     {
-        echo "Hello, World!\n";
+        
     }
 }
