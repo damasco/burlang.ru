@@ -59,6 +59,9 @@ return [
     'Add name' => 'Добавить имя',
     'More' => 'Подробнее',
 
+    //command
+    'Are you sure?' => 'Вы уверены?',
+
     // national
     'Russian-Buryat, Buryat-Russian electronic dictionary' => 'Русско-Бурятский, Бурятско-Русский электронный словарь',
     'Russian-Buryat dictionary' => 'Русско-Бурятский словарь',
