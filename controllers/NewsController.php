@@ -33,7 +33,7 @@ class NewsController extends Controller
                 'rules' => [
                     [
                         'allow' => true,
-                        'roles' => ['@'],
+                        'roles' => ['adminNews'],
                     ],
                 ],
             ],
