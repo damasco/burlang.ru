@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <?php if (!Yii::$app->user->isGuest): ?>
+    <?php if (Yii::$app->user->can('adminBook')): ?>
         <p>
             <?= Html::a(Yii::t('app', 'Create book'), ['create'], ['class' => 'btn btn-success']) ?>
         </p>

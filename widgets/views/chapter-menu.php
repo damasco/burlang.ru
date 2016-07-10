@@ -23,7 +23,7 @@ use yii\helpers\Html;
     <?php endif ?>
 </div>
 
-<?php if (!Yii::$app->user->isGuest): ?>
+<?php if (Yii::$app->user->can('adminBook')): ?>
     <p>
         <?= Html::a(Yii::t('app', 'Add chapter'), ['chapter-create', 'id' => $model->id], ['class' => 'btn btn-success']) ?>
     </p>

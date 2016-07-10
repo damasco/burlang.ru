@@ -23,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?php endif ?>
     </h1>
 
-    <?php if (!Yii::$app->user->isGuest): ?>
+    <?php if (Yii::$app->user->can('adminBook')): ?>
         <p>
             <?= Html::a(Yii::t('app', 'Edit'), ['update', 'id' => $model->book->id], ['class' => 'btn btn-primary']) ?>
             <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->book->id], [
@@ -41,7 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= ChapterMenuWidget::widget(['book' => $model->book, 'active_id' => $model->id]) ?>
         </div>
         <div class="col-sm-9 col-xs-12">
-            <?php if (!Yii::$app->user->isGuest): ?>
+            <?php if (Yii::$app->user->can('adminBook')): ?>
                 <p>
                     <?= Html::a(Yii::t('app', 'Edit chapter'), ['chapter-update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
                     <?= Html::a(Yii::t('app', 'Delete chapter'), ['chapter-delete', 'id' => $model->id], [
