@@ -36,12 +36,12 @@ class RbacController extends Controller
         $moderator = $auth->createRole('moderator');
         $moderator->description = 'Moderator';
         $auth->add($moderator);
-        $auth->addChild($moderator, $adminNews);
         $auth->addChild($moderator, $adminBook);
 
         $admin = $auth->createRole('admin');
         $admin->description = 'Administrator';
         $auth->add($admin);
+        $auth->addChild($admin, $adminNews);
         $auth->addChild($admin, $moderator);
     }
 

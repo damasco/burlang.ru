@@ -9,9 +9,9 @@ class TranslationServiceWidget extends Widget
 {
     public function run()
     {
+        /* @var Page $model */
         $model = Page::findOne(['link' => 'translation-service']);
 
-        /* @var Page $model */
         if ($model !== null && $model->active) {
             return $this->render('translation-service', [
                 'model' => $model

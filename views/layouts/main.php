@@ -107,12 +107,12 @@ AppAsset::register($this);
                 [
                     'label' => Yii::$app->user->identity->username,
                     'items' => [
-                        ['label' => Yii::t('app', 'Buryat names'), 'url' => ['/buryat-name/admin']],
-                        ['label' => Yii::t('app', 'Buryat words'), 'url' => ['/buryat-word/index']],
-                        ['label' => Yii::t('app', 'Russian words'), 'url' => ['/russian-word/index']],
-                        ['label' => Yii::t('app', 'Dictionaries'), 'url' => ['/dictionary/index']],
-                        ['label' => Yii::t('app', 'Pages'), 'url' => ['/page/index']],
-                        ['label' => Yii::t('user', 'Users'), 'url' => ['/user/admin/index'], 'visible' => Yii::$app->user->identity->getIsAdmin()],
+                        ['label' => Yii::t('app', 'Buryat names'), 'url' => ['/buryat-name/admin'], 'visible' => Yii::$app->user->can('moderator')],
+                        ['label' => Yii::t('app', 'Buryat words'), 'url' => ['/buryat-word/index'], 'visible' => Yii::$app->user->can('moderator')],
+                        ['label' => Yii::t('app', 'Russian words'), 'url' => ['/russian-word/index'], 'visible' => Yii::$app->user->can('moderator')],
+                        ['label' => Yii::t('app', 'Dictionaries'), 'url' => ['/dictionary/index'], 'visible' => Yii::$app->user->can('moderator')],
+                        ['label' => Yii::t('app', 'Pages'), 'url' => ['/page/index'], 'visible' => Yii::$app->user->can('admin')],
+                        ['label' => Yii::t('user', 'Users'), 'url' => ['/user/admin/index'], 'visible' => Yii::$app->user->can('admin')],
                         '<li role="separator" class="divider"></li>',
                         ['label' => Yii::t('user', 'Profile'), 'url' => ['/user/profile/show', 'id' => Yii::$app->user->identity->id]],
                         ['label' => Yii::t('user', 'Profile settings'), 'url' => ['/user/settings/profile', 'id' => Yii::$app->user->identity->id]],

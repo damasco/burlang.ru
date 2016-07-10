@@ -72,7 +72,7 @@ $config = [
         'user' => [
             'class' => 'dektrium\user\Module',
             'enableRegistration' => false,
-            'admins' => ['admin']
+            'adminPermission' => 'admin',
         ],
         'rbac' => [
             'class' => 'dektrium\rbac\Module',

@@ -36,7 +36,7 @@ class BuryatNameController extends Controller
                 'rules' => [
                     [
                         'allow' => true,
-                        'roles' => ['@'],
+                        'roles' => ['moderator'],
                     ],
                 ],
             ],
