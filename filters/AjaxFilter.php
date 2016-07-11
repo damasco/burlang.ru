@@ -18,13 +18,15 @@ class AjaxFilter extends Behavior
      */
     public function events()
     {
-        return [Controller::EVENT_BEFORE_ACTION => 'beforeAction'];
+        return [
+            Controller::EVENT_BEFORE_ACTION => 'beforeAction',
+        ];
     }
 
     /**
      * @param ActionEvent $event
      * @return bool
-     * @throws BadRequestHttpException
+     * @throws BadRequestHttpException if action is not ajax request
      */
     public function beforeAction($event)
     {
