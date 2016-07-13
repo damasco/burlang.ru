@@ -25,6 +25,7 @@ By this moment you should have `config/param-local.php`. Specify your database c
 
 ```
 php yii migrate/up --migrationPath=@vendor/dektrium/yii2-user/migrations
+php yii migrate/up --migrationPath=@yii/rbac/migrations
 php yii migrate
 ```
 
@@ -34,7 +35,17 @@ php yii migrate
 php yii user/create <email> <username> [password] [...options...]
 ```
 
-### 4. Build
+### 4. Rbac configuration
+
+Run `php yii rbac/init` - generate default roles and permissions.
+
+#### 4.1. Assign role
+
+```
+php yii rbac/assign <role> <username> 
+```
+
+### 5. Build
 
 Run `gulp build` - automatically build target CSS/JS files
 
