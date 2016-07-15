@@ -83,7 +83,7 @@ AppAsset::register($this);
                 'active' => Yii::$app->controller->id == 'site' && Yii::$app->controller->action->id == 'index'
             ],
             [
-                'label' => Yii::t('app', 'Buryat names'),
+                'label' => Yii::t('app', 'Names'),
                 'url' => ['/buryat-name/index'],
                 'active' => Yii::$app->controller->id == 'buryat-name' &&
                     (Yii::$app->controller->action->id == 'index' || Yii::$app->controller->action->id == 'view-name')

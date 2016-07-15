@@ -9,7 +9,8 @@ return [
     'book/<slug>' => 'book/view',
     'book/<slug>/<slug_chapter>' => 'book/chapter',
 
-    'buryat-names' => 'buryat-name/index',
+    'names' => 'buryat-name/index',
+    'names/<name>' => 'buryat-name/view-name',
 
     '<link:[\w-]+>' => '/page/view',
 ];

@@ -7,7 +7,7 @@ use yii\helpers\Html;
 /* @var array $names */
 /* @var string $letter */
 
-$this->title = Yii::t('app', 'Buryat names');
+$this->title = Yii::t('app', 'Names');
 
 if ($letter !== null) {
     $this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['index']];

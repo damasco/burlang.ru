@@ -84,6 +84,7 @@ return [
     'This title already exists' => 'Такой заголовок уже существует',
 
     // buryat name
+    'Names' => 'Имена',
     'Bur. names' => 'Бур. имена',
     'Buryat names' => 'Бурятские имена',
     'Note' => 'Заметка',
