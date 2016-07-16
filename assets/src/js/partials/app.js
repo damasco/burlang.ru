@@ -19,14 +19,14 @@ $(document).ready(function() {
         });
     });
 
-    $('button.add-buryat-word').on('click', function() {
-        $(this).parent('span').siblings('input').sendkeys($(this).text());
+    $('button.add-input-letter').on('click', function() {
+        var $this = $(this);
+        $this.parent('span').siblings('input').sendkeys($this.text());
     });
 
     $('a.link-name').on('click', function(e) {
         e.preventDefault();
-        var $this = $(this);
-        var name = $this.text();
+        var name = $(this).text();
         var $modal = $('#view-name-modal');
         $.ajax({
             url: '/buryat-name/view-name',
