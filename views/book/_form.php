@@ -20,7 +20,7 @@ use app\widgets\TextareaChartsWidget;
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'description')->widget(TextareaChartsWidget::className()) ?>
+    <?= $form->field($model, 'description')->widget(TextareaChartsWidget::className(), ['options' => ['rows' => 5]]) ?>
 
     <?= $form->field($model, 'content')->widget(Markdowneditor::className()) ?>
 

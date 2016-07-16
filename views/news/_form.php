@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use ijackua\lepture\Markdowneditor;
+use app\widgets\TextareaChartsWidget;
 
 /* @var yii\web\View $this */
 /* @var app\models\News $model */
@@ -19,7 +20,7 @@ use ijackua\lepture\Markdowneditor;
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'description')->textarea(['rows' => 5]) ?>
+    <?= $form->field($model, 'description')->widget(TextareaChartsWidget::className(), ['options' => ['rows' => 5]]) ?>
     
     <?= $form->field($model, 'content')->widget(Markdowneditor::className()) ?>
 
