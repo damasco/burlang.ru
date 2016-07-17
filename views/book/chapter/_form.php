@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use ijackua\lepture\Markdowneditor;
+use app\widgets\InputChartsWidget;
 
 /* @var yii\web\View $this */
 /* @var app\models\Book $model */
@@ -15,7 +16,7 @@ use ijackua\lepture\Markdowneditor;
 
     <?= $form->errorSummary($model); ?>
 
-    <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'title')->widget(InputChartsWidget::className(), ['options' => ['maxlength' => true]]) ?>
 
     <?= $form->field($model, 'content')->widget(Markdowneditor::className()) ?>
 

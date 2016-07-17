@@ -24,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?php endif ?>        
     </h1>
 
-    <?php if (!Yii::$app->user->can('admin')): ?>
+    <?php if (Yii::$app->user->can('admin')): ?>
         <p>
             <?= Html::a(Yii::t('app', 'Edit'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
             <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->id], [

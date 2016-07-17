@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use app\widgets\InputChartsWidget;
 
 /* @var yii\web\View $this */
 /* @var app\models\BuryatWord $model */
@@ -12,7 +13,7 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'name', ['template' => $this->render('/_field_template')])->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'name')->widget(InputChartsWidget::className(), ['options' => ['maxlength' => true]]) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Add') : Yii::t('app', 'Save'),
