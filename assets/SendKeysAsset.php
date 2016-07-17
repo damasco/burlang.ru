@@ -12,4 +12,8 @@ class SendKeysAsset extends AssetBundle
         'bililiteRange.js',
         'jquery.sendkeys.js'
     ];
+
+    public $depends = [
+        'yii\web\JqueryAsset',
+    ];
 }

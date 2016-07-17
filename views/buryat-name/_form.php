@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use app\widgets\InputChartsWidget;
+use app\widgets\TextareaChartsWidget;
 
 /* @var yii\web\View $this */
 /* @var app\models\BuryatName $model */
@@ -12,11 +14,11 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'name', ['template' => $this->render('/_field_template')])->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'name')->widget(InputChartsWidget::className(), ['options' => ['maxlength' => true]]) ?>
 
-    <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'description')->widget(InputChartsWidget::className(), ['options' => ['maxlength' => true]]) ?>
 
-    <?= $form->field($model, 'note')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'note')->widget(TextareaChartsWidget::className(), ['options' => ['rows' => 5]]) ?>
 
     <?= $form->field($model, 'male')->checkbox() ?>
 
