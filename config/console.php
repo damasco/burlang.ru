@@ -18,13 +18,11 @@ $config = [
         'user' => [
             'class' => 'dektrium\user\Module',
         ],
+        'rbac' => 'dektrium\rbac\RbacConsoleModule',
     ],
     'components' => [
         'db' => $params['components.db'],
         'cache' => $params['components.cache'],
-        'authManager' => [
-            'class' => 'yii\rbac\DbManager',
-        ],
         'log' => [
             'targets' => [
                 [

@@ -26,9 +26,6 @@ $config = [
             'class' => '\yii\web\AssetManager',
             'appendTimestamp' => true
         ],
-        'authManager' => [
-            'class' => 'yii\rbac\DbManager',
-        ],
         'request' => [
             'cookieValidationKey' => 'l-2C_lNvBwQDe4_LLC5eaUhQmvV9yQRm',
         ],
@@ -74,9 +71,7 @@ $config = [
             'enableRegistration' => false,
             'adminPermission' => 'admin',
         ],
-        'rbac' => [
-            'class' => 'dektrium\rbac\Module',
-        ],
+        'rbac' => 'dektrium\rbac\RbacWebModule',
     ],
     'params' => $params,
 

@@ -19,7 +19,7 @@ return [
         'useFileTransport' => false,
     ],
     'components.authClientsCollection' => [
-        'class'   => '\yii\authclient\Collection',
+        'class' => '\yii\authclient\Collection',
         'clients' => [],
     ],
 

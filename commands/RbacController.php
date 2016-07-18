@@ -21,7 +21,7 @@ class RbacController extends Controller
         if (!$this->confirm(Yii::t('app', 'Are you sure?'))) {
             return self::EXIT_CODE_NORMAL;
         }
-        
+
         $auth = Yii::$app->authManager;
         $auth->removeAll();
 

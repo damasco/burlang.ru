@@ -13,6 +13,7 @@ use yii\helpers\Url;
 
 $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-Russian electronic dictionary');
 ?>
+
 <div class="site-index">
     <div class="row mt-10">
         <div class="col-sm-6">
