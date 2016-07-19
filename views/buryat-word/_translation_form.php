@@ -5,6 +5,7 @@ use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\data\ActiveDataProvider;
+use app\widgets\InputChartsWidget;
 
 /* @var mixed $translationForm */
 /* @var \app\models\Dictionary[] $dictionaries */
@@ -53,7 +54,7 @@ use yii\data\ActiveDataProvider;
 
         <?php $form = ActiveForm::begin() ?>
 
-        <?= $form->field($translationForm, 'name')->textInput() ?>
+        <?= $form->field($translationForm, 'name')->widget(InputChartsWidget::className()) ?>
 
         <?= $form->field($translationForm, 'burword_id')->hiddenInput(['value' => $model->id])->label(false) ?>
 
