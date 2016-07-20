@@ -48,7 +48,7 @@ class NewsController extends Controller
     {
         $query = News::find()->orderBy('created_at DESC');
 
-        if (Yii::$app->user->isGuest) {
+        if (!Yii::$app->user->can('adminNews')) {
             $query->where(['active' => 1]);
         }
 
@@ -72,7 +72,7 @@ class NewsController extends Controller
     {
         /* @var News $model */
         $model = News::findOne(['slug' => $slug]);
-        if (!$model || (!$model->active && Yii::$app->user->isGuest)) {
+        if (!$model || (!$model->active && !Yii::$app->user->can('adminNews'))) {
             throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
         } else {
             return $this->render('view', [
