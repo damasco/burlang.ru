@@ -8,6 +8,23 @@ use yii\web\BadRequestHttpException;
 use yii\base\Behavior;
 use yii\web\Controller;
 
+/**
+ * Ajax filter to controller actions
+ *
+ * public function behaviors()
+ * {
+ *      return [
+ *          ...
+ *         [
+ *             'class' => AjaxFilter::className(),
+ *             'actions' => ['action-first', 'action-second'],
+ *         ],
+ *          ...
+ *      ];
+ * }
+ *
+ * @author Bulat Damdinov <dbulats88@gmail.com>
+ */
 class AjaxFilter extends Behavior
 {
     /* @var array */

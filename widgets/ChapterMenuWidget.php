@@ -7,11 +7,15 @@ use app\models\Book;
 
 class ChapterMenuWidget extends Widget
 {
-    /* @var Book */
+    /** @var Book */
     public $book;
 
+    /** @var null|int */
     public $active_id = null;
 
+    /**
+     * @return mixed
+     */
     public function run()
     {
         return $this->render('chapter-menu', [
