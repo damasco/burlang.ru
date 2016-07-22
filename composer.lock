@@ -356,12 +356,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dektrium/yii2-rbac.git",
-                "reference": "2974b7af12c326019c39a3ecb4e9544db6bd7681"
+                "reference": "b4c40531832ccd1ed0a2a74d06651526889df244"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dektrium/yii2-rbac/zipball/2974b7af12c326019c39a3ecb4e9544db6bd7681",
-                "reference": "2974b7af12c326019c39a3ecb4e9544db6bd7681",
+                "url": "https://api.github.com/repos/dektrium/yii2-rbac/zipball/b4c40531832ccd1ed0a2a74d06651526889df244",
+                "reference": "b4c40531832ccd1ed0a2a74d06651526889df244",
                 "shasum": ""
             },
             "require": {
@@ -401,7 +401,7 @@
                 "yii2",
                 "yii2-rbac"
             ],
-            "time": "2016-07-16 12:54:51"
+            "time": "2016-07-19 17:12:14"
         },
         {
             "name": "dektrium/yii2-user",
@@ -468,16 +468,16 @@
         },
         {
             "name": "ezyang/htmlpurifier",
-            "version": "v4.7.0",
+            "version": "v4.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ezyang/htmlpurifier.git",
-                "reference": "ae1828d955112356f7677c465f94f7deb7d27a40"
+                "reference": "d0c392f77d2f2a3dcf7fcb79e2a1e2b8804e75b2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ezyang/htmlpurifier/zipball/ae1828d955112356f7677c465f94f7deb7d27a40",
-                "reference": "ae1828d955112356f7677c465f94f7deb7d27a40",
+                "url": "https://api.github.com/repos/ezyang/htmlpurifier/zipball/d0c392f77d2f2a3dcf7fcb79e2a1e2b8804e75b2",
+                "reference": "d0c392f77d2f2a3dcf7fcb79e2a1e2b8804e75b2",
                 "shasum": ""
             },
             "require": {
@@ -508,7 +508,7 @@
             "keywords": [
                 "html"
             ],
-            "time": "2015-08-05 01:03:42"
+            "time": "2016-07-16 12:58:58"
         },
         {
             "name": "ijackua/yii2-lepture-markdown-editor-widget",
