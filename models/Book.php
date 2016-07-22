@@ -94,4 +94,19 @@ class Book extends \yii\db\ActiveRecord
             $this->addError($attribute, Yii::t('app', 'This title already exists'));
         }
     }
+
+    /**
+     * @return int
+     */
+    public function getLastUpdate()
+    {
+        /** @var BookChapter $lastUpdateChapter */
+        $lastUpdateChapter = BookChapter::find()->where(['book_id' => $this->id])->orderBy('updated_at DESC')->one();
+
+        if ($lastUpdateChapter) {
+            return $this->updated_at > $lastUpdateChapter->updated_at ? $this->updated_at : $lastUpdateChapter->updated_at;
+        } else {
+            return $this->updated_at;
+        }
+    }
 }

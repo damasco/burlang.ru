@@ -27,7 +27,7 @@ use yii\helpers\Html;
 
         <p class="hint">
             <?= Yii::t('app', 'Last update') ?>: <br>
-            <?= Yii::$app->formatter->asDateTime($model->updated_at) ?>
+            <?= Yii::$app->formatter->asDateTime($model->getLastUpdate()) ?>
         </p>
 
     </div>
