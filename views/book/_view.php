@@ -19,10 +19,12 @@ use yii\helpers\Html;
 
         <p><?= nl2br(Html::encode($model->description)) ?></p>
 
-        <?= Html::a(Yii::t('app', 'More') . ' →',
+        <?= Html::a(Yii::t('app', 'Read') . ' →',
             ['/book/view', 'slug' => $model->slug],
             ['class' => 'btn btn-custom btn-sm']) ?>
+
         <hr>
+
         <p class="hint">
             <?= Yii::t('app', 'Last update') ?>: <br>
             <?= Yii::$app->formatter->asDateTime($model->updated_at) ?>

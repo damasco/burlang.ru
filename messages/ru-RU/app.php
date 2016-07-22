@@ -32,6 +32,7 @@ return [
     'Inactive' => 'Неактивный',
     'Find' => 'Найти',
     'Close' => 'Закрыть',
+    'Read' => 'Читать',
 
     // error
     'The requested page does not exist.' => 'Запрашиваемая страница не существует.',
