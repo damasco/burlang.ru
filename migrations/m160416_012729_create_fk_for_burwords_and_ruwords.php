@@ -1,17 +1,14 @@
 <?php
 
 use yii\db\Migration;
-use app\models\Rutranslations;
-use app\models\Burwords;
 
 class m160416_012729_create_fk_for_burwords_and_ruwords extends Migration
 {
     public function safeUp()
     {
-        // delete incorrect data
-        Rutranslations::deleteAll(['and', ['>=', 'id', 7161], ['<=', 'id', 7238]]);
-        Rutranslations::deleteAll(['or', ['id' => 1161], ['id' => 1368]]);
-        Burwords::deleteAll(['or', ['id' => 1161], ['id' => 1368]]);
+        Yii::$app->db->createCommand('DELETE FROM rutranslations WHERE id>=7161 AND id<=7238')->execute();
+        Yii::$app->db->createCommand('DELETE FROM rutranslations WHERE id=1161 OR id=1368')->execute();
+        Yii::$app->db->createCommand('DELETE FROM burwords WHERE id=1161 OR id=1368')->execute();
 
         $this->addForeignKey('fk-burtranslations-ruword_id-ruwords-id', '{{%burtranslations}}', 'ruword_id', '{{%ruwords}}', 'id', 'CASCADE', 'RESTRICT');
         $this->dropIndex('burword_id', '{{%rutranslations}}');
