@@ -10,7 +10,7 @@ use dektrium\user\models\User;
 /**
  * Rbac configuration
  */
-class RbacController extends Controller
+class MyRbacController extends Controller
 {
 
     /**

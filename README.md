@@ -37,12 +37,12 @@ php yii user/create <email> <username> [password] [...options...]
 
 ### 4. Rbac configuration
 
-Run `php yii rbac/init` - generate default roles and permissions.
+Run `php yii my-rbac/init` - generate default roles and permissions.
 
 #### 4.1. Assign role
 
 ```
-php yii rbac/assign <role> <username> 
+php yii my-rbac/assign <role> <username> 
 ```
 
 ### 5. Build
