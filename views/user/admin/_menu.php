@@ -11,6 +11,9 @@
 
 use yii\bootstrap\Nav;
 
+/**
+ * @var \yii\web\View $this
+ */
 ?>
 
 <?= Nav::widget([

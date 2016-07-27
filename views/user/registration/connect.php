@@ -24,28 +24,25 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="row">
     <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title"><?= Html::encode($this->title) ?></h3>
+        <div class="well">
+            <h4><?= Html::encode($this->title) ?></h4>
+            <hr>
+            <div class="alert alert-info">
+                <p>
+                    <?= Yii::t('user', 'In order to finish your registration, we need you to enter following fields') ?>:
+                </p>
             </div>
-            <div class="panel-body">
-                <div class="alert alert-info">
-                    <p>
-                        <?= Yii::t('user', 'In order to finish your registration, we need you to enter following fields') ?>:
-                    </p>
-                </div>
-                <?php $form = ActiveForm::begin([
-                    'id' => 'connect-account-form',
-                ]); ?>
+            <?php $form = ActiveForm::begin([
+                'id' => 'connect-account-form',
+            ]); ?>
 
-                <?= $form->field($model, 'email') ?>
+            <?= $form->field($model, 'email') ?>
 
-                <?= $form->field($model, 'username') ?>
+            <?= $form->field($model, 'username') ?>
 
-                <?= Html::submitButton(Yii::t('user', 'Continue'), ['class' => 'btn btn-custom btn-block']) ?>
+            <?= Html::submitButton(Yii::t('user', 'Continue'), ['class' => 'btn btn-custom btn-block']) ?>
 
-                <?php ActiveForm::end(); ?>
-            </div>
+            <?php ActiveForm::end(); ?>
         </div>
         <p class="text-center">
             <?= Html::a(Yii::t('user', 'If you already registered, sign in and connect this account on settings page'), ['/user/settings/networks']) ?>.

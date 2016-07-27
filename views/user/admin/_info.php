@@ -10,8 +10,8 @@
  */
 
 /**
- * @var yii\web\View
- * @var dektrium\user\models\User
+ * @var yii\web\View $this
+ * @var dektrium\user\models\User $user
  */
 ?>
 

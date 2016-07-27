@@ -12,7 +12,7 @@
 use dektrium\user\widgets\Connect;
 use yii\helpers\Html;
 
-/*
+/**
  * @var yii\web\View $this
  * @var yii\widgets\ActiveForm $form
  */

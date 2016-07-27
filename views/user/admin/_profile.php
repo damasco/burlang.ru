@@ -13,11 +13,10 @@ use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 
 /**
- * @var yii\web\View 					$this
- * @var dektrium\user\models\User 		$user
- * @var dektrium\user\models\Profile 	$profile
+ * @var yii\web\View $this
+ * @var dektrium\user\models\User $user
+ * @var dektrium\user\models\Profile $profile
  */
-
 ?>
 
 <?php $this->beginContent('@dektrium/user/views/admin/update.php', ['user' => $user]) ?>
