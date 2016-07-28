@@ -51,13 +51,6 @@ $config = [
                 ],
             ],
         ],
-        'view' => [
-            'theme' => [
-                'pathMap' => [
-                    '@dektrium/user/views' => '@app/views/user',
-                ],
-            ],
-        ],
         'devicedetect' => [
             'class' => 'alexandernst\devicedetect\DeviceDetect',
         ],

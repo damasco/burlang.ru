@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "fc163d96e04f5b8a3c71a10f61198f29",
-    "content-hash": "7c450fad0e2a08c6c533ec8b602c9cc6",
+    "hash": "db259b6fa6e203149b9f678b76534713",
+    "content-hash": "f2ad6380bd3e1e36e18c48a1900ec5ae",
     "packages": [
         {
             "name": "alexandernst/yii2-device-detect",
@@ -405,23 +405,22 @@
         },
         {
             "name": "dektrium/yii2-user",
-            "version": "0.9.6",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dektrium/yii2-user.git",
-                "reference": "ae737861ff170b9c4376b274244bd9994ee0d248"
+                "reference": "6998d198bb3efc480115e5c6b270527aec590827"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dektrium/yii2-user/zipball/ae737861ff170b9c4376b274244bd9994ee0d248",
-                "reference": "ae737861ff170b9c4376b274244bd9994ee0d248",
+                "url": "https://api.github.com/repos/dektrium/yii2-user/zipball/6998d198bb3efc480115e5c6b270527aec590827",
+                "reference": "6998d198bb3efc480115e5c6b270527aec590827",
                 "shasum": ""
             },
             "require": {
                 "yiisoft/yii2": "~2.0",
                 "yiisoft/yii2-authclient": "~2.0",
                 "yiisoft/yii2-bootstrap": "~2.0",
-                "yiisoft/yii2-jui": "~2.0",
                 "yiisoft/yii2-swiftmailer": "~2.0"
             },
             "require-dev": {
@@ -464,7 +463,7 @@
                 "yii2",
                 "yii2-user"
             ],
-            "time": "2016-03-27 18:09:10"
+            "time": "2016-07-17 10:56:36"
         },
         {
             "name": "ezyang/htmlpurifier",
