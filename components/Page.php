@@ -18,11 +18,12 @@ class Page extends Component
         $model = PageModel::findOne(['link' => $link]);
 
         /* @var $model PageModel */
-        if ($model !== null && $model->active) {
+        if ($model && $model->active) {
+            $url = ['/page/view', 'link' => $link];
             return [
                 'label' => $model->menu_name,
-                'url' => ['/page/view', 'link' => $link ],
-                'active' => Yii::$app->request->url == Url::to(['/page/view', 'link' => $link ])
+                'url' => $url,
+                'active' => Yii::$app->request->url == Url::to($url),
             ];
         } else {
             return '';
