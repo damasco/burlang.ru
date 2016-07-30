@@ -70,7 +70,7 @@ class NewsController extends Controller
      */
     public function actionView($slug)
     {
-        /* @var News $model */
+        /** @var News $model */
         $model = News::findOne(['slug' => $slug]);
         if (!$model || (!$model->active && !Yii::$app->user->can('adminNews'))) {
             throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));

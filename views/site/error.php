@@ -1,10 +1,12 @@
 <?php
 
-/* @var yii\web\View $this */
-/* @var string $name */
-/* @var string $message */
-
 use yii\helpers\Html;
+
+/**
+ * @var yii\web\View $this
+ * @var string $name
+ * @var string $message
+ */
 
 $this->title = $name;
 ?>

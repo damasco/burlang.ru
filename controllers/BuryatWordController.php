@@ -145,7 +145,7 @@ class BuryatWordController extends Controller
      */
     public function actionDeleteTranslation($id)
     {
-        /* @var BuryatTranslation $translate */
+        /** @var BuryatTranslation $translate */
         if (($translate = BuryatTranslation::findOne($id)) !== null) {
             Yii::$app->session->setFlash('success', Yii::t('app', 'Translation removed'));
             $translate->delete();

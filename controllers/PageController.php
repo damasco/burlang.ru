@@ -65,7 +65,7 @@ class PageController extends Controller
     {
         $model = Page::findOne(['link' => $link]);
 
-        /* @var Page $model */
+        /** @var Page $model */
         if (!$model || (!$model->active && !Yii::$app->user->can('admin'))) {
             throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
         } else {

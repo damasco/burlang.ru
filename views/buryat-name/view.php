@@ -2,8 +2,10 @@
 
 use yii\helpers\Html;
 
-/* @var yii\web\View $this */
-/* @var app\models\BuryatName $model */
+/**
+ * @var yii\web\View $this
+ * @var app\models\BuryatName $model
+ */
 
 $this->title = $model->name;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Names'), 'url' => Yii::$app->user->isGuest ? ['index'] : ['admin']];

@@ -1,6 +1,8 @@
 <?php
 
-/* @var \app\models\BuryatWord|\app\models\RussianWord $word */
+/**
+ * @var \app\models\BuryatWord|\app\models\RussianWord $word
+ */
 ?>
 
 <?php if ($word && $word->getTranslation()->exists()): ?>

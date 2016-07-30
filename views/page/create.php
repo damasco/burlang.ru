@@ -2,8 +2,10 @@
 
 use yii\helpers\Html;
 
-/* @var yii\web\View $this */
-/* @var app\models\Page $model */
+/**
+ * @var yii\web\View $this
+ * @var app\models\Page $model
+ */
 
 $this->title = Yii::t('app', 'Create page');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Pages'), 'url' => ['index']];

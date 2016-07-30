@@ -4,9 +4,11 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
 
-/* @var yii\web\View $this */
-/* @var app\models\search\BuryatNameSearch $searchModel */
-/* @var yii\data\ActiveDataProvider $dataProvider */
+/**
+ * @var yii\web\View $this
+ * @var app\models\search\BuryatNameSearch $searchModel
+ * @var yii\data\ActiveDataProvider $dataProvider
+ */
 
 $this->title = Yii::t('app', 'Buryat names');
 $this->params['breadcrumbs'][] = $this->title;

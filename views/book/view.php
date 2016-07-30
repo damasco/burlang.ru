@@ -5,8 +5,10 @@ use app\widgets\ChapterMenuWidget;
 use yii\helpers\HtmlPurifier;
 use yii\helpers\Markdown;
 
-/* @var yii\web\View $this */
-/* @var app\models\Book $model */
+/**
+ * @var yii\web\View $this
+ * @var app\models\Book $model
+ */
 
 $this->title = $model->title;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Books'), 'url' => ['index']];

@@ -4,8 +4,10 @@ use yii\helpers\Html;
 use yii\helpers\Markdown;
 use yii\helpers\HtmlPurifier;
 
-/* @var yii\web\View $this */
-/* @var app\models\Page $model */
+/**
+ * @var yii\web\View $this
+ * @var app\models\Page $model
+ */
 
 $this->title = $model->title;
 

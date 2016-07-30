@@ -5,9 +5,11 @@ use yii\widgets\ActiveForm;
 use app\widgets\ChartsInputWidget;
 use app\widgets\ChartsTextareaWidget;
 
-/* @var yii\web\View $this */
-/* @var app\models\BuryatName $model */
-/* @var yii\widgets\ActiveForm $form */
+/**
+ * @var yii\web\View $this
+ * @var app\models\BuryatName $model
+ * @var yii\widgets\ActiveForm $form
+ */
 ?>
 
 <div class="buryat-name-form">

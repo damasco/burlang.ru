@@ -140,7 +140,7 @@ class RussianWordController extends Controller
      */
     public function actionDeleteTranslation($id)
     {
-        /* @var RussianTranslation $translate */
+        /** @var RussianTranslation $translate */
         if (($translate = RussianTranslation::findOne($id)) !== null) {
             $translate->delete();
             Yii::$app->session->setFlash('success', Yii::t('app', 'Translation removed'));

@@ -6,8 +6,10 @@ use yii\grid\GridView;
 use yii\data\ActiveDataProvider;
 use app\widgets\ChartsInputWidget;
 
-/* @var mixed $translationForm */
-/* @var \app\models\RussianWord $model */
+/**
+ * @var mixed $translationForm
+ * @var \app\models\RussianWord $model
+ */
 ?>
 
 <div class="panel panel-default">

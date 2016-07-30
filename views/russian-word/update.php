@@ -2,9 +2,11 @@
 
 use yii\helpers\Html;
 
-/* @var yii\web\View $this */
-/* @var app\models\RussianWord $model */
-/* @var app\models\RussianTranslation $translationForm */
+/**
+ * @var yii\web\View $this
+ * @var app\models\RussianWord $model
+ * @var app\models\RussianTranslation $translationForm
+ */
 
 $this->title = Yii::t('app', 'Edit') . ': ' . $model->name;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Russian words'), 'url' => ['index']];

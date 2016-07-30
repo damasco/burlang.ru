@@ -2,10 +2,12 @@
 
 use yii\helpers\Html;
 
-/* @var yii\web\View $this */
-/* @var array $alphabet */
-/* @var array $names */
-/* @var string $letter */
+/**
+ * @var yii\web\View $this
+ * @var array $alphabet
+ * @var array $names
+ * @var string $letter
+ */
 
 $this->title = Yii::t('app', 'Names');
 

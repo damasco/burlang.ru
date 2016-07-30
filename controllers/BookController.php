@@ -71,7 +71,7 @@ class BookController extends Controller
      */
     public function actionView($slug)
     {
-        /* @var Book $model */
+        /** @var Book $model */
         $model = Book::findOne(['slug' => $slug]);
         if (!$model || (!$model->active && !Yii::$app->user->can('adminBook'))) {
             throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));

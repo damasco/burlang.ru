@@ -17,7 +17,7 @@ class Page extends Component
     {
         $model = PageModel::findOne(['link' => $link]);
 
-        /* @var $model PageModel */
+        /** @var $model PageModel */
         if ($model && $model->active) {
             $url = ['/page/view', 'link' => $link];
             return [

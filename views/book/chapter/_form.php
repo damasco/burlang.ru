@@ -5,9 +5,11 @@ use yii\widgets\ActiveForm;
 use ijackua\lepture\Markdowneditor;
 use app\widgets\ChartsInputWidget;
 
-/* @var yii\web\View $this */
-/* @var app\models\Book $model */
-/* @var yii\widgets\ActiveForm $form */
+/**
+ * @var yii\web\View $this
+ * @var app\models\Book $model
+ * @var yii\widgets\ActiveForm $form
+ */
 ?>
 
 <div class="book-form">

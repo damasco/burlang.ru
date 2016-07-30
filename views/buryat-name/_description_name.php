@@ -1,6 +1,8 @@
 <?php
 
-/* @var \app\models\BuryatName $model */
+/**
+ * @var \app\models\BuryatName $model
+ */
 ?>
 
 <div class="alert alert-success mb-0">

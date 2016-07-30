@@ -4,8 +4,10 @@ use yii\helpers\Html;
 use yii\helpers\Markdown;
 use yii\helpers\HtmlPurifier;
 
-/* @var yii\web\View $this */
-/* @var app\models\News $model */
+/**
+ * @var yii\web\View $this
+ * @var app\models\News $model
+ */
 
 $this->title = $model->title;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'News'), 'url' => ['index']];

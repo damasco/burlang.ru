@@ -2,8 +2,10 @@
 
 use yii\helpers\Html;
 
-/* @var \yii\web\View $this */
-/* @var \app\models\Book $model */
+/**
+ * @var \yii\web\View $this
+ * @var \app\models\Book $model
+ */
 ?>
 
 <div class="col-sm-4">

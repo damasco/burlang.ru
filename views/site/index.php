@@ -6,10 +6,12 @@ use app\widgets\TranslationServiceWidget;
 use app\widgets\NewsWidget;
 use yii\helpers\Url;
 
-/* @var yii\web\View $this */
-/* @var mixed $russian_word */
-/* @var mixed $buryat_word */
-/* @var mixed $buryat_name */
+/**
+ * @var yii\web\View $this
+ * @var mixed $russian_word
+ * @var mixed $buryat_word
+ * @var mixed $buryat_name
+ */
 
 $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-Russian electronic dictionary');
 ?>

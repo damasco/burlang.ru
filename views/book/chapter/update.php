@@ -2,8 +2,10 @@
 
 use yii\helpers\Html;
 
-/* @var yii\web\View $this */
-/* @var app\models\BookChapter $model */
+/**
+ * @var yii\web\View $this
+ * @var app\models\BookChapter $model
+ */
 
 $this->title = Yii::t('app', 'Edit') . ': ' . $model->title;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Books'), 'url' => ['index']];

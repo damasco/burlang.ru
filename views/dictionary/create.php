@@ -2,8 +2,10 @@
 
 use yii\helpers\Html;
 
-/* @var yii\web\View $this */
-/* @var app\models\Dictionary $model */
+/**
+ * @var yii\web\View $this
+ * @var app\models\Dictionary $model
+ */
 
 $this->title = Yii::t('app', 'Add dictionary');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Dictionaries'), 'url' => ['index']];

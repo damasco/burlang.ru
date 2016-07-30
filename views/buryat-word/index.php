@@ -5,9 +5,11 @@ use yii\grid\GridView;
 use yii\widgets\Pjax;
 use yii\helpers\ArrayHelper;
 
-/* @var yii\web\View $this */
-/* @var app\models\search\BuryatWordSearch $searchModel */
-/* @var yii\data\ActiveDataProvider $dataProvider */
+/**
+ * @var yii\web\View $this
+ * @var app\models\search\BuryatWordSearch $searchModel
+ * @var yii\data\ActiveDataProvider $dataProvider
+ */
 
 $this->title = Yii::t('app', 'Buryat words');
 $this->params['breadcrumbs'][] = $this->title;

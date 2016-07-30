@@ -7,9 +7,11 @@ use yii\grid\GridView;
 use yii\data\ActiveDataProvider;
 use app\widgets\ChartsInputWidget;
 
-/* @var mixed $translationForm */
-/* @var \app\models\Dictionary[] $dictionaries */
-/* @var \app\models\BuryatWord $model */
+/**
+ * @var mixed $translationForm
+ * @var \app\models\Dictionary[] $dictionaries
+ * @var \app\models\BuryatWord $model
+ */
 ?>
 
 <div class="panel panel-default">

@@ -2,10 +2,12 @@
 
 use yii\helpers\Html;
 
-/* @var yii\web\View $this */
-/* @var app\models\BuryatWord $model */
-/* @var app\models\BuryatTranslation $translationForm */
-/* @var app\models\Dictionary[] $dictionaries */
+/**
+ * @var yii\web\View $this
+ * @var app\models\BuryatWord $model
+ * @var app\models\BuryatTranslation $translationForm
+ * @var app\models\Dictionary[] $dictionaries
+ */
 
 $this->title = Yii::t('app', 'Edit') . ': ' . $model->name;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Buryat words'), 'url' => ['index']];

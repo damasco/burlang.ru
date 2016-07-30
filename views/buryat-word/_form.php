@@ -4,9 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use app\widgets\ChartsInputWidget;
 
-/* @var yii\web\View $this */
-/* @var app\models\BuryatWord $model */
-/* @var yii\widgets\ActiveForm $form */
+/**
+ * @var yii\web\View $this
+ * @var app\models\BuryatWord $model
+ * @var yii\widgets\ActiveForm $form
+ */
 ?>
 
 <div class="buryat-word-form">

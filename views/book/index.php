@@ -3,8 +3,10 @@
 use yii\helpers\Html;
 use yii\widgets\ListView;
 
-/* @var yii\web\View $this */
-/* @var yii\data\ActiveDataProvider $dataProvider */
+/**
+ * @var yii\web\View $this
+ * @var yii\data\ActiveDataProvider $dataProvider
+ */
 
 $this->title = Yii::t('app', 'Books');
 $this->params['breadcrumbs'][] = $this->title;
