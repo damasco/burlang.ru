@@ -31,7 +31,7 @@ class ChartsTextareaWidget extends InputWidget
             $textarea = Html::textArea($this->name, $this->value, $this->options);
         }
 
-        return $this->render('textarea-charts', [
+        return $this->render('charts-textarea', [
             'textarea' => $textarea,
             'selector' => $this->selector,
         ]);

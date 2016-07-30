@@ -17,7 +17,7 @@ class ChartsInputWidget extends InputWidget
             $textInput = Html::textInput($this->name, $this->value, $this->options);
         }
 
-        return $this->render('input-charts', [
+        return $this->render('charts-input', [
             'textInput' => $textInput,
         ]);
     }
