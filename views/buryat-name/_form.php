@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use app\widgets\ChartsInputWidget;
-use app\widgets\TextareaChartsWidget;
+use app\widgets\ChartsTextareaWidget;
 
 /* @var yii\web\View $this */
 /* @var app\models\BuryatName $model */
@@ -18,7 +18,7 @@ use app\widgets\TextareaChartsWidget;
 
     <?= $form->field($model, 'description')->widget(ChartsInputWidget::className(), ['options' => ['maxlength' => true]]) ?>
 
-    <?= $form->field($model, 'note')->widget(TextareaChartsWidget::className(), ['options' => ['rows' => 5]]) ?>
+    <?= $form->field($model, 'note')->widget(ChartsTextareaWidget::className(), ['options' => ['rows' => 5]]) ?>
 
     <?= $form->field($model, 'male')->checkbox() ?>
 

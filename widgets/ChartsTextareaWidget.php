@@ -6,7 +6,7 @@ use yii\helpers\Inflector;
 use yii\widgets\InputWidget;
 use yii\helpers\Html;
 
-class TextareaChartsWidget extends InputWidget
+class ChartsTextareaWidget extends InputWidget
 {
     /** @var string */
     protected $selector;
