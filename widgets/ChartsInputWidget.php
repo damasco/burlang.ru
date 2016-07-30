@@ -5,7 +5,7 @@ namespace app\widgets;
 use yii\widgets\InputWidget;
 use yii\helpers\Html;
 
-class InputChartsWidget extends InputWidget
+class ChartsInputWidget extends InputWidget
 {
     public function run()
     {

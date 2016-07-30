@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use ijackua\lepture\Markdowneditor;
-use app\widgets\InputChartsWidget;
+use app\widgets\ChartsInputWidget;
 
 /* @var yii\web\View $this */
 /* @var app\models\Page $model */
@@ -18,13 +18,13 @@ use app\widgets\InputChartsWidget;
 
     <?= $form->field($model, 'active')->checkbox() ?>
 
-    <?= $form->field($model, 'menu_name')->widget(InputChartsWidget::className(), ['options' => ['maxlength' => true]]) ?>
+    <?= $form->field($model, 'menu_name')->widget(ChartsInputWidget::className(), ['options' => ['maxlength' => true]]) ?>
 
-    <?= $form->field($model, 'title')->widget(InputChartsWidget::className(), ['options' => ['maxlength' => true]]) ?>
+    <?= $form->field($model, 'title')->widget(ChartsInputWidget::className(), ['options' => ['maxlength' => true]]) ?>
 
     <?= $form->field($model, 'link')->textInput(['maxlength' => true, 'disabled' => $model->isNewRecord ? false : true]) ?>
 
-    <?= $form->field($model, 'description')->widget(InputChartsWidget::className(), ['options' => ['maxlength' => true]]) ?>
+    <?= $form->field($model, 'description')->widget(ChartsInputWidget::className(), ['options' => ['maxlength' => true]]) ?>
 
     <?= $form->field($model, 'content')->widget(Markdowneditor::className()) ?>
 

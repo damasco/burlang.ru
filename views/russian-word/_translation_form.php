@@ -4,7 +4,7 @@ use yii\widgets\ActiveForm;
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\data\ActiveDataProvider;
-use app\widgets\InputChartsWidget;
+use app\widgets\ChartsInputWidget;
 
 /* @var mixed $translationForm */
 /* @var \app\models\RussianWord $model */
@@ -49,7 +49,7 @@ use app\widgets\InputChartsWidget;
 
         <?php $form = ActiveForm::begin() ?>
 
-        <?= $form->field($translationForm, 'name')->widget(InputChartsWidget::className(), ['options' => ['maxlength' => true]]) ?>
+        <?= $form->field($translationForm, 'name')->widget(ChartsInputWidget::className(), ['options' => ['maxlength' => true]]) ?>
 
         <?= $form->field($translationForm, 'ruword_id')->hiddenInput(['value' => $model->id])->label(false) ?>
 
