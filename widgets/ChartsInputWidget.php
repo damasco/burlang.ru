@@ -7,6 +7,9 @@ use yii\helpers\Html;
 
 class ChartsInputWidget extends InputWidget
 {
+    /**
+     * @inheritdoc
+     */
     public function run()
     {
         $this->options['class'] = 'form-control';

@@ -1,6 +1,8 @@
 <?php
 
-/* @var \app\models\News $model */
+/**
+ * @var \app\models\News $model
+ */
 ?>
 
 <div class="news-widget">

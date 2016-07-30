@@ -7,6 +7,9 @@ use yii\base\Widget;
 
 class TranslationServiceWidget extends Widget
 {
+    /**
+     * @inheritdoc
+     */
     public function run()
     {
         /* @var Page $model */

@@ -1,10 +1,12 @@
 <?php
 
-/** @var string $textarea */
-/** @var string $selector */
+/**
+ * @var string $textarea
+ * @var string $selector
+ */
 ?>
 
-<div class="well well-sm" style="margin-bottom: 0;">
+<div class="well well-sm mb-0">
     <div class="form-group">
         <?= $textarea ?>
     </div>

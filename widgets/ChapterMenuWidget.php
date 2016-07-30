@@ -14,7 +14,7 @@ class ChapterMenuWidget extends Widget
     public $active_id = null;
 
     /**
-     * @return mixed
+     * @inheritdoc
      */
     public function run()
     {

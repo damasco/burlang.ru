@@ -1,6 +1,8 @@
 <?php
 
-/** @var string $textInput */
+/**
+ * @var string $textInput
+ */
 ?>
 
 <div class="input-group">

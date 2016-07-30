@@ -11,6 +11,9 @@ class ChartsTextareaWidget extends InputWidget
     /** @var string */
     protected $selector;
 
+    /**
+     * @inheritdoc
+     */
     public function init()
     {
         parent::init();
@@ -18,6 +21,9 @@ class ChartsTextareaWidget extends InputWidget
         $this->selector = Inflector::camel2id($this->model->formName()) . '-' . $this->attribute;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function run()
     {
         $this->registerScripts();
@@ -39,10 +45,10 @@ class ChartsTextareaWidget extends InputWidget
 
     public function registerScripts()
     {
-        $script = "$('body').on('click', '.add-letter-$this->selector', function() {
-                    $('#$this->selector').sendkeys($(this).text());
-                });";
-
-        $this->view->registerJs($script);
+        $this->view->registerJs("
+            $('body').on('click', '.add-letter-{$this->selector}', function() {
+                $('#{$this->selector}').sendkeys($(this).text());
+            });
+        ");
     }
 }
