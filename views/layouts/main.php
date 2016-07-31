@@ -101,8 +101,8 @@ AppAsset::register($this);
                 'active' => Yii::$app->controller->id == 'news'
             ],
 
-            Yii::$app->page->itemMenu('translation-service'),
-            Yii::$app->page->itemMenu('about'),
+            Yii::$app->page->menuItem('translation-service'),
+            Yii::$app->page->menuItem('about'),
 
             Yii::$app->user->isGuest ?
                 ['label' => Yii::t('app', 'Login'), 'url' => ['/user/security/login']] :

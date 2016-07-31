@@ -13,11 +13,10 @@ class Page extends Component
      * @param string $link
      * @return array|string
      */
-    public function itemMenu($link)
+    public function menuItem($link)
     {
-        $model = PageModel::findOne(['link' => $link]);
-
         /** @var $model PageModel */
+        $model = PageModel::findOne(['link' => $link]);
         if ($model && $model->active) {
             $url = ['/page/view', 'link' => $link];
             return [
