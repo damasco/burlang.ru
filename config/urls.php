@@ -12,5 +12,6 @@ return [
     'names' => 'buryat-name/index',
     'names/<name>' => 'buryat-name/view-name',
 
-    '/page/<link:[\w-]+>' => '/page/view',
+    'page/<action:(create|update|delete|index)>' => 'page/<action>',
+    'page/<link:[\w-]+>' => 'page/view',
 ];
