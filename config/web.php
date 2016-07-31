@@ -65,6 +65,14 @@ $config = [
             'adminPermission' => 'admin',
         ],
         'rbac' => 'dektrium\rbac\RbacWebModule',
+        'api' => [
+            'class' => 'app\api\common\Module',
+            'modules' => [
+                'v1' => [
+                    'class' => 'app\api\v1\Module',
+                ],
+            ],
+        ],
     ],
     'params' => $params,
 

@@ -51,5 +51,4 @@ class BuryatWord extends \yii\db\ActiveRecord
     {
         return $this->hasMany(BuryatTranslation::className(), ['burword_id' => 'id']);
     }
-
 }
