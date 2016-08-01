@@ -21,7 +21,7 @@ use app\widgets\ChartsInputWidget;
     <div class="panel-body">
         <?= GridView::widget([
             'dataProvider' => (new ActiveDataProvider([
-                'query' => $model->getTranslation(),
+                'query' => $model->getTranslations(),
                 'pagination' => false
             ])),
             'summary' => false,

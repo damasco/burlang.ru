@@ -34,7 +34,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 [
                     'label' => Yii::t('app', 'Translations'),
                     'value' => function ($model) {
-                        return Html::ul(ArrayHelper::getColumn($model->translation, 'name'));
+                        /** @var \app\models\RussianWord $model */
+                        return Html::ul(ArrayHelper::getColumn($model->translations, 'name'));
                     },
                     'format' => 'raw'
                 ],

@@ -10,7 +10,7 @@ use Yii;
  * @property integer $id
  * @property string $name
  *
- * @property RussianTranslation[] $translation
+ * @property RussianTranslation[] $translations
  */
 class RussianWord extends \yii\db\ActiveRecord
 {
@@ -47,7 +47,7 @@ class RussianWord extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getTranslation()
+    public function getTranslations()
     {
         return $this->hasMany(RussianTranslation::className(), ['ruword_id' => 'id']);
     }

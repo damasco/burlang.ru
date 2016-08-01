@@ -1,5 +1,13 @@
 <?php
 return [
+//    [
+//        'class' => 'yii\rest\UrlRule',
+//        'controller' => [
+//            'api/v1/buryat-word',
+//            'api/v1/russian-word'
+//        ],
+//    ],
+
     'news/<action:(create|update|delete)>' => 'news/<action>',
     'news' => 'news/index',
     'news/<slug>' => 'news/view',
