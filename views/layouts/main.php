@@ -11,6 +11,7 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 use yii\helpers\Url;
+use yii\widgets\Menu;
 
 AppAsset::register($this);
 ?>
@@ -134,10 +135,31 @@ AppAsset::register($this);
 </div>
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; <?= Yii::$app->name ?> 2013 - <?= date('Y') ?></p>
-        <p class="pull-right">
-            <?= Html::mailto('dbulats88@gmail.com') ?>
-            <?= Html::mailto('bairdarmaev@gmail.com') ?>
+        <div class="row">
+            <div class="col-sm-6">
+                <?= Menu::widget([
+                    'items' => [
+                        [
+                            'label' => 'Github',
+                            'url' => 'https://github.com/damasco/burlang2.ru',
+                        ],
+                        [
+                            'label' => 'API',
+                            'url' => ['/api'],
+                        ]
+                    ],
+                    'options' => [
+                        'class' => 'list-inline',
+                    ]
+                ]) ?>
+            </div>
+            <div class="col-sm-6 text-right">
+                <?= Html::mailto('dbulats88@gmail.com') ?>
+                <?= Html::mailto('bairdarmaev@gmail.com') ?>
+            </div>
+        </div>
+        <p class="text-center">
+            &copy; <?= Yii::$app->name ?> 2013 - <?= date('Y') ?>
         </p>
     </div>
 </footer>
