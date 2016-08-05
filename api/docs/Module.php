@@ -1,6 +1,6 @@
 <?php
 
-namespace app\api\common;
+namespace app\api\docs;
 
 /**
  * api module definition class
@@ -10,7 +10,7 @@ class Module extends \yii\base\Module
     /**
      * @inheritdoc
      */
-    public $controllerNamespace = 'app\api\common\controllers';
+    public $controllerNamespace = 'app\api\docs\controllers';
 
     /**
      * @inheritdoc

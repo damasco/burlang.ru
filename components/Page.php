@@ -3,11 +3,11 @@
 namespace app\components;
 
 use Yii;
-use yii\base\Component;
+use yii\base\Object;
 use app\models\Page as PageModel;
 use yii\helpers\Url;
 
-class Page extends Component
+class Page extends Object
 {
     /**
      * @param string $link

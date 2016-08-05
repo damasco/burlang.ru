@@ -82,7 +82,7 @@ $config = [
         ],
         'rbac' => 'dektrium\rbac\RbacWebModule',
         'api' => [
-            'class' => 'app\api\common\Module',
+            'class' => 'app\api\docs\Module',
             'modules' => [
                 'v1' => [
                     'class' => 'app\api\v1\Module',

@@ -1,6 +1,6 @@
 <?php
 
-namespace app\api\common\controllers;
+namespace app\api\docs\controllers;
 
 use yii\web\Controller;
 

@@ -27,8 +27,7 @@ AppAsset::register($this);
     <meta name="image" content="<?= Url::to(Yii::getAlias('@web/img/cover.jpg'), true) ?>"/>
     <meta property="og:type" content="website"/>
     <meta property="og:site_name" content="Burlang.ru"/>
-    <meta property="og:title"
-          content="<?= !empty($this->title) ? Html::encode($this->title) : Yii::t('app', 'Russian-Buryat, Buryat-Russian electronic dictionary') ?>"/>
+    <meta property="og:title"content="<?= !empty($this->title) ? Html::encode($this->title) : Yii::t('app', 'Russian-Buryat, Buryat-Russian electronic dictionary') ?>"/>
     <meta property="og:description" content=""/>
     <meta property="og:locale" content="ru_RU"/>
     <meta property="og:url" content="<?= Url::to('', true) ?>"/>
