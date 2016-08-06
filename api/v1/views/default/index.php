@@ -4,8 +4,7 @@
  * @var yii\web\View $this
  */
 
-$this->title = 'v1';
-$this->params['breadcrumbs'][] = ['label' => 'Api', 'url' => ['/api/default/index']];
+$this->title = 'Api v1';
 $this->params['breadcrumbs'][] = $this->title;
 
 $host = Yii::$app->request->getHostInfo();

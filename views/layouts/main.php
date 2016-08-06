@@ -143,8 +143,8 @@ AppAsset::register($this);
                             'url' => 'https://github.com/damasco/burlang2.ru',
                         ],
                         [
-                            'label' => 'API',
-                            'url' => ['/api'],
+                            'label' => 'Api',
+                            'url' => ['v1'],
                         ]
                     ],
                     'options' => [

@@ -5,12 +5,12 @@
  */
 ?>
 
-<?php if ($word && $word->getTranslation()->exists()): ?>
+<?php if ($word && $word->getTranslations()->exists()): ?>
 
     <div class="alert alert-success">
 
         <ul class="translate-list">
-            <?php foreach ($word->translation as $item): ?>
+            <?php foreach ($word->translations as $item): ?>
                 <li><?= $item->name ?></li>
             <?php endforeach; ?>
         </ul>
