@@ -144,7 +144,7 @@ AppAsset::register($this);
                         ],
                         [
                             'label' => 'Api',
-                            'url' => ['v1'],
+                            'url' => ['/v1'],
                         ]
                     ],
                     'options' => [
