@@ -22,10 +22,10 @@ $host = Yii::$app->request->getHostInfo();
         <div class="panel-body">
             <ul>
                 <li>
-                    <code><?= $host ?>/api/v1/buryat-word/get-words?q=с...</code>
+                    <code><?= $host ?>/v1/buryat-word/get-words?q=с...</code>
                 </li>
                 <li>
-                    <code><?= $host ?>/api/v1/buryat-word/get-translate?word=сайн</code>
+                    <code><?= $host ?>/v1/buryat-word/get-translate?word=сайн</code>
                 </li>
             </ul>
         </div>
@@ -40,10 +40,10 @@ $host = Yii::$app->request->getHostInfo();
         <div class="panel-body">
             <ul>
                 <li>
-                    <code><?= $host ?>/api/v1/russian-word/get-words?q=с...</code>
+                    <code><?= $host ?>/v1/russian-word/get-words?q=с...</code>
                 </li>
                 <li>
-                    <code><?= $host ?>/api/v1/russian-word/get-translate?word=привет</code>
+                    <code><?= $host ?>/v1/russian-word/get-translate?word=привет</code>
                 </li>
             </ul>  
         </div>
