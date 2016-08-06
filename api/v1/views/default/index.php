@@ -7,18 +7,46 @@
 $this->title = 'v1';
 $this->params['breadcrumbs'][] = ['label' => 'Api', 'url' => ['/api/default/index']];
 $this->params['breadcrumbs'][] = $this->title;
+
+$host = Yii::$app->request->getHostInfo();
 ?>
 
 <div class="v1-default-index">
     <h1><?= $this->title ?></h1>
 
-    <h4>Example:</h4>
-    <ul>
-    	<li>
-    		<code>/api/v1/buryat-word?word=сайн</code>
-    	</li>
-    	<li>
-    		<code>/api/v1/russian-word?word=привет</code>
-    	</li>
-    </ul>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <?= Yii::t('app', 'Buryat words') ?>
+            </h4>
+        </div>
+        <div class="panel-body">
+            <ul>
+                <li>
+                    <code><?= $host ?>/api/v1/buryat-word/get-words?q=с...</code>
+                </li>
+                <li>
+                    <code><?= $host ?>/api/v1/buryat-word/get-translate?word=сайн</code>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <?= Yii::t('app', 'Russian words') ?>
+            </h4>
+        </div>
+        <div class="panel-body">
+            <ul>
+                <li>
+                    <code><?= $host ?>/api/v1/russian-word/get-words?q=с...</code>
+                </li>
+                <li>
+                    <code><?= $host ?>/api/v1/russian-word/get-translate?word=привет</code>
+                </li>
+            </ul>  
+        </div>
+    </div>
 </div>
