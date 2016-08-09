@@ -26,6 +26,7 @@ By this moment you should have `config/param-local.php`. Specify your database c
 ```
 php yii migrate/up --migrationPath=@vendor/dektrium/yii2-user/migrations
 php yii migrate/up --migrationPath=@yii/rbac/migrations
+php yii migrate/up --migrationPath=@app/rbac/migrations
 php yii migrate
 ```
 

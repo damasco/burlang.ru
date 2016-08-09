@@ -12,47 +12,15 @@ use dektrium\user\models\User;
  */
 class RbacAppController extends Controller
 {
-
-    /**
-     * Generate default roles and permissions for rbac
-     */
-    public function actionInit()
-    {
-        if (!$this->confirm(Yii::t('app', 'Are you sure?'))) {
-            return self::EXIT_CODE_NORMAL;
-        }
-
-        $auth = Yii::$app->authManager;
-        $auth->removeAll();
-
-        $adminNews = $auth->createPermission('adminNews');
-        $adminNews->description = 'Administrate news';
-        $auth->add($adminNews);
-
-        $adminBook = $auth->createPermission('adminBook');
-        $adminBook->description = 'Administrate book';
-        $auth->add($adminBook);
-
-        $moderator = $auth->createRole('moderator');
-        $moderator->description = 'Moderator';
-        $auth->add($moderator);
-        $auth->addChild($moderator, $adminBook);
-
-        $admin = $auth->createRole('admin');
-        $admin->description = 'Administrator';
-        $auth->add($admin);
-        $auth->addChild($admin, $adminNews);
-        $auth->addChild($admin, $moderator);
-    }
-
     /**
      * Assign role for user
      *
      * @param $role
      * @param $username
+     * @throws InvalidParamException
      * @return int
      */
-    public function actionAssign($role, $username)
+    public function actionAssignRole($role, $username)
     {
         if (!$this->confirm(Yii::t('app', 'Are you sure?'))) {
             return self::EXIT_CODE_NORMAL;
