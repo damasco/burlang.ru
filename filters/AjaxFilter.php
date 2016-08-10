@@ -3,9 +3,9 @@
 namespace app\filters;
 
 use Yii;
-use yii\base\ActionEvent;
+use yii\base\ActionFilter;
+use yii\base\InlineAction;
 use yii\web\BadRequestHttpException;
-use yii\base\Behavior;
 use yii\web\Controller;
 
 /**
@@ -17,7 +17,7 @@ use yii\web\Controller;
  *          ...
  *         [
  *             'class' => AjaxFilter::className(),
- *             'actions' => ['action-first', 'action-second'],
+ *             'only' => ['action-first', 'action-second'],
  *         ],
  *          ...
  *      ];
@@ -25,11 +25,8 @@ use yii\web\Controller;
  *
  * @author Bulat Damdinov <dbulats88@gmail.com>
  */
-class AjaxFilter extends Behavior
+class AjaxFilter extends ActionFilter
 {
-    /* @var array */
-    public $actions = [];
-
     /**
      * @inheritdoc
      */
@@ -41,18 +38,16 @@ class AjaxFilter extends Behavior
     }
 
     /**
-     * @param ActionEvent $event
+     * @param InlineAction $action
      * @return bool
      * @throws BadRequestHttpException if action is not ajax request
      */
-    public function beforeAction($event)
+    public function beforeAction($action)
     {
-        if (in_array($event->action->id, $this->actions)) {
-            if (!Yii::$app->request->isAjax) {
-                throw new BadRequestHttpException(Yii::t('app', 'This URL can only call using Ajax.'));
-            }
+        if (!Yii::$app->request->isAjax) {
+            throw new BadRequestHttpException(Yii::t('app', 'This URL can only call using Ajax.'));
         }
 
-        return $event->isValid;
+        return true;
     }
 }

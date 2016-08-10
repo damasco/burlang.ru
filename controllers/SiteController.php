@@ -31,7 +31,7 @@ class SiteController extends Controller
         return [
             [
                 'class' => AjaxFilter::className(),
-                'actions' => [
+                'only' => [
                     'get-russian-words',
                     'get-buryat-words'
                 ]
