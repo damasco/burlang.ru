@@ -409,36 +409,28 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dektrium/yii2-user.git",
-                "reference": "6998d198bb3efc480115e5c6b270527aec590827"
+                "reference": "b6388400dcf51d5b2ca155c3f0b3aae32805511d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dektrium/yii2-user/zipball/6998d198bb3efc480115e5c6b270527aec590827",
-                "reference": "6998d198bb3efc480115e5c6b270527aec590827",
+                "url": "https://api.github.com/repos/dektrium/yii2-user/zipball/b6388400dcf51d5b2ca155c3f0b3aae32805511d",
+                "reference": "b6388400dcf51d5b2ca155c3f0b3aae32805511d",
                 "shasum": ""
             },
             "require": {
-                "yiisoft/yii2": "~2.0",
-                "yiisoft/yii2-authclient": "~2.0",
-                "yiisoft/yii2-bootstrap": "~2.0",
-                "yiisoft/yii2-swiftmailer": "~2.0"
+                "yiisoft/yii2": "^2.0.0",
+                "yiisoft/yii2-authclient": "^2.1.0",
+                "yiisoft/yii2-bootstrap": "^2.0.0",
+                "yiisoft/yii2-swiftmailer": "^2.0.0"
             },
             "require-dev": {
-                "codeception/aspect-mock": "*",
-                "codeception/specify": "*",
-                "codeception/verify": "*",
-                "yiisoft/yii2-codeception": "~2.0"
+                "codeception/specify": "^0.4.3",
+                "codeception/verify": "^0.3.1",
+                "yiisoft/yii2-codeception": "^2.0.0"
             },
             "type": "yii2-extension",
             "extra": {
-                "bootstrap": "dektrium\\user\\Bootstrap",
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                },
-                "asset-installer-paths": {
-                    "npm-asset-library": "vendor/npm",
-                    "bower-asset-library": "vendor/bower"
-                }
+                "bootstrap": "dektrium\\user\\Bootstrap"
             },
             "autoload": {
                 "psr-4": {
@@ -463,7 +455,7 @@
                 "yii2",
                 "yii2-user"
             ],
-            "time": "2016-07-17 10:56:36"
+            "time": "2016-08-11 14:41:25"
         },
         {
             "name": "ezyang/htmlpurifier",
