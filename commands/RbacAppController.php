@@ -77,8 +77,8 @@ class RbacAppController extends Controller
      */
     protected function getUser($username)
     {
-        /** @var User $user */
         $user = User::findOne(['username' => $username]);
+
         if (!$user) {
             throw new InvalidParamException("There is no user \"$username\".");
         }
@@ -93,6 +93,7 @@ class RbacAppController extends Controller
     protected function getRole($roleName)
     {
         $role = $this->getAuth()->getRole($roleName);
+
         if (!$role) {
             throw new InvalidParamException("There is no role \"$roleName\".");
         }

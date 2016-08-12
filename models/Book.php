@@ -100,16 +100,15 @@ class Book extends \yii\db\ActiveRecord
      */
     public function getLastUpdate()
     {
-        /** @var BookChapter $lastUpdateChapter */
-        $lastUpdateChapter = BookChapter::find()
-            ->where(['book_id' => $this->id])
+        $lastUpdateChapter = $this->getChapters()
             ->orderBy('updated_at DESC')
+            ->asArray()
             ->one();
 
         if ($lastUpdateChapter) {
-            return $this->updated_at > $lastUpdateChapter->updated_at ?
+            return $this->updated_at > $lastUpdateChapter['updated_at'] ?
                 $this->updated_at :
-                $lastUpdateChapter->updated_at;
+                $lastUpdateChapter['updated_at'];
         } else {
             return $this->updated_at;
         }

@@ -17,8 +17,10 @@ class Page extends Object
     {
         /** @var $model PageModel */
         $model = PageModel::findOne(['link' => $link]);
+
         if ($model && $model->active) {
             $url = ['/page/view', 'link' => $link];
+
             return [
                 'label' => $model->menu_name,
                 'url' => $url,
