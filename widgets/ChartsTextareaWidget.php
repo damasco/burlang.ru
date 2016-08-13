@@ -18,7 +18,11 @@ class ChartsTextareaWidget extends InputWidget
     {
         parent::init();
 
-        $this->selector = Inflector::camel2id($this->model->formName()) . '-' . $this->attribute;
+        if ($this->hasModel()) {
+            $this->selector = Inflector::camel2id($this->model->formName()) . '-' . $this->attribute;
+        } else {
+            $this->selector = 'charts-textarea-' . $this->name;
+        }
     }
 
     /**
