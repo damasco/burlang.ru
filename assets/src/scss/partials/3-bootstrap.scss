@@ -69,7 +69,7 @@ $nav-border-divider: #0f4d5c;
     }
   }
   .navbar-toggle {
-    border-color: $nav-link-color;
+    border: none;
     &:hover,
     &:focus {
       background-color: $nav-item-bg-active;
@@ -115,6 +115,7 @@ body.modal-open {
 .modal-scrollbar-measure {
   overflow: hidden;
 }
+
 /* end */
 
 .well {
