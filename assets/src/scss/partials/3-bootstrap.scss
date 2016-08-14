@@ -145,9 +145,6 @@ a {
 }
 
 .action-column {
-  width: 130px;
+  min-width: 130px;
   text-align: right;
-  .btn {
-    margin-bottom: 4px;
-  }
 }

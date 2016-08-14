@@ -44,21 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'filter' => ['1' => Yii::t('app', 'Yes'), '0' => Yii::t('app', 'No')]
                 ],
                 [
-                    'class' => 'yii\grid\ActionColumn',
-                    'buttons' => [
-                        'view' => function ($url, $model) {
-                            return Html::a(Html::icon('eye-open'), $url, ['class' => 'btn btn-sm btn-default']);
-                        },
-                        'update' => function ($url, $model) {
-                            return Html::a(Html::icon('pencil'), $url, ['class' => 'btn btn-sm btn-primary']);
-                        },
-                        'delete' => function ($url, $model) {
-                            return Html::a(Html::icon('trash'), $url, ['class' => 'btn btn-sm btn-danger']);
-                        }
-                    ],
-                    'contentOptions' => [
-                        'class' => 'action-column'
-                    ]
+                    'class' => 'app\components\ActionColumn',
                 ],
             ],
         ]); ?>
