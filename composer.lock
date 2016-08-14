@@ -409,12 +409,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dektrium/yii2-user.git",
-                "reference": "b6388400dcf51d5b2ca155c3f0b3aae32805511d"
+                "reference": "d9530a1b4213c2bd7fd8eb05d185dfe9dffde558"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dektrium/yii2-user/zipball/b6388400dcf51d5b2ca155c3f0b3aae32805511d",
-                "reference": "b6388400dcf51d5b2ca155c3f0b3aae32805511d",
+                "url": "https://api.github.com/repos/dektrium/yii2-user/zipball/d9530a1b4213c2bd7fd8eb05d185dfe9dffde558",
+                "reference": "d9530a1b4213c2bd7fd8eb05d185dfe9dffde558",
                 "shasum": ""
             },
             "require": {
@@ -430,7 +430,11 @@
             },
             "type": "yii2-extension",
             "extra": {
-                "bootstrap": "dektrium\\user\\Bootstrap"
+                "bootstrap": "dektrium\\user\\Bootstrap",
+                "branch-alias": {
+                    "dev-master": "0.9.x-dev",
+                    "dev-develop": "1.0.x-dev"
+                }
             },
             "autoload": {
                 "psr-4": {
@@ -455,7 +459,7 @@
                 "yii2",
                 "yii2-user"
             ],
-            "time": "2016-08-11 14:41:25"
+            "time": "2016-08-13 15:45:38"
         },
         {
             "name": "ezyang/htmlpurifier",

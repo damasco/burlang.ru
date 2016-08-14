@@ -12,7 +12,7 @@ class TranslationServiceWidget extends Widget
      */
     public function run()
     {
-        /* @var Page $model */
+        /** @var Page $model */
         $model = Page::findOne(['link' => 'translation-service']);
 
         if ($model && $model->active) {
