@@ -143,3 +143,11 @@ a {
     border-color: $nav-item-bg-hover;
   }
 }
+
+.action-column {
+  width: 130px;
+  text-align: right;
+  .btn {
+    margin-bottom: 4px;
+  }
+}

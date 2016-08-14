@@ -1,6 +1,6 @@
 <?php
 
-use yii\helpers\Html;
+use yii\bootstrap\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
 
@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Add name'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Html::icon('plus') . ' ' . Yii::t('app', 'Add name'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php Pjax::begin(); ?>
@@ -45,8 +45,19 @@ $this->params['breadcrumbs'][] = $this->title;
                 ],
                 [
                     'class' => 'yii\grid\ActionColumn',
+                    'buttons' => [
+                        'view' => function ($url, $model) {
+                            return Html::a(Html::icon('eye-open'), $url, ['class' => 'btn btn-sm btn-default']);
+                        },
+                        'update' => function ($url, $model) {
+                            return Html::a(Html::icon('pencil'), $url, ['class' => 'btn btn-sm btn-primary']);
+                        },
+                        'delete' => function ($url, $model) {
+                            return Html::a(Html::icon('trash'), $url, ['class' => 'btn btn-sm btn-danger']);
+                        }
+                    ],
                     'contentOptions' => [
-                        'style' => 'width: 70px;'
+                        'class' => 'action-column'
                     ]
                 ],
             ],
