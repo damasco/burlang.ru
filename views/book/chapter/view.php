@@ -1,6 +1,6 @@
 <?php
 
-use yii\helpers\Html;
+use yii\bootstrap\Html;
 use yii\helpers\Markdown;
 use yii\helpers\HtmlPurifier;
 use app\widgets\ChapterMenuWidget;
@@ -20,23 +20,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1 class="hidden-xs">
         <?= Html::encode($model->book->title) ?>
-        <?php if (!$model->book->active): ?>
-            <span class="label label-default"><?= Yii::t('app', 'Inactive') ?></span>
-        <?php endif ?>
     </h1>
 
-    <?php if (Yii::$app->user->can('adminBook')): ?>
-        <p>
-            <?= Html::a(Yii::t('app', 'Edit'), ['update', 'id' => $model->book->id], ['class' => 'btn btn-primary']) ?>
-            <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->book->id], [
-                'class' => 'btn btn-danger',
-                'data' => [
-                    'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
-                    'method' => 'post',
-                ],
-            ]) ?>
-        </p>
-    <?php endif ?>
+    <?= $this->render('/book/_header', ['model' => $model->book]) ?>
 
     <div class="row">
         <div class="col-sm-3 hidden-xs">
@@ -45,9 +31,9 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="col-sm-9 col-xs-12">
             <?php if (Yii::$app->user->can('adminBook')): ?>
                 <p>
-                    <?= Html::a(Yii::t('app', 'Edit chapter'), ['chapter-update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-                    <?= Html::a(Yii::t('app', 'Delete chapter'), ['chapter-delete', 'id' => $model->id], [
-                        'class' => 'btn btn-danger',
+                    <?= Html::a(Html::icon('pencil') . ' ' . Yii::t('app', 'Edit chapter'), ['chapter-update', 'id' => $model->id], ['class' => 'btn btn-sm btn-default']) ?>
+                    <?= Html::a(Html::icon('trash') . ' ' . Yii::t('app', 'Delete chapter'), ['chapter-delete', 'id' => $model->id], [
+                        'class' => 'btn btn-sm btn-default',
                         'data' => [
                             'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
                             'method' => 'post',

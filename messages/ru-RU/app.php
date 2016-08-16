@@ -123,6 +123,8 @@ return [
     'Book' => 'Книга',
     'Books' => 'Книги',
     'Create book' => 'Создать книгу',
+    'Edit book' => 'Редактировать книгу',
+    'Delete book' => 'Удалить книгу',
     'Last update' => 'Последнее обновление',
 
     // book chapter

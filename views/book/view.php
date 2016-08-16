@@ -1,6 +1,6 @@
 <?php
 
-use yii\helpers\Html;
+use yii\bootstrap\Html;
 use app\widgets\ChapterMenuWidget;
 use yii\helpers\HtmlPurifier;
 use yii\helpers\Markdown;
@@ -21,28 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::encode($this->title) ?>
     </h1>
 
-    <p class="hint-block">
-        <?= Yii::t('app', 'Last update') ?>: <?= Yii::$app->formatter->asDateTime($model->getLastUpdate()) ?>
-    </p>
-
-    <?php if (!$model->active): ?>
-        <p>
-            <span class="label label-default"><?= Yii::t('app', 'Inactive') ?></span>
-        </p>
-    <?php endif ?>
-
-    <?php if (Yii::$app->user->can('adminBook')): ?>
-        <p>
-            <?= Html::a(Yii::t('app', 'Edit'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-            <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->id], [
-                'class' => 'btn btn-danger',
-                'data' => [
-                    'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
-                    'method' => 'post',
-                ],
-            ]) ?>
-        </p>
-    <?php endif ?>
+    <?= $this->render('_header', ['model' => $model]) ?>
 
     <div class="row">
         <div class="col-sm-3">
