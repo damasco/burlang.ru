@@ -14,10 +14,13 @@ use yii\helpers\Html;
 
         <h2>
             <?= Html::a(Html::encode($model->title), ['book/view', 'slug' => $model->slug]) ?>
-            <?php if (!$model->active): ?>
-                <span class="label label-default"><?= Yii::t('app', 'Inactive') ?></span>
-            <?php endif ?>
         </h2>
+
+        <?php if (!$model->active): ?>
+            <p>
+                <span class="label label-default"><?= Yii::t('app', 'Inactive') ?></span>
+            </p>
+        <?php endif ?>
 
         <p><?= nl2br(Html::encode($model->description)) ?></p>
 

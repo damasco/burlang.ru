@@ -19,10 +19,13 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1>
         <?= Html::encode($this->title) ?>
-        <?php if (!$model->active): ?>
-            <span class="label label-default"><?= Yii::t('app', 'Inactive') ?></span>
-        <?php endif ?>
     </h1>
+
+    <?php if (!$model->active): ?>
+        <p>
+            <span class="label label-default"><?= Yii::t('app', 'Inactive') ?></span>
+        </p>
+    <?php endif ?>
 
     <?php if (Yii::$app->user->can('adminBook')): ?>
         <p>
