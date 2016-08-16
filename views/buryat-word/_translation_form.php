@@ -38,15 +38,18 @@ use app\widgets\ChartsInputWidget;
                         'template' => '{delete}',
                         'buttons' => [
                             'delete' => function ($url, $model) {
-                                return Html::a(Html::icon('trash'),
-                                    ['delete-translation', 'id' => $model->id], [
+                                return Html::a(
+                                    Html::icon('trash'),
+                                    ['delete-translation', 'id' => $model->id],
+                                    [
                                         'title' => Yii::t('app', 'Delete translation'),
                                         'class' => 'btn btn-sm btn-danger',
                                         'data' => [
                                             'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
                                             'method' => 'post',
                                         ]
-                                    ]);
+                                    ]
+                                );
                             }
                         ],
                         'contentOptions' => [

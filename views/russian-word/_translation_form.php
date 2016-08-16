@@ -32,7 +32,8 @@ use app\widgets\ChartsInputWidget;
                         'template' => '{delete}',
                         'buttons' => [
                             'delete' => function ($url, $model) {
-                                return Html::a(Html::icon('trash'),
+                                return Html::a(
+                                    Html::icon('trash'),
                                     ['delete-translation', 'id' => $model->id],
                                     [
                                         'title' => Yii::t('app', 'Delete translation'),
@@ -41,7 +42,8 @@ use app\widgets\ChartsInputWidget;
                                             'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
                                             'method' => 'post',
                                         ]
-                                    ]);
+                                    ]
+                                );
                             }
                         ],
                         'contentOptions' => [
@@ -54,7 +56,9 @@ use app\widgets\ChartsInputWidget;
 
         <?php $form = ActiveForm::begin() ?>
 
-        <?= $form->field($translationForm, 'name')->widget(ChartsInputWidget::className(), ['options' => ['maxlength' => true]]) ?>
+        <?= $form->field($translationForm, 'name')->widget(
+            ChartsInputWidget::className(), ['options' => ['maxlength' => true]]
+        ) ?>
 
         <?= $form->field($translationForm, 'ruword_id')->hiddenInput(['value' => $model->id])->label(false) ?>
 

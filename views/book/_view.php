@@ -9,9 +9,7 @@ use yii\helpers\Html;
 ?>
 
 <div class="col-sm-4">
-
     <div class="book-item">
-
         <h2>
             <?= Html::a(Html::encode($model->title), ['book/view', 'slug' => $model->slug]) ?>
         </h2>
@@ -24,17 +22,16 @@ use yii\helpers\Html;
 
         <p><?= nl2br(Html::encode($model->description)) ?></p>
 
-        <?= Html::a(Yii::t('app', 'Read') . ' →',
+        <?= Html::a(
+            Yii::t('app', 'Read') . ' →',
             ['/book/view', 'slug' => $model->slug],
-            ['class' => 'btn btn-custom btn-sm']) ?>
+            ['class' => 'btn btn-custom btn-sm']
+        ) ?>
 
         <hr>
-
         <p class="hint-block">
             <?= Yii::t('app', 'Last update') ?>: <br>
             <?= Yii::$app->formatter->asDateTime($model->getLastUpdate()) ?>
         </p>
-
     </div>
-
 </div>

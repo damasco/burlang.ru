@@ -17,7 +17,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(Html::icon('plus') . ' ' . Yii::t('app', 'Add dictionary'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(
+            Html::icon('plus') . ' ' . Yii::t('app', 'Add dictionary'),
+            ['create'],
+            ['class' => 'btn btn-success']
+        ) ?>
     </p>
 
     <div class="table-responsive">

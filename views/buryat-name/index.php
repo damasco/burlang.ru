@@ -42,8 +42,11 @@ if ($letter !== null) {
         <ul class="list-inline list-name">
             <?php foreach ($names as $name): ?>
                 <li>
-                    <?= Html::a($name['name'], ['view-name', 'name' => $name['name']],
-                        ['class' => 'btn btn-default link-name']) ?>
+                    <?= Html::a(
+                        $name['name'],
+                        ['view-name', 'name' => $name['name']],
+                        ['class' => 'btn btn-default link-name']
+                    ) ?>
                 </li>
             <?php endforeach ?>
         </ul>

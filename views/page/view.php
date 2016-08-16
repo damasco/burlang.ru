@@ -31,7 +31,11 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?php if (Yii::$app->user->can('admin')): ?>
         <p>
-            <?= Html::a(Html::icon('pencil') . ' ' . Yii::t('app', 'Edit'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+            <?= Html::a(
+                Html::icon('pencil') . ' ' . Yii::t('app', 'Edit'),
+                ['update', 'id' => $model->id],
+                ['class' => 'btn btn-primary']
+            ) ?>
         </p>
     <?php endif ?>
 

@@ -20,13 +20,20 @@ use yii\bootstrap\Html;
 
 <?php if (Yii::$app->user->can('adminBook')): ?>
     <p>
-        <?= Html::a(Html::icon('pencil') . ' ' . Yii::t('app', 'Edit book'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a(Html::icon('trash') . ' ' . Yii::t('app', 'Delete book'), ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
-                'method' => 'post',
-            ],
-        ]) ?>
+        <?= Html::a(
+            Html::icon('pencil') . ' ' . Yii::t('app', 'Edit book'),
+            ['update', 'id' => $model->id], ['class' => 'btn btn-primary']
+        ) ?>
+        <?= Html::a(
+            Html::icon('trash') . ' ' . Yii::t('app', 'Delete book'),
+            ['delete', 'id' => $model->id],
+            [
+                'class' => 'btn btn-danger',
+                'data' => [
+                    'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
+                    'method' => 'post',
+                ],
+            ]
+        ) ?>
     </p>
 <?php endif ?>

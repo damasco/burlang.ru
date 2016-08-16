@@ -25,9 +25,11 @@ use yii\helpers\Html;
         <?= nl2br(Html::encode($model->description)) ?>
     </p>
 
-    <?= Html::a(Yii::t('app', 'Read more') . ' →',
+    <?= Html::a(
+        Yii::t('app', 'Read more') . ' →',
         ['/news/view', 'slug' => $model->slug],
-        ['class' => 'btn btn-custom btn-sm']) ?>
+        ['class' => 'btn btn-custom btn-sm']
+    ) ?>
 
 </div>
 

@@ -43,7 +43,11 @@ $this->params['breadcrumbs'][] = $this->title;
                     'template' => '{view} {update}',
                     'buttons' => [
                         'view' => function ($url, $model) {
-                            return Html::a(Html::icon('eye-open'), ['view', 'link' => $model->link], ['class' => 'btn btn-sm btn-default']);
+                            return Html::a(
+                                Html::icon('eye-open'),
+                                ['view', 'link' => $model->link],
+                                ['class' => 'btn btn-sm btn-default']
+                            );
                         }
                     ],
                     'contentOptions' => [

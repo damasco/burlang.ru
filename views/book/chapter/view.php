@@ -31,14 +31,21 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="col-sm-9 col-xs-12">
             <?php if (Yii::$app->user->can('adminBook')): ?>
                 <p>
-                    <?= Html::a(Html::icon('pencil') . ' ' . Yii::t('app', 'Edit chapter'), ['chapter-update', 'id' => $model->id], ['class' => 'btn btn-sm btn-default']) ?>
-                    <?= Html::a(Html::icon('trash') . ' ' . Yii::t('app', 'Delete chapter'), ['chapter-delete', 'id' => $model->id], [
-                        'class' => 'btn btn-sm btn-default',
-                        'data' => [
-                            'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
-                            'method' => 'post',
-                        ],
-                    ]) ?>
+                    <?= Html::a(
+                        Html::icon('pencil') . ' ' . Yii::t('app', 'Edit chapter'),
+                        ['chapter-update', 'id' => $model->id], ['class' => 'btn btn-sm btn-default']
+                    ) ?>
+                    <?= Html::a(
+                        Html::icon('trash') . ' ' . Yii::t('app', 'Delete chapter'),
+                        ['chapter-delete', 'id' => $model->id],
+                        [
+                            'class' => 'btn btn-sm btn-default',
+                            'data' => [
+                                'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
+                                'method' => 'post',
+                            ],
+                        ]
+                    ) ?>
                 </p>
             <?php endif ?>
             <div class="content">

@@ -18,7 +18,11 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?php if (Yii::$app->user->can('adminNews')): ?>
         <p>
-            <?= Html::a(Html::icon('plus')  . ' ' . Yii::t('app', 'Create news'), ['create'], ['class' => 'btn btn-success']) ?>
+            <?= Html::a(
+                Html::icon('plus')  . ' ' . Yii::t('app', 'Create news'),
+                ['create'],
+                ['class' => 'btn btn-success']
+            ) ?>
         </p>
     <?php endif ?>
 
