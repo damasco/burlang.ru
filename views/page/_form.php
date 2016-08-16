@@ -1,6 +1,6 @@
 <?php
 
-use yii\helpers\Html;
+use yii\bootstrap\Html;
 use yii\widgets\ActiveForm;
 use ijackua\lepture\Markdowneditor;
 use app\widgets\ChartsInputWidget;
@@ -31,7 +31,7 @@ use app\widgets\ChartsInputWidget;
     <?= $form->field($model, 'content')->widget(Markdowneditor::className()) ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Save'),
+        <?= Html::submitButton($model->isNewRecord ? Html::icon('plus') . ' ' . Yii::t('app', 'Create') : Html::icon('floppy-disk') . ' ' . Yii::t('app', 'Save'),
             ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 

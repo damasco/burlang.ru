@@ -1,6 +1,6 @@
 <?php
 
-use yii\helpers\Html;
+use yii\bootstrap\Html;
 use yii\grid\GridView;
 
 /**
@@ -18,35 +18,40 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Create page'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Html::icon('plus') . ' ' . Yii::t('app', 'Create page'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+    <div class="table-responsive">
+        <?= GridView::widget([
+            'dataProvider' => $dataProvider,
+            'filterModel' => $searchModel,
+            'columns' => [
+                ['class' => 'yii\grid\SerialColumn'],
 
-            'menu_name',
-            'title',
-            'link',
-            'description',
-            [
-                'attribute' => 'active',
-                'filter' => ['0' => Yii::t('app', 'No'), '1' => Yii::t('app', 'Yes')],
-                'format' => 'boolean',
-            ],
+                'menu_name',
+                'title',
+                'link',
+                'description',
+                [
+                    'attribute' => 'active',
+                    'filter' => ['0' => Yii::t('app', 'No'), '1' => Yii::t('app', 'Yes')],
+                    'format' => 'boolean',
+                ],
 
-            [
-                'class' => 'yii\grid\ActionColumn',
-                'template' => '{view} {update}',
-                'buttons' => [
-                    'view' => function ($url, $model) {
-                        return Html::a('<span class="glyphicon glyphicon-eye-open"></span>', ['view', 'link' => $model->link]);
-                    }
-                ]
+                [
+                    'class' => 'app\components\ActionColumn',
+                    'template' => '{view} {update}',
+                    'buttons' => [
+                        'view' => function ($url, $model) {
+                            return Html::a(Html::icon('eye-open'), ['view', 'link' => $model->link], ['class' => 'btn btn-sm btn-default']);
+                        }
+                    ],
+                    'contentOptions' => [
+                        'class' => 'action-column-2',
+                    ],
+                ],
             ],
-        ],
-    ]); ?>
+        ]); ?>
+    </div>
 
 </div>
