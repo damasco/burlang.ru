@@ -144,7 +144,18 @@ a {
   }
 }
 
-.action-column {
+// gridview ActionColumn
+.action-column-3 {
   min-width: 130px;
+  text-align: right;
+}
+
+.action-column-2 {
+  min-width: 90px;
+  text-align: right;
+}
+
+.action-column-1 {
+  min-width: 40px;
   text-align: right;
 }

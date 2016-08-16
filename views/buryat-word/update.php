@@ -1,6 +1,6 @@
 <?php
 
-use yii\helpers\Html;
+use yii\bootstrap\Html;
 
 /**
  * @var yii\web\View $this
@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'dictionaries' => $dictionaries
     ]) ?>
 
-    <?= Html::a(Yii::t('app', 'Delete word'), ['delete', 'id' => $model->id], [
+    <?= Html::a(Html::icon('trash') . ' ' . Yii::t('app', 'Delete word'), ['delete', 'id' => $model->id], [
         'class' => 'btn btn-danger',
         'data' => [
             'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),

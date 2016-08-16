@@ -1,6 +1,6 @@
 <?php
 
-use yii\helpers\Html;
+use yii\bootstrap\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
 use yii\helpers\ArrayHelper;
@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Add word'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Html::icon('plus') . ' ' . Yii::t('app', 'Add word'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php Pjax::begin(); ?>
@@ -43,7 +43,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 [
                     'class' => 'app\components\ActionColumn',
-                    'template' => '{update} {delete}',            
+                    'template' => '{update} {delete}',
+                    'contentOptions' => [
+                        'class' => 'action-column-2'
+                    ]
                 ],
             ],
         ]); ?>

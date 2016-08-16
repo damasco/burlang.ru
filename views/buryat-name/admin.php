@@ -45,6 +45,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 ],
                 [
                     'class' => 'app\components\ActionColumn',
+                    'contentOptions' => [
+                        'class' => 'action-column-3',
+                    ],
                 ],
             ],
         ]); ?>
