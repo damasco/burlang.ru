@@ -30,7 +30,7 @@ use yii\helpers\Html;
 
         <hr>
 
-        <p class="hint">
+        <p class="hint-block">
             <?= Yii::t('app', 'Last update') ?>: <br>
             <?= Yii::$app->formatter->asDateTime($model->getLastUpdate()) ?>
         </p>

@@ -21,6 +21,10 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::encode($this->title) ?>
     </h1>
 
+    <p class="hint-block">
+        <?= Yii::t('app', 'Last update') ?>: <?= Yii::$app->formatter->asDateTime($model->getLastUpdate()) ?>
+    </p>
+
     <?php if (!$model->active): ?>
         <p>
             <span class="label label-default"><?= Yii::t('app', 'Inactive') ?></span>
