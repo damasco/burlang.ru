@@ -20,14 +20,14 @@ $config = [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'rules' => require(__DIR__ . '/urls.php'),
+            'rules' => require __DIR__ . '/urls.php',
         ],
         'assetManager' => [
             'class' => '\yii\web\AssetManager',
             'appendTimestamp' => true
         ],
         'request' => [
-            'cookieValidationKey' => 'l-2C_lNvBwQDe4_LLC5eaUhQmvV9yQRm',
+            'cookieValidationKey' => $params['components.request.key'],
             'parsers' => [
                 'application/json' => 'yii\web\JsonParser',
             ]

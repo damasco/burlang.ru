@@ -9,4 +9,6 @@ return [
 //        'enableSchemaCache' => true
 //    ],
 
+//    'components.request.key' => '',
+
 ];
