@@ -25,7 +25,7 @@ use yii\bootstrap\Html;
             ['update', 'id' => $model->id], ['class' => 'btn btn-primary']
         ) ?>
         <?= Html::a(
-            Html::icon('trash') . ' ' . Yii::t('app', 'Delete book'),
+            Html::icon('trash') . ' ' . Yii::t('app', 'Delete'),
             ['delete', 'id' => $model->id],
             [
                 'class' => 'btn btn-danger',
