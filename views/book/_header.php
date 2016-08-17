@@ -21,7 +21,7 @@ use yii\bootstrap\Html;
 <?php if (Yii::$app->user->can('adminBook')): ?>
     <p>
         <?= Html::a(
-            Html::icon('pencil') . ' ' . Yii::t('app', 'Edit book'),
+            Html::icon('pencil') . ' ' . Yii::t('app', 'Edit'),
             ['update', 'id' => $model->id], ['class' => 'btn btn-primary']
         ) ?>
         <?= Html::a(
