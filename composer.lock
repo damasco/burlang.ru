@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2a1ec995748e21be1d17d5e178df09c7",
-    "content-hash": "fb0af12d5168291ca1dc17d164555112",
+    "hash": "a66118deafa9732a4b22deb9609e5e2a",
+    "content-hash": "c63b8e2a5858aeb8f9dc8b1fa3ad042f",
     "packages": [
         {
             "name": "alexandernst/yii2-device-detect",
@@ -124,6 +124,72 @@
                 "mobile-first",
                 "responsive",
                 "web"
+            ]
+        },
+        {
+            "name": "bower-asset/codemirror",
+            "version": "5.9.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/codemirror/CodeMirror.git",
+                "reference": "ec73f71ee6d04cc5c257f098bfcf693460be1866"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/codemirror/CodeMirror/zipball/ec73f71ee6d04cc5c257f098bfcf693460be1866",
+                "reference": "ec73f71ee6d04cc5c257f098bfcf693460be1866",
+                "shasum": ""
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": [
+                    "lib/codemirror.js",
+                    "lib/codemirror.css"
+                ],
+                "bower-asset-ignore": [
+                    "**/.*",
+                    "node_modules",
+                    "components",
+                    "bin",
+                    "demo",
+                    "doc",
+                    "test",
+                    "index.html",
+                    "package.json",
+                    "mode/*/*test.js",
+                    "mode/*/*.html"
+                ]
+            }
+        },
+        {
+            "name": "bower-asset/codemirror-buttons",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/samdark/codemirror-buttons.git",
+                "reference": "600ad81b803f6c82cb03d2742d9173523bd65f88"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/samdark/codemirror-buttons/zipball/600ad81b803f6c82cb03d2742d9173523bd65f88",
+                "reference": "600ad81b803f6c82cb03d2742d9173523bd65f88",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/codemirror": "*"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "buttons.js"
+            },
+            "license": [
+                "BSD"
+            ],
+            "description": "CodeMirror buttons",
+            "keywords": [
+                "buttons",
+                "codemirror",
+                "ui"
             ]
         },
         {
@@ -504,52 +570,6 @@
                 "html"
             ],
             "time": "2016-07-16 12:58:58"
-        },
-        {
-            "name": "ijackua/yii2-lepture-markdown-editor-widget",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/iJackUA/yii2-lepture-markdown-editor-widget.git",
-                "reference": "c270e33f6df4b50ab493ee14fb40403e024fb522"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/iJackUA/yii2-lepture-markdown-editor-widget/zipball/c270e33f6df4b50ab493ee14fb40403e024fb522",
-                "reference": "c270e33f6df4b50ab493ee14fb40403e024fb522",
-                "shasum": ""
-            },
-            "require": {
-                "yiisoft/yii2": "*"
-            },
-            "type": "yii2-extension",
-            "autoload": {
-                "psr-4": {
-                    "ijackua\\lepture\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Evgeniy Kuzminov",
-                    "email": "kyzminov@gmail.com",
-                    "homepage": "http://stdout.in"
-                }
-            ],
-            "description": "Yii2 widget for Lepture Markdown Editor (https://github.com/lepture/editor) - A markdown editor you really want",
-            "homepage": "https://github.com/iJackUA/yii2-lepture-markdown-editor-widget",
-            "keywords": [
-                "editor",
-                "extension",
-                "lepture",
-                "markdown",
-                "widget",
-                "yii"
-            ],
-            "time": "2014-03-29 19:06:57"
         },
         {
             "name": "kartik-v/yii2-krajee-base",

@@ -25,6 +25,8 @@ return [
     'Time' => 'Время',
     'Name' => 'Название',
     'Are you sure you want to delete this item?' => 'Вы уверены, что хотите удалить этот элемент?',
+    'Are you sure you want to delete?' => 'Вы уверены, что хотите удалить?',
+    'Are you sure you want to delete {item}?' => 'Вы уверены, что хотите удалить {item}?',
     'Created At' => 'Создано',
     'Updated At' => 'Последнее изменение',
     'Sort' => 'Сортировка',

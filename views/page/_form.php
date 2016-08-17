@@ -2,14 +2,16 @@
 
 use yii\bootstrap\Html;
 use yii\widgets\ActiveForm;
-use ijackua\lepture\Markdowneditor;
 use app\widgets\ChartsInputWidget;
+use app\assets\MarkdownEditorAsset;
 
 /**
  * @var yii\web\View $this
  * @var app\models\Page $model
  * @var yii\widgets\ActiveForm $form
  */
+
+MarkdownEditorAsset::register($this);
 ?>
 
 <div class="page-form">
@@ -28,7 +30,7 @@ use app\widgets\ChartsInputWidget;
 
     <?= $form->field($model, 'description')->widget(ChartsInputWidget::className(), ['options' => ['maxlength' => true]]) ?>
 
-    <?= $form->field($model, 'content')->widget(Markdowneditor::className()) ?>
+    <?= $form->field($model, 'content')->textarea(['id' => 'markdown-editor']) ?>
 
     <div class="form-group">
         <?= Html::submitButton(
