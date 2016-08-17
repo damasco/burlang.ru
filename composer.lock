@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "db259b6fa6e203149b9f678b76534713",
-    "content-hash": "f2ad6380bd3e1e36e18c48a1900ec5ae",
+    "hash": "2a1ec995748e21be1d17d5e178df09c7",
+    "content-hash": "fb0af12d5168291ca1dc17d164555112",
     "packages": [
         {
             "name": "alexandernst/yii2-device-detect",
@@ -356,12 +356,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dektrium/yii2-rbac.git",
-                "reference": "b4c40531832ccd1ed0a2a74d06651526889df244"
+                "reference": "0943e66c450132b306584a37caefc2aa04258372"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dektrium/yii2-rbac/zipball/b4c40531832ccd1ed0a2a74d06651526889df244",
-                "reference": "b4c40531832ccd1ed0a2a74d06651526889df244",
+                "url": "https://api.github.com/repos/dektrium/yii2-rbac/zipball/0943e66c450132b306584a37caefc2aa04258372",
+                "reference": "0943e66c450132b306584a37caefc2aa04258372",
                 "shasum": ""
             },
             "require": {
@@ -401,7 +401,7 @@
                 "yii2",
                 "yii2-rbac"
             ],
-            "time": "2016-07-19 17:12:14"
+            "time": "2016-08-15 15:49:54"
         },
         {
             "name": "dektrium/yii2-user",
