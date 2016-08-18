@@ -96,6 +96,7 @@ return [
     'Female' => 'Женский',
     'Male name' => 'Мужское имя',
     'Female name' => 'Женское имя',
+    'Name deleted' => 'Имя удалено',
 
     // buryat words
     'Buryat words' => 'Бурятские слова',

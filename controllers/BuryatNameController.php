@@ -167,6 +167,8 @@ class BuryatNameController extends Controller
     {
         $this->findModel($id)->delete();
 
+        Yii::$app->session->setFlash('success', Yii::t('app', 'Name deleted'));
+
         return $this->redirect(['admin']);
     }
 

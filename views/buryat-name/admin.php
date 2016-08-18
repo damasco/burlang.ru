@@ -16,31 +16,42 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <div class="buryat-name-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1 class="hidden-xs"><?= Html::encode($this->title) ?></h1>
+
+    <?= $this->render('/_alert') ?>
 
     <p>
         <?= Html::a(Html::icon('plus') . ' ' . Yii::t('app', 'Add name'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
+    <?= $this->render('_search', ['model' => $searchModel]) ?>
+
     <?php Pjax::begin(); ?>
     <div class="table-responsive">
         <?= GridView::widget([
             'dataProvider' => $dataProvider,
-            'filterModel' => $searchModel,
+            'pager' => [
+                'maxButtonCount' => !Yii::$app->devicedetect->isMobile() ? 10 : 5,
+            ],
             'columns' => [
                 ['class' => 'yii\grid\SerialColumn'],
 
                 'name',
-                'description',
+                [
+                    'attribute' => 'description',
+                    'visible' => !Yii::$app->devicedetect->isMobile() ? true : false,
+                ],
                 [
                     'attribute' => 'male',
                     'format' => 'boolean',
-                    'filter' => ['1' => Yii::t('app', 'Yes'), '0' => Yii::t('app', 'No')]
+                    'filter' => ['1' => Yii::t('app', 'Yes'), '0' => Yii::t('app', 'No')],
+                    'visible' => !Yii::$app->devicedetect->isMobile() ? true : false,
                 ],
                 [
                     'attribute' => 'female',
                     'format' => 'boolean',
-                    'filter' => ['1' => Yii::t('app', 'Yes'), '0' => Yii::t('app', 'No')]
+                    'filter' => ['1' => Yii::t('app', 'Yes'), '0' => Yii::t('app', 'No')],
+                    'visible' => !Yii::$app->devicedetect->isMobile() ? true : false,
                 ],
                 [
                     'class' => 'app\components\ActionColumn',

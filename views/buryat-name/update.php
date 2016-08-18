@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = Yii::t('app', 'Edit');
 
 <div class="buryat-name-update">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1 class="hidden-xs"><?= Html::encode($this->title) ?></h1>
 
     <?= $this->render('_form', [
         'model' => $model,
