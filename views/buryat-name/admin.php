@@ -32,7 +32,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 'name',
                 'description',
-                'note:ntext',
                 [
                     'attribute' => 'male',
                     'format' => 'boolean',

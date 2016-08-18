@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <div class="buryat-word-update">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1 class="hidden-xs"><?= Html::encode($this->title) ?></h1>
 
     <?= $this->render('/_alert') ?>
 
@@ -28,14 +28,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'translationForm' => $translationForm,
         'dictionaries' => $dictionaries
-    ]) ?>
-
-    <?= Html::a(Html::icon('trash') . ' ' . Yii::t('app', 'Delete word'), ['delete', 'id' => $model->id], [
-        'class' => 'btn btn-danger',
-        'data' => [
-            'confirm' => Yii::t('app', 'Are you sure you want to delete?'),
-            'method' => 'post',
-        ],
     ]) ?>
 
 </div>

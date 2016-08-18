@@ -18,7 +18,9 @@ use app\widgets\ChartsTextareaWidget;
 
     <?= $form->field($model, 'name')->widget(ChartsInputWidget::className(), ['options' => ['maxlength' => true]]) ?>
 
-    <?= $form->field($model, 'description')->widget(ChartsInputWidget::className(), ['options' => ['maxlength' => true]]) ?>
+    <?= $form->field($model, 'description')->widget(
+        ChartsInputWidget::className(), ['options' => ['maxlength' => true]]
+    ) ?>
 
     <?= $form->field($model, 'note')->widget(ChartsTextareaWidget::className(), ['options' => ['rows' => 5]]) ?>
 

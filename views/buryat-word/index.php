@@ -19,15 +19,21 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
+    <?= $this->render('/_alert') ?>
+
     <p>
         <?= Html::a(Html::icon('plus') . ' ' . Yii::t('app', 'Add word'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
+
+    <?= $this->render('_search', ['model' => $searchModel]); ?>
 
     <?php Pjax::begin(); ?>
     <div class="table-responsive">
         <?= GridView::widget([
             'dataProvider' => $dataProvider,
-            'filterModel' => $searchModel,
+            'pager' => [
+                'maxButtonCount' => !Yii::$app->devicedetect->isMobile() ? 10 : 5,
+            ],
             'columns' => [
                 ['class' => 'yii\grid\SerialColumn'],
 
@@ -38,7 +44,8 @@ $this->params['breadcrumbs'][] = $this->title;
                         /** @var \app\models\BuryatWord $model */
                         return Html::ul(ArrayHelper::getColumn($model->translations, 'name'));
                     },
-                    'format' => 'raw'
+                    'format' => 'raw',
+                    'visible' => !Yii::$app->devicedetect->isMobile() ? true : false,
                 ],
 
                 [

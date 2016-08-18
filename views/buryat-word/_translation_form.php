@@ -31,7 +31,8 @@ use app\widgets\ChartsInputWidget;
                     'name',
                     [
                         'attribute' => 'dict_id',
-                        'value' => 'dictionary.name'
+                        'value' => 'dictionary.name',
+                        'visible' => !Yii::$app->devicedetect->isMobile() ? true : false,
                     ],
                     [
                         'class' => 'yii\grid\ActionColumn',
@@ -60,17 +61,27 @@ use app\widgets\ChartsInputWidget;
             ]); ?>
         </div>
 
-        <?php $form = ActiveForm::begin() ?>
+        <div class="well">
+            <h4><?= Yii::t('app', 'Add translation') ?></h4>
+            <hr>
+            <?php $form = ActiveForm::begin() ?>
 
-        <?= $form->field($translationForm, 'name')->widget(ChartsInputWidget::className()) ?>
+            <div class="row">
+                <div class="col-sm-6">
+                    <?= $form->field($translationForm, 'name')->widget(ChartsInputWidget::className()) ?>
+                </div>
+                <div class="col-sm-6">
+                    <?= $form->field($translationForm, 'dict_id')->dropDownList(
+                        ArrayHelper::map($dictionaries, 'id', 'name'), ['prompt' => '-']
+                    ) ?>
+                </div>
+            </div>
 
-        <?= $form->field($translationForm, 'burword_id')->hiddenInput(['value' => $model->id])->label(false) ?>
+            <?= $form->field($translationForm, 'burword_id')->hiddenInput(['value' => $model->id])->label(false) ?>
 
-        <?= $form->field($translationForm, 'dict_id')
-            ->dropDownList(ArrayHelper::map($dictionaries, 'id', 'name'), ['prompt' => '-']) ?>
+            <?= Html::submitButton(Html::icon('plus') . ' ' . Yii::t('app', 'Add'), ['class' => 'btn btn-success']) ?>
 
-        <?= Html::submitButton(Html::icon('plus') . ' ' . Yii::t('app', 'Add'), ['class' => 'btn btn-success']) ?>
-
-        <?php ActiveForm::end() ?>
+            <?php ActiveForm::end() ?>
+        </div>
     </div>
 </div>

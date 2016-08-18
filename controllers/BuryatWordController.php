@@ -117,6 +117,8 @@ class BuryatWordController extends Controller
     {
         $this->findModel($id)->delete();
 
+        Yii::$app->session->setFlash('success', Yii::t('app', 'Word deleted'));
+
         return $this->redirect(['index']);
     }
 

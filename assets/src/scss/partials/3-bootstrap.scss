@@ -30,6 +30,16 @@ $nav-border-divider: #0f4d5c;
     }
     > .open {
       .dropdown-menu {
+        > .active {
+          > a {
+            &,
+            &:hover,
+            &:focus {
+              color: #fff;
+              background-color: $nav-item-bg-active;
+            }
+          }
+        }
         > li > a {
           @media (max-width: 767px) {
             color: $nav-link-color;
