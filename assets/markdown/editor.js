@@ -130,10 +130,22 @@ function initEditor(el) {
                 }
             },
             {
+                class: 'img btn btn-default',
+                label: '<i class="glyphicon glyphicon-minus"></i>',
+                callback: function (cm) {
+                    cm.replaceSelection("- - -\n");
+                    // fixed for mobile devices
+                    var cursorPos = cm.getCursor();
+                    cm.setCursor(cursorPos.line, cursorPos.ch);
+                }
+            },
+            {
                 class: 'btn btn-default',
                 label: 'Ү',
                 callback: function (cm) {
                     cm.replaceSelection('Ү');
+                    var cursorPos = cm.getCursor();
+                    cm.setCursor(cursorPos.line, cursorPos.ch);
                 }
             },
             {
@@ -141,6 +153,9 @@ function initEditor(el) {
                 label: 'ү',
                 callback: function (cm) {
                     cm.replaceSelection('ү');
+
+                    var cursorPos = cm.getCursor();
+                    cm.setCursor(cursorPos.line, cursorPos.ch);
                 }
             },
             {
@@ -148,6 +163,8 @@ function initEditor(el) {
                 label: 'Һ',
                 callback: function (cm) {
                     cm.replaceSelection('Һ');
+                    var cursorPos = cm.getCursor();
+                    cm.setCursor(cursorPos.line, cursorPos.ch);
                 }
             },
             {
@@ -155,6 +172,8 @@ function initEditor(el) {
                 label: 'һ',
                 callback: function (cm) {
                     cm.replaceSelection('һ');
+                    var cursorPos = cm.getCursor();
+                    cm.setCursor(cursorPos.line, cursorPos.ch);
                 }
             },
             {
@@ -162,6 +181,8 @@ function initEditor(el) {
                 label: 'Ө',
                 callback: function (cm) {
                     cm.replaceSelection('Ө');
+                    var cursorPos = cm.getCursor();
+                    cm.setCursor(cursorPos.line, cursorPos.ch);
                 }
             },
             {
@@ -169,6 +190,8 @@ function initEditor(el) {
                 label: 'ө',
                 callback: function (cm) {
                     cm.replaceSelection('ө');
+                    var cursorPos = cm.getCursor();
+                    cm.setCursor(cursorPos.line, cursorPos.ch);
                 }
             }
         ]
