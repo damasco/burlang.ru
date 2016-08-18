@@ -54,16 +54,20 @@ use app\widgets\ChartsInputWidget;
             ]); ?>
         </div>
 
-        <?php $form = ActiveForm::begin() ?>
+        <div class="well">
+            <h4><?= Yii::t('app', 'Add translation') ?></h4>
+            <hr>
+            <?php $form = ActiveForm::begin() ?>
 
-        <?= $form->field($translationForm, 'name')->widget(
-            ChartsInputWidget::className(), ['options' => ['maxlength' => true]]
-        ) ?>
+            <?= $form->field($translationForm, 'name')->widget(
+                ChartsInputWidget::className(), ['options' => ['maxlength' => true]]
+            ) ?>
 
-        <?= $form->field($translationForm, 'ruword_id')->hiddenInput(['value' => $model->id])->label(false) ?>
+            <?= $form->field($translationForm, 'ruword_id')->hiddenInput(['value' => $model->id])->label(false) ?>
 
-        <?= Html::submitButton(Html::icon('plus') . ' ' . Yii::t('app', 'Add'), ['class' => 'btn btn-success']) ?>
+            <?= Html::submitButton(Html::icon('plus') . ' ' . Yii::t('app', 'Add'), ['class' => 'btn btn-success']) ?>
 
-        <?php ActiveForm::end() ?>
+            <?php ActiveForm::end() ?>
+        </div>
     </div>
 </div>

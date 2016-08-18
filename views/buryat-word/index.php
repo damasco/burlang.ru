@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <div class="buryat-word-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1 class="hidden-xs"><?= Html::encode($this->title) ?></h1>
 
     <?= $this->render('/_alert') ?>
 

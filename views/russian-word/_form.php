@@ -23,6 +23,17 @@ use yii\widgets\ActiveForm;
                 Html::icon('floppy-disk') . ' ' . Yii::t('app', 'Save'),
             ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']
         ) ?>
+
+        <?php if (!$model->isNewRecord): ?>
+            <?= Html::a(Html::icon('trash') . ' ' . Yii::t('app', 'Delete'), ['delete', 'id' => $model->id], [
+                'class' => 'btn btn-danger',
+                'data' => [
+                    'confirm' => Yii::t('app', 'Are you sure you want to delete?'),
+                    'method' => 'post',
+                ],
+            ]) ?>
+        <?php endif ?>
+
     </div>
 
     <?php ActiveForm::end(); ?>
