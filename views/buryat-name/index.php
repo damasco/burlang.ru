@@ -21,7 +21,7 @@ if ($letter !== null) {
 
 <div class="buryat-name-list">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1 class="hidden-xs"><?= Html::encode($this->title) ?></h1>
 
     <?php if (!$letter || !Yii::$app->devicedetect->isMobile() || Yii::$app->devicedetect->isTablet()): ?>
         <ul class="list-inline list-letter">

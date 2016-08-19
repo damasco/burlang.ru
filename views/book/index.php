@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <div class="book-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1 class="hidden-xs"><?= Html::encode($this->title) ?></h1>
 
     <?php if (Yii::$app->user->can('adminBook')): ?>
         <p>
@@ -29,7 +29,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'summary' => false,
         'layout' => "{summary}\n<div class=\"row\">{items}</div>\n{pager}",
-        'itemView' => '_view'
+        'itemView' => !Yii::$app->devicedetect->isMobile() ? '_view' : '_view_mobile',
+        'pager' => [
+            'maxButtonCount' => !Yii::$app->devicedetect->isMobile() ? 10 : 5,
+        ],
     ]); ?>
 
 </div>

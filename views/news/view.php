@@ -16,9 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <div class="news-view">
 
-    <h1>
-        <?= Html::encode($this->title) ?>
-    </h1>
+    <h1 class="hidden-xs"><?= Html::encode($this->title) ?></h1>
 
     <?php if (!$model->active): ?>
         <p>
