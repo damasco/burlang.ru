@@ -5,6 +5,7 @@ namespace app\controllers;
 use Yii;
 use app\models\BuryatName;
 use app\models\search\BuryatNameSearch;
+use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -15,9 +16,6 @@ use yii\filters\AccessControl;
  */
 class BuryatNameController extends Controller
 {
-    /** @var array */
-    public $alphabet = ['А','Б','В','Г','Д','Е','Ж','З','И','К','Л','М','Н','О','П','Р','С','Т','У','Х','Ц','Ч','Ш','Э','Ю','Я'];
-
     /**
      * @inheritdoc
      */
@@ -51,10 +49,13 @@ class BuryatNameController extends Controller
      */
     public function actionIndex($letter = null)
     {
+
+        $alphabet = BuryatName::getFirstLetterCount();
+
         $names = [];
 
         if ($letter !== null) {
-            if (!in_array($letter, $this->alphabet)) {
+            if (!in_array($letter, ArrayHelper::getColumn($alphabet, 'letter'))) {
                 throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
             }
             $names = BuryatName::find()
@@ -64,7 +65,7 @@ class BuryatNameController extends Controller
         }
 
         return $this->render('index', [
-            'alphabet' => $this->alphabet,
+            'alphabet' => $alphabet,
             'names' => $names,
             'letter' => $letter
         ]);

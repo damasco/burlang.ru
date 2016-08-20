@@ -52,4 +52,16 @@ class BuryatName extends \yii\db\ActiveRecord
             'female' => Yii::t('app', 'Female'),
         ];
     }
+
+    /**
+     * @return array
+     */
+    public static function getFirstLetterCount()
+    {
+        $query = Yii::$app->db->createCommand(
+            'SELECT LEFT(name, 1) letter, COUNT(id) amount FROM buryat_name group by letter order by letter'
+        );
+
+        return $query->queryAll();
+    }
 }

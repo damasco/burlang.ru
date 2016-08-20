@@ -27,11 +27,15 @@ if ($letter !== null) {
         <ul class="list-inline list-letter">
             <?php foreach ($alphabet as $item): ?>
                 <li>
-                    <?= Html::a($item, ['/buryat-name/index', 'letter' => $item], [
-                        'class' => ($letter == $item) ?
-                            'btn btn-custom btn-lg btn-block active' :
-                            'btn btn-warning btn-lg btn-block'
-                    ]) ?>
+                    <?= Html::a(
+                        "{$item['letter']} <span class=\"badge\">{$item['amount']}</span>",
+                        ['/buryat-name/index', 'letter' => $item['letter']],
+                        [
+                            'class' => ($letter == $item['letter']) ?
+                                'btn btn-warning btn-lg active' :
+                                'btn btn-warning btn-lg'
+                        ]
+                    ) ?>
                 </li>
             <?php endforeach ?>
         </ul>
