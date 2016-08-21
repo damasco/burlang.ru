@@ -2,7 +2,6 @@
 
 use yii\jui\AutoComplete;
 use yii\web\JsExpression;
-use app\widgets\TranslationServiceWidget;
 use app\widgets\NewsWidget;
 use yii\helpers\Url;
 
@@ -106,7 +105,6 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
     </div>
     <div class="row mt-10">
         <div class="col-sm-4 col-sm-push-8">
-            <?= TranslationServiceWidget::widget() ?>
             <?= NewsWidget::widget() ?>
         </div>
         <div class="col-sm-8 col-sm-pull-4">

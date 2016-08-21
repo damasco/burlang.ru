@@ -101,7 +101,7 @@ AppAsset::register($this);
                 'active' => Yii::$app->controller->id == 'news'
             ],
 
-            Yii::$app->page->menuItem('translation-service'),
+            Yii::$app->page->menuItem('services'),
             Yii::$app->page->menuItem('about'),
 
             Yii::$app->user->isGuest ?
