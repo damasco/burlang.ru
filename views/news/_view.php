@@ -28,7 +28,7 @@ use yii\helpers\Html;
     <?= Html::a(
         Yii::t('app', 'Read more') . ' →',
         ['/news/view', 'slug' => $model->slug],
-        ['class' => 'btn btn-custom btn-sm']
+        ['class' => 'btn btn-default btn-sm']
     ) ?>
 
 </div>

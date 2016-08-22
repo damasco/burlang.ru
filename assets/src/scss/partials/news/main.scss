@@ -1,7 +1,11 @@
 // news/_view
 .news-item {
   margin-bottom: 25px;
+  padding: 15px;
+  background-color: #eee;
+  border-radius: 4px;
   h2 {
     font-size: 21px;
+    margin-top: 0;
   }
 }
