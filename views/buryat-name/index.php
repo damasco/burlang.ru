@@ -32,8 +32,8 @@ if ($letter !== null) {
                         ['/buryat-name/index', 'letter' => $item['letter']],
                         [
                             'class' => ($letter == $item['letter']) ?
-                                'btn btn-warning btn-lg active' :
-                                'btn btn-warning btn-lg'
+                                'btn btn-default btn-lg active' :
+                                'btn btn-default btn-lg'
                         ]
                     ) ?>
                 </li>
