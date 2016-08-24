@@ -7,7 +7,7 @@ $(document).ready(function() {
 
     if ($modal != undefined && window.location.hash != "") {
         var hash = window.location.hash;
-        var name = hash.slice(1);   
+        var name = hash.slice(1);
         getName(name);
     }
 
@@ -20,6 +20,7 @@ $(document).ready(function() {
 
     function getName(name) {
         $.ajax({
+            type: 'POST',
             url: '/buryat-name/view-name',
             data: {name: name}
         }).done(function (response) {
