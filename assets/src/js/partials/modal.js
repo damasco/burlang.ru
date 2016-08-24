@@ -1,15 +1,15 @@
 $(document).ready(function() {
     var $modal = $('#view-name-modal');
 
-    $('a[data-toggle="modal"]').click(function() {
+    $('a[data-toggle="modal"]').on('click', function() {
         window.location.hash = $(this).attr('href');
     });
 
-    $modal.on('hide.bs.modal', function () {
+    $modal.on('hide.bs.modal', function() {
         window.location.hash = '';
     });
 
-    $('a.link-name').on('click', function (e) {
+    $('a.link-name').on('click', function(e) {
         e.preventDefault();
         var name = $(this).text();
         getName(name);
