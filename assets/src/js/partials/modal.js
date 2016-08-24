@@ -1,25 +1,22 @@
 $(document).ready(function() {
     var $modal = $('#view-name-modal');
 
-    $('a[data-toggle="modal"]').on('click', function() {
-        window.location.hash = $(this).attr('href');
-    });
-
     $modal.on('hide.bs.modal', function() {
         window.location.hash = '';
     });
 
+    if ($modal != undefined && window.location.hash != "") {
+        var hash = window.location.hash;
+        var name = hash.slice(1);   
+        getName(name);
+    }
+
     $('a.link-name').on('click', function(e) {
         e.preventDefault();
+        window.location.hash = $(this).attr('href');
         var name = $(this).text();
         getName(name);
     });
-
-    if ($modal != undefined && window.location.hash != "") {
-        var hash = window.location.hash;
-        var name = hash.slice(1);
-        getName(name);
-    }
 
     function getName(name) {
         $.ajax({
