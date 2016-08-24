@@ -48,8 +48,11 @@ if ($letter !== null) {
                 <li>
                     <?= Html::a(
                         $name['name'],
-                        ['view-name', 'name' => $name['name']],
-                        ['class' => 'btn btn-default link-name']
+                        '#' . $name['name'],
+                        [
+                            'class' => 'btn btn-default link-name',
+                            'data-toggle' => 'modal',
+                        ]
                     ) ?>
                 </li>
             <?php endforeach ?>
