@@ -8,7 +8,7 @@ Installation
 
 You can then install this application template using the following command:
 
-```
+```bash
 composer global require "fxp/composer-asset-plugin"
 composer install
 ```
@@ -23,30 +23,34 @@ By this moment you should have `config/param-local.php`. Specify your database c
 
 ####  3.1. Migration
 
-```
+```bash
 php yii migrate/up --migrationPath=@vendor/dektrium/yii2-user/migrations
 php yii migrate/up --migrationPath=@yii/rbac/migrations
 php yii migrate/up --migrationPath=@app/rbac/migrations
 php yii migrate
 ```
 
-#### 3.2. Create user
+### 4. Create user
 
-```
+```bash
 php yii user/create <email> <username> [password] [...options...]
 ```
 
-### 4. Rbac configuration
+### 5. Role configuration
 
-Run `php yii my-rbac/init` - generate default roles and permissions.
+#### 5.1. Assign role
 
-#### 4.1. Assign role
-
-```
+```bash
 php yii my-rbac/assign <role> <username> 
 ```
 
-### 5. Build
+#### 5.2 Revoke role
+
+```bash
+php yii rbac-app/revoke <role> <username>
+```
+
+### 6. Build
 
 Run `gulp build` - automatically build target CSS/JS files
 
