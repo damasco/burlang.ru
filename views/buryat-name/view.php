@@ -8,7 +8,7 @@ use yii\bootstrap\Html;
  */
 
 $this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Buryat names'), 'url' => Yii::$app->user->isGuest ? ['index'] : ['admin']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Buryat names'), 'url' => ['admin']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 

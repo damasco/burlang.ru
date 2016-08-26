@@ -10,7 +10,6 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
-use app\filters\AjaxFilter;
 
 /**
  * BuryatNameController implements the CRUD actions for BuryatName model.
@@ -39,10 +38,6 @@ class BuryatNameController extends Controller
                     ],
                 ],
             ],
-            [
-                'class' => AjaxFilter::className(),
-                'only' => ['view-name'],
-            ]
         ];
     }
 
@@ -85,9 +80,15 @@ class BuryatNameController extends Controller
     public function actionViewName($name)
     {
         if (($model = BuryatName::findOne(['name' => $name])) !== null) {
-            return $this->renderAjax('_description_name', [
-                'model' => $model
-            ]);
+            if (Yii::$app->request->isAjax) {
+                return $this->renderAjax('_description_name', [
+                    'model' => $model,
+                ]);
+            } else {
+                return $this->render('view', [
+                    'model' => $model,
+                ]);
+            }
         } else {
             throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
         }
