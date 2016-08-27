@@ -8,6 +8,7 @@ use app\models\search\PageSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\AccessControl;
+use yii\filters\VerbFilter;
 
 /**
  * PageController implements the CRUD actions for Page model.
@@ -20,6 +21,12 @@ class PageController extends Controller
     public function behaviors()
     {
         return [
+            'verbs' => [
+                'class' => VerbFilter::className(),
+                'actions' => [
+                    'delete' => ['POST'],
+                ],
+            ],
             'access' => [
                 'class' => AccessControl::className(),
                 'except' => ['view'],
@@ -103,6 +110,22 @@ class PageController extends Controller
                 'model' => $model,
             ]);
         }
+    }
+
+    /**
+     * Deletes an existing Page model.
+     * If deletion is successful, the browser will be redirected to the 'index' page.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionDelete($id)
+    {
+        $model = $this->findModel($id);
+        if (!$model->static) {
+            $model->delete();
+        }
+
+        return $this->redirect(['index']);
     }
 
     /**

@@ -15,6 +15,7 @@ use yii\behaviors\TimestampBehavior;
  * @property string $description
  * @property string $content
  * @property integer $active
+ * @property integer $static
  * @property integer $created_at
  * @property integer $updated_at
  */
@@ -46,8 +47,9 @@ class Page extends \yii\db\ActiveRecord
         return [
             [['menu_name', 'title', 'link', 'content', 'active'], 'required'],
             [['content'], 'string'],
-            [['active', 'created_at', 'updated_at'], 'integer'],
+            [['active', 'static', 'created_at', 'updated_at'], 'integer'],
             [['menu_name', 'title', 'description'], 'string', 'max' => 255],
+            [['static'], 'default', 'value' => 0],
             [['link'], 'string', 'max' => 100],
             [['link'], 'unique'],
             [['link'], 'filter', 'filter' => 'trim'],
@@ -68,6 +70,7 @@ class Page extends \yii\db\ActiveRecord
             'description' => Yii::t('app', 'Description'),
             'content' => Yii::t('app', 'Content'),
             'active' => Yii::t('app', 'Active'),
+            'static' => Yii::t('app', 'Static'),
             'created_at' => Yii::t('app', 'Created At'),
             'updated_at' => Yii::t('app', 'Updated At'),
         ];

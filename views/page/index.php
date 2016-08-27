@@ -37,21 +37,47 @@ $this->params['breadcrumbs'][] = $this->title;
                     'filter' => ['0' => Yii::t('app', 'No'), '1' => Yii::t('app', 'Yes')],
                     'format' => 'boolean',
                 ],
+                [
+                    'attribute' => 'static',
+                    'filter' => ['0' => Yii::t('app', 'No'), '1' => Yii::t('app', 'Yes')],
+                    'format' => 'boolean',
+                ],
 
                 [
                     'class' => 'app\components\ActionColumn',
-                    'template' => '{view} {update}',
+                    'template' => '{view} {update} {delete}',
                     'buttons' => [
                         'view' => function ($url, $model) {
                             return Html::a(
                                 Html::icon('eye-open'),
                                 ['view', 'link' => $model->link],
-                                ['class' => 'btn btn-sm btn-default']
+                                [
+                                    'title' => Yii::t('yii', 'View'),
+                                    'class' => 'btn btn-sm btn-default',
+                                    'aria-label' => Yii::t('yii', 'View'),
+                                    'data-pjax' => '0',
+                                ]
                             );
-                        }
+                        },
+                        'delete' => function($url, $model) {
+                            if (!$model->static) {
+                                return Html::a(
+                                    Html::icon('trash'),
+                                    $url,
+                                    [
+                                        'title' => Yii::t('yii', 'Delete'),
+                                        'class' => 'btn btn-sm btn-danger',
+                                        'aria-label' => Yii::t('yii', 'Delete'),
+                                        'data-confirm' => Yii::t('yii', 'Are you sure you want to delete this item?'),
+                                        'data-method' => 'post',
+                                        'data-pjax' => '0',
+                                    ]
+                                );
+                            }
+                        },
                     ],
                     'contentOptions' => [
-                        'class' => 'action-column-2',
+                        'class' => 'action-column-3',
                     ],
                 ],
             ],
