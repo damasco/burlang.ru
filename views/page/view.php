@@ -36,6 +36,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 ['update', 'id' => $model->id],
                 ['class' => 'btn btn-primary']
             ) ?>
+            <?= Html::a(Html::icon('trash') . ' ' . Yii::t('app', 'Delete'), ['delete', 'id' => $model->id], [
+                'class' => 'btn btn-danger',
+                'data' => [
+                    'confirm' => Yii::t('app', 'Are you sure you want to delete?'),
+                    'method' => 'post',
+                ],
+            ]) ?>
         </p>
     <?php endif ?>
 
