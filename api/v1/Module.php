@@ -21,4 +21,16 @@ class Module extends \yii\base\Module
 
         // custom initialization code goes here
     }
+
+    /**
+     * @var string The prefix for user module URL.
+     *
+     * @See [[GroupUrlRule::prefix]]
+     */
+    public $urlPrefix = 'v1';
+
+    /** @var array The rules to be used in URL management. */
+    public $urlRules = [
+        'names/<action>' => 'buryat-name/<action>',
+    ];
 }

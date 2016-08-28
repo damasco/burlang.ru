@@ -3,18 +3,15 @@
 namespace app\api\v1\controllers;
 
 use Yii;
+use yii\web\NotFoundHttpException;
 use yii\rest\ActiveController;
 use yii\helpers\ArrayHelper;
 use yii\filters\Cors;
-use app\api\v1\models\BuryatWord;
-use yii\web\NotFoundHttpException;
+use app\api\v1\models\BuryatName;
 
-class BuryatWordController extends ActiveController
+class BuryatNameController extends ActiveController
 {
-    /**
-     * @inheritdoc
-     */
-    public $modelClass = 'app\api\v1\models\BuryatWord';
+    public $modelClass = 'app\api\v1\models\BuryatName';
 
     /**
      * @inheritdoc
@@ -45,30 +42,14 @@ class BuryatWordController extends ActiveController
         return $action;
     }
 
-
     /**
-     * Get translate
-     * @param $word
-     * @return null|BuryatWord
-     * @throws NotFoundHttpException
-     */
-    public function actionTranslate($word)
-    {
-        if (($model = BuryatWord::findOne(['name' => $word])) !== null) {
-            return $model;
-        } else {
-            throw new NotFoundHttpException(Yii::t('app', 'The word is not found'));
-        }
-    }
-
-    /**
-     * Get list words
+     * Get list names
      * @param string $q
      * @return array
      */
-    public function actionGetWords($q)
+    public function actionGetNames($q)
     {
-        $words = BuryatWord::find()
+        $names = BuryatName::find()
             ->select(['name as value'])
             ->where(['like', 'name', $q . '%', false])
             ->orderBy('name')
@@ -76,6 +57,15 @@ class BuryatWordController extends ActiveController
             ->asArray()
             ->all();
 
-        return $words;
+        return $names;
+    }
+
+    public function actionView($name)
+    {
+        if (($model = BuryatName::findOne(['name' => $name])) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException(Yii::t('app', 'The word is not found'));
+        }
     }
 }

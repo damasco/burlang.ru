@@ -1,5 +1,7 @@
 <?php
 
+use yii\helpers\Url;
+
 /**
  * @var yii\web\View $this
  */
@@ -16,16 +18,34 @@ $host = Yii::$app->request->getHostInfo();
     <div class="panel panel-default">
         <div class="panel-heading">
             <h4 class="panel-title">
+                <?= Yii::t('app', 'Names') ?>
+            </h4>
+        </div>
+        <div class="panel-body">
+            <ul>
+                <li>
+                    <code><?= $host ?><?= Url::to(['/v1/buryat-name/get-names', 'q' => 'begin_search_name']) ?></code>
+                </li>
+                <li>
+                    <code><?= $host ?><?= Url::to(['/v1/buryat-name/view', 'name' => 'Name']) ?></code>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
                 <?= Yii::t('app', 'Buryat words') ?>
             </h4>
         </div>
         <div class="panel-body">
             <ul>
                 <li>
-                    <code><?= $host ?>/v1/buryat-word/get-words?q=с...</code>
+                    <code><?= $host ?><?= Url::to(['/v1/buryat-word/get-words', 'q' => 'begin_search_word']) ?></code>
                 </li>
                 <li>
-                    <code><?= $host ?>/v1/buryat-word/get-translate?word=сайн</code>
+                    <code><?= $host ?><?= Url::to(['/v1/buryat-word/translate', 'word' => 'Word']) ?></code>
                 </li>
             </ul>
         </div>
@@ -40,10 +60,10 @@ $host = Yii::$app->request->getHostInfo();
         <div class="panel-body">
             <ul>
                 <li>
-                    <code><?= $host ?>/v1/russian-word/get-words?q=с...</code>
+                    <code><?= $host ?><?= Url::to(['/v1/russian-word/get-words', 'q' => 'begin_search_word']) ?></code>
                 </li>
                 <li>
-                    <code><?= $host ?>/v1/russian-word/get-translate?word=привет</code>
+                    <code><?= $host ?><?= Url::to(['/v1/russian-word/translate', 'word' => 'Word']) ?></code>
                 </li>
             </ul>  
         </div>

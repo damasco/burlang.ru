@@ -51,7 +51,7 @@ class RussianWordController extends ActiveController
      * @return null|RussianWord
      * @throws NotFoundHttpException
      */
-    public function actionGetTranslate($word)
+    public function actionTranslate($word)
     {
         if (($model = RussianWord::findOne(['name' => $word])) !== null) {
             return $model;
