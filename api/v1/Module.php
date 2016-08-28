@@ -27,7 +27,7 @@ class Module extends \yii\base\Module
      *
      * @See [[GroupUrlRule::prefix]]
      */
-    public $urlPrefix = 'v1';
+    public $urlRulePrefix = 'v1';
 
     /** @var array The rules to be used in URL management. */
     public $urlRules = [
