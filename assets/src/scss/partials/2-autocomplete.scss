@@ -1,5 +1,10 @@
+.ui-widget-content {
+  background: none;
+}
+
 ul.ui-autocomplete.ui-menu {
   border-color: #ccc;
+  background: #eee;
   li {
     padding: 5px 10px;
     color: #555;
@@ -8,7 +13,7 @@ ul.ui-autocomplete.ui-menu {
   }
   li.ui-state-focus {
     background: #dedede;
-    border: 1px solid #dedede;
+    border: 1px solid #cdcdcd;
   }
 }
 
