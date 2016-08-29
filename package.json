@@ -3,6 +3,7 @@
   "version": "2.0.0",
   "description": "burlang.ru ========================",
   "main": "gulpfile.js",
+  "license": "BSD-3-Clause",
   "scripts": {
     "start": "gulp"
   },
@@ -26,6 +27,8 @@
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.5.3",
     "gulp-watch": "^4.3.5",
-    "imagemin-pngquant": "^5.0.0"
+    "gulp-if": "2.0.1",
+    "imagemin-pngquant": "^5.0.0",
+    "yargs": "^5.0.0"
   }
 }

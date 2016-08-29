@@ -9,8 +9,12 @@ var gulp = require('gulp'),
     rigger = require('gulp-rigger'),
     cleanCSS = require('gulp-clean-css'),
     imagemin = require('gulp-imagemin'),
+    gulpif = require('gulp-if'),
     pngquant = require('imagemin-pngquant'),
-    del = require('del');
+    del = require('del'),
+    argv = require('yargs').argv;
+
+const PRODUCTION = !!(argv.production);
 
 var path = {
     build: {
@@ -52,20 +56,20 @@ var config = {
 
 gulp.task('styles', function () {
     gulp.src(path.src.style)
-        .pipe(sourcemaps.init())
+        .pipe(gulpif(!PRODUCTION, sourcemaps.init()))
         .pipe(sass(config.sass))
         .pipe(autoprefixer(config.autoprefixer))
         .pipe(cleanCSS(config.cleanCss))
-        .pipe(sourcemaps.write())
+        .pipe(gulpif(!PRODUCTION, sourcemaps.write()))
         .pipe(gulp.dest(path.build.css));
 });
 
 gulp.task('scripts', function () {
     gulp.src(path.src.js)
         .pipe(rigger())
-        .pipe(sourcemaps.init())
+        .pipe(gulpif(!PRODUCTION, sourcemaps.init()))
         .pipe(uglify())
-        .pipe(sourcemaps.write())
+        .pipe(gulpif(!PRODUCTION, sourcemaps.write()))
         .pipe(gulp.dest(path.build.js));
 });
 
