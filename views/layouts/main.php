@@ -27,7 +27,7 @@ AppAsset::register($this);
     <meta name="image" content="<?= Url::to(Yii::getAlias('@web/img/cover.jpg'), true) ?>"/>
     <meta property="og:type" content="website"/>
     <meta property="og:site_name" content="Burlang.ru"/>
-    <meta property="og:title"content="<?= !empty($this->title) ? Html::encode($this->title) : Yii::t('app', 'Russian-Buryat, Buryat-Russian electronic dictionary') ?>"/>
+    <meta property="og:title" content="<?= !empty($this->title) ? Html::encode($this->title) : Yii::t('app', 'Russian-Buryat, Buryat-Russian electronic dictionary') ?>"/>
     <meta property="og:description" content=""/>
     <meta property="og:locale" content="ru_RU"/>
     <meta property="og:url" content="<?= Url::to('', true) ?>"/>
@@ -104,18 +104,25 @@ AppAsset::register($this);
             Yii::$app->page->menuItem('services'),
             Yii::$app->page->menuItem('about'),
 
+            Yii::$app->user->can('moderator') ?
+            [
+                'label' => Yii::t('app', 'Control'),
+                'items' => [
+                    ['label' => Yii::t('app', 'Buryat names'), 'url' => ['/buryat-name/admin']],
+                    ['label' => Yii::t('app', 'Buryat words'), 'url' => ['/buryat-word/index']],
+                    ['label' => Yii::t('app', 'Russian words'), 'url' => ['/russian-word/index']],
+                    ['label' => Yii::t('app', 'Dictionaries'), 'url' => ['/dictionary/index']],
+                    Yii::$app->user->can('admin') ? '<li role="separator" class="divider"></li>' : '',
+                    ['label' => Yii::t('app', 'Pages'), 'url' => ['/page/index'], 'visible' => Yii::$app->user->can('admin')],
+                    ['label' => Yii::t('user', 'Users'), 'url' => ['/user/admin/index'], 'visible' => Yii::$app->user->can('admin')],
+                ]
+            ] : '',
+
             Yii::$app->user->isGuest ?
                 ['label' => Yii::t('app', 'Login'), 'url' => ['/user/security/login']] :
                 [
                     'label' => Yii::$app->user->identity->username,
                     'items' => [
-                        ['label' => Yii::t('app', 'Buryat names'), 'url' => ['/buryat-name/admin'], 'visible' => Yii::$app->user->can('moderator')],
-                        ['label' => Yii::t('app', 'Buryat words'), 'url' => ['/buryat-word/index'], 'visible' => Yii::$app->user->can('moderator')],
-                        ['label' => Yii::t('app', 'Russian words'), 'url' => ['/russian-word/index'], 'visible' => Yii::$app->user->can('moderator')],
-                        ['label' => Yii::t('app', 'Dictionaries'), 'url' => ['/dictionary/index'], 'visible' => Yii::$app->user->can('moderator')],
-                        ['label' => Yii::t('app', 'Pages'), 'url' => ['/page/index'], 'visible' => Yii::$app->user->can('admin')],
-                        ['label' => Yii::t('user', 'Users'), 'url' => ['/user/admin/index'], 'visible' => Yii::$app->user->can('admin')],
-                        '<li role="separator" class="divider"></li>',
                         ['label' => Yii::t('user', 'Profile'), 'url' => ['/user/profile/show', 'id' => Yii::$app->user->identity->id]],
                         ['label' => Yii::t('user', 'Profile settings'), 'url' => ['/user/settings/profile', 'id' => Yii::$app->user->identity->id]],
                         '<li role="separator" class="divider"></li>',
