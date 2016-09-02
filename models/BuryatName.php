@@ -33,6 +33,7 @@ class BuryatName extends \yii\db\ActiveRecord
             [['name', 'male', 'female'], 'required'],
             [['male', 'female'], 'integer'],
             [['name'], 'string', 'max' => 50],
+            [['name'], 'unique'],
             [['description'], 'string', 'max' => 255],
             [['note'], 'string'],
         ];
