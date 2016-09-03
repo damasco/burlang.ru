@@ -38,16 +38,16 @@ php yii user/create <email> <username> [password] [...options...]
 
 ### 5. Role configuration
 
-#### 5.1. Assign role
+#### 5.1. Adds role to user
 
 ```bash
-php yii my-rbac/assign <role> <username> 
+php yii roles/assign
 ```
 
-#### 5.2 Revoke role
+#### 5.2 Removes role from user
 
 ```bash
-php yii rbac-app/revoke <role> <username>
+php yii roels/revoke
 ```
 
 ### 6. Build
