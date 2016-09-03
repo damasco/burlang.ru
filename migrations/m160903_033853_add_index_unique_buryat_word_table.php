@@ -2,17 +2,17 @@
 
 use yii\db\Migration;
 
-class m160903_021332_add_index_unique_russian_word_table extends Migration
+class m160903_033853_add_index_unique_buryat_word_table extends Migration
 {
     /**
      * @var string
      */
-    protected $tableName = '{{%russian_word}}';
+    protected $tableName = '{{%buryat_word}}';
 
     /**
      * @var string
      */
-    protected $indexName = 'idx-russian_word-name';
+    protected $indexName = 'idx-buryat_word-name';
 
     /**
      * @inheritdoc
@@ -21,18 +21,18 @@ class m160903_021332_add_index_unique_russian_word_table extends Migration
     {
         $connection = Yii::$app->db;
         $words = $connection->createCommand(
-            'SELECT name FROM russian_word GROUP BY name HAVING COUNT(*) > 1'
+            'SELECT name FROM buryat_word GROUP BY name HAVING COUNT(*) > 1'
         )->queryAll();
 
         foreach ($words as $word) {
             $d_word = $connection->createCommand(
-                'SELECT * FROM russian_word WHERE name=:name',
+                'SELECT * FROM buryat_word WHERE name=:name',
                 [':name' => $word['name']]
             )->queryAll();
             $ids = \yii\helpers\ArrayHelper::getColumn($d_word, 'id');
             $id = array_shift($ids);
             $connection->createCommand()->update(
-                'russian_translation', ['ruword_id' => $id], ['in', 'ruword_id', $ids]
+                'buryat_translation', ['burword_id' => $id], ['in', 'burword_id', $ids]
             )->execute();
             $connection->createCommand()->delete($this->tableName, ['in', 'id', $ids])->execute();
         }

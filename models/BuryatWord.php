@@ -30,6 +30,7 @@ class BuryatWord extends \yii\db\ActiveRecord
         return [
             [['name'], 'required'],
             [['name'], 'string', 'max' => 50],
+            [['name'], 'unique'],
         ];
     }
 
