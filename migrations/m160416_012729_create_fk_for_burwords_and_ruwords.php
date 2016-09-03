@@ -4,6 +4,9 @@ use yii\db\Migration;
 
 class m160416_012729_create_fk_for_burwords_and_ruwords extends Migration
 {
+    /**
+     * @inheritdoc
+     */
     public function safeUp()
     {
         Yii::$app->db->createCommand('DELETE FROM rutranslations WHERE id>=7161 AND id<=7238')->execute();
@@ -15,6 +18,9 @@ class m160416_012729_create_fk_for_burwords_and_ruwords extends Migration
         $this->addForeignKey('fk-rutranslations-burword_id-burwords-id', '{{%rutranslations}}', 'burword_id', '{{%burwords}}', 'id', 'CASCADE', 'RESTRICT');
     }
 
+    /**
+     * @inheritdoc
+     */
     public function safeDown()
     {
         $this->createIndex('burword_id', '{{%rutranslations}}', 'burword_id');

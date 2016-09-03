@@ -4,8 +4,14 @@ use yii\db\Migration;
 
 class m160426_070758_drop_columns_burword_table extends Migration
 {
+    /**
+     * @var string
+     */
     protected $tableName = '{{%burwords}}';
 
+    /**
+     * @inheritdoc
+     */
     public function safeUp()
     {
         $this->dropColumn($this->tableName, 'chr_id');
@@ -13,6 +19,9 @@ class m160426_070758_drop_columns_burword_table extends Migration
         $this->dropColumn($this->tableName, 'bb_id');
     }
 
+    /**
+     * @inheritdoc
+     */
     public function safeDown()
     {
         $this->addColumn($this->tableName, 'chr_id', $this->integer());

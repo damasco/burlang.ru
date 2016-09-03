@@ -7,7 +7,11 @@ use yii\db\Migration;
  */
 class m160615_184140_create_book_table extends Migration
 {
+    /**
+     * @var string
+     */
     protected $tableName = '{{%book}}';
+
     /**
      * @inheritdoc
      */

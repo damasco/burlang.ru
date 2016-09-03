@@ -7,7 +7,11 @@ use yii\db\Migration;
  */
 class m160517_052118_create_page_table extends Migration
 {
+    /**
+     * @var string
+     */
     protected $tableName = '{{%page}}';
+
     /**
      * @inheritdoc
      */

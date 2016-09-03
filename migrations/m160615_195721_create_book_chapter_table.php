@@ -7,7 +7,14 @@ use yii\db\Migration;
  */
 class m160615_195721_create_book_chapter_table extends Migration
 {
+    /**
+     * @var string
+     */
     protected $tableName = '{{%book_chapter}}';
+
+    /**
+     * @var string
+     */
     protected $fkName = 'book_chapter-book_id-book-id';
 
     /**

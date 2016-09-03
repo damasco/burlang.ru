@@ -4,6 +4,9 @@ use yii\db\Migration;
 
 class m160625_052955_add_column_slug_book_table extends Migration
 {
+    /**
+     * @var string
+     */
     protected $tableName = '{{%book}}';
 
     /**
