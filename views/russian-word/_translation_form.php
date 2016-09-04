@@ -12,6 +12,8 @@ use app\widgets\ChartsInputWidget;
  */
 ?>
 
+<hr>
+
 <h4><?= Yii::t('app', 'Translations') ?></h4>
 
 <div class="table-responsive">

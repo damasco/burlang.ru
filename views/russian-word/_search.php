@@ -10,20 +10,23 @@ use yii\widgets\ActiveForm;
  */
 ?>
 
-<div class="buryat-word-search well">
+<div class="buryat-word-search">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title"><?= Yii::t('app', 'Search') ?></h4>
+        </div>
+        <div class="panel-body">
+            <?php $form = ActiveForm::begin([
+                'action' => ['index'],
+                'method' => 'get',
+            ]); ?>
 
-    <?php $form = ActiveForm::begin([
-        'action' => ['index'],
-        'method' => 'get',
-    ]); ?>
+            <?= $form->field($model, 'name') ?>
 
-    <?= $form->field($model, 'name') ?>
+            <?= Html::submitButton(Yii::t('app', 'Find'), ['class' => 'btn btn-primary']) ?>
+            <?= Html::resetButton(Yii::t('app', 'Reset'), ['class' => 'btn btn-default']) ?>
 
-    <div class="form-group">
-        <?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton(Yii::t('app', 'Reset'), ['class' => 'btn btn-default']) ?>
+            <?php ActiveForm::end(); ?>
+        </div>
     </div>
-
-    <?php ActiveForm::end(); ?>
-
 </div>
