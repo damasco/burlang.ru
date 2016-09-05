@@ -37,4 +37,6 @@ $(document).ready(function () {
             $modal.modal('show');
         });
     });
+
+    $('.image-responsive-container img').addClass('img-responsive');
 });

@@ -26,9 +26,9 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= ChapterMenuWidget::widget(['book' => $model]) ?>
         </div>
         <div class="col-sm-9 col-xs-12">
-            <p>
+            <div class="image-responsive-container">
                 <?= HtmlPurifier::process(Markdown::process($model->content, 'gfm')) ?>
-            </p>
+            </div>
         </div>
     </div>
 </div>

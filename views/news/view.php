@@ -43,7 +43,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p class="text-danger"><?= Yii::$app->formatter->asDate($model->created_at) ?></p>
 
-    <div class="content">
+    <div class="image-responsive-container">
         <?= HtmlPurifier::process(Markdown::process($model->content, 'gfm')) ?>
     </div>
 
