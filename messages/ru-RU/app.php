@@ -137,4 +137,7 @@ return [
     'Add chapter' => 'Добавить главу',
     'Edit chapter' => 'Редактировать главу',
     'Delete chapter' => 'Удалить главу',
+
+    // statistics
+    'Statistics' => 'Статистика',
 ];

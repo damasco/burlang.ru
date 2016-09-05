@@ -114,6 +114,7 @@ AppAsset::register($this);
                     ['label' => Yii::t('app', 'Dictionaries'), 'url' => ['/dictionary/index']],
                     Yii::$app->user->can('admin') ? '<li role="separator" class="divider"></li>' : '',
                     ['label' => Yii::t('app', 'Pages'), 'url' => ['/page/index'], 'visible' => Yii::$app->user->can('admin')],
+                    ['label' => Yii::t('app', 'Statistics'), 'url' => ['/statistics'], 'visible' => Yii::$app->user->can('admin')],
                     ['label' => Yii::t('user', 'Users'), 'url' => ['/user/admin/index'], 'visible' => Yii::$app->user->can('admin')],
                 ]
             ] : '',
