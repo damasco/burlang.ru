@@ -140,4 +140,7 @@ return [
 
     // statistics
     'Statistics' => 'Статистика',
+    'Amount' => 'Количество',
+    'Amount of words' => 'Количество слов',
+    'Amount of translations' => 'Количество переводов',
 ];
