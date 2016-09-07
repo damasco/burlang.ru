@@ -94,23 +94,4 @@ class Book extends \yii\db\ActiveRecord
             $this->addError($attribute, Yii::t('app', 'This title already exists'));
         }
     }
-
-    /**
-     * @return int
-     */
-    public function getLastUpdate()
-    {
-        $lastUpdateChapter = $this->getChapters()
-            ->orderBy('updated_at DESC')
-            ->asArray()
-            ->one();
-
-        if ($lastUpdateChapter) {
-            return $this->updated_at > $lastUpdateChapter['updated_at'] ?
-                $this->updated_at :
-                $lastUpdateChapter['updated_at'];
-        } else {
-            return $this->updated_at;
-        }
-    }
 }

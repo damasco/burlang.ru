@@ -8,10 +8,6 @@ use yii\bootstrap\Html;
  */
 ?>
 
-<p class="hint-block">
-    <?= Yii::t('app', 'Last update') ?>: <?= Yii::$app->formatter->asDateTime($model->getLastUpdate()) ?>
-</p>
-
 <?php if (!$model->active): ?>
     <p>
         <span class="label label-default"><?= Yii::t('app', 'Inactive') ?></span>

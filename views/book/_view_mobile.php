@@ -19,9 +19,5 @@ use yii\helpers\Html;
                 <span class="label label-default"><?= Yii::t('app', 'Inactive') ?></span>
             </p>
         <?php endif ?>
-
-        <p class="hint-block">
-            <?= Yii::t('app', 'Last update') ?>: <?= Yii::$app->formatter->asDateTime($model->getLastUpdate()) ?>
-        </p>
     </div>
 </div>

@@ -27,11 +27,5 @@ use yii\helpers\Html;
             ['/book/view', 'slug' => $model->slug],
             ['class' => 'btn btn-custom btn-sm']
         ) ?>
-
-        <hr>
-        <p class="hint-block">
-            <?= Yii::t('app', 'Last update') ?>: <br>
-            <?= Yii::$app->formatter->asDateTime($model->getLastUpdate()) ?>
-        </p>
     </div>
 </div>
