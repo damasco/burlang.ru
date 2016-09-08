@@ -19,7 +19,7 @@ class NewsWidget extends Widget
         }
 
         /** @var News $model */
-        $model = $query->orderBy('created_at DESC')->limit(3)->all();
+        $model = $query->orderBy('created_at DESC')->limit(Yii::$app->params['widget.news.limit'])->all();
 
         return $this->render('news', [
             'model' => $model

@@ -22,8 +22,9 @@ return [
         'class' => '\yii\authclient\Collection',
         'clients' => [],
     ],
-
     'components.request.key' => 'l-2C_lNvBwQDe4_LLC5eaUhQmvV9yQRm',
 
     'adminEmail' => 'dbulats88@gmail.com',
+
+    'widget.news.limit' => 3,
 ];

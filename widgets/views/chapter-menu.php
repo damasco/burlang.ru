@@ -4,7 +4,7 @@ use yii\bootstrap\Html;
 
 /**
  * @var \app\models\Book $model
- * @var int|null $active_id
+ * @var integer|null $active_id
  */
 ?>
 
