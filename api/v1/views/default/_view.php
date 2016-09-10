@@ -8,7 +8,7 @@ use yii\widgets\Menu;
  * @var array $links
  */
 
-$item = [];
+$items = [];
 foreach ($links as $link) {
     $items[] = ['label' => Url::to($link, true)];
 }
@@ -17,7 +17,7 @@ foreach ($links as $link) {
 <div class="panel panel-default">
     <div class="panel-heading">
         <h4 class="panel-title">
-            <?= Yii::t('app', 'Names') ?>
+            <?= $title ?>
         </h4>
     </div>
     <div class="panel-body">

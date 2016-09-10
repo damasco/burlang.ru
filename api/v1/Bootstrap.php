@@ -4,6 +4,7 @@ namespace app\api\v1;
 
 use Yii;
 use yii\base\BootstrapInterface;
+use yii\web\GroupUrlRule;
 
 class Bootstrap implements BootstrapInterface
 {
@@ -15,7 +16,7 @@ class Bootstrap implements BootstrapInterface
         /** @var Module $module */
         if ($app->hasModule('v1') && ($module = $app->getModule('v1')) instanceof Module) {
             $configUrlRule = [
-                'class' => 'yii\web\GroupUrlRule',
+                'class' => GroupUrlRule::className(),
                 'prefix' => $module->urlRulePrefix,
                 'rules'  => $module->urlRules,
             ];
