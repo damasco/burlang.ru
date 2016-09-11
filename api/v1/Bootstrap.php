@@ -21,6 +21,7 @@ class Bootstrap implements BootstrapInterface
                 'rules'  => $module->urlRules,
             ];
 
+            /** @var GroupUrlRule $rule */
             $rule = Yii::createObject($configUrlRule);
 
             $app->urlManager->addRules([$rule], false);
