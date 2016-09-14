@@ -47,7 +47,7 @@ php yii roles/assign
 #### 5.2 Removes role from user
 
 ```bash
-php yii roels/revoke
+php yii roles/revoke
 ```
 
 ### 6. Build
