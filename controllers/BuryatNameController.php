@@ -50,7 +50,7 @@ class BuryatNameController extends Controller
     public function actionIndex($letter = null)
     {
 
-        $alphabet = BuryatName::getFirstLetterCount();
+        $alphabet = BuryatName::getFirstLetters();
 
         $names = [];
 

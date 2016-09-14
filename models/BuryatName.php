@@ -57,12 +57,15 @@ class BuryatName extends \yii\db\ActiveRecord
     /**
      * @return array
      */
-    public static function getFirstLetterCount()
+    public static function getFirstLetters()
     {
-        $query = Yii::$app->db->createCommand(
-            'SELECT LEFT(name, 1) letter, COUNT(id) amount FROM buryat_name group by letter order by letter'
-        );
+        $alphabet = BuryatName::find()
+            ->select(['letter' => 'LEFT(name, 1)', 'amount' => 'COUNT(id)'])
+            ->groupBy('letter')
+            ->orderBy('letter')
+            ->asArray()
+            ->all();
 
-        return $query->queryAll();
+        return $alphabet;
     }
 }
