@@ -52,7 +52,7 @@ class News extends \yii\db\ActiveRecord
             [['content', 'description'], 'string'],
             [['active', 'created_at', 'updated_at'], 'integer'],
             [['title', 'slug'], 'string', 'max' => 255],
-            [['title'], 'uniqueSlug'],  
+            [['title'], 'unique'],
         ];
     }
 
@@ -71,17 +71,5 @@ class News extends \yii\db\ActiveRecord
             'created_at' => Yii::t('app', 'Created At'),
             'updated_at' => Yii::t('app', 'Updated At'),
         ];
-    }
-
-    /**
-     * Validation
-     * @param $attribute
-     */
-    public function uniqueSlug($attribute)
-    {
-        $model = News::findOne(['slug' => $this->slug]);
-        if ($model && $model->id !== $this->id) {
-            $this->addError($attribute, Yii::t('app', 'This title already exists'));
-        }
     }
 }
