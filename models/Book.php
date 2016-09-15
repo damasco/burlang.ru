@@ -40,7 +40,7 @@ class Book extends \yii\db\ActiveRecord
             [['description', 'content'], 'string'],
             [['active', 'created_at', 'updated_at'], 'integer'],
             [['title', 'slug'], 'string', 'max' => 255],
-            [['title'], 'uniqueSlug'],
+            [['title'], 'unique'],
         ];
     }
 
@@ -81,17 +81,5 @@ class Book extends \yii\db\ActiveRecord
     public function getChapters()
     {
         return $this->hasMany(BookChapter::className(), ['book_id' => 'id']);
-    }
-
-    /**
-     * Validation
-     * @param $attribute
-     */
-    public function uniqueSlug($attribute)
-    {
-        $model = Book::findOne(['slug' => $this->slug]);
-        if ($model && $model->id !== $this->id) {
-            $this->addError($attribute, Yii::t('app', 'This title already exists'));
-        }
     }
 }
