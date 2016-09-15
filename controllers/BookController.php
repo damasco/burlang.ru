@@ -173,11 +173,10 @@ class BookController extends Controller
     public function actionChapterCreate($id)
     {
         $book = $this->findModel($id);
-        $model = new BookChapter();
-        $model->book_id = $book->id;
+        $model = new BookChapter(['book_id' => $id]);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['chapter', 'slug' => $model->book->slug, 'slug_chapter' => $model->slug]);
+            return $this->redirect(['chapter', 'slug' => $book->slug, 'slug_chapter' => $model->slug]);
         } else {
             return $this->render('chapter/create', [
                 'model' => $model,
@@ -217,11 +216,7 @@ class BookController extends Controller
         /** @var BookChapter $model */
         $model = BookChapter::find()
             ->joinWith('book')
-            ->where([
-                'and',
-                ['book.slug' => $slug],
-                ['book_chapter.slug' => $slug_chapter]
-            ])
+            ->where(['and', ['book.slug' => $slug], ['book_chapter.slug' => $slug_chapter]])
             ->one();
 
         if (!$model || (!$model->book->active && !Yii::$app->user->can('adminBook'))) {

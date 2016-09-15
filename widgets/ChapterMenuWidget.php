@@ -10,7 +10,7 @@ class ChapterMenuWidget extends Widget
     /** @var Book */
     public $book;
 
-    /** @var null|int */
+    /** @var integer|null */
     public $active_id = null;
 
     /**

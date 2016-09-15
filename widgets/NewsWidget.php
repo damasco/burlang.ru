@@ -14,7 +14,8 @@ class NewsWidget extends Widget
     public function run()
     {
         $query = News::find();
-        if (Yii::$app->user->isGuest) {
+
+        if (!Yii::$app->user->can('adminNews')) {
             $query->where(['active' => 1]);
         }
 
