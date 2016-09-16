@@ -1,6 +1,6 @@
 <?php
 
-namespace test\codeception\unit;
+namespace test\codeception\unit\models;
 
 use app\models\News;
 use Codeception\Specify;

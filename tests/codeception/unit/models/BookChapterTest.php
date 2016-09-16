@@ -1,6 +1,6 @@
 <?php
 
-namespace test\codeception\unit;
+namespace test\codeception\unit\models;
 
 use Yii;
 use app\models\Book;
