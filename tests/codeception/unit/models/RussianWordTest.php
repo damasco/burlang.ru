@@ -23,5 +23,4 @@ class RussianWordTest extends DbTestCase
         expect('model is not valid', $model->validate())->false();
         expect('name is required', $model->errors)->hasKey('name');
     }
-
 }

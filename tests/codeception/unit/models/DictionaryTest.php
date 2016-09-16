@@ -29,5 +29,4 @@ class DictionaryTest extends DbTestCase
         expect('info is required', $model->errors)->hasKey('info');
         expect('isbn is not required', $model->errors)->hasntKey('isbn');
     }
-
 }

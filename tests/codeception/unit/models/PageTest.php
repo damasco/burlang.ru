@@ -36,5 +36,4 @@ class PageTest extends DbTestCase
         expect('description is not required', $model->errors)->hasntKey('description');
         expect('content is required', $model->errors)->hasKey('content');
     }
-
 }

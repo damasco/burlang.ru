@@ -33,5 +33,4 @@ class NewsTest extends DbTestCase
         expect('active is required', $model->errors)->hasKey('active');
 
     }
-
 }

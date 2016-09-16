@@ -33,5 +33,4 @@ class BookTest extends DbTestCase
         expect('active is required', $model->errors)->hasKey('active');
 
     }
-
 }

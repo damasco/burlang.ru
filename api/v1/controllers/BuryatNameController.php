@@ -11,6 +11,9 @@ use app\api\v1\models\BuryatName;
 
 class BuryatNameController extends ActiveController
 {
+    /**
+     * @inheritdoc
+     */
     public $modelClass = 'app\api\v1\models\BuryatName';
 
     /**
@@ -60,6 +63,11 @@ class BuryatNameController extends ActiveController
         return $names;
     }
 
+    /**
+     * @param string $name
+     * @return BuryatName
+     * @throws NotFoundHttpException
+     */
     public function actionView($name)
     {
         if (($model = BuryatName::findOne(['name' => $name])) !== null) {

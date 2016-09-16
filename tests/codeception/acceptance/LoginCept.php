@@ -2,7 +2,7 @@
 
 use test\codeception\_pages\LoginPage;
 
-/* @var $scenario Codeception\Scenario */
+/** @var $scenario Codeception\Scenario */
 
 $I = new AcceptanceTester($scenario);
 

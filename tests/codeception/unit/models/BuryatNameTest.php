@@ -35,7 +35,5 @@ class BuryatNameTest extends DbTestCase
         expect('note is not required', $model->errors)->hasntKey('note');
         expect('male is required', $model->errors)->hasKey('male');
         expect('female is required', $model->errors)->hasKey('female');
-
     }
-
 }
