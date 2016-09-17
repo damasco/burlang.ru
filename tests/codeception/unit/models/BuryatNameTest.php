@@ -9,6 +9,14 @@ use yii\codeception\DbTestCase;
 class BuryatNameTest extends DbTestCase
 {
     use Specify;
+    
+    protected function setUp() {
+        parent::setUp();
+        BuryatName::deleteAll([
+            'or', 
+            ['name' => 'Unique name']
+        ]);
+    }
 
     public function testRules()
     {
@@ -35,5 +43,28 @@ class BuryatNameTest extends DbTestCase
         expect('note is not required', $model->errors)->hasntKey('note');
         expect('male is required', $model->errors)->hasKey('male');
         expect('female is required', $model->errors)->hasKey('female');
+    }
+    
+    public function testUniqueName()
+    {
+        $model = new BuryatName([
+            'name' => 'Unique name',
+            'description' => 'Description',
+            'note' => 'Note',
+            'male' => 1,
+            'female' => 0
+        ]);
+        
+        expect('model is saved', $model->save())->true();
+            
+        $name = new BuryatName([
+            'name' => 'Unique name',
+            'description' => 'Other description',
+            'note' => 'Other note',
+            'male' => 0,
+            'female' => 1
+        ]);
+        
+        expect('model is not valid', $name->validate())->false();
     }
 }

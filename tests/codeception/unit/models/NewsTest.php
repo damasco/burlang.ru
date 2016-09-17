@@ -52,12 +52,13 @@ class NewsTest extends DbTestCase
             'content' => 'Content',
             'active' => 1,
         ]);
-        $model->save();
+        
+        expect('model is saved', $model->save())->true();
 
         $news = new News([
             'title' => 'Unique title news',
-            'description' => 'Description other',
-            'content' => 'Content other',
+            'description' => 'Other description',
+            'content' => 'Other content',
             'active' => 0,
         ]);
 

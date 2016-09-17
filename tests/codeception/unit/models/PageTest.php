@@ -60,8 +60,9 @@ class PageTest extends DbTestCase
             'description' => 'Description',
             'content' => 'Content',
             'active' => 1
-        ]);       
-        $model->save();
+        ]);    
+        
+        expect('model is saved', $model->save())->true();
         
         $page = new Page([
             'menu_name' => 'other title',
