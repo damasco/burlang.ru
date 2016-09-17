@@ -27,4 +27,19 @@ return [
     'adminEmail' => 'dbulats88@gmail.com',
 
     'widget.news.limit' => 3,
+    
+    'test.users' => [
+        'admin' => [
+            'username' => 'testAdmin',
+            'password' => 'testAdmin',
+        ],
+        'moderator' => [
+            'username' => 'testModerator',
+            'password' => 'testModerator',               
+        ],
+        'user' => [
+            'username' => 'testUser',
+            'password' => 'testUser',
+        ]
+    ],
 ];
