@@ -10,6 +10,17 @@ class NewsTest extends DbTestCase
 {
     use Specify;
 
+    protected function setUp()
+    {
+        parent::setUp();
+        News::deleteAll([
+            'or',
+            ['title' => 'Title'],
+            ['title' => 'Unique title news'],
+            ['title' => 'Test news']
+        ]);
+    }
+
     public function testRules()
     {
         $model = new News([
@@ -31,6 +42,41 @@ class NewsTest extends DbTestCase
         expect('description is not required', $model->errors)->hasntKey('description');
         expect('content is required', $model->errors)->hasKey('content');
         expect('active is required', $model->errors)->hasKey('active');
+    }
 
+    public function testUniqueTitle()
+    {
+        $model = new News([
+            'title' => 'Unique title news',
+            'description' => 'Description',
+            'content' => 'Content',
+            'active' => 1,
+        ]);
+        $model->save();
+
+        $news = new News([
+            'title' => 'Unique title news',
+            'description' => 'Description other',
+            'content' => 'Content other',
+            'active' => 0,
+        ]);
+
+        expect('news is not valid', $news->validate())->false();
+    }
+
+    public function testSave()
+    {
+        $model = new News([
+            'title' => 'Test news',
+            'description' => 'Description',
+            'content' => 'Content',
+            'active' => 1,
+        ]);
+
+        expect('model is saved', $model->save())->true();
+        expect('slug is not empty', $model->slug)->notEmpty();
+        expect('slug is correct', $model->slug)->equals('test-news');
+        expect('created_at is correct', $model->created_at)->notEmpty();
+        expect('updated_at is correct', $model->updated_at)->notEmpty();
     }
 }
