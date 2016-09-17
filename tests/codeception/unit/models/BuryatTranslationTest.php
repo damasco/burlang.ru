@@ -3,7 +3,6 @@
 namespace test\codeception\unit\models;
 
 use app\models\Dictionary;
-use Yii;
 use app\models\BuryatWord;
 use app\models\BuryatTranslation;
 use Codeception\Specify;
@@ -13,7 +12,7 @@ class BuryatTranslationTest extends DbTestCase
 {
     use Specify;
 
-    public function testRules()
+    public function testRules() 
     {
         BuryatWord::deleteAll(['name' => 'buryat_word']);
 

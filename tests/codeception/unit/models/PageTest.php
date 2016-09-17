@@ -76,7 +76,7 @@ class PageTest extends DbTestCase
         expect('page is not valid', $page->validate())->false();
     }
     
-    public function testValidLink()
+    public function testValidateLink()
     {
         $model = new Page([
             'menu_name' => 'title',
