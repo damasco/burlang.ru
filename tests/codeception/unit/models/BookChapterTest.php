@@ -2,7 +2,6 @@
 
 namespace test\codeception\unit\models;
 
-use Yii;
 use app\models\Book;
 use app\models\BookChapter;
 use Codeception\Specify;
@@ -11,11 +10,24 @@ use yii\codeception\DbTestCase;
 class BookChapterTest extends DbTestCase
 {
     use Specify;
+    
+    protected function setUp() {
+        parent::setUp();
+        Book::deleteAll([
+            'or', 
+            ['title' => 'Title'],
+            ['title' => 'Test book'],
+            ['title' => 'New book']
+        ]);
+        BookChapter::deleteAll([
+            'or', 
+            ['title' => 'Test chapter'],
+            ['title' => 'Unique chapter']
+        ]);
+    }
 
     public function testRules()
     {
-        Book::deleteAll(['title' => 'Title']);
-
         $book = new Book([
             'title' => 'Title',
             'description' => 'Description',
@@ -27,7 +39,6 @@ class BookChapterTest extends DbTestCase
 
         $bookChapter = new BookChapter([
             'title' => 'Title',
-            'slug' => 'title',
             'content' => 'Content',
             'book_id' => $book->id,
         ]);
@@ -42,7 +53,57 @@ class BookChapterTest extends DbTestCase
         expect('title is required', $bookChapter->errors)->hasKey('title');
         expect('content is not required', $bookChapter->errors)->hasntKey('content');
         expect('book_id is required', $bookChapter->errors)->hasKey('book_id');
-
-        $book->delete();
+    }
+    
+    public function testSave()
+    {
+        $book = new Book([
+            'title' => 'Test book',
+            'description' => 'Description',
+            'content' => 'Content',
+            'active' => 1,
+        ]);
+        
+        $book->save();
+        
+        $bookChapter = new BookChapter([
+            'title' => 'Test chapter',
+            'content' => 'Content',
+            'book_id' => $book->id,
+        ]);
+        
+        expect('chapter is saved', $bookChapter->save())->true();
+        expect('slug is not empty', $bookChapter->slug)->notEmpty();
+        expect('slug is correct', $bookChapter->slug)->equals('test-chapter');
+        expect('creatad_at is correct', $bookChapter->created_at)->notEmpty();
+        expect('updated_at is correct', $bookChapter->updated_at)->notEmpty();
+    }
+    
+    public function testUniqueTitle()
+    {
+        $book = new Book([
+            'title' => 'New book',
+            'description' => 'Description',
+            'content' => 'Content',
+            'active' => 1,
+        ]);
+        
+        $book->save();
+        
+        $bookChapter = new BookChapter([
+            'title' => 'Unique chapter',
+            'content' => 'Content',
+            'book_id' => $book->id,
+        ]);
+        
+        expect('chapter is saved', $bookChapter->save())->true();
+        
+        $newChapter = new BookChapter([
+            'title' => 'Unique chapter',
+            'content' => 'Other content',
+            'book_id' => $book->id,
+        ]);
+        
+        expect('chapter is not valid', $newChapter->validate())->false();
     }
 }

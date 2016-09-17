@@ -40,7 +40,7 @@ class BookChapter extends \yii\db\ActiveRecord
             [['book_id', 'created_at', 'updated_at'], 'integer'],
             [['title', 'slug'], 'string', 'max' => 255],
             [['book_id'], 'exist', 'skipOnError' => true, 'targetClass' => Book::className(), 'targetAttribute' => ['book_id' => 'id']],
-            ['title', 'uniqueSlugBook']
+            ['title', 'uniqueTitle']
         ];
     }
 
@@ -86,7 +86,7 @@ class BookChapter extends \yii\db\ActiveRecord
      * Validation
      * @param $attribute
      */
-    public function uniqueSlugBook($attribute)
+    public function uniqueTitle($attribute)
     {
         $model = BookChapter::findOne(['slug' => $this->slug, 'book_id' => $this->book_id]);
         if ($model && $model->id !== $this->id) {
