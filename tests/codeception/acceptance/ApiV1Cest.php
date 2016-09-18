@@ -1,6 +1,6 @@
 <?php
 
-namespace tests\codeception\functional;
+namespace tests\codeception\acceptance;
 
 use AcceptanceTester;
 use Yii;
