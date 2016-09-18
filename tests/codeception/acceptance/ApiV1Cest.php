@@ -16,7 +16,7 @@ class ApiV1Cest
         $I->click('Api');
 
         if (method_exists($I, 'wait')) {
-            $I->wait(1); // only for selenuim
+            $I->wait(2); // only for selenuim
         }
 
         $I->see('Api v1', 'h1');

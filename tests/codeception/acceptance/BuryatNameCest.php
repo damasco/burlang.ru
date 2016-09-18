@@ -16,7 +16,7 @@ class BuryatNameCest
         $I->click('Names');
 
         if (method_exists($I, 'wait')) {
-            $I->wait(1); // only for selenuim
+            $I->wait(2); // only for selenuim
         }
 
         $I->see('Names', 'h1');

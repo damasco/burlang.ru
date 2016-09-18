@@ -25,7 +25,7 @@ class HomeCest
         ]);
 
         if (method_exists($I, 'wait')) {
-            $I->wait(1); // only for selenuim
+            $I->wait(2); // only for selenuim
         }
 
         $I->see('мэндэ');
@@ -41,7 +41,7 @@ class HomeCest
         ]);
 
         if (method_exists($I, 'wait')) {
-            $I->wait(1); // only for selenuim
+            $I->wait(2); // only for selenuim
         }
 
         $I->see('здравствуйте');
