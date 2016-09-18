@@ -22,8 +22,12 @@ $config = [
             'showScriptName' => false,
             'rules' => require __DIR__ . '/urls.php',
         ],
+        'authManager' => [
+            'class' => 'dektrium\rbac\components\DbManager',
+            'cache' => 'cache',
+        ],
         'assetManager' => [
-            'class' => '\yii\web\AssetManager',
+            'class' => 'yii\web\AssetManager',
             'appendTimestamp' => true
         ],
         'request' => [
