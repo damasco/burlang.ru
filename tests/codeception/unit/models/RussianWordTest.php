@@ -45,5 +45,7 @@ class RussianWordTest extends DbTestCase
         ]);
         
         expect('word is not valid', $word->validate())->false();
+        
+        expect('model is deleted', $model->delete())->equals(1);
     }
 }

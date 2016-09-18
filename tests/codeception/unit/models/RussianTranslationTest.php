@@ -4,7 +4,6 @@ namespace test\codeception\unit\models;
 
 use app\api\v1\models\RussianWord;
 use app\models\RussianTranslation;
-use Yii;
 use Codeception\Specify;
 use yii\codeception\DbTestCase;
 

@@ -53,6 +53,8 @@ class BookChapterTest extends DbTestCase
         expect('title is required', $bookChapter->errors)->hasKey('title');
         expect('content is not required', $bookChapter->errors)->hasntKey('content');
         expect('book_id is required', $bookChapter->errors)->hasKey('book_id');
+        
+        expect('book is deleted', $book->delete())->equals(1);
     }
     
     public function testSave()
@@ -77,6 +79,9 @@ class BookChapterTest extends DbTestCase
         expect('slug is correct', $bookChapter->slug)->equals('test-chapter');
         expect('creatad_at is correct', $bookChapter->created_at)->notEmpty();
         expect('updated_at is correct', $bookChapter->updated_at)->notEmpty();
+        expect('chapter is deleted', $bookChapter->delete())->equals(1);
+        
+        expect('book is deleted', $book->delete())->equals(1);
     }
     
     public function testUniqueTitle()
@@ -105,5 +110,9 @@ class BookChapterTest extends DbTestCase
         ]);
         
         expect('chapter is not valid', $newChapter->validate())->false();
+        
+        expect('chapter is deleted', $bookChapter->delete())->equals(1);
+        
+        expect('book is deleted', $book->delete())->equals(1);
     }
 }

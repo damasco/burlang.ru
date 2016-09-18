@@ -62,6 +62,8 @@ class BookTest extends DbTestCase
         ]);
         
         expect('book is not valid', $book->validate())->false();
+        
+        expect('model is deleted', $model->delete())->equals(1);
     }
     
     public function testSave()
@@ -78,5 +80,6 @@ class BookTest extends DbTestCase
         expect('slug is correct', $model->slug)->equals('test-book');
         expect('creatad_at is correct', $model->created_at)->notEmpty();
         expect('updated_at is correct', $model->updated_at)->notEmpty();
+        expect('model is deleted', $model->delete())->equals(1);
     }
 }

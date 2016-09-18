@@ -63,6 +63,8 @@ class NewsTest extends DbTestCase
         ]);
 
         expect('news is not valid', $news->validate())->false();
+        
+        expect('model is deleted', $model->delete())->equals(1);
     }
 
     public function testSave()
@@ -79,5 +81,6 @@ class NewsTest extends DbTestCase
         expect('slug is correct', $model->slug)->equals('test-news');
         expect('created_at is correct', $model->created_at)->notEmpty();
         expect('updated_at is correct', $model->updated_at)->notEmpty();
+        expect('model is deleted', $model->delete())->equals(1);
     }
 }

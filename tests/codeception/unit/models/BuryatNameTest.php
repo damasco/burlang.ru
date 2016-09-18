@@ -66,5 +66,7 @@ class BuryatNameTest extends DbTestCase
         ]);
         
         expect('model is not valid', $name->validate())->false();
+        
+        expect('model is deleted', $model->delete())->equals(1);
     }
 }

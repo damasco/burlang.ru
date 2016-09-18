@@ -74,6 +74,8 @@ class PageTest extends DbTestCase
         ]);
         
         expect('page is not valid', $page->validate())->false();
+        
+        expect('model is deleted', $model->delete())->equals(1);
     }
     
     public function testValidateLink()
@@ -91,7 +93,7 @@ class PageTest extends DbTestCase
         
         $model->link = 'valid-link';
        
-        expect('page is not valid', $model->validate())->true();
+        expect('page is valid', $model->validate())->true();
     }
 
 
@@ -110,5 +112,6 @@ class PageTest extends DbTestCase
         expect('model is saved', $model->save())->true();
         expect('created_at is correct', $model->created_at)->notEmpty();
         expect('updated_at is correct', $model->updated_at)->notEmpty();
+        expect('model is deleted', $model->delete())->equals(1);
     }
 }
