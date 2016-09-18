@@ -23,5 +23,5 @@ modules:
 #            url: http://localhost:8080
         WebDriver:
             url: http://localhost:8080
-            browser: firefox
+            browser: chrome
             restart: true
