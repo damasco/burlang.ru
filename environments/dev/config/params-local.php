@@ -16,20 +16,4 @@ return [
         // for the mailer to send real emails.
         'useFileTransport' => true,
     ],
-    
-//    'test.users' => [
-//        'admin' => [
-//            'username' => 'testAdmin',
-//            'password' => 'testAdmin',
-//        ],
-//        'moderator' => [
-//            'username' => 'testModerator',
-//            'password' => 'testModerator',               
-//        ],
-//        'user' => [
-//            'username' => 'testUser',
-//            'password' => 'testUser',
-//        ]
-//    ],
-
 ];
