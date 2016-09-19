@@ -128,6 +128,9 @@ AppAsset::register($this);
                         ['label' => Yii::t('user', 'Profile settings'), 'url' => ['/user/settings/profile', 'id' => Yii::$app->user->identity->id]],
                         '<li role="separator" class="divider"></li>',
                         ['label' => Yii::t('user', 'Logout'), 'url' => ['/user/security/logout'], 'linkOptions' => ['data-method' => 'post']]
+                    ],
+                    'options' => [
+                        'id' => 'dropdown-profile',
                     ]
                 ]
         ],

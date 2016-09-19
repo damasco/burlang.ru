@@ -1,13 +1,12 @@
 <?php
 
-namespace tests\codeception\functional;
+namespace tests\codeception\acceptance;
 
-use FunctionalTester;
+use AcceptanceTester;
 use tests\codeception\_pages\LoginPage;
-use yii\helpers\Url;
 use Yii;
 
-class FunctionalCest
+class AcceptanceCest
 {
     /**
      * @param string $role
@@ -19,36 +18,43 @@ class FunctionalCest
         return $users[$role];
     }
 
-    protected function loginAsAdmin(FunctionalTester $I)
+    protected function loginAsAdmin(AcceptanceTester $I)
     {
         $user = $this->getTestUser('admin');
         $this->login($I, $user['username'], $user['password']);
     }
-    
-    protected function loginAsModerator(FunctionalTester $I)
+
+    protected function loginAsModerator(AcceptanceTester $I)
     {
         $user = $this->getTestUser('moderator');
         $this->login($I, $user['username'], $user['password']);
     }
-    
-    protected function loginAsUser(FunctionalTester $I)
+
+    protected function loginAsUser(AcceptanceTester $I)
     {
         $user = $this->getTestUser('user');
         $this->login($I, $user['username'], $user['password']);
     }
 
-    protected function login(FunctionalTester $I, $username, $password)
+    protected function login(AcceptanceTester $I, $username, $password)
     {
         $loginPage = LoginPage::openBy($I);
         $I->seeInTitle('Sign in');
         $loginPage->login($username, $password);
-        $I->see('Logout', '.nav');
+        if (method_exists($I, 'wait')) {
+            $I->wait(2);
+        }
+        $I->see($username, '.nav');
     }
-    
-    protected function logout(FunctionalTester $I)
+
+    protected function logout(AcceptanceTester $I)
     {
+        $I->click('#dropdown-profile a');
         $I->see('Logout', '.nav');
-        $I->sendAjaxPostRequest(Url::to(['/user/security/logout']));
+        $I->click('Logout');
+        if (method_exists($I, 'wait')) {
+            $I->wait(2);
+        }
         $I->amOnPage(Yii::$app->homeUrl);
         $I->see('Login', '.nav');
     }

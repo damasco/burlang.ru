@@ -1,6 +1,6 @@
 <?php
 
-namespace test\codeception\_pages;
+namespace tests\codeception\_pages;
 
 use yii\codeception\BasePage;
 use dektrium\user\models\LoginForm;

@@ -1,6 +1,6 @@
 <?php
 
-use test\codeception\_pages\LoginPage;
+use tests\codeception\_pages\LoginPage;
 
 /** @var $scenario Codeception\Scenario */
 
