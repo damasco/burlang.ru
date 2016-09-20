@@ -68,8 +68,6 @@ class NewsCest extends FunctionalCest
         News::deleteAll(['title' => 'Demo']);
         $newsCreatePage = NewsCreatePage::openBy($I);
         $newsCreatePage->create('Demo', 'Description', 'Content', true);
-
-        $I->amOnPage(Url::to(['/news/view', 'slug' => 'demo']));
         $I->see('Demo', 'h1');
     }
 
