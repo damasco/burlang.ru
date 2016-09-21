@@ -71,6 +71,12 @@ return [
     'Russian-Buryat dictionary' => 'Русско-Бурятский словарь',
     'Buryat-Russian dictionary' => 'Бурятско-Русский словарь',
 
+    // og
+    'og:description' => 'На сайте Вы можете найти переводы бурятских и русских слов, узнать значения бурятских имен и почитать книги по бурятскому языку',
+
+    // meta
+    'meta.keywords' => 'burlang, burlang.ru, buryat-lang, buryat-lang.ru, buryat, бурятский словарь, бурятские имена, онлайн словарь',
+
     // layout/main
     'About project' => 'О проекте',
     'Contacts' => 'Контакты',

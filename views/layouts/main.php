@@ -28,7 +28,7 @@ AppAsset::register($this);
     <meta property="og:type" content="website"/>
     <meta property="og:site_name" content="Burlang.ru"/>
     <meta property="og:title" content="<?= !empty($this->title) ? Html::encode($this->title) : Yii::t('app', 'Russian-Buryat, Buryat-Russian electronic dictionary') ?>"/>
-    <meta property="og:description" content=""/>
+    <meta property="og:description" content="<?= Yii::t('app', 'og:description') ?>"/>
     <meta property="og:locale" content="ru_RU"/>
     <meta property="og:url" content="<?= Url::to('', true) ?>"/>
     <meta property="og:image" content="<?= Url::to(Yii::getAlias('@web/img/cover.jpg'), true) ?>"/>
@@ -59,7 +59,7 @@ AppAsset::register($this);
     <title><?= Html::encode($this->title) ?></title>
 
     <?php $this->head() ?>
-    <?php $this->registerMetaTag(['name' => 'keywords', 'content' => 'burlang, burlang.ru, buryat-lang, buryat-lang.ru, buryat, бурятский словарь, бурятские имена, онлайн словарь']) ?>
+    <?php $this->registerMetaTag(['name' => 'keywords', 'content' => Yii::t('app', 'meta.keywords')]) ?>
     <?php $this->registerMetaTag(['name' => 'description', 'content' => Yii::t('app', 'Russian-Buryat, Buryat-Russian electronic dictionary')]) ?>
 
     <?php if (isset($this->blocks['head'])): ?>
