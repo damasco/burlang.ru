@@ -29,7 +29,7 @@ class NewsCest extends FunctionalCest
     {
         $I->wantTo('ensure that news create page works for admin');
         
-        $I->amOnPage(Url::to(['/news/create']));
+        NewsCreatePage::openBy($I);
         $I->seeInTitle('Create news');
     }
     
@@ -40,8 +40,8 @@ class NewsCest extends FunctionalCest
     public function createPageAsModerator(FunctionalTester $I)
     {
         $I->wantTo('ensure that news create page not works for moderator');
-        
-        $I->amOnPage(Url::to(['/news/create']));
+
+        NewsCreatePage::openBy($I);
         $I->seeInTitle('Forbidden');
     }
     
@@ -52,8 +52,8 @@ class NewsCest extends FunctionalCest
     public function createPageAsUser(FunctionalTester $I)
     {
         $I->wantTo('ensure that news create page not works for simple user');
-        
-        $I->amOnPage(Url::to(['/news/create']));
+
+        NewsCreatePage::openBy($I);
         $I->seeInTitle('Forbidden');
     }
 
