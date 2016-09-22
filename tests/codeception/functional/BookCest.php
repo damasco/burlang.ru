@@ -5,7 +5,6 @@ namespace tests\codeception\functional;
 use FunctionalTester;
 use tests\codeception\_pages\BookCreatePage;
 use Yii;
-use yii\helpers\Url;
 
 class BookCest extends FunctionalCest
 {
