@@ -168,9 +168,11 @@ AppAsset::register($this);
                 <?= Html::mailto('bairdarmaev@gmail.com') ?>
             </div>
         </div>
-        <p class="text-center">
-            &copy; <?= Yii::$app->name ?> 2013 - <?= date('Y') ?>
-        </p>
+        <h5 class="text-center">
+            <span class="label label-default">
+                &copy; <?= Yii::$app->name ?> 2013 - <?= date('Y') ?>
+            </span>
+        </h3>
     </div>
 </footer>
 <?= $this->render('//_end_body') ?>
