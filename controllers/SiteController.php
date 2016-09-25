@@ -2,12 +2,13 @@
 
 namespace app\controllers;
 
+use Yii;
 use app\filters\AjaxFilter;
 use app\models\BuryatWord;
 use app\models\RussianWord;
-use Yii;
 use yii\web\Controller;
 use yii\helpers\Json;
+use app\helpers\StringHelper;
 
 class SiteController extends Controller
 {
@@ -45,7 +46,10 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        return $this->render('index', [
+            'russian_word' => '',
+            'buryat_word' => '',
+        ]);
     }
 
     /**
@@ -91,6 +95,10 @@ class SiteController extends Controller
      */
     public function actionRussianTranslate($russian_word)
     {
+        if (!StringHelper::isWord($russian_word)) {
+            return $this->onlyWord('russian_word');
+        }
+
         $word = RussianWord::findOne(['name' => $russian_word]);
         if (Yii::$app->request->isAjax) {
             return $this->renderAjax('_translation', [
@@ -109,6 +117,10 @@ class SiteController extends Controller
      */
     public function actionBuryatTranslate($buryat_word)
     {
+        if (!StringHelper::isWord($buryat_word)) {
+            return $this->onlyWord('buryat_word');
+        }
+
         $word = BuryatWord::findOne(['name' => $buryat_word]);
         if (Yii::$app->request->isAjax) {
             return $this->renderAjax('_translation', [
@@ -117,6 +129,21 @@ class SiteController extends Controller
         }
         return $this->render('index', [
             'buryat_word' => $word
+        ]);
+    }
+
+    /**
+     * Return alert
+     * @param string $param
+     * @return mixed
+     */
+    protected function onlyWord($param)
+    {
+        if (Yii::$app->request->isAjax) {
+            return $this->renderAjax('_only_word');
+        }
+        return $this->render('index', [
+            $param => false
         ]);
     }
 }

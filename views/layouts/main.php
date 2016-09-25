@@ -172,7 +172,7 @@ AppAsset::register($this);
             <span class="label label-default">
                 &copy; <?= Yii::$app->name ?> 2013 - <?= date('Y') ?>
             </span>
-        </h3>
+        </h5>
     </div>
 </footer>
 <?= $this->render('//_end_body') ?>

@@ -46,6 +46,7 @@ return [
     'Translation' => 'Перевод',
     'Translations' => 'Переводы',
     'No translation' => 'Перевода нет',
+    'You can translate only one word' => 'Вы можете перевести только одно слово',
     'Enter the word' => 'Введите слово',
     'Enter the buryat name' => 'Введите бурятское имя',
     'Name not found' => 'Имя не найдено',
