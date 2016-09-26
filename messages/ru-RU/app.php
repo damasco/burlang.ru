@@ -43,6 +43,7 @@ return [
     'This URL can only call using Ajax.' => 'Этот URL можно вызвать только с помощью Ajax.',
 
     // main
+    'Translate' => 'Перевести',
     'Translation' => 'Перевод',
     'Translations' => 'Переводы',
     'No translation' => 'Перевода нет',

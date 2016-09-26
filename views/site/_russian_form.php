@@ -4,6 +4,7 @@ use yii\jui\AutoComplete;
 use yii\widgets\ActiveForm;
 use yii\helpers\Url;
 use yii\web\JsExpression;
+use yii\bootstrap\Html;
 ?>
 
 <?php $form = ActiveForm::begin([
@@ -26,17 +27,19 @@ use yii\web\JsExpression;
             'clientOptions' => [
                 'source' => '/site/get-russian-words',
                 'select' => new JsExpression("function (event, ui) {
-                                        $.ajax({
-                                            url: '/site/russian-translate',
-                                            data: { russian_word: ui.item.value }
-                                        }).done(function(response) {
-                                            $('#russian-translation').html(response);
-                                        });
-                                    }")
+                    $.ajax({
+                        url: '/site/russian-translate',
+                        data: { russian_word: ui.item.value }
+                    }).done(function(response) {
+                        $('#russian-translation').html(response);
+                    });
+                }")
             ]
         ]) ?>
         <span class="input-group-btn">
-            <button type="submit" class="btn btn-custom"><?= Yii::t('app', 'Find') ?></button>
+            <button type="submit" class="btn btn-custom">
+                <?= Yii::$app->devicedetect->isMobile() ? Html::icon('send') : Yii::t('app', 'Translate') ?>
+            </button>
         </span>
     </div>
 </div>

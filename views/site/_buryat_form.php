@@ -4,6 +4,7 @@ use yii\jui\AutoComplete;
 use yii\widgets\ActiveForm;
 use yii\helpers\Url;
 use yii\web\JsExpression;
+use yii\bootstrap\Html;
 ?>
 
 <?php $form = ActiveForm::begin([
@@ -26,20 +27,22 @@ use yii\web\JsExpression;
             'clientOptions' => [
                 'source' => '/site/get-buryat-words',
                 'select' => new JsExpression("function (event, ui) {
-                                        $.ajax({
-                                            url: '/site/buryat-translate',
-                                            data: { buryat_word: ui.item.value }
-                                        }).done(function(response) {
-                                            $('#buryat-translation').html(response);
-                                        });
-                                    }")
+                    $.ajax({
+                        url: '/site/buryat-translate',
+                        data: { buryat_word: ui.item.value }
+                    }).done(function(response) {
+                        $('#buryat-translation').html(response);
+                    });
+                }")
             ]
         ]) ?>
         <span class="input-group-btn">
             <button type="button" class="btn btn-default add-input-letter">ү</button>
             <button type="button" class="btn btn-default add-input-letter">һ</button>
             <button type="button" class="btn btn-default add-input-letter">ө</button>
-            <button type="submit" class="btn btn-custom"><?= Yii::t('app', 'Find') ?></button>
+            <button type="submit" class="btn btn-custom">
+                <?= Yii::$app->devicedetect->isMobile() ? Html::icon('send') : Yii::t('app', 'Translate') ?>
+            </button>
         </span>
     </div>
 </div>
