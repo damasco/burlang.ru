@@ -20,7 +20,7 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
                 <hr>
                 <?= $this->render('_russian_form') ?>
                 <div id="russian-translation">
-                    <?= $this->render('_result', ['word' => $russian_word]) ?>
+                    <?= $this->render('_result', ['word' => isset($russian_word) ? $russian_word : '']) ?>
                 </div>
             </div>
         </div>
@@ -30,7 +30,7 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
                 <hr>
                 <?= $this->render('_buryat_form') ?>
                 <div id="buryat-translation">
-                    <?= $this->render('_result', ['word' => $buryat_word]) ?>
+                    <?= $this->render('_result', ['word' => isset($buryat_word) ? $buryat_word : '']) ?>
                 </div>
             </div>
         </div>

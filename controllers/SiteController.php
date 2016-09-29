@@ -46,10 +46,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index', [
-            'russian_word' => '',
-            'buryat_word' => '',
-        ]);
+        return $this->render('index');
     }
 
     /**
