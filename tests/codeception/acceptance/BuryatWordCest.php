@@ -1,46 +1,46 @@
 <?php
 
-namespace tests\codeception\functional;
+namespace tests\codeception\acceptance;
 
-use FunctionalTester;
-use tests\codeception\_pages\DictionaryPage;
+use AcceptanceTester;
+use tests\codeception\_pages\BuryatWordPage;
 use Yii;
 
-class DictionaryCest extends FunctionalCest
+class BuryatWordCest extends AcceptanceCest
 {
     /**
      * @before loginAsAdmin
      * @after logout
      */
-    public function indexPageAsAdmin(FunctionalTester $I)
+    public function indexPageAsAdmin(AcceptanceTester $I)
     {
         $I->wantTo('ensure that dictionary create page works for admin');
 
-        DictionaryPage::openBy($I);
-        $I->seeInTitle('Dictionaries');
+        BuryatWordPage::openBy($I);
+        $I->seeInTitle('Buryat words');
     }
 
     /**
      * @before loginAsModerator
      * @after logout
      */
-    public function indexPageAsModerator(FunctionalTester $I)
+    public function indexPageAsModerator(AcceptanceTester $I)
     {
         $I->wantTo('ensure that dictionary create page works for moderator');
 
-        DictionaryPage::openBy($I);
-        $I->seeInTitle('Dictionaries');
+        BuryatWordPage::openBy($I);
+        $I->seeInTitle('Buryat words');
     }
 
     /**
      * @before loginAsUser
      * @after logout
      */
-    public function indexPageAsUser(FunctionalTester $I)
+    public function indexPageAsUser(AcceptanceTester $I)
     {
         $I->wantTo('ensure that dictionary index page not works for simple user');
 
-        DictionaryPage::openBy($I);
+        BuryatWordPage::openBy($I);
         $I->seeInTitle('Forbidden');
     }
 }

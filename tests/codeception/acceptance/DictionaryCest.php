@@ -1,18 +1,18 @@
 <?php
 
-namespace tests\codeception\functional;
+namespace tests\codeception\acceptance;
 
-use FunctionalTester;
+use AcceptanceTester;
 use tests\codeception\_pages\DictionaryPage;
 use Yii;
 
-class DictionaryCest extends FunctionalCest
+class DictionaryCest extends AcceptanceCest
 {
     /**
      * @before loginAsAdmin
      * @after logout
      */
-    public function indexPageAsAdmin(FunctionalTester $I)
+    public function indexPageAsAdmin(AcceptanceTester $I)
     {
         $I->wantTo('ensure that dictionary create page works for admin');
 
@@ -24,7 +24,7 @@ class DictionaryCest extends FunctionalCest
      * @before loginAsModerator
      * @after logout
      */
-    public function indexPageAsModerator(FunctionalTester $I)
+    public function indexPageAsModerator(AcceptanceTester $I)
     {
         $I->wantTo('ensure that dictionary create page works for moderator');
 
@@ -36,7 +36,7 @@ class DictionaryCest extends FunctionalCest
      * @before loginAsUser
      * @after logout
      */
-    public function indexPageAsUser(FunctionalTester $I)
+    public function indexPageAsUser(AcceptanceTester $I)
     {
         $I->wantTo('ensure that dictionary index page not works for simple user');
 

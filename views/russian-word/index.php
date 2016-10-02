@@ -4,6 +4,7 @@ use yii\bootstrap\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
 use yii\helpers\ArrayHelper;
+use app\widgets\AlertWidget;
 
 /**
  * @var yii\web\View $this
@@ -18,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1 class="hidden-xs"><?= Html::encode($this->title) ?></h1>
 
-    <?= $this->render('/_alert') ?>
+    <?= AlertWidget::widget() ?>
 
     <p>
         <?= Html::a(Html::icon('plus') . ' ' . Yii::t('app', 'Add word'), ['create'], ['class' => 'btn btn-success']) ?>
