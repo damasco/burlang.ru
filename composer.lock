@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a66118deafa9732a4b22deb9609e5e2a",
-    "content-hash": "c63b8e2a5858aeb8f9dc8b1fa3ad042f",
+    "hash": "c73c08ee5156e049952985515c10e658",
+    "content-hash": "134ebee3561b278bfce1984959ad8c39",
     "packages": [
         {
             "name": "alexandernst/yii2-device-detect",
@@ -74,6 +74,37 @@
                 "bower-asset-main": "bililiteRange.js",
                 "bower-asset-ignore": [
                     "test/**/*"
+                ]
+            }
+        },
+        {
+            "name": "bower-asset/bootbox",
+            "version": "v4.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/makeusabrew/bootbox.git",
+                "reference": "cb756203e250ed0ff2539359ff0ad1c3ffb8e8d3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/makeusabrew/bootbox/zipball/cb756203e250ed0ff2539359ff0ad1c3ffb8e8d3",
+                "reference": "cb756203e250ed0ff2539359ff0ad1c3ffb8e8d3",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/bootstrap": ">=3.0.0"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "./bootbox.js",
+                "bower-asset-ignore": [
+                    "CHANGELOG.md",
+                    "CONTRIBUTING",
+                    "Gruntfile.js",
+                    "header.txt",
+                    "karma*.js",
+                    "build",
+                    "tests"
                 ]
             }
         },
