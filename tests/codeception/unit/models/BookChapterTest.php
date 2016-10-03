@@ -77,7 +77,7 @@ class BookChapterTest extends DbTestCase
         expect('chapter is saved', $bookChapter->save())->true();
         expect('slug is not empty', $bookChapter->slug)->notEmpty();
         expect('slug is correct', $bookChapter->slug)->equals('test-chapter');
-        expect('creatad_at is correct', $bookChapter->created_at)->notEmpty();
+        expect('created_at is correct', $bookChapter->created_at)->notEmpty();
         expect('updated_at is correct', $bookChapter->updated_at)->notEmpty();
         expect('chapter is deleted', $bookChapter->delete())->equals(1);
         

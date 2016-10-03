@@ -9,8 +9,7 @@ class StringHelper
 	 * @return boolean
 	 */
 	public static function isWord($string) 
-	{		
-
+	{
 		if (count(self::stringToArray($string)) > 1) {
 			return false;
 		}
