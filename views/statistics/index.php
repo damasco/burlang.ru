@@ -24,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <ul class="list-group">
                     <li class="list-group-item">
                         <span class="badge"><?= $buryatWords['amount'] ?></span>
-                        <?= Yii::t('app', 'Amount of words') ?>
+                        <?= Yii::t('app', 'Amount') ?>
                     </li>
                     <li class="list-group-item">
                         <span class="badge"><?= $buryatWords['amountTranslations'] ?></span>
@@ -41,7 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <ul class="list-group">
                     <li class="list-group-item">
                         <span class="badge"><?= $russianWords['amount'] ?></span>
-                        <?= Yii::t('app', 'Amount of words') ?>
+                        <?= Yii::t('app', 'Amount') ?>
                     </li>
                     <li class="list-group-item">
                         <span class="badge"><?= $russianWords['amountTranslations'] ?></span>
