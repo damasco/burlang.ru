@@ -13,14 +13,6 @@ class Module extends \yii\base\Module
     public $controllerNamespace = 'app\api\v1\controllers';
 
     /**
-     * @inheritdoc
-     */
-    public function init()
-    {
-        parent::init();
-    }
-
-    /**
      * @var string The prefix for user module URL.
      */
     public $urlRulePrefix = 'v1';

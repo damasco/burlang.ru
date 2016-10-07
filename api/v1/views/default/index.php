@@ -1,37 +1,69 @@
 <?php
 
+use yii\helpers\Url;
+use yii\widgets\Menu;
+
 /**
  * @var yii\web\View $this
  */
 
 $this->title = 'Api v1';
 $this->params['breadcrumbs'][] = $this->title;
-?>
 
+?>
 <div class="v1-default-index">
+
     <h1><?= $this->title ?></h1>
 
-    <?= $this->render('_view', [
-        'title' => Yii::t('app', 'Names'),
-        'links' => [
-            ['/v1/buryat-name/get-names', 'q' => 'begin_search_name'],
-            ['/v1/buryat-name/view', 'name' => 'Name'],
-        ]
-    ]) ?>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <?= Yii::t('app', 'Names') ?>
+            </h4>
+        </div>
+        <div class="panel-body">
+            <?= Menu::widget([
+                'items' => [
+                    ['label' => Url::to(['/v1/buryat-name/get-names', 'q' => 'begin_search_name'], true)],
+                    ['label' => Url::to(['/v1/buryat-name/view', 'name' => 'Name'], true)]
+                ],
+                'labelTemplate' => '<code>{label}</code>',
+            ]) ?>
+        </div>
+    </div>
 
-    <?= $this->render('_view', [
-        'title' => Yii::t('app', 'Buryat words'),
-        'links' => [
-            ['/v1/buryat-word/get-words', 'q' => 'begin_search_word'],
-            ['/v1/buryat-word/translate', 'word' => 'Word'],
-        ]
-    ]) ?>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <?= Yii::t('app', 'Buryat words') ?>
+            </h4>
+        </div>
+        <div class="panel-body">
+            <?= Menu::widget([
+                'items' => [
+                    ['label' => Url::to(['/v1/buryat-word/get-words', 'q' => 'begin_search_word'], true)],
+                    ['label' => Url::to(['/v1/buryat-word/translate', 'word' => 'Word'], true)]
+                ],
+                'labelTemplate' => '<code>{label}</code>',
+            ]) ?>
+        </div>
+    </div>
 
-    <?= $this->render('_view', [
-        'title' => Yii::t('app', 'Russian words'),
-        'links' => [
-            ['/v1/russian-word/get-words', 'q' => 'begin_search_word'],
-            ['/v1/russian-word/translate', 'word' => 'Word'],
-        ]
-    ]) ?>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <?= Yii::t('app', 'Russian words') ?>
+            </h4>
+        </div>
+        <div class="panel-body">
+            <?= Menu::widget([
+                'items' => [
+                    ['label' => Url::to(['/v1/russian-word/get-words', 'q' => 'begin_search_word'], true)],
+                    ['label' => Url::to(['/v1/russian-word/translate', 'word' => 'Word'], true)]
+                ],
+                'labelTemplate' => '<code>{label}</code>',
+            ]) ?>
+        </div>
+    </div>
+
 </div>
