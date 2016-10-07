@@ -7,8 +7,8 @@ use app\filters\AjaxFilter;
 use app\models\BuryatWord;
 use app\models\RussianWord;
 use yii\web\Controller;
-use yii\helpers\Json;
 use app\helpers\StringHelper;
+use yii\web\Response;
 
 class SiteController extends Controller
 {
@@ -56,15 +56,15 @@ class SiteController extends Controller
      */
     public function actionGetRussianWords($term)
     {
-        $result = RussianWord::find()
+        Yii::$app->response->format = Response::FORMAT_JSON;
+
+        return RussianWord::find()
             ->select(['name as value'])
             ->filterWhere(['like', 'name', $term . '%', false])
             ->orderBy('name')
             ->limit(10)
             ->asArray()
             ->all();
-
-        return Json::encode($result);
     }
 
     /**
@@ -74,15 +74,15 @@ class SiteController extends Controller
      */
     public function actionGetBuryatWords($term)
     {
-        $result = BuryatWord::find()
+        Yii::$app->response->format = Response::FORMAT_JSON;
+
+        return  BuryatWord::find()
             ->select(['name as value'])
             ->filterWhere(['like', 'name', $term . '%', false])
             ->orderBy('name')
             ->limit(10)
             ->asArray()
             ->all();
-
-        return Json::encode($result);
     }
 
     /**
