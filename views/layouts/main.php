@@ -60,7 +60,10 @@ AppAsset::register($this);
 
     <?php $this->head() ?>
     <?php $this->registerMetaTag(['name' => 'keywords', 'content' => Yii::t('app', 'meta.keywords')]) ?>
-    <?php $this->registerMetaTag(['name' => 'description', 'content' => Yii::t('app', 'Russian-Buryat, Buryat-Russian electronic dictionary')]) ?>
+    <?php $this->registerMetaTag([
+        'name' => 'description',
+        'content' => Yii::t('app', 'Russian-Buryat, Buryat-Russian electronic dictionary')
+    ]) ?>
 
     <?php if (isset($this->blocks['head'])): ?>
         <?= $this->blocks['head'] ?>
