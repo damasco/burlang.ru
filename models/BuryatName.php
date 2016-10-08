@@ -3,6 +3,9 @@
 namespace app\models;
 
 use Yii;
+use dektrium\user\models\User;
+use yii\behaviors\TimestampBehavior;
+use yii\behaviors\BlameableBehavior;
 
 /**
  * This is the model class for table "buryat_name".
@@ -13,6 +16,9 @@ use Yii;
  * @property string $note
  * @property integer $male
  * @property integer $female
+ *
+ * @property User $createdBy
+ * @property User $updatedBy
  */
 class BuryatName extends \yii\db\ActiveRecord
 {
@@ -31,11 +37,13 @@ class BuryatName extends \yii\db\ActiveRecord
     {
         return [
             [['name', 'male', 'female'], 'required'],
-            [['male', 'female'], 'integer'],
-            [['name'], 'string', 'max' => 50],
-            [['name'], 'unique'],
-            [['description'], 'string', 'max' => 255],
             [['note'], 'string'],
+            [['male', 'female', 'created_by', 'updated_by', 'created_at', 'updated_at'], 'integer'],
+            [['name'], 'string', 'max' => 50],
+            [['description'], 'string', 'max' => 255],
+            [['name'], 'unique'],
+            [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['created_by' => 'id']],
+            [['updated_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['updated_by' => 'id']],
         ];
     }
 
@@ -51,7 +59,38 @@ class BuryatName extends \yii\db\ActiveRecord
             'note' => Yii::t('app', 'Note'),
             'male' => Yii::t('app', 'Male'),
             'female' => Yii::t('app', 'Female'),
+            'created_by' => Yii::t('app', 'Created By'),
+            'updated_by' => Yii::t('app', 'Updated By'),
+            'created_at' => Yii::t('app', 'Created At'),
+            'updated_at' => Yii::t('app', 'Updated At'),
         ];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::className(),
+            BlameableBehavior::className(),
+        ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCreatedBy()
+    {
+        return $this->hasOne(User::className(), ['id' => 'created_by']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUpdatedBy()
+    {
+        return $this->hasOne(User::className(), ['id' => 'updated_by']);
     }
 
     /**

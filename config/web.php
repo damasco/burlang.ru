@@ -71,6 +71,13 @@ $config = [
                 ],
             ],
         ],
+        'view' => [
+            'theme' => [
+                'pathMap' => [
+                    '@dektrium/user/views' => '@app/modules/user/views'
+                ],
+            ],
+        ],
         'devicedetect' => [
             'class' => 'alexandernst\devicedetect\DeviceDetect',
         ],
@@ -83,6 +90,12 @@ $config = [
             'class' => 'dektrium\user\Module',
             'enableRegistration' => false,
             'adminPermission' => 'admin',
+            'modelMap' => [
+                'User' => 'app\modules\user\models\User',
+            ],
+            'controllerMap' => [
+                'profile' => 'app\modules\user\controllers\ProfileController',
+            ],
         ],
         'rbac' => 'dektrium\rbac\RbacWebModule',
         'v1' => [
