@@ -128,7 +128,6 @@ AppAsset::register($this);
                     'label' => Yii::$app->user->identity->username,
                     'items' => [
                         ['label' => Yii::t('user', 'Profile'), 'url' => ['/user/profile/show', 'id' => Yii::$app->user->identity->id]],
-                        ['label' => Yii::t('user', 'Profile settings'), 'url' => ['/user/settings/profile', 'id' => Yii::$app->user->identity->id]],
                         '<li role="separator" class="divider"></li>',
                         ['label' => Yii::t('user', 'Logout'), 'url' => ['/user/security/logout'], 'linkOptions' => ['data-method' => 'post']]
                     ],
