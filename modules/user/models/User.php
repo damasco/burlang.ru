@@ -5,6 +5,7 @@ namespace app\modules\user\models;
 use dektrium\user\models\User as BaseUser;
 use app\models\BuryatName;
 use app\models\BuryatWord;
+use app\models\RussianWord;
 
 /**
  * @property BuryatName[] $buryatNames
@@ -26,5 +27,13 @@ class User extends BaseUser
     public function getBuryatWords()
     {
         return $this->hasMany(BuryatWord::className(), ['created_by' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getRussianWords()
+    {
+        return $this->hasMany(RussianWord::className(), ['created_by' => 'id']);
     }
 }

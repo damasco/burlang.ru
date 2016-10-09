@@ -39,8 +39,8 @@ class BuryatWord extends \yii\db\ActiveRecord
         return [
             [['name'], 'required'],
             [['name'], 'string', 'max' => 50],
-            [['created_by', 'updated_by', 'created_at', 'updated_at'], 'integer'],
             [['name'], 'unique'],
+            [['created_by', 'updated_by', 'created_at', 'updated_at'], 'integer'],
         ];
     }
 
