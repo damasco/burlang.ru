@@ -14,6 +14,7 @@ use yii\behaviors\BlameableBehavior;
  * @property integer $burword_id
  * @property integer $dict_id
  * @property string $name
+ * @property integer $created_by
  * @property integer $updated_by
  * @property integer $created_at
  * @property integer $updated_at
@@ -40,10 +41,11 @@ class BuryatTranslation extends \yii\db\ActiveRecord
     {
         return [
             [['name', 'burword_id'], 'required'],
-            [['burword_id', 'dict_id'], 'integer'],
+            [['burword_id', 'dict_id', 'created_by', 'updated_by', 'created_at', 'updated_at'], 'integer'],
             [['name'], 'string', 'max' => 2000],
-            [['created_by', 'updated_by', 'created_at', 'updated_at'], 'integer'],
             [['burword_id'], 'exist', 'skipOnError' => true, 'targetClass' => BuryatWord::className(), 'targetAttribute' => ['burword_id' => 'id']],
+            [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['created_by' => 'id']],
+            [['updated_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['updated_by' => 'id']],
         ];
     }
 
