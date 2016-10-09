@@ -2,6 +2,7 @@
 
 namespace app\modules\user\models;
 
+use app\models\BuryatTranslation;
 use dektrium\user\models\User as BaseUser;
 use app\models\BuryatName;
 use app\models\BuryatWord;
@@ -35,5 +36,13 @@ class User extends BaseUser
     public function getRussianWords()
     {
         return $this->hasMany(RussianWord::className(), ['created_by' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getBuryatTranslations()
+    {
+        return $this->hasMany(BuryatTranslation::className(), ['created_by' => 'id']);
     }
 }

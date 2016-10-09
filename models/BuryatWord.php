@@ -41,6 +41,8 @@ class BuryatWord extends \yii\db\ActiveRecord
             [['name'], 'string', 'max' => 50],
             [['name'], 'unique'],
             [['created_by', 'updated_by', 'created_at', 'updated_at'], 'integer'],
+            [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['created_by' => 'id']],
+            [['updated_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['updated_by' => 'id']],
         ];
     }
 
