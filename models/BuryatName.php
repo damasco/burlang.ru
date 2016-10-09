@@ -16,6 +16,10 @@ use yii\behaviors\BlameableBehavior;
  * @property string $note
  * @property integer $male
  * @property integer $female
+ * @property integer $created_by
+ * @property integer $updated_by
+ * @property integer $created_at
+ * @property integer $updated_at
  *
  * @property User $createdBy
  * @property User $updatedBy
