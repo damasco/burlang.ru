@@ -4,6 +4,8 @@ namespace app\models;
 
 use Yii;
 use yii\behaviors\TimestampBehavior;
+use yii\behaviors\BlameableBehavior;
+use app\modules\user\models\User;
 
 /**
  * This is the model class for table "page".
@@ -16,8 +18,13 @@ use yii\behaviors\TimestampBehavior;
  * @property string $content
  * @property integer $active
  * @property integer $static
+ * @property integer $created_by
+ * @property integer $updated_by
  * @property integer $created_at
  * @property integer $updated_at
+ *
+ * @property User $createdBy
+ * @property User $updatedBy
  */
 class Page extends \yii\db\ActiveRecord
 {
@@ -35,7 +42,8 @@ class Page extends \yii\db\ActiveRecord
     public function behaviors()
     {
         return [
-            TimestampBehavior::className()
+            TimestampBehavior::className(),
+            BlameableBehavior::className(),
         ];
     }
 
@@ -47,13 +55,15 @@ class Page extends \yii\db\ActiveRecord
         return [
             [['menu_name', 'title', 'link', 'content', 'active'], 'required'],
             [['content'], 'string'],
-            [['active', 'static', 'created_at', 'updated_at'], 'integer'],
+            [['active', 'static', 'created_by', 'updated_by', 'created_at', 'updated_at'], 'integer'],
             [['menu_name', 'title', 'description'], 'string', 'max' => 255],
             [['static'], 'default', 'value' => 0],
             [['link'], 'string', 'max' => 100],
             [['link'], 'unique'],
             [['link'], 'filter', 'filter' => 'trim'],
             [['link'], 'match', 'pattern' => '/^[a-zа-я0-9-_]{1,100}$/'],
+            [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['created_by' => 'id']],
+            [['updated_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['updated_by' => 'id']],
         ];
     }
 
@@ -71,8 +81,26 @@ class Page extends \yii\db\ActiveRecord
             'content' => Yii::t('app', 'Content'),
             'active' => Yii::t('app', 'Active'),
             'static' => Yii::t('app', 'Static'),
+            'created_by' => Yii::t('app', 'Created By'),
+            'updated_by' => Yii::t('app', 'Updated By'),
             'created_at' => Yii::t('app', 'Created At'),
             'updated_at' => Yii::t('app', 'Updated At'),
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCreatedBy()
+    {
+        return $this->hasOne(User::className(), ['id' => 'created_by']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUpdatedBy()
+    {
+        return $this->hasOne(User::className(), ['id' => 'updated_by']);
     }
 }

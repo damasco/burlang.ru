@@ -58,7 +58,7 @@ class News extends \yii\db\ActiveRecord
         return [
             [['title', 'content', 'active'], 'required'],
             [['content', 'description'], 'string'],
-            [['active','created_by', 'updated_by', 'created_at', 'updated_at'], 'integer'],
+            [['active', 'created_by', 'updated_by', 'created_at', 'updated_at'], 'integer'],
             [['title', 'slug'], 'string', 'max' => 255],
             [['title'], 'unique'],
             [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['created_by' => 'id']],
