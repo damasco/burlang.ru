@@ -18,7 +18,7 @@ class PageSearch extends Page
     public function rules()
     {
         return [
-            [['id', 'active', 'static', 'created_at', 'updated_at'], 'integer'],
+            [['id', 'active', 'static'], 'integer'],
             [['menu_name', 'title', 'link', 'description', 'content'], 'safe'],
         ];
     }
@@ -62,8 +62,6 @@ class PageSearch extends Page
             'id' => $this->id,
             'active' => $this->active,
             'static' => $this->static,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
         ]);
 
         $query->andFilterWhere(['like', 'menu_name', $this->menu_name])
