@@ -14,7 +14,7 @@ class DictionaryCest extends FunctionalCest
      */
     public function indexPageAsAdmin(FunctionalTester $I)
     {
-        $I->wantTo('ensure that dictionary create page works for admin');
+        $I->wantTo('ensure that dictionary index page works for admin');
 
         DictionaryPage::openBy($I);
         $I->seeInTitle('Dictionaries');
@@ -26,10 +26,10 @@ class DictionaryCest extends FunctionalCest
      */
     public function indexPageAsModerator(FunctionalTester $I)
     {
-        $I->wantTo('ensure that dictionary create page works for moderator');
+        $I->wantTo('ensure that dictionary index page not works for moderator');
 
         DictionaryPage::openBy($I);
-        $I->seeInTitle('Dictionaries');
+        $I->seeInTitle('Forbidden');
     }
 
     /**
