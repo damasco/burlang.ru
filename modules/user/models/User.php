@@ -3,6 +3,7 @@
 namespace app\modules\user\models;
 
 use app\models\Book;
+use app\models\BookChapter;
 use app\models\BuryatTranslation;
 use app\models\Dictionary;
 use app\models\News;
@@ -32,6 +33,8 @@ use app\models\RussianWord;
  * @property Page[] $pagesUpdated
  * @property Book[] $books
  * @property Book[] $booksUpdated
+ * @property BookChapter[] $bookChapters
+ * @property BookChapter[] $bookChaptersUpdated
  */
 class User extends BaseUser
 {
@@ -177,5 +180,21 @@ class User extends BaseUser
     public function getBooksUpdated()
     {
         return $this->hasMany(Book::className(), ['created_by' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getBookChapters()
+    {
+        return $this->hasMany(BookChapter::className(), ['created_by' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getBookChaptersUpdated()
+    {
+        return $this->hasMany(BookChapter::className(), ['created_by' => 'id']);
     }
 }
