@@ -4,6 +4,7 @@ namespace app\modules\user\models;
 
 use app\models\BuryatTranslation;
 use app\models\Dictionary;
+use app\models\News;
 use app\models\RussianTranslation;
 use dektrium\user\models\User as BaseUser;
 use app\models\BuryatName;
@@ -23,6 +24,8 @@ use app\models\RussianWord;
  * @property RussianTranslation[] $russianTranslationsUpdated
  * @property Dictionary[] $dictionaries
  * @property Dictionary[] $dictionariesUpdated
+ * @property News[] $news
+ * @property News[] $newsUpdated
  */
 class User extends BaseUser
 {
@@ -120,5 +123,21 @@ class User extends BaseUser
     public function getDictionariesUpdated()
     {
         return $this->hasMany(Dictionary::className(), ['created_by' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getNews()
+    {
+        return $this->hasMany(News::className(), ['created_by' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getNewsUpdated()
+    {
+        return $this->hasMany(News::className(), ['created_by' => 'id']);
     }
 }
