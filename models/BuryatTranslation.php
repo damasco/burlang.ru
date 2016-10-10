@@ -19,10 +19,10 @@ use yii\behaviors\BlameableBehavior;
  * @property integer $created_at
  * @property integer $updated_at
  *
- * @property User $createdBy
- * @property User $updatedBy
  * @property BuryatWord $buraytWord
  * @property Dictionary $dictionary
+ * @property User $createdBy
+ * @property User $updatedBy
  */
 class BuryatTranslation extends \yii\db\ActiveRecord
 {

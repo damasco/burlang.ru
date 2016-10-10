@@ -17,9 +17,9 @@ use app\modules\user\models\User;
  * @property integer $created_at
  * @property integer $updated_at
  *
+ * @property BuryatTranslation[] $translations
  * @property User $createdBy
  * @property User $updatedBy
- * @property BuryatTranslation[] $translations
  */
 class BuryatWord extends \yii\db\ActiveRecord
 {

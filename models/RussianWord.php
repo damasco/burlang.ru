@@ -17,9 +17,9 @@ use app\modules\user\models\User;
  * @property integer $created_at
  * @property integer $updated_at
  *
+ * @property RussianTranslation[] $translations
  * @property User $createdBy
  * @property User $updatedBy
- * @property RussianTranslation[] $translations
  */
 class RussianWord extends \yii\db\ActiveRecord
 {

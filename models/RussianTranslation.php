@@ -18,9 +18,9 @@ use yii\behaviors\BlameableBehavior;
  * @property integer $created_at
  * @property integer $updated_at
  *
+ * @property RussianWord $russianWord
  * @property User $createdBy
  * @property User $updatedBy
- * @property RussianWord $russianWord
  */
 class RussianTranslation extends \yii\db\ActiveRecord
 {
