@@ -14,9 +14,10 @@ use yii\bootstrap\Html;
 /**
  * @var \yii\web\View $this
  * @var \dektrium\user\models\Profile $profile
+ * @var \app\modules\user\models\User $user
  */
 
-$this->title = empty($profile->name) ? Html::encode($profile->user->username) : Html::encode($profile->name);
+$this->title = empty($profile->name) ? Html::encode($user->username) : Html::encode($profile->name);
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="row">
@@ -24,12 +25,12 @@ $this->params['breadcrumbs'][] = $this->title;
         <p>
             <?= Html::img($profile->getAvatarUrl(230), [
                 'class' => 'img-rounded img-responsive',
-                'alt' => $profile->user->username,
+                'alt' => $user->username,
             ]) ?>
         </p>
     </div>
     <div class="col-sm-9">
-        <?php if (Yii::$app->user->identity->id == $profile->user->id): ?>
+        <?php if (Yii::$app->user->identity->id == $user->id): ?>
             <?= Html::a(
                 Html::icon('cog') . ' ' . Yii::t('user', 'Profile settings'),
                 ['/user/settings/profile'],
@@ -54,7 +55,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </li>
             <?php endif; ?>
             <li>
-                <i class="glyphicon glyphicon-time text-muted"></i> <?= Yii::t('user', 'Joined on {0, date}', $profile->user->created_at) ?>
+                <i class="glyphicon glyphicon-time text-muted"></i> <?= Yii::t('user', 'Joined on {0, date}', $user->created_at) ?>
             </li>
         </ul>
         <?php if (!empty($profile->bio)): ?>
@@ -65,9 +66,15 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="panel-heading"><?= Yii::t('app', 'Statistics') ?></div>
             <div class="panel-body">
                 <ul>
-                    <li><?= Yii::t('app', 'Names') ?>: <?= $profile->user->getBuryatNames()->count() ?></li>
-                    <li><?= Yii::t('app', 'Buryat words') ?>: <?= $profile->user->getBuryatWords()->count() ?></li>
-                    <li><?= Yii::t('app', 'Russian words') ?>: <?= $profile->user->getRussianWords()->count() ?></li>
+                    <li><?= Yii::t('app', 'Names') ?>: <?= $user->getBuryatNames()->count() ?></li>
+                    <li>
+                        <?= Yii::t('app', 'Buryat words') ?>: <?= $user->getBuryatWords()->count() ?>,
+                        <?= Yii::t('app', 'Translations') ?>: <?= $user->getBuryatTranslations()->count() ?>
+                    </li>
+                    <li>
+                        <?= Yii::t('app', 'Russian words') ?>: <?= $user->getRussianWords()->count() ?>,
+                        <?= Yii::t('app', 'Translations') ?>: <?= $user->getRussianTranslations()->count() ?>
+                    </li>
                 </ul>
             </div>
         </div>

@@ -81,6 +81,7 @@ class ProfileController extends Controller
 
         return $this->render('show', [
             'profile' => $profile,
+            'user' => $profile->user,
         ]);
     }
 }
