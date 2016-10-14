@@ -5,18 +5,21 @@ namespace test\codeception\unit\models;
 use app\models\Book;
 use Codeception\Specify;
 use yii\codeception\DbTestCase;
+use app\modules\user\models\User;
 
 class BookTest extends DbTestCase
 {
     use Specify;
     
-    protected function setUp() {
+    protected function setUp() 
+    {
         parent::setUp();
         Book::deleteAll([
             'or', 
             ['title' => 'Unique title'],
             ['title' => 'Test book'],
         ]);
+        \Yii::$app->user->login(new User(['id' => 1]));
     }
 
     public function testRules()

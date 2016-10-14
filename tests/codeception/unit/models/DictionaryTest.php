@@ -5,10 +5,17 @@ namespace test\codeception\unit\models;
 use app\models\Dictionary;
 use Codeception\Specify;
 use yii\codeception\DbTestCase;
+use app\modules\user\models\User;
 
 class DictionaryTest extends DbTestCase
 {
     use Specify;
+
+    protected function setUp()
+    {
+        parent::setUp();
+        \Yii::$app->user->login(new User(['id' => 1]));
+    }
 
     public function testRules()
     {

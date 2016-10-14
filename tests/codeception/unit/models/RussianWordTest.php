@@ -5,6 +5,7 @@ namespace test\codeception\unit\models;
 use app\models\RussianWord;
 use Codeception\Specify;
 use yii\codeception\DbTestCase;
+use app\modules\user\models\User;
 
 class RussianWordTest extends DbTestCase
 {
@@ -16,6 +17,7 @@ class RussianWordTest extends DbTestCase
             'or', 
             ['name' => 'UniqueWord']
         ]);
+        \Yii::$app->user->login(new User(['id' => 1]));
     }
 
     public function testRules()

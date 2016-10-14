@@ -5,6 +5,7 @@ namespace test\codeception\unit\models;
 use app\models\Page;
 use Codeception\Specify;
 use yii\codeception\DbTestCase;
+use app\modules\user\models\User;
 
 class PageTest extends DbTestCase
 {
@@ -17,6 +18,7 @@ class PageTest extends DbTestCase
             ['link' => 'unique-page-name'],
             ['link' => 'page-name']
         ]);
+        \Yii::$app->user->login(new User(['id' => 1]));
     }
 
     public function testRules()

@@ -6,10 +6,17 @@ use app\api\v1\models\RussianWord;
 use app\models\RussianTranslation;
 use Codeception\Specify;
 use yii\codeception\DbTestCase;
+use app\modules\user\models\User;
 
 class RussianTranslationTest extends DbTestCase
 {
     use Specify;
+
+    protected function setUp()
+    {
+        parent::setUp();
+        \Yii::$app->user->login(new User(['id' => 1]));
+    }
 
     public function testRules()
     {

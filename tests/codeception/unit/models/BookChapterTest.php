@@ -6,12 +6,14 @@ use app\models\Book;
 use app\models\BookChapter;
 use Codeception\Specify;
 use yii\codeception\DbTestCase;
+use app\modules\user\models\User;
 
 class BookChapterTest extends DbTestCase
 {
     use Specify;
     
-    protected function setUp() {
+    protected function setUp() 
+    {
         parent::setUp();
         Book::deleteAll([
             'or', 
@@ -24,6 +26,7 @@ class BookChapterTest extends DbTestCase
             ['title' => 'Test chapter'],
             ['title' => 'Unique chapter']
         ]);
+        \Yii::$app->user->login(new User(['id' => 1]));
     }
 
     public function testRules()

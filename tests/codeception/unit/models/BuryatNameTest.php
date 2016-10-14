@@ -5,17 +5,20 @@ namespace test\codeception\unit\models;
 use app\models\BuryatName;
 use Codeception\Specify;
 use yii\codeception\DbTestCase;
+use app\modules\user\models\User;
 
 class BuryatNameTest extends DbTestCase
 {
     use Specify;
     
-    protected function setUp() {
+    protected function setUp() 
+    {
         parent::setUp();
         BuryatName::deleteAll([
             'or', 
             ['name' => 'Unique name']
         ]);
+        \Yii::$app->user->login(new User(['id' => 1]));
     }
 
     public function testRules()
