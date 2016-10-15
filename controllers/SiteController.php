@@ -3,7 +3,6 @@
 namespace app\controllers;
 
 use app\components\SearchDataCreator;
-use app\components\SearchDataManager;
 use app\models\SearchData;
 use Yii;
 use app\filters\AjaxFilter;
