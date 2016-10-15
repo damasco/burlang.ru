@@ -2,6 +2,9 @@
 
 namespace app\controllers;
 
+use app\components\SearchDataCreator;
+use app\components\SearchDataManager;
+use app\models\SearchData;
 use Yii;
 use app\filters\AjaxFilter;
 use app\models\BuryatWord;
@@ -97,6 +100,11 @@ class SiteController extends Controller
         }
 
         $word = RussianWord::findOne(['name' => $russian_word]);
+
+        if (!$word) {
+            (new SearchDataCreator($russian_word, SearchData::RUSSIAN_WORD_TYPE))->execute();
+        }
+
         if (Yii::$app->request->isAjax) {
             return $this->renderAjax('_translation', [
                 'word' => $word
@@ -119,6 +127,11 @@ class SiteController extends Controller
         }
 
         $word = BuryatWord::findOne(['name' => $buryat_word]);
+
+        if (!$word) {
+            (new SearchDataCreator($buryat_word, SearchData::BURYAT_WORD_TYPE))->execute();
+        }
+
         if (Yii::$app->request->isAjax) {
             return $this->renderAjax('_translation', [
                 'word' => $word
