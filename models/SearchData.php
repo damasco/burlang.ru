@@ -3,7 +3,7 @@
 namespace app\models;
 
 use Yii;
-use yii\behaviors\TimestampBehavior;
+use yii\base\Model;
 
 /**
  * This is the model class for table "search_data".
@@ -14,7 +14,7 @@ use yii\behaviors\TimestampBehavior;
  * @property integer $created_at
  * @property integer $updated_at
  */
-class SearchData extends \yii\db\ActiveRecord
+class SearchData extends Model
 {
     const BURYAT_WORD_TYPE = 0;
     const RUSSIAN_WORD_TYPE = 1;
@@ -50,13 +50,6 @@ class SearchData extends \yii\db\ActiveRecord
             'type' => 'Type',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
-        ];
-    }
-
-    public function behaviors()
-    {
-        return [
-            TimestampBehavior::className(),
         ];
     }
 }
