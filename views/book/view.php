@@ -1,7 +1,6 @@
 <?php
 
 use yii\bootstrap\Html;
-use app\widgets\ChapterMenuWidget;
 use yii\helpers\HtmlPurifier;
 use yii\helpers\Markdown;
 
@@ -13,8 +12,8 @@ use yii\helpers\Markdown;
 $this->title = $model->title;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Books'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
-?>
 
+?>
 <div class="book-view">
 
     <h1 class="hidden-xs"><?= Html::encode($this->title) ?></h1>
@@ -23,7 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div class="row">
         <div class="col-sm-3">
-            <?= ChapterMenuWidget::widget(['book' => $model]) ?>
+            <?= \app\widgets\ChaptersMenu::widget(['book' => $model]) ?>
         </div>
         <div class="col-sm-9 col-xs-12">
             <div class="image-responsive-container">

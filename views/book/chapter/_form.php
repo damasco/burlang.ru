@@ -3,7 +3,6 @@
 use yii\bootstrap\Html;
 use yii\widgets\ActiveForm;
 use app\widgets\ChartsInputWidget;
-use app\assets\MarkdownEditorAsset;
 
 /**
  * @var yii\web\View $this
@@ -11,9 +10,9 @@ use app\assets\MarkdownEditorAsset;
  * @var yii\widgets\ActiveForm $form
  */
 
-MarkdownEditorAsset::register($this);
-?>
+\app\assets\MarkdownEditorAsset::register($this);
 
+?>
 <div class="book-form">
 
     <?php $form = ActiveForm::begin(); ?>

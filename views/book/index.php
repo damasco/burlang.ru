@@ -10,8 +10,8 @@ use yii\widgets\ListView;
 
 $this->title = Yii::t('app', 'Books');
 $this->params['breadcrumbs'][] = $this->title;
-?>
 
+?>
 <div class="book-index">
 
     <h1 class="hidden-xs"><?= Html::encode($this->title) ?></h1>

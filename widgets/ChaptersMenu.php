@@ -5,7 +5,7 @@ namespace app\widgets;
 use yii\base\Widget;
 use app\models\Book;
 
-class ChapterMenuWidget extends Widget
+class ChaptersMenu extends Widget
 {
     /** @var Book */
     public $book;

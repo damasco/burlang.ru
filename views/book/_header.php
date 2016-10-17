@@ -6,8 +6,8 @@ use yii\bootstrap\Html;
  * @var \yii\web\View $this
  * @var \app\models\Book $model
  */
-?>
 
+?>
 <?php if (!$model->active): ?>
     <p>
         <span class="label label-default"><?= Yii::t('app', 'Inactive') ?></span>

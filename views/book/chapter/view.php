@@ -3,7 +3,6 @@
 use yii\bootstrap\Html;
 use yii\helpers\Markdown;
 use yii\helpers\HtmlPurifier;
-use app\widgets\ChapterMenuWidget;
 
 /**
  * @var yii\web\View $this
@@ -14,8 +13,8 @@ $this->title = $model->title;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Books'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->book->title, 'url' => ['view', 'slug' => $model->book->slug]];
 $this->params['breadcrumbs'][] = $this->title;
-?>
 
+?>
 <div class="book-view">
 
     <h1 class="hidden-xs">
@@ -26,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div class="row">
         <div class="col-sm-3 hidden-xs">
-            <?= ChapterMenuWidget::widget(['book' => $model->book, 'active_id' => $model->id]) ?>
+            <?= \app\widgets\ChaptersMenu::widget(['book' => $model->book, 'active_id' => $model->id]) ?>
         </div>
         <div class="col-sm-9 col-xs-12">
             <?php if (Yii::$app->user->can('adminBook')): ?>
