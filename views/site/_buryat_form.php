@@ -5,6 +5,7 @@ use yii\widgets\ActiveForm;
 use yii\helpers\Url;
 use yii\web\JsExpression;
 use yii\bootstrap\Html;
+
 ?>
 
 <?php $form = ActiveForm::begin([
@@ -41,7 +42,7 @@ use yii\bootstrap\Html;
             <button type="button" class="btn btn-default add-input-letter">һ</button>
             <button type="button" class="btn btn-default add-input-letter">ө</button>
             <button type="submit" class="btn btn-custom">
-                <?= Yii::$app->devicedetect->isMobile() ? Html::icon('send') : Yii::t('app', 'Translate') ?>
+                <?= Yii::$app->get('devicedetect')->isMobile() ? Html::icon('send') : Yii::t('app', 'Translate') ?>
             </button>
         </span>
     </div>

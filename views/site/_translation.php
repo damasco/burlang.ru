@@ -3,6 +3,7 @@
 /**
  * @var \app\models\BuryatWord|\app\models\RussianWord|null $word
  */
+
 ?>
 
 <?php if ($word instanceof \yii\db\ActiveRecord && $word->getTranslations()->exists()): ?>

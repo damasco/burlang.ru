@@ -3,17 +3,17 @@
 namespace app\widgets;
 
 use Yii;
-use app\models\News;
+use app\models\News as Model;
 use yii\base\Widget;
 
-class NewsWidget extends Widget
+class News extends Widget
 {
     /**
      * @inheritdoc
      */
     public function run()
     {
-        $query = News::find();
+        $query = Model::find();
 
         if (!Yii::$app->user->can('adminNews')) {
             $query->where(['active' => 1]);

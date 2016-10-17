@@ -3,6 +3,7 @@
 /**
  * @var \app\models\BuryatWord|\app\models\RussianWord|boolean|null $word
  */
+
 ?>
 
 <?php if ($word !== ''): ?>
