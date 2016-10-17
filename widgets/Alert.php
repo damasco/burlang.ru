@@ -24,7 +24,7 @@ use yii\bootstrap\Widget;
  * @author Kartik Visweswaran <kartikv2@gmail.com>
  * @author Alexander Makarov <sam@rmcreative.ru>
  */
-class AlertWidget extends Widget
+class Alert extends Widget
 {
     /**
      * @var array the alert types configuration for the flash messages.

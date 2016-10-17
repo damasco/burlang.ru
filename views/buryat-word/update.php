@@ -1,7 +1,6 @@
 <?php
 
 use yii\bootstrap\Html;
-use app\widgets\AlertWidget;
 
 /**
  * @var yii\web\View $this
@@ -19,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1 class="hidden-xs"><?= Html::encode($this->title) ?></h1>
 
-    <?= AlertWidget::widget() ?>
+    <?= \app\widgets\Alert::widget() ?>
 
     <?= $this->render('_form', [
         'model' => $model,
