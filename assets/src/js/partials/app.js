@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $('#russian-form').on('submit', function (e) {
+    $('#russian-form').on('beforeSubmit', function (e) {
         e.preventDefault();
         $.ajax({
             url: '/site/russian-translate',
@@ -7,9 +7,10 @@ $(document).ready(function () {
         }).done(function (response) {
             $('#russian-translation').html(response);
         });
+        return false;
     });
 
-    $('#buryat-form').on('submit', function (e) {
+    $('#buryat-form').on('beforeSubmit', function (e) {
         e.preventDefault();
         $.ajax({
             url: '/site/buryat-translate',
@@ -17,6 +18,7 @@ $(document).ready(function () {
         }).done(function (response) {
             $('#buryat-translation').html(response);
         });
+        return false;
     });
 
     $('button.add-input-letter').on('click', function () {
