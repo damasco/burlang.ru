@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use yii\filters\ContentNegotiator;
 use app\components\SearchDataCreator;
 use app\models\SearchData;
 use Yii;
@@ -34,7 +35,14 @@ class SiteController extends Controller
     public function behaviors()
     {
         return [
-            [
+            'contentNegotiator' => [
+                'class' => ContentNegotiator::className(),
+                'only' => ['get-russian-words', 'get-buryat-words'],
+                'formats' => [
+                    'application/json' => Response::FORMAT_JSON,
+                ],
+            ],
+            'ajaxFilter' => [
                 'class' => AjaxFilter::className(),
                 'only' => [
                     'get-russian-words',
@@ -60,8 +68,6 @@ class SiteController extends Controller
      */
     public function actionGetRussianWords($term)
     {
-        Yii::$app->response->format = Response::FORMAT_JSON;
-
         return (new RussianWordManager())->getWordsWithFilter($term);
     }
 
@@ -72,8 +78,6 @@ class SiteController extends Controller
      */
     public function actionGetBuryatWords($term)
     {
-        Yii::$app->response->format = Response::FORMAT_JSON;
-
         return (new BuryatWordManager())->getWordsWithFilter($term);
     }
 
