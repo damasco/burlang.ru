@@ -62,7 +62,7 @@ class SiteController extends Controller
     {
         Yii::$app->response->format = Response::FORMAT_JSON;
 
-        return (new RussianWordManager())->getWordWithFilter($term);
+        return (new RussianWordManager())->getWordsWithFilter($term);
     }
 
     /**
@@ -74,7 +74,7 @@ class SiteController extends Controller
     {
         Yii::$app->response->format = Response::FORMAT_JSON;
 
-        return (new BuryatWordManager())->getWordWithFilter($term);
+        return (new BuryatWordManager())->getWordsWithFilter($term);
     }
 
     /**

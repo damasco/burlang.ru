@@ -10,7 +10,7 @@ class BuryatWordManager
      * @param string $str
      * @return array
      */
-    public function getWordWithFilter($str)
+    public function getWordsWithFilter($str)
     {
         return (new Query())
             ->select(['name as value'])
