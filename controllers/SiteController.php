@@ -11,6 +11,8 @@ use app\models\RussianWord;
 use yii\web\Controller;
 use app\helpers\StringHelper;
 use yii\web\Response;
+use app\components\BuryatWordManager;
+use app\components\RussianWordManager;
 
 class SiteController extends Controller
 {
@@ -60,13 +62,7 @@ class SiteController extends Controller
     {
         Yii::$app->response->format = Response::FORMAT_JSON;
 
-        return RussianWord::find()
-            ->select(['name as value'])
-            ->filterWhere(['like', 'name', $term . '%', false])
-            ->orderBy('name')
-            ->limit(10)
-            ->asArray()
-            ->all();
+        return (new RussianWordManager())->getWordWithFilter($term);
     }
 
     /**
@@ -78,13 +74,7 @@ class SiteController extends Controller
     {
         Yii::$app->response->format = Response::FORMAT_JSON;
 
-        return  BuryatWord::find()
-            ->select(['name as value'])
-            ->filterWhere(['like', 'name', $term . '%', false])
-            ->orderBy('name')
-            ->limit(10)
-            ->asArray()
-            ->all();
+        return (new BuryatWordManager())->getWordWithFilter($term);
     }
 
     /**
