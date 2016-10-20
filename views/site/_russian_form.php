@@ -20,17 +20,16 @@ use yii\bootstrap\Html;
         <div class="input-group">
             <?= AutoComplete::widget([
                 'name' => 'russian_word',
-                'value' => Yii::$app->request->get('russian_word'),
                 'options' => [
                     'class' => 'form-control',
                     'placeholder' => Yii::t('app', 'Enter the word'),
                     'required' => true
                 ],
                 'clientOptions' => [
-                    'source' => Url::to(['/site/get-russian-words']),
+                    'source' => Url::to(["/site/get-russian-words"]),
                     'select' => new JsExpression("function (event, ui) {
                         $.ajax({
-                            url: " . Url::to(['/site/russian-translate']) . ",
+                            url: '/site/russian-translate',
                             data: { russian_word: ui.item.value }
                         }).done(function(response) {
                             $('#russian-translation').html(response);
