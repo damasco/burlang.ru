@@ -32,7 +32,12 @@ class SiteController extends Controller
         return [
             'ajaxFilter' => [
                 'class' => AjaxFilter::className(),
-                'except' => ['index']
+                'only' => [
+                    'get-russian-words',
+                    'get-buryat-words',
+                    'russain-translate',
+                    'buryat-translate',
+                ]
             ],
             'contentNegotiator' => [
                 'class' => ContentNegotiator::className(),

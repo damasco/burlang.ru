@@ -11,8 +11,7 @@ use yii\bootstrap\Html;
     <h4><?= Yii::t('app', 'Russian-Buryat dictionary') ?></h4>
     <hr>
     <?php $form = ActiveForm::begin([
-        'action' => Url::to(['/site/russian-translate']),
-        'method' => 'get',
+        'action' => '#',
         'options' => [
             'id' => 'russian-form',
         ]
@@ -28,15 +27,15 @@ use yii\bootstrap\Html;
                     'required' => true
                 ],
                 'clientOptions' => [
-                    'source' => '/site/get-russian-words',
+                    'source' => Url::to(['/site/get-russian-words']),
                     'select' => new JsExpression("function (event, ui) {
-                    $.ajax({
-                        url: '/site/russian-translate',
-                        data: { russian_word: ui.item.value }
-                    }).done(function(response) {
-                        $('#russian-translation').html(response);
-                    });
-                }")
+                        $.ajax({
+                            url: " . Url::to(['/site/russian-translate']) . ",
+                            data: { russian_word: ui.item.value }
+                        }).done(function(response) {
+                            $('#russian-translation').html(response);
+                        });
+                    }")
                 ]
             ]) ?>
             <span class="input-group-btn">
