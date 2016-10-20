@@ -29,7 +29,7 @@ class DictionaryCest extends AcceptanceCest
         $I->wantTo('ensure that dictionary create page works for moderator');
 
         DictionaryPage::openBy($I);
-        $I->seeInTitle('Dictionaries');
+        $I->seeInTitle('Forbidden');
     }
 
     /**
