@@ -3,14 +3,9 @@
 namespace app\controllers;
 
 use yii\filters\ContentNegotiator;
-use app\components\SearchDataCreator;
-use app\models\SearchData;
 use Yii;
 use app\filters\AjaxFilter;
-use app\models\BuryatWord;
-use app\models\RussianWord;
 use yii\web\Controller;
-use app\helpers\StringHelper;
 use yii\web\Response;
 use app\components\BuryatWordManager;
 use app\components\RussianWordManager;
@@ -35,19 +30,16 @@ class SiteController extends Controller
     public function behaviors()
     {
         return [
+            'ajaxFilter' => [
+                'class' => AjaxFilter::className(),
+                'except' => ['index']
+            ],
             'contentNegotiator' => [
                 'class' => ContentNegotiator::className(),
                 'only' => ['get-russian-words', 'get-buryat-words'],
                 'formats' => [
                     'application/json' => Response::FORMAT_JSON,
                 ],
-            ],
-            'ajaxFilter' => [
-                'class' => AjaxFilter::className(),
-                'only' => [
-                    'get-russian-words',
-                    'get-buryat-words'
-                ]
             ]
         ];
     }
@@ -88,23 +80,10 @@ class SiteController extends Controller
      */
     public function actionRussianTranslate($russian_word)
     {
-        if (!StringHelper::isWord($russian_word)) {
-            return $this->onlyWord('russian_word');
-        }
+        $translations = (new RussianWordManager())->getTranslations($russian_word);
 
-        $word = RussianWord::findOne(['name' => $russian_word]);
-
-        if (!$word) {
-            (new SearchDataCreator($russian_word, SearchData::RUSSIAN_WORD_TYPE))->execute();
-        }
-
-        if (Yii::$app->request->isAjax) {
-            return $this->renderAjax('_translation', [
-                'word' => $word
-            ]);
-        }
-        return $this->render('index', [
-            'russian_word' => $word
+        return $this->renderAjax('_translation', [
+            'translations' => $translations
         ]);
     }
 
@@ -115,38 +94,10 @@ class SiteController extends Controller
      */
     public function actionBuryatTranslate($buryat_word)
     {
-        if (!StringHelper::isWord($buryat_word)) {
-            return $this->onlyWord('buryat_word');
-        }
+        $translations = (new BuryatWordManager())->getTranslations($buryat_word);
 
-        $word = BuryatWord::findOne(['name' => $buryat_word]);
-
-        if (!$word) {
-            (new SearchDataCreator($buryat_word, SearchData::BURYAT_WORD_TYPE))->execute();
-        }
-
-        if (Yii::$app->request->isAjax) {
-            return $this->renderAjax('_translation', [
-                'word' => $word
-            ]);
-        }
-        return $this->render('index', [
-            'buryat_word' => $word
-        ]);
-    }
-
-    /**
-     * Return alert
-     * @param string $param
-     * @return mixed
-     */
-    protected function onlyWord($param)
-    {
-        if (Yii::$app->request->isAjax) {
-            return $this->renderAjax('_only_word');
-        }
-        return $this->render('index', [
-            $param => false
+        return $this->renderAjax('_translation', [
+            'translations' => $translations
         ]);
     }
 }

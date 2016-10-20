@@ -1,23 +1,23 @@
 <?php
 
 /**
- * @var \app\models\BuryatWord|\app\models\RussianWord|null $word
+ * @var array|boolean|null $translations
  */
 
 ?>
 
-<?php if ($word instanceof \yii\db\ActiveRecord && $word->getTranslations()->exists()): ?>
-
+<?php if (is_array($translations) && !empty($translations)): ?>
     <div class="alert alert-success">
-
         <ul class="translate-list">
-            <?php foreach ($word->translations as $item): ?>
-                <li><?= $item->name ?></li>
+            <?php foreach ($translations as $translation): ?>
+                <li><?= $translation['name'] ?></li>
             <?php endforeach; ?>
         </ul>
-
     </div>
-
+<?php elseif ($translations === false): ?>
+    <div class="alert alert-info">
+        <?= Yii::t('app', 'You can translate only one word') ?>
+    </div>
 <?php else: ?>
     <div class="alert alert-danger">
         <?= Yii::t('app', 'No translation') ?>
