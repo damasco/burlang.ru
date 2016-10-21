@@ -107,10 +107,12 @@ return [
     'Name deleted' => 'Имя удалено',
 
     // buryat words
+    'Buryat word' => 'Бурятское слово',
     'Buryat words' => 'Бурятские слова',
     'Bur. words' => 'Бур. слова',
 
     // russian words
+    'Russian word' => 'Русское слово',
     'Russian words' => 'Русские слова',
     'Ru. words' => 'Рус. слова',
 
@@ -151,4 +153,6 @@ return [
     'Amount' => 'Количество',
     'Amount of words' => 'Количество слов',
     'Amount of translations' => 'Количество переводов',
+    'Type' => 'Тип',
+    'Data' => 'Данные',
 ];

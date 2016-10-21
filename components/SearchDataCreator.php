@@ -2,6 +2,8 @@
 
 namespace app\components;
 
+use app\models\SearchData;
+
 class SearchDataCreator
 {
     protected $word;
@@ -23,12 +25,8 @@ class SearchDataCreator
      */
     public function execute()
     {
-        \Yii::$app->db->createCommand()->insert('{{%search_data}}', [
-            'name' => $this->word,
-            'type' => $this->type,
-            'created_at' => time(),
-            'updated_at' => time()
-        ])->execute();
+        $model = new SearchData(['name' => $this->word, 'type' => $this->type]);
+        $model->save();
     }
 
 }

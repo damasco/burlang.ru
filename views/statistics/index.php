@@ -9,11 +9,13 @@
 
 $this->title = Yii::t('app', 'Statistics');
 $this->params['breadcrumbs'][] = $this->title;
-?>
 
+?>
 <div class="statistics-index">
 
     <h1 class="hidden-xs"><?= $this->title ?></h1>
+
+    <?= $this->render('_menu') ?>
 
     <div class="row">
         <div class="col-sm-6">
