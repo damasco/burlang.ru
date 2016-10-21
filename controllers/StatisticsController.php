@@ -56,6 +56,9 @@ class StatisticsController extends Controller
         ]);
     }
 
+    /**
+     * @return mixed
+     */
     public function actionSearch()
     {
         $dataProvider = new ActiveDataProvider([
