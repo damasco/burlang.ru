@@ -2,7 +2,6 @@
 
 use yii\bootstrap\Html;
 use yii\widgets\ActiveForm;
-use app\widgets\ChartsTextareaWidget;
 use app\assets\MarkdownEditorAsset;
 
 /**
@@ -12,8 +11,8 @@ use app\assets\MarkdownEditorAsset;
  */
 
 MarkdownEditorAsset::register($this);
-?>
 
+?>
 <div class="news-form">
 
     <?php $form = ActiveForm::begin(); ?>
@@ -26,7 +25,9 @@ MarkdownEditorAsset::register($this);
         \app\widgets\InputCharts::className(), ['options' => ['maxlength' => true]]
     ) ?>
 
-    <?= $form->field($model, 'description')->widget(ChartsTextareaWidget::className(), ['options' => ['rows' => 5]]) ?>
+    <?= $form->field($model, 'description')->widget(
+        \app\widgets\TextareaCharts::className(), ['options' => ['rows' => 5]]
+    ) ?>
     
     <?= $form->field($model, 'content')->textarea(['id' => 'markdown-editor']) ?>
 

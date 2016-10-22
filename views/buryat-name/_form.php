@@ -3,7 +3,6 @@
 use yii\bootstrap\Html;
 use yii\widgets\ActiveForm;
 use app\widgets\InputCharts;
-use app\widgets\ChartsTextareaWidget;
 
 /**
  * @var yii\web\View $this
@@ -20,7 +19,7 @@ use app\widgets\ChartsTextareaWidget;
 
     <?= $form->field($model, 'description')->widget(InputCharts::className(), ['options' => ['maxlength' => true]]) ?>
 
-    <?= $form->field($model, 'note')->widget(ChartsTextareaWidget::className(), ['options' => ['rows' => 5]]) ?>
+    <?= $form->field($model, 'note')->widget(\app\widgets\TextareaCharts::className(), ['options' => ['rows' => 5]]) ?>
 
     <?= $form->field($model, 'male')->checkbox() ?>
 

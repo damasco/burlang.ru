@@ -6,7 +6,7 @@ use yii\helpers\Inflector;
 use yii\widgets\InputWidget;
 use yii\helpers\Html;
 
-class ChartsTextareaWidget extends InputWidget
+class TextareaCharts extends InputWidget
 {
     /** @var string */
     protected $selector;
@@ -41,7 +41,7 @@ class ChartsTextareaWidget extends InputWidget
             $textarea = Html::textArea($this->name, $this->value, $this->options);
         }
 
-        return $this->render('charts-textarea', [
+        return $this->render('textarea-charts', [
             'textarea' => $textarea,
             'selector' => $this->selector,
         ]);

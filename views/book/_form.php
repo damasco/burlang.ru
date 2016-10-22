@@ -2,7 +2,6 @@
 
 use yii\bootstrap\Html;
 use yii\widgets\ActiveForm;
-use app\widgets\ChartsTextareaWidget;
 
 /**
  * @var yii\web\View $this
@@ -26,7 +25,7 @@ use app\widgets\ChartsTextareaWidget;
     ) ?>
 
     <?= $form->field($model, 'description')->widget(
-        ChartsTextareaWidget::className(), ['options' => ['rows' => 5]]
+        \app\widgets\TextareaCharts::className(), ['options' => ['rows' => 5]]
     ) ?>
 
     <?= $form->field($model, 'content')->textarea(['id' => 'markdown-editor']) ?>
