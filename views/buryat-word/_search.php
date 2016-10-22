@@ -2,7 +2,6 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use app\widgets\ChartsInputWidget;
 
 /**
  * @var yii\web\View $this
@@ -22,7 +21,7 @@ use app\widgets\ChartsInputWidget;
                 'method' => 'get',
             ]); ?>
 
-            <?= $form->field($model, 'name')->widget(ChartsInputWidget::className()) ?>
+            <?= $form->field($model, 'name')->widget(\app\widgets\InputCharts::className()) ?>
 
             <?= Html::submitButton(Yii::t('app', 'Find'), ['class' => 'btn btn-primary']) ?>
             <?= Html::resetButton(Yii::t('app', 'Reset'), ['class' => 'btn btn-default']) ?>

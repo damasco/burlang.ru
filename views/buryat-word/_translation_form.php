@@ -5,7 +5,6 @@ use yii\helpers\ArrayHelper;
 use yii\bootstrap\Html;
 use yii\grid\GridView;
 use yii\data\ActiveDataProvider;
-use app\widgets\ChartsInputWidget;
 
 /**
  * @var mixed $translationForm
@@ -69,7 +68,7 @@ use app\widgets\ChartsInputWidget;
 
         <div class="row">
             <div class="col-sm-6">
-                <?= $form->field($translationForm, 'name')->widget(ChartsInputWidget::className()) ?>
+                <?= $form->field($translationForm, 'name')->widget(\app\widgets\InputCharts::className()) ?>
             </div>
             <div class="col-sm-6">
                 <?= $form->field($translationForm, 'dict_id')->dropDownList(

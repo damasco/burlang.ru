@@ -4,7 +4,6 @@ use yii\widgets\ActiveForm;
 use yii\bootstrap\Html;
 use yii\grid\GridView;
 use yii\data\ActiveDataProvider;
-use app\widgets\ChartsInputWidget;
 
 /**
  * @var mixed $translationForm
@@ -61,7 +60,7 @@ use app\widgets\ChartsInputWidget;
         <?php $form = ActiveForm::begin() ?>
 
         <?= $form->field($translationForm, 'name')->widget(
-            ChartsInputWidget::className(), ['options' => ['maxlength' => true]]
+            \app\widgets\InputCharts::className(), ['options' => ['maxlength' => true]]
         ) ?>
 
         <?= $form->field($translationForm, 'ruword_id')->hiddenInput(['value' => $model->id])->label(false) ?>

@@ -3,8 +3,8 @@
 /**
  * @var string $textInput
  */
-?>
 
+?>
 <div class="input-group">
     <?= $textInput ?>
     <span class="input-group-btn">

@@ -5,7 +5,7 @@ namespace app\widgets;
 use yii\widgets\InputWidget;
 use yii\helpers\Html;
 
-class ChartsInputWidget extends InputWidget
+class InputCharts extends InputWidget
 {
     /**
      * @inheritdoc
@@ -20,7 +20,7 @@ class ChartsInputWidget extends InputWidget
             $textInput = Html::textInput($this->name, $this->value, $this->options);
         }
 
-        return $this->render('charts-input', [
+        return $this->render('input-charts', [
             'textInput' => $textInput,
         ]);
     }

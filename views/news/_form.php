@@ -3,7 +3,6 @@
 use yii\bootstrap\Html;
 use yii\widgets\ActiveForm;
 use app\widgets\ChartsTextareaWidget;
-use app\widgets\ChartsInputWidget;
 use app\assets\MarkdownEditorAsset;
 
 /**
@@ -23,7 +22,9 @@ MarkdownEditorAsset::register($this);
 
     <?= $form->field($model, 'active')->checkbox() ?>
 
-    <?= $form->field($model, 'title')->widget(ChartsInputWidget::className(), ['options' => ['maxlength' => true]]) ?>
+    <?= $form->field($model, 'title')->widget(
+        \app\widgets\InputCharts::className(), ['options' => ['maxlength' => true]]
+    ) ?>
 
     <?= $form->field($model, 'description')->widget(ChartsTextareaWidget::className(), ['options' => ['rows' => 5]]) ?>
     

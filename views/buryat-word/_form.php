@@ -2,7 +2,6 @@
 
 use yii\bootstrap\Html;
 use yii\widgets\ActiveForm;
-use app\widgets\ChartsInputWidget;
 
 /**
  * @var yii\web\View $this
@@ -15,7 +14,7 @@ use app\widgets\ChartsInputWidget;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'name')->widget(ChartsInputWidget::className(), ['options' => ['maxlength' => true]]) ?>
+    <?= $form->field($model, 'name')->widget(\app\widgets\InputCharts::className(), ['options' => ['maxlength' => true]]) ?>
 
     <div class="form-group">
         <?= Html::submitButton(

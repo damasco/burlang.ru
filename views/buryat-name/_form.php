@@ -2,7 +2,7 @@
 
 use yii\bootstrap\Html;
 use yii\widgets\ActiveForm;
-use app\widgets\ChartsInputWidget;
+use app\widgets\InputCharts;
 use app\widgets\ChartsTextareaWidget;
 
 /**
@@ -16,11 +16,9 @@ use app\widgets\ChartsTextareaWidget;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'name')->widget(ChartsInputWidget::className(), ['options' => ['maxlength' => true]]) ?>
+    <?= $form->field($model, 'name')->widget(InputCharts::className(), ['options' => ['maxlength' => true]]) ?>
 
-    <?= $form->field($model, 'description')->widget(
-        ChartsInputWidget::className(), ['options' => ['maxlength' => true]]
-    ) ?>
+    <?= $form->field($model, 'description')->widget(InputCharts::className(), ['options' => ['maxlength' => true]]) ?>
 
     <?= $form->field($model, 'note')->widget(ChartsTextareaWidget::className(), ['options' => ['rows' => 5]]) ?>
 

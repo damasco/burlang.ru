@@ -2,7 +2,6 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use app\widgets\ChartsInputWidget;
 
 /**
  * @var yii\web\View $this
@@ -24,7 +23,7 @@ use app\widgets\ChartsInputWidget;
 
             <div class="row">
                 <div class="col-sm-6 col-md-4">
-                    <?= $form->field($model, 'name')->widget(ChartsInputWidget::className()) ?>
+                    <?= $form->field($model, 'name')->widget(\app\widgets\InputCharts::className()) ?>
                 </div>
                 <div class="col-sm-6 col-md-4">
                     <?= $form->field($model, 'description') ?>
