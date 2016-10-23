@@ -2,6 +2,7 @@
 
 namespace app\api\v1\controllers;
 
+use app\components\RussianWordManager;
 use Yii;
 use yii\rest\ActiveController;
 use yii\helpers\ArrayHelper;
@@ -47,13 +48,13 @@ class RussianWordController extends ActiveController
 
     /**
      * Get translate
-     * @param $word
+     * @param string $q
      * @return null|RussianWord
      * @throws NotFoundHttpException
      */
-    public function actionTranslate($word)
+    public function actionTranslate($q)
     {
-        if (($model = RussianWord::findOne(['name' => $word])) !== null) {
+        if (($model = RussianWord::findOne(['name' => $q])) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException(Yii::t('app', 'The word is not found'));
@@ -67,14 +68,6 @@ class RussianWordController extends ActiveController
      */
     public function actionGetWords($q)
     {
-        $words = RussianWord::find()
-            ->select(['name as value'])
-            ->filterWhere(['like', 'name', $q . '%', false])
-            ->orderBy('name')
-            ->limit(10)
-            ->asArray()
-            ->all();
-
-        return $words;
+        return (new RussianWordManager())->getWordsWithFilter($q);
     }
 }

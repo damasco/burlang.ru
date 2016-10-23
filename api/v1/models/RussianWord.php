@@ -12,7 +12,14 @@ class RussianWord extends BaseModel
     public function fields()
     {
         $fields = parent::fields();
-        unset($fields['id'], $fields['name']);
+        unset(
+            $fields['id'],
+            $fields['name'],
+            $fields['created_by'],
+            $fields['updated_by'],
+            $fields['created_at'],
+            $fields['updated_at']
+        );
         $fields[] = 'translations';
 
         return $fields;
