@@ -13,14 +13,12 @@ class News extends Widget
      */
     public function run()
     {
-        $query = Model::find();
-
-        if (!Yii::$app->user->can('adminNews')) {
-            $query->where(['active' => 1]);
-        }
-
         /** @var News $model */
-        $model = $query->orderBy('created_at DESC')->limit(Yii::$app->params['widget.news.limit'])->all();
+        $model = Model::find()
+            ->where(['active' => 1])
+            ->orderBy('created_at DESC')
+            ->limit(Yii::$app->params['widget.news.limit'])
+            ->all();
 
         return $this->render('news', [
             'model' => $model
