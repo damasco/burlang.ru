@@ -9,8 +9,8 @@ use yii\data\ActiveDataProvider;
  * @var mixed $translationForm
  * @var \app\models\RussianWord $model
  */
-?>
 
+?>
 <hr>
 
 <h4><?= Yii::t('app', 'Translations') ?></h4>
