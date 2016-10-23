@@ -6,8 +6,8 @@ use yii\bootstrap\Html;
  * @var \app\models\Book $model
  * @var integer|null $active_id
  */
-?>
 
+?>
 <div class="list-group">
     <?= Html::a(
         Yii::t('app', 'Main'), ['view', 'slug' => $model->slug],

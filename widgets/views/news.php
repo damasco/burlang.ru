@@ -3,8 +3,8 @@
 /**
  * @var \app\models\News $model
  */
-?>
 
+?>
 <div class="news-widget">
 
     <h3><?= Yii::t('app', 'News') ?></h3>
