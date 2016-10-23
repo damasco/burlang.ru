@@ -12,7 +12,13 @@ class BuryatName extends BaseModel
     public function fields()
     {
         $fields = parent::fields();
-        unset($fields['id']);
+        unset(
+            $fields['id'],
+            $fields['created_by'],
+            $fields['updated_by'],
+            $fields['created_at'],
+            $fields['updated_at']
+        );
 
         return $fields;
     }

@@ -50,7 +50,7 @@ class BuryatNameController extends ActiveController
      * @param string $q
      * @return array
      */
-    public function actionGetNames($q)
+    public function actionSearch($q)
     {
         $names = BuryatName::find()
             ->select(['name as value'])
@@ -64,13 +64,13 @@ class BuryatNameController extends ActiveController
     }
 
     /**
-     * @param string $name
+     * @param string $q
      * @return BuryatName
      * @throws NotFoundHttpException
      */
-    public function actionView($name)
+    public function actionGetName($q)
     {
-        if (($model = BuryatName::findOne(['name' => $name])) !== null) {
+        if (($model = BuryatName::findOne(['name' => $q])) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException(Yii::t('app', 'The word is not found'));

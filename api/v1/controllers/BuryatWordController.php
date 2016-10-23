@@ -67,7 +67,7 @@ class BuryatWordController extends ActiveController
      * @param string $q
      * @return array
      */
-    public function actionGetWords($q)
+    public function actionSearch($q)
     {
         return (new BuryatWordManager())->getWordsWithFilter($q);
     }

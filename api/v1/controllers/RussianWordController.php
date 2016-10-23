@@ -66,7 +66,7 @@ class RussianWordController extends ActiveController
      * @param string $q
      * @return array
      */
-    public function actionGetWords($q)
+    public function actionSearch($q)
     {
         return (new RussianWordManager())->getWordsWithFilter($q);
     }

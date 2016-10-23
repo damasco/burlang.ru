@@ -24,8 +24,8 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="panel-body">
             <?= Menu::widget([
                 'items' => [
-                    ['label' => Url::to(['/v1/buryat-name/get-names', 'q' => 'begin_search_name'], true)],
-                    ['label' => Url::to(['/v1/buryat-name/view', 'name' => 'Name'], true)]
+                    ['label' => Url::to(['/v1/buryat-name/search', 'q' => 'begin_search_name'], true)],
+                    ['label' => Url::to(['/v1/buryat-name/get-name', 'q' => 'Name'], true)]
                 ],
                 'labelTemplate' => '<code>{label}</code>',
             ]) ?>
@@ -41,7 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="panel-body">
             <?= Menu::widget([
                 'items' => [
-                    ['label' => Url::to(['/v1/buryat-word/get-words', 'q' => 'begin_search_word'], true)],
+                    ['label' => Url::to(['/v1/buryat-word/search', 'q' => 'begin_search_word'], true)],
                     ['label' => Url::to(['/v1/buryat-word/translate', 'q' => 'Word'], true)]
                 ],
                 'labelTemplate' => '<code>{label}</code>',
@@ -58,7 +58,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="panel-body">
             <?= Menu::widget([
                 'items' => [
-                    ['label' => Url::to(['/v1/russian-word/get-words', 'q' => 'begin_search_word'], true)],
+                    ['label' => Url::to(['/v1/russian-word/search', 'q' => 'begin_search_word'], true)],
                     ['label' => Url::to(['/v1/russian-word/translate', 'q' => 'Word'], true)]
                 ],
                 'labelTemplate' => '<code>{label}</code>',
