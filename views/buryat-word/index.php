@@ -13,8 +13,8 @@ use yii\helpers\ArrayHelper;
 
 $this->title = Yii::t('app', 'Buryat words');
 $this->params['breadcrumbs'][] = $this->title;
-?>
 
+?>
 <div class="buryat-word-index">
 
     <h1 class="hidden-xs"><?= Html::encode($this->title) ?></h1>
@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= GridView::widget([
             'dataProvider' => $dataProvider,
             'pager' => [
-                'maxButtonCount' => !Yii::$app->devicedetect->isMobile() ? 10 : 5,
+                'maxButtonCount' => !Yii::$app->get('devicedetect')->isMobile() ? 10 : 5,
             ],
             'columns' => [
                 ['class' => 'yii\grid\SerialColumn'],
@@ -45,7 +45,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         return Html::ul(ArrayHelper::getColumn($model->translations, 'name'));
                     },
                     'format' => 'raw',
-                    'visible' => !Yii::$app->devicedetect->isMobile() ? true : false,
+                    'visible' => !Yii::$app->get('devicedetect')->isMobile() ? true : false,
                 ],
 
                 [

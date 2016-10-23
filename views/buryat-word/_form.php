@@ -8,13 +8,16 @@ use yii\widgets\ActiveForm;
  * @var app\models\BuryatWord $model
  * @var yii\widgets\ActiveForm $form
  */
-?>
 
+?>
 <div class="buryat-word-form">
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'name')->widget(\app\widgets\InputCharts::className(), ['options' => ['maxlength' => true]]) ?>
+    <?= $form->field($model, 'name')->widget(
+        \app\widgets\InputCharts::className(),
+        ['options' => ['maxlength' => true]]
+    ) ?>
 
     <div class="form-group">
         <?= Html::submitButton(

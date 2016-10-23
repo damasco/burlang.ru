@@ -11,8 +11,8 @@ use yii\data\ActiveDataProvider;
  * @var \app\models\Dictionary[] $dictionaries
  * @var \app\models\BuryatWord $model
  */
-?>
 
+?>
 <hr>
 
 <h4><?= Yii::t('app', 'Translations') ?></h4>
@@ -30,7 +30,7 @@ use yii\data\ActiveDataProvider;
             [
                 'attribute' => 'dict_id',
                 'value' => 'dictionary.name',
-                'visible' => !Yii::$app->devicedetect->isMobile() ? true : false,
+                'visible' => !Yii::$app->get('devicedetect')->isMobile() ? true : false,
             ],
             [
                 'class' => 'yii\grid\ActionColumn',
