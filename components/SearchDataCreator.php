@@ -25,10 +25,7 @@ class SearchDataCreator
      */
     public function execute()
     {
-        $model = new SearchData(['name' => $this->word, 'type' => $this->type]);
-        if ($model->validate()) {
-            $model->save(false);
-        }
+        (new SearchData(['name' => $this->word, 'type' => $this->type]))->save();
     }
 
 }
