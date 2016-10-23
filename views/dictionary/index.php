@@ -10,8 +10,8 @@ use yii\grid\GridView;
 
 $this->title = Yii::t('app', 'Dictionaries');
 $this->params['breadcrumbs'][] = $this->title;
-?>
 
+?>
 <div class="dictionary-index">
 
     <h1><?= Html::encode($this->title) ?></h1>

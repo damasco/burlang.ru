@@ -8,8 +8,8 @@ use yii\widgets\ActiveForm;
  * @var app\models\Dictionary $model
  * @var yii\widgets\ActiveForm $form
  */
-?>
 
+?>
 <div class="dictionaries-form">
 
     <?php $form = ActiveForm::begin(); ?>

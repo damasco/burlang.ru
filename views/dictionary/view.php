@@ -1,7 +1,6 @@
 <?php
 
 use yii\bootstrap\Html;
-use yii\widgets\DetailView;
 
 /**
  * @var yii\web\View $this
@@ -11,8 +10,8 @@ use yii\widgets\DetailView;
 $this->title = $model->name;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Dictionaries'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
-?>
 
+?>
 <div class="dictionary-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
@@ -33,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
 
     <div class="table-responsive">
-        <?= DetailView::widget([
+        <?= \yii\widgets\DetailView::widget([
             'model' => $model,
             'attributes' => [
                 'name',
