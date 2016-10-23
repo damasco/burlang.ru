@@ -42,7 +42,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= Menu::widget([
                 'items' => [
                     ['label' => Url::to(['/v1/buryat-word/get-words', 'q' => 'begin_search_word'], true)],
-                    ['label' => Url::to(['/v1/buryat-word/translate', 'word' => 'Word'], true)]
+                    ['label' => Url::to(['/v1/buryat-word/translate', 'q' => 'Word'], true)]
                 ],
                 'labelTemplate' => '<code>{label}</code>',
             ]) ?>

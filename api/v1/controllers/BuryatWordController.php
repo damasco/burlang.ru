@@ -2,6 +2,7 @@
 
 namespace app\api\v1\controllers;
 
+use app\components\BuryatWordManager;
 use Yii;
 use yii\rest\ActiveController;
 use yii\helpers\ArrayHelper;
@@ -48,13 +49,13 @@ class BuryatWordController extends ActiveController
 
     /**
      * Get translate
-     * @param $word
+     * @param string $q
      * @return null|BuryatWord
      * @throws NotFoundHttpException
      */
-    public function actionTranslate($word)
+    public function actionTranslate($q)
     {
-        if (($model = BuryatWord::findOne(['name' => $word])) !== null) {
+        if (($model = BuryatWord::findOne(['name' => $q])) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException(Yii::t('app', 'The word is not found'));
@@ -68,14 +69,6 @@ class BuryatWordController extends ActiveController
      */
     public function actionGetWords($q)
     {
-        $words = BuryatWord::find()
-            ->select(['name as value'])
-            ->where(['like', 'name', $q . '%', false])
-            ->orderBy('name')
-            ->limit(10)
-            ->asArray()
-            ->all();
-
-        return $words;
+        return (new BuryatWordManager())->getWordsWithFilter($q);
     }
 }
