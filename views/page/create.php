@@ -10,8 +10,8 @@ use yii\helpers\Html;
 $this->title = Yii::t('app', 'Create page');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Pages'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
-?>
 
+?>
 <div class="page-create">
 
     <h1><?= Html::encode($this->title) ?></h1>

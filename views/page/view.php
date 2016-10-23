@@ -15,8 +15,8 @@ if (!Yii::$app->user->isGuest) {
     $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Pages'), 'url' => ['index']];
 }
 $this->params['breadcrumbs'][] = $this->title;
-?>
 
+?>
 <div class="page-view">
 
     <h1>

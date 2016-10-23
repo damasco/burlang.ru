@@ -12,8 +12,8 @@ use app\assets\MarkdownEditorAsset;
  */
 
 MarkdownEditorAsset::register($this);
-?>
 
+?>
 <div class="page-form">
 
     <?php $form = ActiveForm::begin(); ?>
@@ -26,7 +26,9 @@ MarkdownEditorAsset::register($this);
 
     <?= $form->field($model, 'title')->widget(InputCharts::className(), ['options' => ['maxlength' => true]]) ?>
 
-    <?= $form->field($model, 'link')->textInput(['maxlength' => true, 'disabled' => $model->isNewRecord ? false : true]) ?>
+    <?= $form->field($model, 'link')->textInput(
+        ['maxlength' => true, 'disabled' => $model->isNewRecord ? false : true]
+    ) ?>
 
     <?= $form->field($model, 'description')->widget(InputCharts::className(), ['options' => ['maxlength' => true]]) ?>
 
