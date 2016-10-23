@@ -29,9 +29,9 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'summary' => false,
         'layout' => "{summary}\n<div class=\"row\">{items}</div>\n{pager}",
-        'itemView' => !Yii::$app->devicedetect->isMobile() ? '_view' : '_view_mobile',
+        'itemView' => !Yii::$app->get('devicedetect')->isMobile() ? '_view' : '_view_mobile',
         'pager' => [
-            'maxButtonCount' => !Yii::$app->devicedetect->isMobile() ? 10 : 5,
+            'maxButtonCount' => !Yii::$app->get('devicedetect')->isMobile() ? 10 : 5,
         ],
     ]); ?>
 

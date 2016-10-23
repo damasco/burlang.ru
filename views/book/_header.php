@@ -8,6 +8,7 @@ use yii\bootstrap\Html;
  */
 
 ?>
+
 <?php if (!$model->active): ?>
     <p>
         <span class="label label-default"><?= Yii::t('app', 'Inactive') ?></span>
