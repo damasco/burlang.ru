@@ -17,13 +17,13 @@ if ($letter !== null) {
 } else {
     $this->params['breadcrumbs'][] = $this->title;
 }
-?>
 
+?>
 <div class="buryat-name-list">
 
     <h1 class="hidden-xs"><?= Html::encode($this->title) ?></h1>
 
-    <?php if (!$letter || !Yii::$app->devicedetect->isMobile() || Yii::$app->devicedetect->isTablet()): ?>
+    <?php if (!$letter || !Yii::$app->get('devicedetect')->isMobile() || Yii::$app->get('devicedetect')->isTablet()): ?>
         <ul class="list-inline list-letter">
             <?php foreach ($alphabet as $item): ?>
                 <li>
@@ -31,7 +31,7 @@ if ($letter !== null) {
                         "{$item['letter']} <span class=\"badge\">{$item['amount']}</span>",
                         ['/buryat-name/index', 'letter' => $item['letter']],
                         [
-                            'class' => ($letter == $item['letter']) ?
+                            'class' => $letter == $item['letter'] ?
                                 'btn btn-default btn-lg active' :
                                 'btn btn-default btn-lg'
                         ]
@@ -54,7 +54,6 @@ if ($letter !== null) {
                 </li>
             <?php endforeach ?>
         </ul>
-
         <div class="modal fade" id="view-name-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">

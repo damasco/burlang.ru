@@ -8,8 +8,8 @@ use yii\widgets\ActiveForm;
  * @var app\models\search\BuryatNameSearch $model
  * @var yii\widgets\ActiveForm $form
  */
-?>
 
+?>
 <div class="buryat-word-search">
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -31,10 +31,16 @@ use yii\widgets\ActiveForm;
                 <div class="col-md-4">
                     <div class="row">
                         <div class="col-sm-6 col-xs-6">
-                            <?= $form->field($model, 'male')->dropDownList(['0' => Yii::t('app', 'No'), '1' => Yii::t('app', 'Yes')], ['prompt' => '']) ?>
+                            <?= $form->field($model, 'male')->dropDownList(
+                                ['0' => Yii::t('app', 'No'), '1' => Yii::t('app', 'Yes')],
+                                ['prompt' => '']
+                            ) ?>
                         </div>
                         <div class="col-sm-6 col-xs-6">
-                            <?= $form->field($model, 'female')->dropDownList(['0' => Yii::t('app', 'No'), '1' => Yii::t('app', 'Yes')], ['prompt' => '']) ?>
+                            <?= $form->field($model, 'female')->dropDownList(
+                                ['0' => Yii::t('app', 'No'), '1' => Yii::t('app', 'Yes')],
+                                ['prompt' => '']
+                            ) ?>
                         </div>
                     </div>
                 </div>

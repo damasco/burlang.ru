@@ -9,8 +9,8 @@ use app\widgets\InputCharts;
  * @var app\models\BuryatName $model
  * @var yii\widgets\ActiveForm $form
  */
-?>
 
+?>
 <div class="buryat-name-form">
 
     <?php $form = ActiveForm::begin(); ?>

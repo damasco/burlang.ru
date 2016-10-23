@@ -13,8 +13,8 @@ $this->params['breadcrumbs'][] = [
     'url' => Yii::$app->user->isGuest ? ['index'] : ['admin'],
 ];
 $this->params['breadcrumbs'][] = $this->title;
-?>
 
+?>
 <div class="buryat-name-view">
 
     <h1><?= Html::encode($this->title) ?></h1>

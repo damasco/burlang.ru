@@ -12,8 +12,10 @@ use yii\widgets\Pjax;
 
 $this->title = Yii::t('app', 'Buryat names');
 $this->params['breadcrumbs'][] = $this->title;
-?>
 
+$isMobile = Yii::$app->get('devicedetect')->isMobile();
+
+?>
 <div class="buryat-name-index">
 
     <h1 class="hidden-xs"><?= Html::encode($this->title) ?></h1>
@@ -31,7 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= GridView::widget([
             'dataProvider' => $dataProvider,
             'pager' => [
-                'maxButtonCount' => !Yii::$app->devicedetect->isMobile() ? 10 : 5,
+                'maxButtonCount' => !$isMobile ? 10 : 5,
             ],
             'columns' => [
                 ['class' => 'yii\grid\SerialColumn'],
@@ -39,19 +41,19 @@ $this->params['breadcrumbs'][] = $this->title;
                 'name',
                 [
                     'attribute' => 'description',
-                    'visible' => !Yii::$app->devicedetect->isMobile() ? true : false,
+                    'visible' => !$isMobile ? true : false,
                 ],
                 [
                     'attribute' => 'male',
                     'format' => 'boolean',
                     'filter' => ['1' => Yii::t('app', 'Yes'), '0' => Yii::t('app', 'No')],
-                    'visible' => !Yii::$app->devicedetect->isMobile() ? true : false,
+                    'visible' => !$isMobile ? true : false,
                 ],
                 [
                     'attribute' => 'female',
                     'format' => 'boolean',
                     'filter' => ['1' => Yii::t('app', 'Yes'), '0' => Yii::t('app', 'No')],
-                    'visible' => !Yii::$app->devicedetect->isMobile() ? true : false,
+                    'visible' => !$isMobile ? true : false,
                 ],
                 [
                     'class' => 'app\components\ActionColumn',
