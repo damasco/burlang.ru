@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\components\BuryatNameManager;
 use Yii;
 use app\models\BuryatName;
 use app\models\search\BuryatNameSearch;
@@ -49,23 +50,9 @@ class BuryatNameController extends Controller
      */
     public function actionIndex($letter = null)
     {
-
-        $alphabet = BuryatName::getFirstLetters();
-
-        $names = [];
-
-        if ($letter !== null) {
-            if (!in_array($letter, ArrayHelper::getColumn($alphabet, 'letter'))) {
-                throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
-            }
-            $names = BuryatName::find()
-                ->where(['like', 'name', $letter . '%', false])
-                ->asArray()
-                ->all();
-        }
+        $names = (new BuryatNameManager())->getNames($letter);
 
         return $this->render('index', [
-            'alphabet' => $alphabet,
             'names' => $names,
             'letter' => $letter
         ]);

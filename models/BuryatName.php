@@ -96,19 +96,4 @@ class BuryatName extends \yii\db\ActiveRecord
     {
         return $this->hasOne(User::className(), ['id' => 'updated_by']);
     }
-
-    /**
-     * @return array
-     */
-    public static function getFirstLetters()
-    {
-        $alphabet = BuryatName::find()
-            ->select(['letter' => 'LEFT(name, 1)', 'amount' => 'COUNT(id)'])
-            ->groupBy('letter')
-            ->orderBy('letter')
-            ->asArray()
-            ->all();
-
-        return $alphabet;
-    }
 }
