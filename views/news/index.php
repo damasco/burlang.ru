@@ -1,7 +1,6 @@
 <?php
 
 use yii\bootstrap\Html;
-use yii\widgets\ListView;
 
 /**
  * @var yii\web\View $this
@@ -10,8 +9,8 @@ use yii\widgets\ListView;
 
 $this->title = Yii::t('app', 'News');
 $this->params['breadcrumbs'][] = $this->title;
-?>
 
+?>
 <div class="news-index">
 
     <h1 class="hidden-xs"><?= Html::encode($this->title) ?></h1>
@@ -26,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
         </p>
     <?php endif ?>
 
-    <?= ListView::widget([
+    <?= \yii\widgets\ListView::widget([
         'dataProvider' => $dataProvider,
         'summary' => false,
         'itemView' => '_view'

@@ -12,8 +12,8 @@ use yii\helpers\HtmlPurifier;
 $this->title = $model->title;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'News'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
-?>
 
+?>
 <div class="news-view">
 
     <h1 class="hidden-xs"><?= Html::encode($this->title) ?></h1>
