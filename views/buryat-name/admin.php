@@ -56,7 +56,7 @@ $isMobile = Yii::$app->get('devicedetect')->isMobile();
                     'visible' => !$isMobile ? true : false,
                 ],
                 [
-                    'class' => 'app\components\ActionColumn',
+                    'class' => 'app\grid\ActionColumn',
                     'contentOptions' => [
                         'class' => 'action-column-3',
                     ],

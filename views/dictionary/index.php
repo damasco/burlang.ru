@@ -35,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'isbn',
 
                 [
-                    'class' => 'app\components\ActionColumn',
+                    'class' => 'app\grid\ActionColumn',
                     'contentOptions' => [
                         'class' => 'action-column-3'
                     ]

@@ -49,7 +49,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 ],
 
                 [
-                    'class' => 'app\components\ActionColumn',
+                    'class' => 'app\grid\ActionColumn',
                     'template' => '{update} {delete}',
                     'contentOptions' => [
                         'class' => 'action-column-2',
