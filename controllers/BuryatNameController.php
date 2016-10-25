@@ -50,7 +50,7 @@ class BuryatNameController extends Controller
      */
     public function actionIndex($letter = null)
     {
-        $names = (new BuryatNameManager())->getNames($letter);
+        $names = Yii::createObject('app\components\BuryatNameManager')->getNames($letter);
 
         return $this->render('index', [
             'names' => $names,

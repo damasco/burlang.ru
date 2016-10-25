@@ -7,8 +7,6 @@ use Yii;
 use app\filters\AjaxFilter;
 use yii\web\Controller;
 use yii\web\Response;
-use app\components\BuryatWordManager;
-use app\components\RussianWordManager;
 
 class SiteController extends Controller
 {
@@ -65,7 +63,7 @@ class SiteController extends Controller
      */
     public function actionGetRussianWords($term)
     {
-        return (new RussianWordManager())->getWordsWithFilter($term);
+        return Yii::createObject('app\components\RussianWordManager')->getWordsWithFilter($term);
     }
 
     /**
@@ -75,7 +73,7 @@ class SiteController extends Controller
      */
     public function actionGetBuryatWords($term)
     {
-        return (new BuryatWordManager())->getWordsWithFilter($term);
+        return Yii::createObject('app\components\BuryatWordManager')->getWordsWithFilter($term);
     }
 
     /**
@@ -85,7 +83,7 @@ class SiteController extends Controller
      */
     public function actionRussianTranslate($russian_word)
     {
-        $translations = (new RussianWordManager())->getTranslations($russian_word);
+        $translations = Yii::createObject('app\components\RussianWordManager')->getTranslations($russian_word);
 
         return $this->renderAjax('_translation', [
             'translations' => $translations
@@ -99,7 +97,7 @@ class SiteController extends Controller
      */
     public function actionBuryatTranslate($buryat_word)
     {
-        $translations = (new BuryatWordManager())->getTranslations($buryat_word);
+        $translations = Yii::createObject('app\components\BuryatWordManager')->getTranslations($buryat_word);
 
         return $this->renderAjax('_translation', [
             'translations' => $translations
