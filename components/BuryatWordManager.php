@@ -5,8 +5,9 @@ namespace app\components;
 use app\helpers\StringHelper;
 use app\models\BuryatWord;
 use app\models\SearchData;
+use yii\base\Object;
 
-class BuryatWordManager
+class BuryatWordManager extends Object
 {
     /**
      * @param string $q
@@ -36,7 +37,7 @@ class BuryatWordManager
             if ($word && $word->getTranslations()->exists()) {
                 return $word->getTranslations()->asArray()->all();
             } else {
-                \Yii::createObject('app\components\SearchDataCreator', [$q, SearchData::BURYAT_WORD_TYPE])->execute();
+                \Yii::createObject(SearchDataManager::className())->insert($q, SearchData::BURYAT_WORD_TYPE);
                 return null;
             }
         } else {

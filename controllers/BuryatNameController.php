@@ -6,7 +6,6 @@ use app\components\BuryatNameManager;
 use Yii;
 use app\models\BuryatName;
 use app\models\search\BuryatNameSearch;
-use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -50,7 +49,7 @@ class BuryatNameController extends Controller
      */
     public function actionIndex($letter = null)
     {
-        $names = Yii::createObject('app\components\BuryatNameManager')->getNames($letter);
+        $names = Yii::createObject(BuryatNameManager::className())->getNames($letter);
 
         return $this->render('index', [
             'names' => $names,
