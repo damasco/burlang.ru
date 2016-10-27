@@ -5,6 +5,7 @@ namespace test\unit\models;
 use app\models\News;
 use Codeception\Specify;
 use app\modules\user\models\User;
+use Codeception\Test\Unit;
 
 class NewsTest extends Unit
 {

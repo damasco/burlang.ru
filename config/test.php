@@ -3,7 +3,7 @@
 $params = require(__DIR__ . '/params.php');
 
 $dbParams = $params['components.db'];
-$dbParams['dns'] = 'mysql:host=localhost;dbname=burlang_test';
+$dbParams['dsn'] = 'mysql:host=localhost;dbname=burlang_test';
 
 /**
  * Application configuration shared by all test types
