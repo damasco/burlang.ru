@@ -39,7 +39,7 @@ class FunctionalCest
 
     protected function login(FunctionalTester $I, $username, $password)
     {
-        $loginPage = LoginPage::openBy($I);
+        $loginPage = new LoginPage($I);
         $I->seeInTitle('Sign in');
         $loginPage->login($username, $password);
         $I->see('Logout', '.nav');

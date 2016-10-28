@@ -3,13 +3,13 @@
 namespace tests\functional;
 
 use FunctionalTester;
-use tests\_pages\BookCreatePage;
 use Yii;
 
-class BookCest extends FunctionalCest
+class BookCest
 {
     public function indexPage(FunctionalTester $I)
     {
+        $I->amLoggedInAs();
         $I->wantTo('ensure that book page works');
 
         $I->amOnPage(Yii::$app->homeUrl);
@@ -26,8 +26,7 @@ class BookCest extends FunctionalCest
     public function createPageAsAdmin(FunctionalTester $I)
     {
         $I->wantTo('ensure that book create page works for admin');
-
-        BookCreatePage::openBy($I);
+        $I->amOnPage(['book/create']);
         $I->seeInTitle('Create book');
     }
 
@@ -38,8 +37,7 @@ class BookCest extends FunctionalCest
     public function createPageAsModerator(FunctionalTester $I)
     {
         $I->wantTo('ensure that book create page works for moderator');
-
-        BookCreatePage::openBy($I);
+        $I->amOnPage(['book/create']);
         $I->seeInTitle('Create book');
     }
 
@@ -50,8 +48,7 @@ class BookCest extends FunctionalCest
     public function createPageAsUser(FunctionalTester $I)
     {
         $I->wantTo('ensure that book create page not works for simple user');
-
-        BookCreatePage::openBy($I);
+        $I->amOnPage(['book/create']);
         $I->seeInTitle('Forbidden');
     }
 }

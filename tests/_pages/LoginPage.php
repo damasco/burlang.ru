@@ -2,12 +2,20 @@
 
 namespace tests\_pages;
 
+use Codeception\Actor;
 use dektrium\user\models\LoginForm;
 use Yii;
 
 class LoginPage
 {
+    private $actor;
+
     public $route = 'user/security/login';
+
+    public function __construct(Actor $actor)
+    {
+        $this->actor = $actor;
+    }
 
     /**
      * @param string $username
