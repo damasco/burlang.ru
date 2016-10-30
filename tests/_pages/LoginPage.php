@@ -3,30 +3,56 @@
 namespace tests\_pages;
 
 use Codeception\Actor;
-use dektrium\user\models\LoginForm;
 use Yii;
 
 class LoginPage
 {
-    private $actor;
+    public static $url = ['user/security/login'];
 
-    public $route = 'user/security/login';
-
-    public function __construct(Actor $actor)
+    /**
+     * @param \FunctionalTester|\AcceptanceTester $I
+     * @throws \yii\base\InvalidConfigException
+     */
+    public static function loginAsAdmin($I)
     {
-        $this->actor = $actor;
+        $testUsers = Yii::$app->params['test.users'];
+        $admin = $testUsers['admin'];
+        self::login($I, $admin['username'], $admin['password']);
     }
 
     /**
+     * @param \FunctionalTester|\AcceptanceTester $I
+     * @throws \yii\base\InvalidConfigException
+     */
+    public static function loginAsModerator($I)
+    {
+        $testUsers = Yii::$app->params['test.users'];
+        $admin = $testUsers['moderator'];
+        self::login($I, $admin['username'], $admin['password']);
+    }
+
+    /**
+     * @param \FunctionalTester|\AcceptanceTester $I
+     * @throws \yii\base\InvalidConfigException
+     */
+    public static function loginAsUser($I)
+    {
+        $testUsers = Yii::$app->params['test.users'];
+        $admin = $testUsers['user'];
+        self::login($I, $admin['username'], $admin['password']);
+    }
+
+    /**
+     * @param \FunctionalTester|\AcceptanceTester $I
      * @param string $username
      * @param string $password
      */
-    public function login($username, $password)
+    protected function login($I, $username, $password)
     {
-        $loginForm = Yii::createObject(LoginForm::className());
-
-        $this->actor->fillField('input[name="' . $loginForm->formName() . '[login]"]', $username);
-        $this->actor->fillField('input[name="' . $loginForm->formName() . '[password]"]', $password);
-        $this->actor->click('Sign in');
+        $I->amOnPage(self::$url);
+        $I->fillField('input[name="login-form[login]"]', $username);
+        $I->fillField('input[name="login-form[password]"]', $password);
+        $I->click('Sign in');
     }
+
 }

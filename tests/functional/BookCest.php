@@ -3,13 +3,13 @@
 namespace tests\functional;
 
 use FunctionalTester;
+use tests\pages\LoginPage;
 use Yii;
 
 class BookCest
 {
     public function indexPage(FunctionalTester $I)
     {
-        $I->amLoggedInAs();
         $I->wantTo('ensure that book page works');
 
         $I->amOnPage(Yii::$app->homeUrl);
@@ -19,21 +19,14 @@ class BookCest
         $I->see('Books', 'h1');
     }
 
-    /**
-     * @before loginAsAdmin
-     * @after logout
-     */
     public function createPageAsAdmin(FunctionalTester $I)
     {
+        LoginPage::loginAsAdmin($I);
         $I->wantTo('ensure that book create page works for admin');
         $I->amOnPage(['book/create']);
         $I->seeInTitle('Create book');
     }
 
-    /**
-     * @before loginAsModerator
-     * @after logout
-     */
     public function createPageAsModerator(FunctionalTester $I)
     {
         $I->wantTo('ensure that book create page works for moderator');
@@ -41,10 +34,6 @@ class BookCest
         $I->seeInTitle('Create book');
     }
 
-    /**
-     * @before loginAsUser
-     * @after logout
-     */
     public function createPageAsUser(FunctionalTester $I)
     {
         $I->wantTo('ensure that book create page not works for simple user');
