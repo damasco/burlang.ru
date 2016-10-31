@@ -3,10 +3,9 @@
 namespace tests\functional;
 
 use FunctionalTester;
-use tests\_pages\RussianWordPage;
 use Yii;
 
-class RussianlWordCest extends FunctionalCest
+class RussianlWordCest
 {
     /**
      * @before loginAsAdmin
@@ -15,8 +14,8 @@ class RussianlWordCest extends FunctionalCest
     public function indexPageAsAdmin(FunctionalTester $I)
     {
         $I->wantTo('ensure that dictionary create page works for admin');
-
-        RussianWordPage::openBy($I);
+        $I->loginAsAdmin();
+        $I->amOnPage(['/russian-word/index']);
         $I->seeInTitle('Russian words');
     }
 
@@ -27,8 +26,8 @@ class RussianlWordCest extends FunctionalCest
     public function indexPageAsModerator(FunctionalTester $I)
     {
         $I->wantTo('ensure that dictionary create page works for moderator');
-
-        RussianWordPage::openBy($I);
+        $I->loginAsModerator();
+        $I->amOnPage(['/russian-word/index']);
         $I->seeInTitle('Russian words');
     }
 
@@ -39,8 +38,8 @@ class RussianlWordCest extends FunctionalCest
     public function indexPageAsUser(FunctionalTester $I)
     {
         $I->wantTo('ensure that dictionary index page not works for simple user');
-
-        RussianWordPage::openBy($I);
+        $I->loginAsUser();
+        $I->amOnPage(['/russian-word/index']);
         $I->seeInTitle('Forbidden');
     }
 }

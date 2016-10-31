@@ -1,5 +1,6 @@
 <?php
 
+use app\modules\user\models\User;
 
 /**
  * Inherited Methods
@@ -20,4 +21,21 @@ class FunctionalTester extends \Codeception\Actor
 {
     use _generated\FunctionalTesterActions;
 
+    public function loginAsAdmin()
+    {
+        $testUsers = \Yii::$app->params['test.users'];
+        $this->amLoggedInAs(User::findOne(['username' => $testUsers['admin']['username']]));
+    }
+
+    public function loginAsModerator()
+    {
+        $testUsers = \Yii::$app->params['test.users'];
+        $this->amLoggedInAs(User::findOne(['username' => $testUsers['moderator']['username']]));
+    }
+
+    public function loginAsUser()
+    {
+        $testUsers = \Yii::$app->params['test.users'];
+        $this->amLoggedInAs(User::findOne(['username' => $testUsers['user']['username']]));
+    }
 }

@@ -11,7 +11,7 @@ class BuryatNameCest
     {
         $I->wantTo('ensure that buryat-name list page works');
 
-        $I->amOnPage(Yii::$app->homeUrl);
+        $I->amOnPage(['/names']);
         $I->seeLink('Names');
         $I->click('Names');
 

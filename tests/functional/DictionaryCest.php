@@ -3,10 +3,9 @@
 namespace tests\functional;
 
 use FunctionalTester;
-use tests\_pages\DictionaryPage;
 use Yii;
 
-class DictionaryCest extends FunctionalCest
+class DictionaryCest
 {
     /**
      * @before loginAsAdmin
@@ -15,8 +14,8 @@ class DictionaryCest extends FunctionalCest
     public function indexPageAsAdmin(FunctionalTester $I)
     {
         $I->wantTo('ensure that dictionary index page works for admin');
-
-        DictionaryPage::openBy($I);
+        $I->loginAsAdmin();
+        $I->amOnPage(['/dictionary/index']);
         $I->seeInTitle('Dictionaries');
     }
 
@@ -27,8 +26,7 @@ class DictionaryCest extends FunctionalCest
     public function indexPageAsModerator(FunctionalTester $I)
     {
         $I->wantTo('ensure that dictionary index page not works for moderator');
-
-        DictionaryPage::openBy($I);
+        $I->loginAsModerator();
         $I->seeInTitle('Forbidden');
     }
 
@@ -39,8 +37,7 @@ class DictionaryCest extends FunctionalCest
     public function indexPageAsUser(FunctionalTester $I)
     {
         $I->wantTo('ensure that dictionary index page not works for simple user');
-
-        DictionaryPage::openBy($I);
+        $I->loginAsUser();
         $I->seeInTitle('Forbidden');
     }
 }
