@@ -17,6 +17,7 @@ class RussianlWordCest
         $I->loginAsAdmin();
         $I->amOnPage(['/russian-word/index']);
         $I->seeInTitle('Russian words');
+        $I->logout();
     }
 
     /**
@@ -29,6 +30,7 @@ class RussianlWordCest
         $I->loginAsModerator();
         $I->amOnPage(['/russian-word/index']);
         $I->seeInTitle('Russian words');
+        $I->logout();
     }
 
     /**
@@ -41,5 +43,6 @@ class RussianlWordCest
         $I->loginAsUser();
         $I->amOnPage(['/russian-word/index']);
         $I->seeInTitle('Forbidden');
+        $I->logout();
     }
 }

@@ -17,6 +17,7 @@ class DictionaryCest
         $I->loginAsAdmin();
         $I->amOnPage(['/dictionary/index']);
         $I->seeInTitle('Dictionaries');
+        $I->logout();
     }
 
     /**
@@ -28,6 +29,7 @@ class DictionaryCest
         $I->wantTo('ensure that dictionary index page not works for moderator');
         $I->loginAsModerator();
         $I->seeInTitle('Forbidden');
+        $I->logout();
     }
 
     /**
@@ -39,5 +41,6 @@ class DictionaryCest
         $I->wantTo('ensure that dictionary index page not works for simple user');
         $I->loginAsUser();
         $I->seeInTitle('Forbidden');
+        $I->logout();
     }
 }

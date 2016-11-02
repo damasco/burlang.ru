@@ -25,22 +25,23 @@ class NewsCest
         $I->loginAsAdmin();
         $I->amOnPage(['/news/create']);
         $I->seeInTitle('Create news');
+        $I->logout();
     }
     
     public function createPageAsModerator(FunctionalTester $I)
     {
         $I->wantTo('ensure that news create page not works for moderator');
-
         $I->amOnPage(['/news/create']);
         $I->seeInTitle('Forbidden');
+        $I->logout();
     }
     
     public function createPageAsUser(FunctionalTester $I)
     {
         $I->wantTo('ensure that news create page not works for simple user');
-
         $I->amOnPage(['/news/create']);
         $I->seeInTitle('Forbidden');
+        $I->logout();
     }
 
 //    public function createNews(FunctionalTester $I)

@@ -10,9 +10,6 @@ return yii\helpers\ArrayHelper::merge(
         'id' => 'burlang-tests',
         'language' => 'en-US',
         'components' => [
-            'db' => [
-                'dsn' => 'mysql:host=localhost;dbname=burlang_test',
-            ],
             'mailer' => [
                 'useFileTransport' => true,
             ],

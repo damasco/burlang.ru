@@ -13,6 +13,7 @@ class BuryatWordCest
         $I->loginAsAdmin();
         $I->amOnPage(['/buryat-word/index']);
         $I->seeInTitle('Buryat words');
+        $I->logout();
     }
 
     public function indexPageAsModerator(FunctionalTester $I)
@@ -21,6 +22,7 @@ class BuryatWordCest
         $I->loginAsModerator();
         $I->amOnPage(['/buryat-word/index']);
         $I->seeInTitle('Buryat words');
+        $I->logout();
     }
 
     public function indexPageAsUser(FunctionalTester $I)
@@ -29,5 +31,6 @@ class BuryatWordCest
         $I->loginAsUser();
         $I->amOnPage(['/buryat-word/index']);
         $I->seeInTitle('Forbidden');
+        $I->logout();
     }
 }

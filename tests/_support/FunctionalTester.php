@@ -38,4 +38,9 @@ class FunctionalTester extends \Codeception\Actor
         $testUsers = \Yii::$app->params['test.users'];
         $this->amLoggedInAs(User::findOne(['username' => $testUsers['user']['username']]));
     }
+
+    public function logout()
+    {
+        \Yii::$app->user->logout();
+    }
 }
