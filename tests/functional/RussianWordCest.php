@@ -7,10 +7,6 @@ use Yii;
 
 class RussianlWordCest
 {
-    /**
-     * @before loginAsAdmin
-     * @after logout
-     */
     public function indexPageAsAdmin(FunctionalTester $I)
     {
         $I->wantTo('ensure that dictionary create page works for admin');
@@ -20,10 +16,6 @@ class RussianlWordCest
         $I->logout();
     }
 
-    /**
-     * @before loginAsModerator
-     * @after logout
-     */
     public function indexPageAsModerator(FunctionalTester $I)
     {
         $I->wantTo('ensure that dictionary create page works for moderator');
@@ -33,10 +25,6 @@ class RussianlWordCest
         $I->logout();
     }
 
-    /**
-     * @before loginAsUser
-     * @after logout
-     */
     public function indexPageAsUser(FunctionalTester $I)
     {
         $I->wantTo('ensure that dictionary index page not works for simple user');
