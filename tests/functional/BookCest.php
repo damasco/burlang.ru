@@ -34,12 +34,12 @@ class BookCest
         $I->logout();
     }
 
-    public function createPageAsUser(FunctionalTester $I)
-    {
-        $I->wantTo('ensure that book create page not works for simple user');
-        $I->loginAsUser();
-        $I->amOnPage(['book/create']);
-        $I->seeInTitle('Forbidden');
-        $I->logout();
-    }
+    // public function createPageAsUser(FunctionalTester $I)
+    // {
+    //     $I->wantTo('ensure that book create page not works for simple user');
+    //     $I->loginAsUser();
+    //     $I->amOnPage(['book/create']);
+    //     $I->seeInTitle('Forbidden');
+    //     $I->logout();
+    // }
 }

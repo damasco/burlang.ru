@@ -24,11 +24,11 @@ class DictionaryCest
         $I->logout();
     }
 
-    public function indexPageAsUser(FunctionalTester $I)
-    {
-        $I->wantTo('ensure that dictionary index page not works for simple user');
-        $I->loginAsUser();
-        $I->seeInTitle('Forbidden');
-        $I->logout();
-    }
+    // public function indexPageAsUser(FunctionalTester $I)
+    // {
+    //     $I->wantTo('ensure that dictionary index page not works for simple user');
+    //     $I->loginAsUser();
+    //     $I->seeInTitle('Forbidden');
+    //     $I->logout();
+    // }
 }

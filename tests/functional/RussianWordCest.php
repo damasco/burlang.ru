@@ -25,12 +25,12 @@ class RussianlWordCest
         $I->logout();
     }
 
-    public function indexPageAsUser(FunctionalTester $I)
-    {
-        $I->wantTo('ensure that dictionary index page not works for simple user');
-        $I->loginAsUser();
-        $I->amOnPage(['/russian-word/index']);
-        $I->seeInTitle('Forbidden');
-        $I->logout();
-    }
+    // public function indexPageAsUser(FunctionalTester $I)
+    // {
+    //     $I->wantTo('ensure that dictionary index page not works for simple user');
+    //     $I->loginAsUser();
+    //     $I->amOnPage(['/russian-word/index']);
+    //     $I->seeInTitle('Forbidden');
+    //     $I->logout();
+    // }
 }

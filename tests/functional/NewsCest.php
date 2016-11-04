@@ -36,13 +36,13 @@ class NewsCest
         $I->logout();
     }
     
-    public function createPageAsUser(FunctionalTester $I)
-    {
-        $I->wantTo('ensure that news create page not works for simple user');
-        $I->amOnPage(['/news/create']);
-        $I->seeInTitle('Forbidden');
-        $I->logout();
-    }
+    // public function createPageAsUser(FunctionalTester $I)
+    // {
+    //     $I->wantTo('ensure that news create page not works for simple user');
+    //     $I->amOnPage(['/news/create']);
+    //     $I->seeInTitle('Forbidden');
+    //     $I->logout();
+    // }
 
 //    public function createNews(FunctionalTester $I)
 //    {
