@@ -16,13 +16,14 @@ class DictionaryCest
         $I->logout();
     }
 
-    public function indexPageAsModerator(FunctionalTester $I)
-    {
-        $I->wantTo('ensure that dictionary index page not works for moderator');
-        $I->loginAsModerator();
-        $I->seeInTitle('Forbidden');
-        $I->logout();
-    }
+    // public function indexPageAsModerator(FunctionalTester $I)
+    // {
+    //     $I->wantTo('ensure that dictionary index page not works for moderator');
+    //     $I->loginAsModerator();
+    //     $I->amOnPage(['/dictionary/index']);
+    //     $I->seeInTitle('Forbidden');
+    //     $I->logout();
+    // }
 
     // public function indexPageAsUser(FunctionalTester $I)
     // {

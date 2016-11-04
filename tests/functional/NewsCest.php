@@ -28,18 +28,19 @@ class NewsCest
         $I->logout();
     }
     
-    public function createPageAsModerator(FunctionalTester $I)
-    {
-        $I->wantTo('ensure that news create page not works for moderator');
-        $I->loginAsModerator();
-        $I->amOnPage(['/news/create']);
-        $I->seeInTitle('Forbidden');
-        $I->logout();
-    }
+    // public function createPageAsModerator(FunctionalTester $I)
+    // {
+    //     $I->wantTo('ensure that news create page not works for moderator');
+    //     $I->loginAsModerator();
+    //     $I->amOnPage(['/news/create']);
+    //     $I->seeInTitle('Forbidden');
+    //     $I->logout();
+    // }
     
     // public function createPageAsUser(FunctionalTester $I)
     // {
     //     $I->wantTo('ensure that news create page not works for simple user');
+    //     $I->loginAsUser();
     //     $I->amOnPage(['/news/create']);
     //     $I->seeInTitle('Forbidden');
     //     $I->logout();
