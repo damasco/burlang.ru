@@ -31,6 +31,7 @@ class NewsCest
     public function createPageAsModerator(FunctionalTester $I)
     {
         $I->wantTo('ensure that news create page not works for moderator');
+        $I->loginAsModerator();
         $I->amOnPage(['/news/create']);
         $I->seeInTitle('Forbidden');
         $I->logout();
