@@ -25,8 +25,10 @@ class PageTest extends Unit
         \Yii::$app->user->login(new User(['id' => 1]));
         /** @var PageModel $model */
         $model = PageModel::findOne(['link' => $pageName]);
-        $model->active = 1;
-        $model->save();
+        if (!$model->active) {
+            $model->active = 1;
+            $model->save();
+        }
 
         $page = new Page();
 
