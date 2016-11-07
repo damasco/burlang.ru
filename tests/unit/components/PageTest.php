@@ -23,6 +23,7 @@ class PageTest extends Unit
         $pageName = 'about';
 
         \Yii::$app->user->login(new User(['id' => 1]));
+
         /** @var PageModel $model */
         $model = PageModel::findOne(['link' => $pageName]);
         if (!$model->active) {
@@ -30,12 +31,11 @@ class PageTest extends Unit
             $model->save();
         }
 
-        $page = new Page();
-
         $stub = $this->createMock('\yii\web\Request');
         $stub->method('getUrl')->willReturn('/page/' . $pageName);
-
         \Yii::$app->set('request', $stub);
+
+        $page = new Page();
 
         expect('return about string', $page->menuItem($pageName))->hasKey('label');
     }
