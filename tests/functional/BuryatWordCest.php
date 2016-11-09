@@ -3,7 +3,6 @@
 namespace tests\functional;
 
 use FunctionalTester;
-use Yii;
 
 class BuryatWordCest
 {

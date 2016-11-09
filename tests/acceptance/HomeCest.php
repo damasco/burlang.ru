@@ -1,15 +1,15 @@
 <?php
 
-namespace tests\functional;
+namespace tests\acceptance;
 
-use FunctionalTester;
+use yii\helpers\Url;
 
 class HomeCest
 {
-    public function indexPage(FunctionalTester $I)
+    public function indexPage(\AcceptanceTester $I)
     {
         $I->wantTo('ensure that home page works');
-        $I->amOnPage(['/']);
+        $I->amOnPage(Url::to(['/']));
         $I->see('Buryat-Russian dictionary');
         $I->see('Russian-Buryat dictionary');
     }

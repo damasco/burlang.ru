@@ -6,6 +6,6 @@ modules:
             browser: chrome
         - Yii2:
             configFile: 'config/test.php'
-            part: orm
+            part: init
             entryScript: index-test.php
             cleanup: false
