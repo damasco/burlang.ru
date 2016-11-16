@@ -46,9 +46,9 @@ class BookChapter extends \yii\db\ActiveRecord
             [['book_id', 'created_by', 'updated_by', 'created_at', 'updated_at'], 'integer'],
             ['title', 'uniqueTitle'],
             [['title', 'slug'], 'string', 'max' => 255],
-            [['book_id'], 'exist', 'skipOnError' => true, 'targetClass' => Book::className(), 'targetAttribute' => ['book_id' => 'id']],
-            [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['created_by' => 'id']],
-            [['updated_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['updated_by' => 'id']],
+            [['book_id'], 'exist', 'skipOnError' => true, 'targetClass' => Book::class, 'targetAttribute' => ['book_id' => 'id']],
+            [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['created_by' => 'id']],
+            [['updated_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['updated_by' => 'id']],
         ];
     }
 
@@ -76,10 +76,10 @@ class BookChapter extends \yii\db\ActiveRecord
     public function behaviors()
     {
         return [
-            TimestampBehavior::className(),
-            BlameableBehavior::className(),
+            TimestampBehavior::class,
+            BlameableBehavior::class,
             [
-                'class' => SluggableBehavior::className(),
+                'class' => SluggableBehavior::class,
                 'attribute' => 'title',
             ]
         ];
@@ -102,7 +102,7 @@ class BookChapter extends \yii\db\ActiveRecord
      */
     public function getBook()
     {
-        return $this->hasOne(Book::className(), ['id' => 'book_id']);
+        return $this->hasOne(Book::class, ['id' => 'book_id']);
     }
 
     /**
@@ -110,7 +110,7 @@ class BookChapter extends \yii\db\ActiveRecord
      */
     public function getCreatedBy()
     {
-        return $this->hasOne(User::className(), ['id' => 'created_by']);
+        return $this->hasOne(User::class, ['id' => 'created_by']);
     }
 
     /**
@@ -118,6 +118,6 @@ class BookChapter extends \yii\db\ActiveRecord
      */
     public function getUpdatedBy()
     {
-        return $this->hasOne(User::className(), ['id' => 'updated_by']);
+        return $this->hasOne(User::class, ['id' => 'updated_by']);
     }
 }

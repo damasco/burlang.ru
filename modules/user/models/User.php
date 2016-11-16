@@ -43,7 +43,7 @@ class User extends BaseUser
      */
     public function getBuryatNames()
     {
-        return $this->hasMany(BuryatName::className(), ['created_by' => 'id']);
+        return $this->hasMany(BuryatName::class, ['created_by' => 'id']);
     }
 
     /**
@@ -51,7 +51,7 @@ class User extends BaseUser
      */
     public function getBuryatNamesUpdated()
     {
-        return $this->hasMany(BuryatName::className(), ['created_by' => 'id']);
+        return $this->hasMany(BuryatName::class, ['created_by' => 'id']);
     }
 
     /**
@@ -59,7 +59,7 @@ class User extends BaseUser
      */
     public function getBuryatWords()
     {
-        return $this->hasMany(BuryatWord::className(), ['created_by' => 'id']);
+        return $this->hasMany(BuryatWord::class, ['created_by' => 'id']);
     }
 
     /**
@@ -67,7 +67,7 @@ class User extends BaseUser
      */
     public function getBuryatWordsUpdated()
     {
-        return $this->hasMany(BuryatWord::className(), ['created_by' => 'id']);
+        return $this->hasMany(BuryatWord::class, ['created_by' => 'id']);
     }
 
     /**
@@ -75,7 +75,7 @@ class User extends BaseUser
      */
     public function getRussianWords()
     {
-        return $this->hasMany(RussianWord::className(), ['created_by' => 'id']);
+        return $this->hasMany(RussianWord::class, ['created_by' => 'id']);
     }
 
     /**
@@ -83,7 +83,7 @@ class User extends BaseUser
      */
     public function getRussianWordsUpdated()
     {
-        return $this->hasMany(RussianWord::className(), ['created_by' => 'id']);
+        return $this->hasMany(RussianWord::class, ['created_by' => 'id']);
     }
 
     /**
@@ -91,7 +91,7 @@ class User extends BaseUser
      */
     public function getBuryatTranslations()
     {
-        return $this->hasMany(BuryatTranslation::className(), ['created_by' => 'id']);
+        return $this->hasMany(BuryatTranslation::class, ['created_by' => 'id']);
     }
 
     /**
@@ -99,7 +99,7 @@ class User extends BaseUser
      */
     public function getBuryatTranslationsUpdated()
     {
-        return $this->hasMany(BuryatTranslation::className(), ['created_by' => 'id']);
+        return $this->hasMany(BuryatTranslation::class, ['created_by' => 'id']);
     }
 
     /**
@@ -107,7 +107,7 @@ class User extends BaseUser
      */
     public function getRussianTranslations()
     {
-        return $this->hasMany(RussianTranslation::className(), ['created_by' => 'id']);
+        return $this->hasMany(RussianTranslation::class, ['created_by' => 'id']);
     }
 
     /**
@@ -115,7 +115,7 @@ class User extends BaseUser
      */
     public function getRussianTranslationsUpdated()
     {
-        return $this->hasMany(RussianTranslation::className(), ['created_by' => 'id']);
+        return $this->hasMany(RussianTranslation::class, ['created_by' => 'id']);
     }
 
     /**
@@ -123,7 +123,7 @@ class User extends BaseUser
      */
     public function getDictionaries()
     {
-        return $this->hasMany(Dictionary::className(), ['created_by' => 'id']);
+        return $this->hasMany(Dictionary::class, ['created_by' => 'id']);
     }
 
     /**
@@ -131,7 +131,7 @@ class User extends BaseUser
      */
     public function getDictionariesUpdated()
     {
-        return $this->hasMany(Dictionary::className(), ['created_by' => 'id']);
+        return $this->hasMany(Dictionary::class, ['created_by' => 'id']);
     }
 
     /**
@@ -139,7 +139,7 @@ class User extends BaseUser
      */
     public function getNews()
     {
-        return $this->hasMany(News::className(), ['created_by' => 'id']);
+        return $this->hasMany(News::class, ['created_by' => 'id']);
     }
 
     /**
@@ -147,7 +147,7 @@ class User extends BaseUser
      */
     public function getNewsUpdated()
     {
-        return $this->hasMany(News::className(), ['created_by' => 'id']);
+        return $this->hasMany(News::class, ['created_by' => 'id']);
     }
 
     /**
@@ -155,7 +155,7 @@ class User extends BaseUser
      */
     public function getPages()
     {
-        return $this->hasMany(Page::className(), ['created_by' => 'id']);
+        return $this->hasMany(Page::class, ['created_by' => 'id']);
     }
 
     /**
@@ -163,7 +163,7 @@ class User extends BaseUser
      */
     public function getPagesUpdated()
     {
-        return $this->hasMany(Page::className(), ['created_by' => 'id']);
+        return $this->hasMany(Page::class, ['created_by' => 'id']);
     }
 
     /**
@@ -171,7 +171,7 @@ class User extends BaseUser
      */
     public function getBooks()
     {
-        return $this->hasMany(Book::className(), ['created_by' => 'id']);
+        return $this->hasMany(Book::class, ['created_by' => 'id']);
     }
 
     /**
@@ -179,7 +179,7 @@ class User extends BaseUser
      */
     public function getBooksUpdated()
     {
-        return $this->hasMany(Book::className(), ['created_by' => 'id']);
+        return $this->hasMany(Book::class, ['created_by' => 'id']);
     }
 
     /**
@@ -187,7 +187,7 @@ class User extends BaseUser
      */
     public function getBookChapters()
     {
-        return $this->hasMany(BookChapter::className(), ['created_by' => 'id']);
+        return $this->hasMany(BookChapter::class, ['created_by' => 'id']);
     }
 
     /**
@@ -195,6 +195,6 @@ class User extends BaseUser
      */
     public function getBookChaptersUpdated()
     {
-        return $this->hasMany(BookChapter::className(), ['created_by' => 'id']);
+        return $this->hasMany(BookChapter::class, ['created_by' => 'id']);
     }
 }

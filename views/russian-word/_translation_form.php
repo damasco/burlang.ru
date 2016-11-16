@@ -60,7 +60,7 @@ use yii\data\ActiveDataProvider;
         <?php $form = ActiveForm::begin() ?>
 
         <?= $form->field($translationForm, 'name')->widget(
-            \app\widgets\InputCharts::className(), ['options' => ['maxlength' => true]]
+            \app\widgets\InputCharts::class, ['options' => ['maxlength' => true]]
         ) ?>
 
         <?= $form->field($translationForm, 'ruword_id')->hiddenInput(['value' => $model->id])->label(false) ?>

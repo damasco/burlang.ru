@@ -41,9 +41,9 @@ class RussianTranslation extends \yii\db\ActiveRecord
             [['ruword_id', 'name'], 'required'],
             [['ruword_id', 'created_by', 'updated_by', 'created_at', 'updated_at'], 'integer'],
             [['name'], 'string', 'max' => 100],
-            [['ruword_id'], 'exist', 'skipOnError' => true, 'targetClass' => RussianWord::className(), 'targetAttribute' => ['ruword_id' => 'id']],
-            [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['created_by' => 'id']],
-            [['updated_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['updated_by' => 'id']],
+            [['ruword_id'], 'exist', 'skipOnError' => true, 'targetClass' => RussianWord::class, 'targetAttribute' => ['ruword_id' => 'id']],
+            [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['created_by' => 'id']],
+            [['updated_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['updated_by' => 'id']],
         ];
     }
 
@@ -69,8 +69,8 @@ class RussianTranslation extends \yii\db\ActiveRecord
     public function behaviors()
     {
         return [
-            TimestampBehavior::className(),
-            BlameableBehavior::className(),
+            TimestampBehavior::class,
+            BlameableBehavior::class,
         ];
     }
 
@@ -79,7 +79,7 @@ class RussianTranslation extends \yii\db\ActiveRecord
      */
     public function getRussianWord()
     {
-        return $this->hasOne(RussianWord::className(), ['id' => 'ruword_id']);
+        return $this->hasOne(RussianWord::class, ['id' => 'ruword_id']);
     }
 
     /**
@@ -87,7 +87,7 @@ class RussianTranslation extends \yii\db\ActiveRecord
      */
     public function getCreatedBy()
     {
-        return $this->hasOne(User::className(), ['id' => 'created_by']);
+        return $this->hasOne(User::class, ['id' => 'created_by']);
     }
 
     /**
@@ -95,6 +95,6 @@ class RussianTranslation extends \yii\db\ActiveRecord
      */
     public function getUpdatedBy()
     {
-        return $this->hasOne(User::className(), ['id' => 'updated_by']);
+        return $this->hasOne(User::class, ['id' => 'updated_by']);
     }
 }

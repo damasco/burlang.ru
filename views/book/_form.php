@@ -21,11 +21,11 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'active')->checkbox() ?>
 
     <?= $form->field($model, 'title')->widget(
-        \app\widgets\InputCharts::className(), ['options' => ['maxlength' => true]]
+        \app\widgets\InputCharts::class, ['options' => ['maxlength' => true]]
     ) ?>
 
     <?= $form->field($model, 'description')->widget(
-        \app\widgets\TextareaCharts::className(), ['options' => ['rows' => 5]]
+        \app\widgets\TextareaCharts::class, ['options' => ['rows' => 5]]
     ) ?>
 
     <?= $form->field($model, 'content')->textarea(['id' => 'markdown-editor']) ?>

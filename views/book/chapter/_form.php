@@ -19,7 +19,7 @@ use yii\widgets\ActiveForm;
     <?= $form->errorSummary($model); ?>
 
     <?= $form->field($model, 'title')->widget(
-        \app\widgets\InputCharts::className(), ['options' => ['maxlength' => true]]
+        \app\widgets\InputCharts::class, ['options' => ['maxlength' => true]]
     ) ?>
 
     <?= $form->field($model, 'content')->textarea(['id' => 'markdown-editor']) ?>

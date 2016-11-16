@@ -16,7 +16,7 @@ class Bootstrap implements BootstrapInterface
         /** @var Module $module */
         if ($app->hasModule('v1') && ($module = $app->getModule('v1')) instanceof Module) {
             $configUrlRule = [
-                'class' => GroupUrlRule::className(),
+                'class' => GroupUrlRule::class,
                 'prefix' => $module->urlRulePrefix,
                 'rules'  => $module->urlRules,
             ];

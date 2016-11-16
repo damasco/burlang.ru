@@ -68,7 +68,7 @@ use yii\data\ActiveDataProvider;
 
         <div class="row">
             <div class="col-sm-6">
-                <?= $form->field($translationForm, 'name')->widget(\app\widgets\InputCharts::className()) ?>
+                <?= $form->field($translationForm, 'name')->widget(\app\widgets\InputCharts::class) ?>
             </div>
             <div class="col-sm-6">
                 <?= $form->field($translationForm, 'dict_id')->dropDownList(

@@ -23,7 +23,7 @@ class BuryatNameController extends ActiveController
     {
         return ArrayHelper::merge(parent::behaviors(), [
             'corsFilter' => [
-                'class' => Cors::className(),
+                'class' => Cors::class,
             ],
         ]);
     }

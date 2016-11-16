@@ -44,8 +44,8 @@ class Dictionary extends \yii\db\ActiveRecord
             [['info'], 'string', 'max' => 255],
             [['isbn'], 'string', 'max' => 30],
             [['created_by', 'updated_by', 'created_at', 'updated_at'], 'integer'],
-            [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['created_by' => 'id']],
-            [['updated_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['updated_by' => 'id']],
+            [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['created_by' => 'id']],
+            [['updated_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['updated_by' => 'id']],
         ];
     }
 
@@ -72,8 +72,8 @@ class Dictionary extends \yii\db\ActiveRecord
     public function behaviors()
     {
         return [
-            TimestampBehavior::className(),
-            BlameableBehavior::className(),
+            TimestampBehavior::class,
+            BlameableBehavior::class,
         ];
     }
 
@@ -82,7 +82,7 @@ class Dictionary extends \yii\db\ActiveRecord
      */
     public function getBuryatTranslation()
     {
-        return $this->hasMany(BuryatTranslation::className(), ['dict_id' => 'id']);
+        return $this->hasMany(BuryatTranslation::class, ['dict_id' => 'id']);
     }
 
     /**
@@ -90,7 +90,7 @@ class Dictionary extends \yii\db\ActiveRecord
      */
     public function getCreatedBy()
     {
-        return $this->hasOne(User::className(), ['id' => 'created_by']);
+        return $this->hasOne(User::class, ['id' => 'created_by']);
     }
 
     /**
@@ -98,6 +98,6 @@ class Dictionary extends \yii\db\ActiveRecord
      */
     public function getUpdatedBy()
     {
-        return $this->hasOne(User::className(), ['id' => 'updated_by']);
+        return $this->hasOne(User::class, ['id' => 'updated_by']);
     }
 }

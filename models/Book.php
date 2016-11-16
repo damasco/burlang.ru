@@ -47,8 +47,8 @@ class Book extends \yii\db\ActiveRecord
             [['active', 'created_by', 'updated_by', 'created_at', 'updated_at'], 'integer'],
             [['title', 'slug'], 'string', 'max' => 255],
             [['title'], 'unique'],
-            [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['created_by' => 'id']],
-            [['updated_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['updated_by' => 'id']],
+            [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['created_by' => 'id']],
+            [['updated_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['updated_by' => 'id']],
         ];
     }
 
@@ -77,10 +77,10 @@ class Book extends \yii\db\ActiveRecord
     public function behaviors()
     {
         return [
-            TimestampBehavior::className(),
-            BlameableBehavior::className(),
+            TimestampBehavior::class,
+            BlameableBehavior::class,
             [
-                'class' => SluggableBehavior::className(),
+                'class' => SluggableBehavior::class,
                 'attribute' => 'title',
             ]
         ];
@@ -91,7 +91,7 @@ class Book extends \yii\db\ActiveRecord
      */
     public function getCreatedBy()
     {
-        return $this->hasOne(User::className(), ['id' => 'created_by']);
+        return $this->hasOne(User::class, ['id' => 'created_by']);
     }
 
     /**
@@ -99,7 +99,7 @@ class Book extends \yii\db\ActiveRecord
      */
     public function getUpdatedBy()
     {
-        return $this->hasOne(User::className(), ['id' => 'updated_by']);
+        return $this->hasOne(User::class, ['id' => 'updated_by']);
     }
 
     /**
@@ -107,6 +107,6 @@ class Book extends \yii\db\ActiveRecord
      */
     public function getChapters()
     {
-        return $this->hasMany(BookChapter::className(), ['book_id' => 'id']);
+        return $this->hasMany(BookChapter::class, ['book_id' => 'id']);
     }
 }

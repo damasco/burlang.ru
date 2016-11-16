@@ -18,7 +18,7 @@ use yii\widgets\ActiveForm;
         <div class="panel-body">
             <?php $form = ActiveForm::begin(['action' => ['index'], 'method' => 'get']); ?>
 
-            <?= $form->field($model, 'name')->widget(\app\widgets\InputCharts::className()) ?>
+            <?= $form->field($model, 'name')->widget(\app\widgets\InputCharts::class) ?>
 
             <?= Html::submitButton(Yii::t('app', 'Find'), ['class' => 'btn btn-primary']) ?>
             <?= Html::resetButton(Yii::t('app', 'Reset'), ['class' => 'btn btn-default']) ?>

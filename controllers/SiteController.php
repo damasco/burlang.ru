@@ -31,7 +31,7 @@ class SiteController extends Controller
     {
         return [
             'ajaxFilter' => [
-                'class' => AjaxFilter::className(),
+                'class' => AjaxFilter::class,
                 'only' => [
                     'get-russian-words',
                     'get-buryat-words',
@@ -40,7 +40,7 @@ class SiteController extends Controller
                 ]
             ],
             'contentNegotiator' => [
-                'class' => ContentNegotiator::className(),
+                'class' => ContentNegotiator::class,
                 'only' => ['get-russian-words', 'get-buryat-words'],
                 'formats' => [
                     'application/json' => Response::FORMAT_JSON,

@@ -14,10 +14,7 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'name')->widget(
-        \app\widgets\InputCharts::className(),
-        ['options' => ['maxlength' => true]]
-    ) ?>
+    <?= $form->field($model, 'name')->widget(\app\widgets\InputCharts::class, ['options' => ['maxlength' => true]]) ?>
 
     <div class="form-group">
         <?= Html::submitButton(

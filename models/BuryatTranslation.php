@@ -43,9 +43,9 @@ class BuryatTranslation extends \yii\db\ActiveRecord
             [['name', 'burword_id'], 'required'],
             [['burword_id', 'dict_id', 'created_by', 'updated_by', 'created_at', 'updated_at'], 'integer'],
             [['name'], 'string', 'max' => 2000],
-            [['burword_id'], 'exist', 'skipOnError' => true, 'targetClass' => BuryatWord::className(), 'targetAttribute' => ['burword_id' => 'id']],
-            [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['created_by' => 'id']],
-            [['updated_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['updated_by' => 'id']],
+            [['burword_id'], 'exist', 'skipOnError' => true, 'targetClass' => BuryatWord::class, 'targetAttribute' => ['burword_id' => 'id']],
+            [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['created_by' => 'id']],
+            [['updated_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['updated_by' => 'id']],
         ];
     }
 
@@ -72,8 +72,8 @@ class BuryatTranslation extends \yii\db\ActiveRecord
     public function behaviors()
     {
         return [
-            TimestampBehavior::className(),
-            BlameableBehavior::className(),
+            TimestampBehavior::class,
+            BlameableBehavior::class,
         ];
     }
 
@@ -82,7 +82,7 @@ class BuryatTranslation extends \yii\db\ActiveRecord
      */
     public function getBuryatWord()
     {
-        return $this->hasOne(BuryatWord::className(), ['id' => 'burword_id']);
+        return $this->hasOne(BuryatWord::class, ['id' => 'burword_id']);
     }
 
     /**
@@ -90,7 +90,7 @@ class BuryatTranslation extends \yii\db\ActiveRecord
      */
     public function getDictionary()
     {
-        return $this->hasOne(Dictionary::className(), ['id' => 'dict_id']);
+        return $this->hasOne(Dictionary::class, ['id' => 'dict_id']);
     }
 
     /**
@@ -98,7 +98,7 @@ class BuryatTranslation extends \yii\db\ActiveRecord
      */
     public function getCreatedBy()
     {
-        return $this->hasOne(User::className(), ['id' => 'created_by']);
+        return $this->hasOne(User::class, ['id' => 'created_by']);
     }
 
     /**
@@ -106,6 +106,6 @@ class BuryatTranslation extends \yii\db\ActiveRecord
      */
     public function getUpdatedBy()
     {
-        return $this->hasOne(User::className(), ['id' => 'updated_by']);
+        return $this->hasOne(User::class, ['id' => 'updated_by']);
     }
 }

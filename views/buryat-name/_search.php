@@ -23,7 +23,7 @@ use yii\widgets\ActiveForm;
 
             <div class="row">
                 <div class="col-sm-6 col-md-4">
-                    <?= $form->field($model, 'name')->widget(\app\widgets\InputCharts::className()) ?>
+                    <?= $form->field($model, 'name')->widget(\app\widgets\InputCharts::class) ?>
                 </div>
                 <div class="col-sm-6 col-md-4">
                     <?= $form->field($model, 'description') ?>
