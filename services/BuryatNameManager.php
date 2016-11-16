@@ -1,14 +1,13 @@
 <?php
 
-namespace app\components;
+namespace app\services;
 
 use app\models\BuryatName;
-use yii\base\Object;
 use yii\helpers\ArrayHelper;
 use yii\web\NotFoundHttpException;
 use Yii;
 
-class BuryatNameManager extends Object
+class BuryatNameManager
 {
     /**
      * @return array

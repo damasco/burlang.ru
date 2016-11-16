@@ -2,7 +2,7 @@
 
 namespace app\controllers;
 
-use app\components\BuryatNameManager;
+use app\services\BuryatNameManager;
 use Yii;
 use app\models\BuryatName;
 use app\models\search\BuryatNameSearch;
@@ -49,7 +49,7 @@ class BuryatNameController extends Controller
      */
     public function actionIndex($letter = null)
     {
-        $names = Yii::createObject(BuryatNameManager::className())->getNames($letter);
+        $names = Yii::createObject(BuryatNameManager::class)->getNames($letter);
 
         return $this->render('index', [
             'names' => $names,

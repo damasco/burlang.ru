@@ -1,13 +1,12 @@
 <?php
 
-namespace app\components;
+namespace app\services;
 
-use app\helpers\StringHelper;
-use app\models\BuryatWord;
 use app\models\SearchData;
-use yii\base\Object;
+use app\helpers\StringHelper;
+use app\models\RussianWord;
 
-class BuryatWordManager extends Object
+class RussianWordManager
 {
     /**
      * @param string $q
@@ -15,7 +14,7 @@ class BuryatWordManager extends Object
      */
     public function getWordsWithFilter($q)
     {
-        return BuryatWord::find()
+        return RussianWord::find()
             ->select(['name as value'])
             ->filterWhere(['like', 'name', $q . '%', false])
             ->orderBy('name')
@@ -31,13 +30,13 @@ class BuryatWordManager extends Object
     public function getTranslations($q)
     {
         if (StringHelper::isWord($q)) {
-            /** @var BuryatWord $word */
-            $word = BuryatWord::findOne(['name' => $q]);
+            /** @var RussianWord $word */
+            $word = RussianWord::findOne(['name' => $q]);
 
             if ($word && $word->getTranslations()->exists()) {
                 return $word->getTranslations()->asArray()->all();
             } else {
-                \Yii::createObject(SearchDataManager::className())->insert($q, SearchData::BURYAT_WORD_TYPE);
+                \Yii::createObject(SearchDataManager::class)->insert($q, SearchData::RUSSIAN_WORD_TYPE);
                 return null;
             }
         } else {

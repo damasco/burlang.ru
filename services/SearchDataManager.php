@@ -1,11 +1,10 @@
 <?php
 
-namespace app\components;
+namespace app\services;
 
 use app\models\SearchData;
-use yii\base\Object;
 
-class SearchDataManager extends Object
+class SearchDataManager
 {
     /**
      * Insert search data

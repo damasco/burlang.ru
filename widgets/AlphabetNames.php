@@ -3,7 +3,7 @@
 namespace app\widgets;
 
 use Yii;
-use app\components\BuryatNameManager;
+use app\services\BuryatNameManager;
 use yii\base\Widget;
 
 class AlphabetNames extends Widget
