@@ -7,6 +7,7 @@ use app\modules\user\models\User;
 use Codeception\Specify;
 use Codeception\Test\Unit;
 use app\models\Page as PageModel;
+use Codeception\Util\Stub;
 
 class PageTest extends Unit
 {
@@ -31,9 +32,13 @@ class PageTest extends Unit
             $model->save();
         }
 
-        $stub = $this->createMock('\yii\web\Request');
-        $stub->method('getUrl')->willReturn('/page/' . $pageName);
-        \Yii::$app->set('request', $stub);
+        $request = Stub::make('\yii\web\Request', [
+            'getUrl' => function () use ($pageName) {
+                return '/page/' . $pageName;
+            }
+        ]);
+
+        \Yii::$app->set('request', $request);
 
         $page = new Page();
 
