@@ -35,7 +35,7 @@ class SiteController extends Controller
                 'only' => [
                     'get-russian-words',
                     'get-buryat-words',
-                    'russain-translate',
+                    'russian-translate',
                     'buryat-translate',
                 ]
             ],
