@@ -2,7 +2,7 @@
 
 namespace app\api\v1\controllers;
 
-use app\components\BuryatWordManager;
+use app\services\BuryatWordManager;
 use Yii;
 use yii\rest\ActiveController;
 use yii\helpers\ArrayHelper;
@@ -15,7 +15,7 @@ class BuryatWordController extends ActiveController
     /**
      * @inheritdoc
      */
-    public $modelClass = 'app\api\v1\models\BuryatWord';
+    public $modelClass = BuryatWord::class;
 
     /**
      * @inheritdoc

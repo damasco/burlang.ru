@@ -14,7 +14,7 @@ class BuryatNameController extends ActiveController
     /**
      * @inheritdoc
      */
-    public $modelClass = 'app\api\v1\models\BuryatName';
+    public $modelClass = BuryatName::class;
 
     /**
      * @inheritdoc

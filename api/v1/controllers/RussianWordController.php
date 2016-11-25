@@ -2,7 +2,7 @@
 
 namespace app\api\v1\controllers;
 
-use app\components\RussianWordManager;
+use app\services\RussianWordManager;
 use Yii;
 use yii\rest\ActiveController;
 use yii\helpers\ArrayHelper;
@@ -15,7 +15,7 @@ class RussianWordController extends ActiveController
     /**
      * @inheritdoc
      */
-    public $modelClass = 'app\api\v1\models\RussianWord';
+    public $modelClass = RussianWord::class;
 
     /**
      * @inheritdoc
