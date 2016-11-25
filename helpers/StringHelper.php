@@ -2,7 +2,7 @@
 
 namespace app\helpers;
 
-class StringHelper 
+class StringHelper extends \yii\helpers\StringHelper
 {
 	/**
 	 * @param string $string
@@ -10,10 +10,7 @@ class StringHelper
 	 */
 	public static function isWord($string) 
 	{
-		if (count(self::stringToArray($string)) > 1) {
-			return false;
-		}
-		return true;
+		return count(self::stringToArray($string)) > 1 ? false : true;
 	}
 
 	/**
