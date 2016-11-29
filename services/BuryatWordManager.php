@@ -2,7 +2,7 @@
 
 namespace app\services;
 
-use app\helpers\StringHelper;
+use yii\helpers\StringHelper;
 use app\models\BuryatWord;
 use app\models\SearchData;
 
@@ -29,7 +29,7 @@ class BuryatWordManager
      */
     public function getTranslations($q)
     {
-        if (StringHelper::isWord($q)) {
+        if (StringHelper::countWords($q) == 1) {
             /** @var BuryatWord $word */
             $word = BuryatWord::findOne(['name' => $q]);
 

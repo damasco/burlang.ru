@@ -3,7 +3,7 @@
 namespace app\services;
 
 use app\models\SearchData;
-use app\helpers\StringHelper;
+use yii\helpers\StringHelper;
 use app\models\RussianWord;
 
 class RussianWordManager
@@ -29,7 +29,7 @@ class RussianWordManager
      */
     public function getTranslations($q)
     {
-        if (StringHelper::isWord($q)) {
+        if (StringHelper::countWords($q) == 1) {
             /** @var RussianWord $word */
             $word = RussianWord::findOne(['name' => $q]);
 
