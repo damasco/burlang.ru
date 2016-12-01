@@ -12,7 +12,7 @@ use yii\helpers\Html;
     <?php foreach ($alphabet as $item): ?>
         <li>
             <?= Html::a(
-                "{$item['letter']} <span class=\"badge\">{$item['amount']}</span>",
+                $item['letter'] . ' ' . Html::tag('span', $item['amount'], ['class' => 'badge']),
                 ['/buryat-name/index', 'letter' => $item['letter']],
                 [
                     'class' => $letter == $item['letter'] ?
