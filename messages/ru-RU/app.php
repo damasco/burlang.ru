@@ -141,6 +141,7 @@ return [
     'Edit book' => 'Редактировать книгу',
     'Delete book' => 'Удалить книгу',
     'Last update' => 'Последнее обновление',
+    'Incorrect parameter "{param}"' => 'Неверный параметр "{param}"',
 
     // book chapter
     'Chapters' => 'Главы',

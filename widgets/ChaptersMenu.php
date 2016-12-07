@@ -2,6 +2,7 @@
 
 namespace app\widgets;
 
+use yii\base\InvalidParamException;
 use yii\base\Widget;
 use app\models\Book;
 
@@ -12,6 +13,16 @@ class ChaptersMenu extends Widget
 
     /** @var integer|null */
     public $active_id = null;
+
+    /**
+     * @inheritdoc
+     */
+    public function init()
+    {
+        if (!$this->book instanceof Book) {
+            throw new InvalidParamException(\Yii::t('app', 'Incorrect parameter "{param}"', ['param' => 'book']));
+        }
+    }
 
     /**
      * @inheritdoc
