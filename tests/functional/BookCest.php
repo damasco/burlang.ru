@@ -2,10 +2,18 @@
 
 namespace tests\functional;
 
+use app\tests\fixtures\UserWithRbacFixture;
 use FunctionalTester;
 
 class BookCest
 {
+    public function _before(FunctionalTester $I)
+    {
+        $I->haveFixtures([
+            'user' => UserWithRbacFixture::class,
+        ]);
+    }
+
     public function indexPage(FunctionalTester $I)
     {
         $I->wantTo('ensure that book page works');
@@ -33,12 +41,12 @@ class BookCest
         $I->logout();
     }
 
-    // public function createPageAsUser(FunctionalTester $I)
-    // {
-    //     $I->wantTo('ensure that book create page not works for simple user');
-    //     $I->loginAsUser();
-    //     $I->amOnPage(['book/create']);
-    //     $I->seeInTitle('Forbidden');
-    //     $I->logout();
-    // }
+     public function createPageAsUser(FunctionalTester $I)
+     {
+         $I->wantTo('ensure that book create page not works for simple user');
+         $I->loginAsUser();
+         $I->amOnPage(['book/create']);
+         $I->seeInTitle('Forbidden');
+         $I->logout();
+     }
 }

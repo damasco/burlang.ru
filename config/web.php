@@ -28,7 +28,7 @@ $config = [
         ],
         'assetManager' => [
             'class' => 'yii\web\AssetManager',
-            'appendTimestamp' => true
+            'appendTimestamp' => true,
         ],
         'request' => [
             'cookieValidationKey' => $params['components.request.key'],

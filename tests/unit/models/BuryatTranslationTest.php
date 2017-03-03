@@ -23,9 +23,6 @@ class BuryatTranslationTest extends Unit
     {
         BuryatWord::deleteAll(['name' => 'buryat_word']);
 
-        /** @var Dictionary $dictionary */
-        $dictionary = Dictionary::find()->one();
-
         $buryatWord = new BuryatWord([
             'name' => 'buryat_word'
         ]);
@@ -35,7 +32,7 @@ class BuryatTranslationTest extends Unit
         $buryatTranslation = new BuryatTranslation([
             'name' => 'buryat_word_translation',
             'burword_id' => $buryatWord->id,
-            'dict_id' => $dictionary->id,
+            'dict_id' => 1,
         ]);
 
         expect('model is valid', $buryatTranslation->validate())->true();

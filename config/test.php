@@ -17,6 +17,9 @@ return yii\helpers\ArrayHelper::merge(
             'urlManager' => [
                 'showScriptName' => true,
             ],
+            'assetManager' => [
+                'basePath' => __DIR__ . '/../web/assets',
+            ],
             'request' => [
                 'cookieValidationKey' => 'test',
                 'enableCsrfValidation' => false,
