@@ -29,7 +29,9 @@
 
         "codeception/base": "^2.2.3",
         "codeception/verify": "~0.3.1",
-        "codeception/specify": "~0.4.3"
+        "codeception/specify": "~0.4.3",
+        "guzzlehttp/guzzle": "^6.2",
+        "flow/jsonpath": "^0.3.4"
     },
     "config": {
         "process-timeout": 1800

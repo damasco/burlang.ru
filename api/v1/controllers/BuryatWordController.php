@@ -4,49 +4,12 @@ namespace app\api\v1\controllers;
 
 use app\services\BuryatWordManager;
 use Yii;
-use yii\rest\ActiveController;
-use yii\helpers\ArrayHelper;
-use yii\filters\Cors;
 use app\api\v1\models\BuryatWord;
 use yii\web\NotFoundHttpException;
+use app\api\v1\components\Controller;
 
-class BuryatWordController extends ActiveController
+class BuryatWordController extends Controller
 {
-    /**
-     * @inheritdoc
-     */
-    public $modelClass = BuryatWord::class;
-
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return ArrayHelper::merge(parent::behaviors(), [
-            'corsFilter' => [
-                'class' => Cors::class,
-            ],
-        ]);
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function actions()
-    {
-        $action = parent::actions();
-        unset(
-            $action['delete'],
-            $action['index'],
-            $action['view'],
-            $action['create'],
-            $action['update']
-        );
-
-        return $action;
-    }
-
-
     /**
      * Get translate
      * @param string $q
@@ -69,6 +32,6 @@ class BuryatWordController extends ActiveController
      */
     public function actionSearch($q)
     {
-        return (new BuryatWordManager())->getWordsWithFilter($q);
+        return Yii::createObject(BuryatWordManager::class)->getWordsWithFilter($q);
     }
 }

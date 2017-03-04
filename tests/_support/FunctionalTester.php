@@ -23,17 +23,17 @@ class FunctionalTester extends \Codeception\Actor
 
     public function loginAsAdmin()
     {
-        $this->amLoggedInAs(User::findOne(['username' => 'admin']));
+        $this->amLoggedInAs(User::findOne(['username' => 'testAdmin']));
     }
 
     public function loginAsModerator()
     {
-        $this->amLoggedInAs(User::findOne(['username' => 'moderator']));
+        $this->amLoggedInAs(User::findOne(['username' => 'testModerator']));
     }
 
     public function loginAsUser()
     {
-        $this->amLoggedInAs(User::findOne(['username' => 'user']));
+        $this->amLoggedInAs(User::findOne(['username' => 'testUser']));
     }
 
     public function logout()

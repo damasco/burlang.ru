@@ -15,6 +15,7 @@ return yii\helpers\ArrayHelper::merge(
                 'useFileTransport' => true,
             ],
             'urlManager' => [
+                'enablePrettyUrl' => true,
                 'showScriptName' => true,
             ],
             'assetManager' => [

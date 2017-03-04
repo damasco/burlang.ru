@@ -9,10 +9,12 @@ class SearchDataManager
     /**
      * Insert search data
      * @param string $word
-     * @param integer $type
+     * @param int $type
+     *
+     * @return void
      */
     public function insert($word, $type)
     {
-        (new SearchData(['name' => $word, 'type' => $type]))->save();
+        \Yii::createObject(['class' => SearchData::class, 'name' => $word, 'type' => $type])->save();
     }
 }
