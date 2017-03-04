@@ -27,11 +27,9 @@
         "yiisoft/yii2-gii": "~2.0.5",
         "yiisoft/yii2-faker": "~2.0.3",
 
-        "codeception/base": "^2.2.3",
+        "codeception/codeception": "^2.2.9",
         "codeception/verify": "~0.3.1",
-        "codeception/specify": "~0.4.3",
-        "guzzlehttp/guzzle": "^6.2",
-        "flow/jsonpath": "^0.3.4"
+        "codeception/specify": "~0.4.3"
     },
     "config": {
         "process-timeout": 1800

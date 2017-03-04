@@ -26,27 +26,24 @@ class BookCest
     public function createPageAsAdmin(FunctionalTester $I)
     {
         $I->wantTo('ensure that book create page works for admin');
-        $I->loginAsAdmin();
+        $I->amLoggedInAsAdmin();
         $I->amOnPage(['book/create']);
         $I->seeInTitle('Create book');
-        $I->logout();
     }
 
     public function createPageAsModerator(FunctionalTester $I)
     {
         $I->wantTo('ensure that book create page works for moderator');
-        $I->loginAsModerator();
+        $I->amLoggedInAsModerator();
         $I->amOnPage(['book/create']);
         $I->seeInTitle('Create book');
-        $I->logout();
     }
 
      public function createPageAsUser(FunctionalTester $I)
      {
          $I->wantTo('ensure that book create page not works for simple user');
-         $I->loginAsUser();
+         $I->amLoggedInAsUser();
          $I->amOnPage(['book/create']);
          $I->seeInTitle('Forbidden');
-         $I->logout();
      }
 }

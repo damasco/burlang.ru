@@ -17,27 +17,24 @@ class DictionaryCest
     public function indexPageAsAdmin(FunctionalTester $I)
     {
         $I->wantTo('ensure that dictionary index page works for admin');
-        $I->loginAsAdmin();
+        $I->amLoggedInAsAdmin();
         $I->amOnPage(['/dictionary/index']);
         $I->seeInTitle('Dictionaries');
-        $I->logout();
     }
 
      public function indexPageAsModerator(FunctionalTester $I)
      {
          $I->wantTo('ensure that dictionary index page not works for moderator');
-         $I->loginAsModerator();
+         $I->amLoggedInAsModerator();
          $I->amOnPage(['/dictionary/index']);
          $I->seeInTitle('Forbidden');
-         $I->logout();
      }
 
      public function indexPageAsUser(FunctionalTester $I)
      {
          $I->wantTo('ensure that dictionary index page not works for simple user');
-         $I->loginAsUser();
+         $I->amLoggedInAsUser();
          $I->amOnPage(['/dictionary/index']);
          $I->seeInTitle('Forbidden');
-         $I->logout();
      }
 }

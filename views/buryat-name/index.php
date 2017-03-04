@@ -16,9 +16,8 @@ if ($letter !== null) {
 } else {
     $this->params['breadcrumbs'][] = $this->title;
 }
-
 ?>
-<div class="buryat-name-list">
+<div class="buryat-name-list" data-url="<?= \yii\helpers\Url::to(['buryat-name/view-name']) ?>">
 
     <h1 class="hidden-xs"><?= Html::encode($this->title) ?></h1>
 
@@ -29,9 +28,9 @@ if ($letter !== null) {
             <?php foreach ($names as $name): ?>
                 <li>
                     <?= Html::a(
-                        $name['name'], 
-                        ['view-name', 'name' => $name['name']], 
-                        ['class' => 'btn btn-default link-name']
+                        $name['name'],
+                        ['view-name', 'name' => $name['name']],
+                        ['class' => 'btn btn-default js-link-name']
                     ) ?>
                 </li>
             <?php endforeach ?>

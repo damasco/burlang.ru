@@ -1,9 +1,10 @@
 $(document).ready(function () {
     $('#russian-form').on('beforeSubmit', function (e) {
         e.preventDefault();
+        var $form = $(this);
         $.ajax({
-            url: '/site/russian-translate',
-            data: $(this).serialize()
+            url: $form.attr('action'),
+            data: $form.serialize()
         }).done(function (response) {
             $('#russian-translation').html(response);
         });
@@ -12,9 +13,10 @@ $(document).ready(function () {
 
     $('#buryat-form').on('beforeSubmit', function (e) {
         e.preventDefault();
+        var $form = $(this);
         $.ajax({
-            url: '/site/buryat-translate',
-            data: $(this).serialize()
+            url: $form.attr('action'),
+            data: $form.serialize()
         }).done(function (response) {
             $('#buryat-translation').html(response);
         });
@@ -26,12 +28,13 @@ $(document).ready(function () {
         $this.parent('span').siblings('input').sendkeys($this.text());
     });
 
-    $('a.link-name').on('click', function(e) {
+    $('a.js-link-name').on('click', function(e) {
         e.preventDefault();
+        var url = $('.buryat-name-list').data('url');
         var name = $(this).text();
         var $modal = $('#view-name-modal');
         $.ajax({
-            url: '/buryat-name/view-name',
+            url: url,
             data: {name: name}
         }).done(function (response) {
             $modal.find('.modal-title').html(name);
