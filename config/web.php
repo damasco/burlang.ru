@@ -12,7 +12,18 @@ $config = [
     'sourceLanguage' => 'en-US',
     'timeZone' => 'Asia/Irkutsk',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log', 'app\api\v1\Bootstrap'],
+    'bootstrap' => [
+        'log',
+        'app\api\v1\Bootstrap',
+    ],
+    'container' => [
+        'definitions' => [
+            'app\services\BuryatNameManager',
+            'app\services\BuryatWordManager',
+            'app\services\RussianWordManager',
+            'app\services\SearchDataManager',
+        ],
+    ],
     'components' => [
         'db' => $params['components.db'],
         'cache' => $params['components.cache'],
@@ -103,19 +114,6 @@ $config = [
         ],
     ],
     'params' => $params,
-
-    // URLs with trailing slashes should be redirected to URLs without trailig slashes
-//    'on beforeRequest' => function () {
-//        $pathInfo = Yii::$app->request->pathInfo;
-//        $query = Yii::$app->request->queryString;
-//        if (!empty($pathInfo) && substr($pathInfo, -1) === '/') {
-//            $url = '/' . substr($pathInfo, 0, -1);
-//            if ($query) {
-//                $url .= '?' . $query;
-//            }
-//            Yii::$app->response->redirect($url, 301);
-//        }
-//    },
 ];
 
 return $config;
