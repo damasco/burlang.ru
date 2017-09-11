@@ -1,7 +1,7 @@
 <?php
 return [
 //    'components.db' => [
-//        'class' => 'yii\db\Connection',
+//        'class' => \yii\db\Connection::class,
 //        'dsn' => 'mysql:host=localhost;dbname=burlang',
 //        'username' => 'root',
 //        'password' => '',
@@ -10,7 +10,7 @@ return [
 //    ],
 
     'components.mailer' => [
-        'class' => 'yii\swiftmailer\Mailer',
+        'class' => \yii\swiftmailer\Mailer::class,
         // send all mails to a file by default. You have to set
         // 'useFileTransport' to false and configure a transport
         // for the mailer to send real emails.

@@ -1,8 +1,8 @@
 <?php
 
 $params = array_merge(
-    require(__DIR__ . '/params.php'),
-    require(__DIR__ . '/params-local.php')
+    require __DIR__ . '/params.php',
+    require __DIR__ . '/params-local.php'
 );
 
 $config = [
@@ -14,14 +14,14 @@ $config = [
     'basePath' => dirname(__DIR__),
     'bootstrap' => [
         'log',
-        'app\api\v1\Bootstrap',
+        \app\api\v1\Bootstrap::class,
     ],
     'container' => [
         'definitions' => [
-            'app\services\BuryatNameManager',
-            'app\services\BuryatWordManager',
-            'app\services\RussianWordManager',
-            'app\services\SearchDataManager',
+            \app\services\BuryatNameManager::class,
+            \app\services\BuryatWordManager::class,
+            \app\services\RussianWordManager::class,
+            \app\services\SearchDataManager::class,
         ],
     ],
     'components' => [
@@ -34,36 +34,26 @@ $config = [
             'rules' => require __DIR__ . '/urls.php',
         ],
         'authManager' => [
-            'class' => 'dektrium\rbac\components\DbManager',
+            'class' => \dektrium\rbac\components\DbManager::class,
             'cache' => 'cache',
         ],
         'assetManager' => [
-            'class' => 'yii\web\AssetManager',
+            'class' => \yii\web\AssetManager::class,
             'appendTimestamp' => true,
         ],
         'request' => [
             'cookieValidationKey' => $params['components.request.key'],
             'parsers' => [
-                'application/json' => 'yii\web\JsonParser',
+                'application/json' => yii\web\JsonParser::class,
             ]
         ],
         'response' => [
-            'class' => 'yii\web\Response',
-            'on beforeSend' => function ($event) {
-                $response = $event->sender;
-                if ($response->data !== null && Yii::$app->request->get('suppress_response_code')) {
-                    $response->data = [
-                        'success' => $response->isSuccessful,
-                        'data' => $response->data,
-                    ];
-                    $response->statusCode = 200;
-                }
-            },
+            'class' => \yii\web\Response::class,
         ],
         'i18n' => [
             'translations' => [
                 'app*' => [
-                    'class' => 'yii\i18n\PhpMessageSource',
+                    'class' => \yii\i18n\PhpMessageSource::class,
                     'fileMap' => [
                         'app' => 'app.php',
                     ],
@@ -77,7 +67,7 @@ $config = [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
                 [
-                    'class' => 'yii\log\FileTarget',
+                    'class' => \yii\log\FileTarget::class,
                     'levels' => ['error', 'warning'],
                 ],
             ],
@@ -89,29 +79,23 @@ $config = [
                 ],
             ],
         ],
-        'devicedetect' => [
-            'class' => 'alexandernst\devicedetect\DeviceDetect',
-        ],
-        'page' => [
-            'class' => 'app\components\Page',
-        ]
+        'devicedetect' => \alexandernst\devicedetect\DeviceDetect::class,
+        'page' => \app\components\Page::class
     ],
     'modules' => [
         'user' => [
-            'class' => 'dektrium\user\Module',
+            'class' => \dektrium\user\Module::class,
             'enableRegistration' => false,
             'adminPermission' => 'admin',
             'modelMap' => [
-                'User' => 'app\modules\user\models\User',
+                'User' => \app\modules\user\models\User::class,
             ],
             'controllerMap' => [
-                'profile' => 'app\modules\user\controllers\ProfileController',
+                'profile' => \app\modules\user\controllers\ProfileController::class,
             ],
         ],
-        'rbac' => 'dektrium\rbac\RbacWebModule',
-        'v1' => [
-            'class' => 'app\api\v1\Module',
-        ],
+        'rbac' => \dektrium\rbac\RbacWebModule::class,
+        'v1' => \app\api\v1\Module::class,
     ],
     'params' => $params,
 ];

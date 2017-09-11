@@ -3,8 +3,8 @@
 Yii::setAlias('@tests', dirname(__DIR__) . '/tests/codeception');
 
 $params = array_merge(
-    require(__DIR__ . '/params.php'),
-    require(__DIR__ . '/params-local.php')
+    require __DIR__ . '/params.php',
+    require __DIR__ . '/params-local.php'
 );
 
 $config = [
@@ -16,9 +16,9 @@ $config = [
     'controllerNamespace' => 'app\commands',
     'modules' => [
         'user' => [
-            'class' => 'dektrium\user\Module',
+            'class' => \dektrium\user\Module::class,
         ],
-        'rbac' => 'dektrium\rbac\RbacConsoleModule',
+        'rbac' => \dektrium\rbac\RbacConsoleModule::class,
     ],
     'components' => [
         'db' => $params['components.db'],
@@ -26,7 +26,7 @@ $config = [
         'log' => [
             'targets' => [
                 [
-                    'class' => 'yii\log\FileTarget',
+                    'class' => \yii\log\FileTarget::class,
                     'levels' => ['error', 'warning'],
                 ],
             ],
@@ -34,7 +34,7 @@ $config = [
         'i18n' => [
             'translations' => [
                 'app*' => [
-                    'class' => 'yii\i18n\PhpMessageSource',
+                    'class' => \yii\i18n\PhpMessageSource::class,
                     'fileMap' => [
                         'app' => 'app.php',
                     ],
@@ -43,20 +43,13 @@ $config = [
         ],
     ],
     'params' => $params,
-    /*
-    'controllerMap' => [
-        'fixture' => [ // Fixture generation command line.
-            'class' => 'yii\faker\FixtureController',
-        ],
-    ],
-    */
 ];
 
 if (YII_ENV_DEV) {
     // configuration adjustments for 'dev' environment
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
-        'class' => 'yii\gii\Module',
+        'class' => yii\gii\Module::class,
     ];
 }
 
