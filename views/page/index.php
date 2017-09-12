@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'dataProvider' => $dataProvider,
             'filterModel' => $searchModel,
             'columns' => [
-                ['class' => 'yii\grid\SerialColumn'],
+                ['class' => \yii\grid\SerialColumn::class],
 
                 'menu_name',
                 'title',
@@ -48,7 +48,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 ],
 
                 [
-                    'class' => 'app\grid\ActionColumn',
+                    'class' => \app\grid\ActionColumn::class,
                     'template' => '{view} {update} {delete}',
                     'buttons' => [
                         'view' => function ($url, $model) {

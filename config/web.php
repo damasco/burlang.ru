@@ -15,14 +15,7 @@ $config = [
     'bootstrap' => [
         'log',
         \app\api\v1\Bootstrap::class,
-    ],
-    'container' => [
-        'definitions' => [
-            \app\services\BuryatNameManager::class,
-            \app\services\BuryatWordManager::class,
-            \app\services\RussianWordManager::class,
-            \app\services\SearchDataManager::class,
-        ],
+        \app\bootstrap\ContainerBootstrap::class,
     ],
     'components' => [
         'db' => $params['components.db'],

@@ -35,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'maxButtonCount' => !Yii::$app->get('devicedetect')->isMobile() ? 10 : 5,
             ],
             'columns' => [
-                ['class' => 'yii\grid\SerialColumn'],
+                ['class' => \yii\grid\SerialColumn::class],
 
                 'name',
                 [
@@ -49,7 +49,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 ],
 
                 [
-                    'class' => 'app\grid\ActionColumn',
+                    'class' => \yii\grid\ActionColumn::class,
                     'template' => '{update} {delete}',
                     'contentOptions' => [
                         'class' => 'action-column-2'

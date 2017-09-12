@@ -36,7 +36,7 @@ $isMobile = Yii::$app->get('devicedetect')->isMobile();
                 'maxButtonCount' => !$isMobile ? 10 : 5,
             ],
             'columns' => [
-                ['class' => 'yii\grid\SerialColumn'],
+                ['class' => \yii\grid\SerialColumn::class],
 
                 'name',
                 [
@@ -56,7 +56,7 @@ $isMobile = Yii::$app->get('devicedetect')->isMobile();
                     'visible' => !$isMobile ? true : false,
                 ],
                 [
-                    'class' => 'app\grid\ActionColumn',
+                    'class' => \yii\grid\ActionColumn::class,
                     'contentOptions' => [
                         'class' => 'action-column-3',
                     ],
