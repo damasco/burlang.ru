@@ -15,7 +15,7 @@
         "dektrium/yii2-user": "dev-master",
         "dektrium/yii2-rbac": "dev-master",
         "alexandernst/yii2-device-detect": "0.0.9",
-        "bower-asset/bililiteRange": "*",
+        "bower-asset/bililiterange": "*",
         "bower-asset/codemirror": "~5.9.0",
         "bower-asset/codemirror-buttons": "~1.0.0",
         "bower-asset/bootbox": "~4.4.0",
@@ -56,5 +56,11 @@
             "npm-asset-library": "vendor/npm",
             "bower-asset-library": "vendor/bower"
         }
-    }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ]
 }

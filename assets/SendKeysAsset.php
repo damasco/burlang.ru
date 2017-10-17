@@ -6,7 +6,7 @@ use yii\web\AssetBundle;
 
 class SendKeysAsset extends AssetBundle
 {
-    public $sourcePath = '@bower/bililiteRange/';
+    public $sourcePath = '@bower/bililiterange/';
 
     public $js = [
         'bililiteRange.js',

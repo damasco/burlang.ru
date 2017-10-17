@@ -17,6 +17,10 @@ $config = [
         \app\api\v1\Bootstrap::class,
         \app\bootstrap\ContainerBootstrap::class,
     ],
+    'aliases' => [
+        '@bower' => '@vendor/bower-asset',
+        '@npm'   => '@vendor/npm-asset',
+    ],
     'components' => [
         'db' => $params['components.db'],
         'cache' => $params['components.cache'],
