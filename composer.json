@@ -8,34 +8,34 @@
     "minimum-stability": "stable",
     "require": {
         "php": ">=5.6.0",
-        "yiisoft/yii2": "~2.0.9",
-        "yiisoft/yii2-bootstrap": "~2.0.6",
-        "yiisoft/yii2-swiftmailer": "~2.0.5",
-        "yiisoft/yii2-jui": "~2.0.0",
-        "dektrium/yii2-user": "dev-master",
-        "dektrium/yii2-rbac": "dev-master",
         "alexandernst/yii2-device-detect": "0.0.9",
         "bower-asset/bililiterange": "*",
+        "bower-asset/bootbox": "~4.4.0",
         "bower-asset/codemirror": "~5.9.0",
         "bower-asset/codemirror-buttons": "~1.0.0",
-        "bower-asset/bootbox": "~4.4.0",
         "bower-asset/html5shiv": "*",
-        "bower-asset/respond": "*"
+        "bower-asset/respond": "*",
+        "dektrium/yii2-rbac": "dev-master",
+        "dektrium/yii2-user": "dev-master",
+        "yiisoft/yii2": "~2.0.9",
+        "yiisoft/yii2-bootstrap": "~2.0.6",
+        "yiisoft/yii2-jui": "~2.0.0",
+        "yiisoft/yii2-swiftmailer": "~2.0.5"
     },
     "require-dev": {
-        "yiisoft/yii2-debug": "~2.0.6",
-        "yiisoft/yii2-gii": "~2.0.5",
-        "yiisoft/yii2-faker": "~2.0.3",
-
         "codeception/codeception": "^2.2.9",
-        "codeception/verify": "~0.3.1",
         "codeception/specify": "~0.4.3",
-
+        "codeception/verify": "~0.3.1",
+        "friendsofphp/php-cs-fixer": "^2.0",
+        "phpmd/phpmd": "^2.6",
         "squizlabs/php_codesniffer": "3.*",
-        "friendsofphp/php-cs-fixer": "^2.0"
+        "yiisoft/yii2-debug": "~2.0.6",
+        "yiisoft/yii2-faker": "~2.0.3",
+        "yiisoft/yii2-gii": "~2.0.5"
     },
     "config": {
-        "process-timeout": 1800
+        "process-timeout": 1800,
+        "sort-packages": true
     },
     "scripts": {
         "post-create-project-cmd": [
