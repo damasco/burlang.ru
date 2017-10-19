@@ -8,7 +8,6 @@ use yii\widgets\ActiveForm;
  * @var app\models\search\RussianWordSearch $model
  * @var yii\widgets\ActiveForm $form
  */
-
 ?>
 <div class="buryat-word-search">
     <div class="panel panel-default">

@@ -54,3 +54,15 @@ php yii roles/revoke
 
 Run `gulp build` - automatically build target CSS/JS files
 
+### 7. PHP_CodeSniffer
+
+Example: `./vendor/bin/phpcs -s --colors --extensions=php --standard=PSR2 ./folder-name`
+
+### 8. PHP Code fixer
+
+For folder: `./vendor/bin/php-cs-fixer fix ./folder-name --config .php_cs`
+
+For project: `./vendor/bin/php-cs-fixer fix --config .php_cs`
+
+Composer script: `composer phpcs-fixer`
+

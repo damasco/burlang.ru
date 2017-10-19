@@ -32,7 +32,9 @@ class m160903_033853_add_index_unique_buryat_word_table extends Migration
             $ids = \yii\helpers\ArrayHelper::getColumn($d_word, 'id');
             $id = array_shift($ids);
             $connection->createCommand()->update(
-                'buryat_translation', ['burword_id' => $id], ['in', 'burword_id', $ids]
+                'buryat_translation',
+                ['burword_id' => $id],
+                ['in', 'burword_id', $ids]
             )->execute();
             $connection->createCommand()->delete($this->tableName, ['in', 'id', $ids])->execute();
         }

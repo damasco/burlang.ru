@@ -2,10 +2,10 @@
 
 namespace app\models;
 
-use Yii;
 use app\modules\user\models\User;
-use yii\behaviors\TimestampBehavior;
+use Yii;
 use yii\behaviors\BlameableBehavior;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "buryat_translation".

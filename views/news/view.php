@@ -1,8 +1,8 @@
 <?php
 
 use yii\bootstrap\Html;
-use yii\helpers\Markdown;
 use yii\helpers\HtmlPurifier;
+use yii\helpers\Markdown;
 
 /**
  * @var yii\web\View $this

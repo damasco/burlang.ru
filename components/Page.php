@@ -2,9 +2,9 @@
 
 namespace app\components;
 
+use app\models\Page as PageModel;
 use Yii;
 use yii\base\Object;
-use app\models\Page as PageModel;
 use yii\helpers\Url;
 
 class Page extends Object
@@ -24,10 +24,9 @@ class Page extends Object
             return [
                 'label' => $model->menu_name,
                 'url' => $url,
-                'active' => Yii::$app->request->url == Url::to($url),
+                'active' => Yii::$app->request->url === Url::to($url),
             ];
-        } else {
-            return '';
         }
+        return '';
     }
 }

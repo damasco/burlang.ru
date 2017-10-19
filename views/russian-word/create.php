@@ -10,7 +10,6 @@ use yii\helpers\Html;
 $this->title = Yii::t('app', 'New word');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Russian words'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
-
 ?>
 <div class="russian-word-create">
 

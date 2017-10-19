@@ -2,11 +2,11 @@
 
 namespace app\controllers;
 
+use app\filters\AjaxFilter;
 use app\services\BuryatWordManager;
 use app\services\RussianWordManager;
-use yii\filters\ContentNegotiator;
 use Yii;
-use app\filters\AjaxFilter;
+use yii\filters\ContentNegotiator;
 use yii\web\Controller;
 use yii\web\Response;
 

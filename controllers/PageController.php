@@ -2,13 +2,13 @@
 
 namespace app\controllers;
 
-use Yii;
 use app\models\Page;
 use app\models\search\PageSearch;
-use yii\web\Controller;
-use yii\web\NotFoundHttpException;
+use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
+use yii\web\Controller;
+use yii\web\NotFoundHttpException;
 
 /**
  * PageController implements the CRUD actions for Page model.
@@ -68,11 +68,10 @@ class PageController extends Controller
         /** @var Page $model */
         if (!$model || (!$model->active && !Yii::$app->user->can('admin'))) {
             throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
-        } else {
-            return $this->render('view', [
+        }
+        return $this->render('view', [
                 'model' => $model,
             ]);
-        }
     }
 
     /**
@@ -86,11 +85,10 @@ class PageController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'link' => $model->link]);
-        } else {
-            return $this->render('create', [
+        }
+        return $this->render('create', [
                 'model' => $model,
             ]);
-        }
     }
 
     /**
@@ -105,11 +103,10 @@ class PageController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'link' => $model->link]);
-        } else {
-            return $this->render('update', [
+        }
+        return $this->render('update', [
                 'model' => $model,
             ]);
-        }
     }
 
     /**
@@ -139,8 +136,7 @@ class PageController extends Controller
     {
         if (($model = Page::findOne($id)) !== null) {
             return $model;
-        } else {
-            throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
         }
+        throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
     }
 }

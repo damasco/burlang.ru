@@ -2,11 +2,11 @@
 
 namespace app\bootstrap;
 
+use app\services\BuryatNameManager;
 use app\services\BuryatWordManager;
 use app\services\RussianWordManager;
 use app\services\SearchDataManager;
 use yii\base\BootstrapInterface;
-use app\services\BuryatNameManager;
 use yii\grid\ActionColumn;
 
 class ContainerBootstrap implements BootstrapInterface

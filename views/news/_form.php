@@ -1,8 +1,8 @@
 <?php
 
+use app\assets\MarkdownEditorAsset;
 use yii\bootstrap\Html;
 use yii\widgets\ActiveForm;
-use app\assets\MarkdownEditorAsset;
 
 /**
  * @var yii\web\View $this
@@ -22,20 +22,22 @@ MarkdownEditorAsset::register($this);
     <?= $form->field($model, 'active')->checkbox() ?>
 
     <?= $form->field($model, 'title')->widget(
-        \app\widgets\InputCharts::class, ['options' => ['maxlength' => true]]
+        \app\widgets\InputCharts::class,
+    ['options' => ['maxlength' => true]]
     ) ?>
 
     <?= $form->field($model, 'description')->widget(
-        \app\widgets\TextareaCharts::class, ['options' => ['rows' => 5]]
+        \app\widgets\TextareaCharts::class,
+        ['options' => ['rows' => 5]]
     ) ?>
     
     <?= $form->field($model, 'content')->textarea(['id' => 'markdown-editor']) ?>
 
     <div class="form-group">
         <?= Html::submitButton(
-            $model->isNewRecord ?
-                Html::icon('plus') . ' ' . Yii::t('app', 'Add') :
-                Html::icon('floppy-disk') . ' ' . Yii::t('app', 'Save'),
+            $model->isNewRecord 
+                ? Html::icon('plus') . ' ' . Yii::t('app', 'Add') 
+                : Html::icon('floppy-disk') . ' ' . Yii::t('app', 'Save'),
             ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']
         ) ?>
     </div>

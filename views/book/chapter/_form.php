@@ -10,7 +10,6 @@ use yii\widgets\ActiveForm;
  */
 
 \app\assets\MarkdownEditorAsset::register($this);
-
 ?>
 <div class="book-form">
 
@@ -19,7 +18,8 @@ use yii\widgets\ActiveForm;
     <?= $form->errorSummary($model); ?>
 
     <?= $form->field($model, 'title')->widget(
-        \app\widgets\InputCharts::class, ['options' => ['maxlength' => true]]
+        \app\widgets\InputCharts::class,
+    ['options' => ['maxlength' => true]]
     ) ?>
 
     <?= $form->field($model, 'content')->textarea(['id' => 'markdown-editor']) ?>

@@ -9,7 +9,6 @@
 
 $this->title = Yii::t('app', 'Statistics');
 $this->params['breadcrumbs'][] = $this->title;
-
 ?>
 <div class="statistics-index">
 

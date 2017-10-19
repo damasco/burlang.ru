@@ -2,11 +2,11 @@
 
 namespace app\commands;
 
-use Yii;
-use yii\console\Controller;
 use dektrium\user\models\User;
-use yii\helpers\ArrayHelper;
+use Yii;
 use yii\base\InvalidParamException;
+use yii\console\Controller;
+use yii\helpers\ArrayHelper;
 
 /**
  * Interactive console roles manager
@@ -34,12 +34,15 @@ class RolesController extends Controller
     {
         $username = $this->prompt('Username:', ['required' => true]);
         $user = $this->getUser($username);
-        $roleName = $this->select('Role:', ArrayHelper::merge(
+        $roleName = $this->select(
+            'Role:',
+            ArrayHelper::merge(
             ['all' => 'All Roles'],
-            ArrayHelper::map(Yii::$app->authManager->getRolesByUser($user->id), 'name', 'description'))
+            ArrayHelper::map(Yii::$app->authManager->getRolesByUser($user->id), 'name', 'description')
+        )
         );
         $authManager = Yii::$app->getAuthManager();
-        if ($roleName == 'all') {
+        if ($roleName === 'all') {
             $authManager->revokeAll($user->id);
         } else {
             $role = $authManager->getRole($roleName);

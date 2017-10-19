@@ -29,7 +29,10 @@
 
         "codeception/codeception": "^2.2.9",
         "codeception/verify": "~0.3.1",
-        "codeception/specify": "~0.4.3"
+        "codeception/specify": "~0.4.3",
+
+        "squizlabs/php_codesniffer": "3.*",
+        "friendsofphp/php-cs-fixer": "^2.0"
     },
     "config": {
         "process-timeout": 1800
@@ -37,7 +40,8 @@
     "scripts": {
         "post-create-project-cmd": [
             "yii\\composer\\Installer::postCreateProject"
-        ]
+        ],
+        "phpcs-fixer": "./vendor/bin/php-cs-fixer fix --config .php_cs"
     },
     "extra": {
         "yii\\composer\\Installer::postCreateProject": {

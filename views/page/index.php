@@ -11,7 +11,6 @@ use yii\grid\GridView;
 
 $this->title = Yii::t('app', 'Pages');
 $this->params['breadcrumbs'][] = $this->title;
-
 ?>
 <div class="page-index">
 
@@ -63,7 +62,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 ]
                             );
                         },
-                        'delete' => function($url, $model) {
+                        'delete' => function ($url, $model) {
                             if (!$model->static) {
                                 return Html::a(
                                     Html::icon('trash'),

@@ -14,7 +14,6 @@ $this->title = Yii::t('app', 'Buryat names');
 $this->params['breadcrumbs'][] = $this->title;
 
 $isMobile = Yii::$app->get('devicedetect')->isMobile();
-
 ?>
 <div class="buryat-name-index">
 

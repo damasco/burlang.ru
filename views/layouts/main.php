@@ -1,11 +1,11 @@
 <?php
 
-use yii\helpers\Html;
+use app\assets\AppAsset;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
-use yii\widgets\Breadcrumbs;
-use app\assets\AppAsset;
+use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\widgets\Breadcrumbs;
 use yii\widgets\Menu;
 
 /**
@@ -85,23 +85,23 @@ AppAsset::register($this);
             [
                 'label' => Yii::t('app', 'Main'),
                 'url' => Yii::$app->homeUrl,
-                'active' => Yii::$app->controller->id == 'site' && Yii::$app->controller->action->id == 'index'
+                'active' => Yii::$app->controller->id === 'site' && Yii::$app->controller->action->id === 'index'
             ],
             [
                 'label' => Yii::t('app', 'Names'),
                 'url' => ['/buryat-name/index'],
-                'active' => Yii::$app->controller->id == 'buryat-name' &&
-                    (Yii::$app->controller->action->id == 'index' || Yii::$app->controller->action->id == 'view-name')
+                'active' => Yii::$app->controller->id === 'buryat-name' &&
+                    (Yii::$app->controller->action->id === 'index' || Yii::$app->controller->action->id === 'view-name')
             ],
             [
                 'label' => Yii::t('app', 'Books'),
                 'url' => ['/book/index'],
-                'active' => Yii::$app->controller->id == 'book',
+                'active' => Yii::$app->controller->id === 'book',
             ],
             [
                 'label' => Yii::t('app', 'News'),
                 'url' => ['/news/index'],
-                'active' => Yii::$app->controller->id == 'news'
+                'active' => Yii::$app->controller->id === 'news'
             ],
 
             Yii::$app->get('page')->menuItem('services'),

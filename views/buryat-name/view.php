@@ -9,7 +9,7 @@ use yii\bootstrap\Html;
 
 $this->title = $model->name;
 $this->params['breadcrumbs'][] = [
-    'label' => Yii::$app->user->isGuest ? Yii::t('app', 'Names') : Yii::t('app', 'Buryat names'), 
+    'label' => Yii::$app->user->isGuest ? Yii::t('app', 'Names') : Yii::t('app', 'Buryat names'),
     'url' => Yii::$app->user->isGuest ? ['index'] : ['admin'],
 ];
 $this->params['breadcrumbs'][] = $this->title;
@@ -23,7 +23,8 @@ $this->params['breadcrumbs'][] = $this->title;
         <p>
             <?= Html::a(
                 Html::icon('pencil'). ' ' . Yii::t('app', 'Edit'),
-                ['update', 'id' => $model->id], ['class' => 'btn btn-primary']
+                ['update', 'id' => $model->id],
+    ['class' => 'btn btn-primary']
             ) ?>
             <?= Html::a(
                 Html::icon('trash'). ' ' . Yii::t('app', 'Delete'),

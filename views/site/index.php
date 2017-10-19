@@ -8,7 +8,6 @@
  */
 
 $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-Russian electronic dictionary');
-
 ?>
 <div class="site-index">
     <div class="row mt-10">

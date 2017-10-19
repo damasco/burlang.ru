@@ -46,7 +46,7 @@ return [
     'Production' => [
         'path' => 'prod',
         'setWritable' => [
-            '/runtime', 
+            '/runtime',
             '/web/assets'
         ],
         'setExecutable' => [

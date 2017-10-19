@@ -1,11 +1,8 @@
 <?php
-
 /**
  * @var array|boolean|null $translations
  */
-
 ?>
-
 <?php if (is_array($translations) && !empty($translations)): ?>
     <div class="alert alert-success">
         <ul class="translate-list">

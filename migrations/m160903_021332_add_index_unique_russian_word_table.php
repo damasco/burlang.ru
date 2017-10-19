@@ -32,7 +32,9 @@ class m160903_021332_add_index_unique_russian_word_table extends Migration
             $ids = \yii\helpers\ArrayHelper::getColumn($d_word, 'id');
             $id = array_shift($ids);
             $connection->createCommand()->update(
-                'russian_translation', ['ruword_id' => $id], ['in', 'ruword_id', $ids]
+                'russian_translation',
+                ['ruword_id' => $id],
+                ['in', 'ruword_id', $ids]
             )->execute();
             $connection->createCommand()->delete($this->tableName, ['in', 'id', $ids])->execute();
         }

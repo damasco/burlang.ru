@@ -1,15 +1,14 @@
 <?php
 
+use app\widgets\InputCharts;
 use yii\bootstrap\Html;
 use yii\widgets\ActiveForm;
-use app\widgets\InputCharts;
 
 /**
  * @var yii\web\View $this
  * @var app\models\BuryatName $model
  * @var yii\widgets\ActiveForm $form
  */
-
 ?>
 <div class="buryat-name-form">
 

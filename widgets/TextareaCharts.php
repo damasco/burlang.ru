@@ -2,9 +2,9 @@
 
 namespace app\widgets;
 
+use yii\helpers\Html;
 use yii\helpers\Inflector;
 use yii\widgets\InputWidget;
-use yii\helpers\Html;
 
 class TextareaCharts extends InputWidget
 {

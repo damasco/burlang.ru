@@ -6,7 +6,6 @@ use yii\helpers\Html;
  * @var \yii\web\View $this
  * @var \app\models\Book $model
  */
-
 ?>
 <div class="col-sm-12">
     <div class="book-item-mobile">

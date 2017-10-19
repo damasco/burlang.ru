@@ -2,8 +2,8 @@
 
 namespace app\widgets;
 
-use Yii;
 use app\models\News as Model;
+use Yii;
 use yii\base\Widget;
 
 class News extends Widget

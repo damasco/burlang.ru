@@ -7,7 +7,7 @@ class m160329_030431_create_news_table extends Migration
     /**
      * @var string
      */
-    protected  $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_general_ci ENGINE=InnoDB';
+    protected $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_general_ci ENGINE=InnoDB';
 
     /**
      * @var string

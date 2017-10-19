@@ -3,9 +3,9 @@
 namespace app\services;
 
 use app\models\BuryatName;
+use Yii;
 use yii\helpers\ArrayHelper;
 use yii\web\NotFoundHttpException;
-use Yii;
 
 class BuryatNameManager
 {

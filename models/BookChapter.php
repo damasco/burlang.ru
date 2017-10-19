@@ -2,11 +2,11 @@
 
 namespace app\models;
 
+use app\modules\user\models\User;
 use Yii;
 use yii\behaviors\BlameableBehavior;
-use yii\behaviors\TimestampBehavior;
 use yii\behaviors\SluggableBehavior;
-use app\modules\user\models\User;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "book_chapter".

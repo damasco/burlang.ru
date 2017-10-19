@@ -1,10 +1,10 @@
 <?php
 
-use yii\widgets\ActiveForm;
-use yii\helpers\ArrayHelper;
 use yii\bootstrap\Html;
-use yii\grid\GridView;
 use yii\data\ActiveDataProvider;
+use yii\grid\GridView;
+use yii\helpers\ArrayHelper;
+use yii\widgets\ActiveForm;
 
 /**
  * @var mixed $translationForm
@@ -72,7 +72,8 @@ use yii\data\ActiveDataProvider;
             </div>
             <div class="col-sm-6">
                 <?= $form->field($translationForm, 'dict_id')->dropDownList(
-                    ArrayHelper::map($dictionaries, 'id', 'name'), ['prompt' => '-']
+                    ArrayHelper::map($dictionaries, 'id', 'name'),
+        ['prompt' => '-']
                 ) ?>
             </div>
         </div>

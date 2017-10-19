@@ -1,9 +1,7 @@
 <?php
-
 /**
  * @var string $textInput
  */
-
 ?>
 <div class="input-group">
     <?= $textInput ?>

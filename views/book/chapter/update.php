@@ -15,7 +15,6 @@ $this->params['breadcrumbs'][] = [
     'url' => ['chapter', 'slug' => $model->book->slug, 'slug_chapter' => $model->slug]
 ];
 $this->params['breadcrumbs'][] = Yii::t('app', 'Edit');
-
 ?>
 <div class="book-update">
 

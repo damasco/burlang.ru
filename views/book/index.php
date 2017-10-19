@@ -10,7 +10,6 @@ use yii\widgets\ListView;
 
 $this->title = Yii::t('app', 'Books');
 $this->params['breadcrumbs'][] = $this->title;
-
 ?>
 <div class="book-index">
 
@@ -20,7 +19,8 @@ $this->params['breadcrumbs'][] = $this->title;
         <p>
             <?= Html::a(
                 Html::icon('plus') . ' ' . Yii::t('app', 'Create book'),
-                ['create'], ['class' => 'btn btn-success']
+                ['create'],
+                ['class' => 'btn btn-success']
             ) ?>
         </p>
     <?php endif ?>

@@ -1,15 +1,14 @@
 <?php
 
-use yii\widgets\ActiveForm;
 use yii\bootstrap\Html;
-use yii\grid\GridView;
 use yii\data\ActiveDataProvider;
+use yii\grid\GridView;
+use yii\widgets\ActiveForm;
 
 /**
  * @var mixed $translationForm
  * @var \app\models\RussianWord $model
  */
-
 ?>
 <hr>
 
@@ -60,7 +59,8 @@ use yii\data\ActiveDataProvider;
         <?php $form = ActiveForm::begin() ?>
 
         <?= $form->field($translationForm, 'name')->widget(
-            \app\widgets\InputCharts::class, ['options' => ['maxlength' => true]]
+            \app\widgets\InputCharts::class,
+            ['options' => ['maxlength' => true]]
         ) ?>
 
         <?= $form->field($translationForm, 'ruword_id')->hiddenInput(['value' => $model->id])->label(false) ?>

@@ -1,10 +1,8 @@
 <?php
-
 /**
  * @var string $textarea
  * @var string $selector
  */
-
 ?>
 <div class="well well-sm mb-0">
     <div class="form-group">

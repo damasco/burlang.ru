@@ -6,7 +6,6 @@ use yii\helpers\Html;
  * @var array $alphabet
  * @var string $letter
  */
-
 ?>
 <ul class="list-inline list-letter">
     <?php foreach ($alphabet as $item): ?>
@@ -15,7 +14,7 @@ use yii\helpers\Html;
                 $item['letter'] . ' ' . Html::tag('span', $item['amount'], ['class' => 'badge']),
                 ['/buryat-name/index', 'letter' => $item['letter']],
                 [
-                    'class' => $letter == $item['letter'] ?
+                    'class' => $letter === $item['letter'] ?
                         'btn btn-default btn-lg active' :
                         'btn btn-default btn-lg'
                 ]

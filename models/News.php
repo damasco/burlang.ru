@@ -2,11 +2,11 @@
 
 namespace app\models;
 
-use Yii;
-use yii\behaviors\TimestampBehavior;
-use yii\behaviors\SluggableBehavior;
 use app\modules\user\models\User;
+use Yii;
 use yii\behaviors\BlameableBehavior;
+use yii\behaviors\SluggableBehavior;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "news".

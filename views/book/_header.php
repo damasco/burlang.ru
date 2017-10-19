@@ -6,9 +6,7 @@ use yii\bootstrap\Html;
  * @var \yii\web\View $this
  * @var \app\models\Book $model
  */
-
 ?>
-
 <?php if (!$model->active): ?>
     <p>
         <span class="label label-default"><?= Yii::t('app', 'Inactive') ?></span>
@@ -19,7 +17,8 @@ use yii\bootstrap\Html;
     <p>
         <?= Html::a(
             Html::icon('pencil') . ' ' . Yii::t('app', 'Edit'),
-            ['update', 'id' => $model->id], ['class' => 'btn btn-primary']
+            ['update', 'id' => $model->id],
+            ['class' => 'btn btn-primary']
         ) ?>
         <?= Html::a(
             Html::icon('trash') . ' ' . Yii::t('app', 'Delete'),

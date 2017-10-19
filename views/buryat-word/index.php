@@ -2,8 +2,8 @@
 
 use yii\bootstrap\Html;
 use yii\grid\GridView;
-use yii\widgets\Pjax;
 use yii\helpers\ArrayHelper;
+use yii\widgets\Pjax;
 
 /**
  * @var yii\web\View $this

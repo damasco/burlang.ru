@@ -1,9 +1,9 @@
 <?php
 
+use app\assets\MarkdownEditorAsset;
+use app\widgets\InputCharts;
 use yii\bootstrap\Html;
 use yii\widgets\ActiveForm;
-use app\widgets\InputCharts;
-use app\assets\MarkdownEditorAsset;
 
 /**
  * @var yii\web\View $this
@@ -12,7 +12,6 @@ use app\assets\MarkdownEditorAsset;
  */
 
 MarkdownEditorAsset::register($this);
-
 ?>
 <div class="page-form">
 
@@ -36,9 +35,9 @@ MarkdownEditorAsset::register($this);
 
     <div class="form-group">
         <?= Html::submitButton(
-            $model->isNewRecord ?
-                Html::icon('plus') . ' ' . Yii::t('app', 'Create') :
-                Html::icon('floppy-disk') . ' ' . Yii::t('app', 'Save'),
+            $model->isNewRecord 
+                ? Html::icon('plus') . ' ' . Yii::t('app', 'Create')
+                : Html::icon('floppy-disk') . ' ' . Yii::t('app', 'Save'),
             ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']
         ) ?>
     </div>

@@ -1,10 +1,10 @@
 <?php
 
-use yii\jui\AutoComplete;
-use yii\widgets\ActiveForm;
-use yii\helpers\Url;
-use yii\web\JsExpression;
 use yii\bootstrap\Html;
+use yii\helpers\Url;
+use yii\jui\AutoComplete;
+use yii\web\JsExpression;
+use yii\widgets\ActiveForm;
 
 ?>
 <div class="well">

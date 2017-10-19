@@ -2,13 +2,13 @@
 
 namespace app\controllers;
 
-use Yii;
 use app\models\News;
+use Yii;
+use yii\data\ActiveDataProvider;
+use yii\filters\AccessControl;
+use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
-use yii\data\ActiveDataProvider;
 
 /**
  * NewsController implements the CRUD actions for News model.
@@ -74,11 +74,10 @@ class NewsController extends Controller
         $model = News::findOne(['slug' => $slug]);
         if (!$model || (!$model->active && !Yii::$app->user->can('adminNews'))) {
             throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
-        } else {
-            return $this->render('view', [
+        }
+        return $this->render('view', [
                 'model' => $model,
             ]);
-        }
     }
 
     /**
@@ -92,11 +91,10 @@ class NewsController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'slug' => $model->slug]);
-        } else {
-            return $this->render('create', [
+        }
+        return $this->render('create', [
                 'model' => $model,
             ]);
-        }
     }
 
     /**
@@ -111,11 +109,10 @@ class NewsController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'slug' => $model->slug]);
-        } else {
-            return $this->render('update', [
+        }
+        return $this->render('update', [
                 'model' => $model,
             ]);
-        }
     }
 
     /**
@@ -142,8 +139,7 @@ class NewsController extends Controller
     {
         if (($model = News::findOne($id)) !== null) {
             return $model;
-        } else {
-            throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
         }
+        throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
     }
 }

@@ -1,8 +1,8 @@
 <?php
 
+use app\models\SearchData;
 use yii\bootstrap\Html;
 use yii\grid\GridView;
-use app\models\SearchData;
 
 /**
  * @var yii\web\View $this
@@ -12,7 +12,6 @@ use app\models\SearchData;
 
 $this->title = Yii::t('app', 'Statistics');
 $this->params['breadcrumbs'][] = $this->title;
-
 ?>
 <div class="statistics-search">
 
@@ -30,13 +29,12 @@ $this->params['breadcrumbs'][] = $this->title;
                 [
                     'attribute' => 'type',
                     'value' => function ($model) {
-                        return $model->type == SearchData::RUSSIAN_WORD_TYPE ?
+                        return $model->type === SearchData::RUSSIAN_WORD_TYPE ?
                             Yii::t('app', 'Buryat word') :
                             Yii::t('app', 'Russian word');
                     }
                 ],
                 'created_at:datetime',
-
             ],
         ]); ?>
     </div>

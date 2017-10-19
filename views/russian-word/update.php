@@ -11,7 +11,6 @@ use yii\bootstrap\Html;
 $this->title = Yii::t('app', 'Edit') . ': ' . $model->name;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Russian words'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
-
 ?>
 <div class="russian-word-update">
 

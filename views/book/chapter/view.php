@@ -1,8 +1,8 @@
 <?php
 
 use yii\bootstrap\Html;
-use yii\helpers\Markdown;
 use yii\helpers\HtmlPurifier;
+use yii\helpers\Markdown;
 
 /**
  * @var yii\web\View $this
@@ -13,7 +13,6 @@ $this->title = $model->title;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Books'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->book->title, 'url' => ['view', 'slug' => $model->book->slug]];
 $this->params['breadcrumbs'][] = $this->title;
-
 ?>
 <div class="book-view">
 
@@ -32,7 +31,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 <p>
                     <?= Html::a(
                         Html::icon('pencil') . ' ' . Yii::t('app', 'Edit chapter'),
-                        ['chapter-update', 'id' => $model->id], ['class' => 'btn btn-sm btn-default']
+                        ['chapter-update', 'id' => $model->id],
+    ['class' => 'btn btn-sm btn-default']
                     ) ?>
                     <?= Html::a(
                         Html::icon('trash') . ' ' . Yii::t('app', 'Delete chapter'),

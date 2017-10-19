@@ -2,15 +2,15 @@
 
 namespace app\controllers;
 
-use app\models\Dictionary;
 use app\models\BuryatTranslation;
-use Yii;
 use app\models\BuryatWord;
+use app\models\Dictionary;
 use app\models\search\BuryatWordSearch;
+use Yii;
+use yii\filters\AccessControl;
+use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
 
 /**
  * BuryatWordController implements the CRUD actions for BuryatWord model.
@@ -69,11 +69,10 @@ class BuryatWordController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             Yii::$app->session->setFlash('success', Yii::t('app', 'The word is added'));
             return $this->redirect(['update', 'id' => $model->id]);
-        } else {
-            return $this->render('create', [
+        }
+        return $this->render('create', [
                 'model' => $model,
             ]);
-        }
     }
 
     /**
@@ -98,13 +97,12 @@ class BuryatWordController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             Yii::$app->session->setFlash('success', Yii::t('app', 'Data updated'));
             return $this->refresh();
-        } else {
-            return $this->render('update', [
+        }
+        return $this->render('update', [
                 'model' => $model,
                 'dictionaries' => $dictionaries,
                 'translationForm' => $translationForm
             ]);
-        }
     }
 
     /**
@@ -123,22 +121,6 @@ class BuryatWordController extends Controller
     }
 
     /**
-     * Finds the BuryatWord model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
-     * @return BuryatWord the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    protected function findModel($id)
-    {
-        if (($model = BuryatWord::findOne($id)) !== null) {
-            return $model;
-        } else {
-            throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
-        }
-    }
-
-    /**
      * Deletes an existing BuryatTranslation model
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
@@ -152,8 +134,22 @@ class BuryatWordController extends Controller
             Yii::$app->session->setFlash('success', Yii::t('app', 'Translation removed'));
             $translate->delete();
             return $this->redirect(['update', 'id' => $translate->burword_id]);
-        } else {
-            throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
         }
+        throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+    }
+
+    /**
+     * Finds the BuryatWord model based on its primary key value.
+     * If the model is not found, a 404 HTTP exception will be thrown.
+     * @param integer $id
+     * @return BuryatWord the loaded model
+     * @throws NotFoundHttpException if the model cannot be found
+     */
+    protected function findModel($id)
+    {
+        if (($model = BuryatWord::findOne($id)) !== null) {
+            return $model;
+        }
+        throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
     }
 }

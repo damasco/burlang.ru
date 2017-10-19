@@ -2,9 +2,9 @@
 
 namespace app\widgets;
 
+use app\models\Book;
 use yii\base\InvalidParamException;
 use yii\base\Widget;
-use app\models\Book;
 
 class ChaptersMenu extends Widget
 {

@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
         </p>
     </div>
     <div class="col-sm-9">
-        <?php if (Yii::$app->user->identity->id == $user->id): ?>
+        <?php if (Yii::$app->user->identity->id === $user->id): ?>
             <?= Html::a(
                 Html::icon('cog') . ' ' . Yii::t('user', 'Profile settings'),
                 ['/user/settings/profile'],

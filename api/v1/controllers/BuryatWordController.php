@@ -2,11 +2,11 @@
 
 namespace app\api\v1\controllers;
 
+use app\api\v1\components\Controller;
+use app\api\v1\models\BuryatWord;
 use app\services\BuryatWordManager;
 use Yii;
-use app\api\v1\models\BuryatWord;
 use yii\web\NotFoundHttpException;
-use app\api\v1\components\Controller;
 
 class BuryatWordController extends Controller
 {
@@ -20,9 +20,8 @@ class BuryatWordController extends Controller
     {
         if (($model = BuryatWord::findOne(['name' => $q])) !== null) {
             return $model;
-        } else {
-            throw new NotFoundHttpException(Yii::t('app', 'The word is not found'));
         }
+        throw new NotFoundHttpException(Yii::t('app', 'The word is not found'));
     }
 
     /**

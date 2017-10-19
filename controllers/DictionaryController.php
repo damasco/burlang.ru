@@ -2,13 +2,13 @@
 
 namespace app\controllers;
 
-use Yii;
 use app\models\Dictionary;
+use Yii;
 use yii\data\ActiveDataProvider;
+use yii\filters\AccessControl;
+use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
 
 /**
  * DictionariesController implements the CRUD actions for Dictionaries model.
@@ -77,11 +77,10 @@ class DictionaryController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('create', [
+        }
+        return $this->render('create', [
                 'model' => $model,
             ]);
-        }
     }
 
     /**
@@ -96,11 +95,10 @@ class DictionaryController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('update', [
+        }
+        return $this->render('update', [
                 'model' => $model,
             ]);
-        }
     }
 
     /**
@@ -127,8 +125,7 @@ class DictionaryController extends Controller
     {
         if (($model = Dictionary::findOne($id)) !== null) {
             return $model;
-        } else {
-            throw new NotFoundHttpException('The requested page does not exist.');
         }
+        throw new NotFoundHttpException('The requested page does not exist.');
     }
 }

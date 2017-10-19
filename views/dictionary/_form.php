@@ -8,7 +8,6 @@ use yii\widgets\ActiveForm;
  * @var app\models\Dictionary $model
  * @var yii\widgets\ActiveForm $form
  */
-
 ?>
 <div class="dictionaries-form">
 
@@ -22,9 +21,9 @@ use yii\widgets\ActiveForm;
 
     <div class="form-group">
         <?= Html::submitButton(
-            $model->isNewRecord ?
-                Html::icon('plus') . ' ' . Yii::t('app', 'Add') :
-                Html::icon('floppy-disk') . ' ' . Yii::t('app', 'Save'),
+            $model->isNewRecord 
+                ? Html::icon('plus') . ' ' . Yii::t('app', 'Add')
+                : Html::icon('floppy-disk') . ' ' . Yii::t('app', 'Save'),
             ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']
         ) ?>
     </div>

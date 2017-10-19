@@ -3,10 +3,10 @@
 namespace app\api\v1\controllers;
 
 use app\api\v1\components\Controller;
+use app\api\v1\models\RussianWord;
 use app\services\RussianWordManager;
 use Yii;
 use yii\web\NotFoundHttpException;
-use app\api\v1\models\RussianWord;
 
 class RussianWordController extends Controller
 {
@@ -20,9 +20,8 @@ class RussianWordController extends Controller
     {
         if (($model = RussianWord::findOne(['name' => $q])) !== null) {
             return $model;
-        } else {
-            throw new NotFoundHttpException(Yii::t('app', 'The word is not found'));
         }
+        throw new NotFoundHttpException(Yii::t('app', 'The word is not found'));
     }
 
     /**

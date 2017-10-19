@@ -2,14 +2,14 @@
 
 namespace app\controllers;
 
-use app\services\BuryatNameManager;
-use Yii;
 use app\models\BuryatName;
 use app\models\search\BuryatNameSearch;
+use app\services\BuryatNameManager;
+use Yii;
+use yii\filters\AccessControl;
+use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
 
 /**
  * BuryatNameController implements the CRUD actions for BuryatName model.
@@ -70,14 +70,12 @@ class BuryatNameController extends Controller
                 return $this->renderAjax('_description_name', [
                     'model' => $model,
                 ]);
-            } else {
-                return $this->render('view', [
+            }
+            return $this->render('view', [
                     'model' => $model,
                 ]);
-            }
-        } else {
-            throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
         }
+        throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
     }
 
     /**
@@ -118,11 +116,10 @@ class BuryatNameController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('create', [
+        }
+        return $this->render('create', [
                 'model' => $model,
             ]);
-        }
     }
 
     /**
@@ -137,11 +134,10 @@ class BuryatNameController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('update', [
+        }
+        return $this->render('update', [
                 'model' => $model,
             ]);
-        }
     }
 
     /**
@@ -170,8 +166,7 @@ class BuryatNameController extends Controller
     {
         if (($model = BuryatName::findOne($id)) !== null) {
             return $model;
-        } else {
-            throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
         }
+        throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
     }
 }

@@ -10,7 +10,6 @@ use yii\helpers\Html;
 $this->title = Yii::t('app', 'Create');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Buryat names'), 'url' => ['admin']];
 $this->params['breadcrumbs'][] = $this->title;
-
 ?>
 <div class="buryat-name-create">
 

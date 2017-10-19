@@ -13,6 +13,10 @@ class BootboxAsset extends AssetBundle
         'bootbox.js',
     ];
 
+    public $depends = [
+        'yii\web\JqueryAsset',
+    ];
+
     public function init()
     {
         parent::init();
@@ -39,8 +43,4 @@ class BootboxAsset extends AssetBundle
             }
         ');
     }
-
-    public $depends = [
-        'yii\web\JqueryAsset',
-    ];
 }

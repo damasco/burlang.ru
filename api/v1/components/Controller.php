@@ -2,8 +2,8 @@
 
 namespace app\api\v1\components;
 
-use yii\helpers\ArrayHelper;
 use yii\filters\Cors;
+use yii\helpers\ArrayHelper;
 
 class Controller extends \yii\rest\Controller
 {

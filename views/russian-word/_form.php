@@ -8,7 +8,6 @@ use yii\widgets\ActiveForm;
  * @var app\models\RussianWord $model
  * @var yii\widgets\ActiveForm $form
  */
-
 ?>
 <div class="russian-word-form">
 

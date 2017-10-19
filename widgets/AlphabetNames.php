@@ -2,8 +2,8 @@
 
 namespace app\widgets;
 
-use Yii;
 use app\services\BuryatNameManager;
+use Yii;
 use yii\base\Widget;
 
 class AlphabetNames extends Widget

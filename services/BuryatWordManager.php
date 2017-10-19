@@ -2,9 +2,9 @@
 
 namespace app\services;
 
-use yii\helpers\StringHelper;
 use app\models\BuryatWord;
 use app\models\SearchData;
+use yii\helpers\StringHelper;
 
 class BuryatWordManager
 {
@@ -29,18 +29,16 @@ class BuryatWordManager
      */
     public function getTranslations($q)
     {
-        if (StringHelper::countWords($q) == 1) {
+        if (StringHelper::countWords($q) === 1) {
             /** @var BuryatWord $word */
             $word = BuryatWord::findOne(['name' => $q]);
 
             if ($word && $word->getTranslations()->exists()) {
                 return $word->getTranslations()->asArray()->all();
-            } else {
-                \Yii::createObject(SearchDataManager::class)->insert($q, SearchData::BURYAT_WORD_TYPE);
-                return null;
             }
-        } else {
-            return false;
+            \Yii::createObject(SearchDataManager::class)->insert($q, SearchData::BURYAT_WORD_TYPE);
+            return null;
         }
+        return false;
     }
 }

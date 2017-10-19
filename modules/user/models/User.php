@@ -4,15 +4,15 @@ namespace app\modules\user\models;
 
 use app\models\Book;
 use app\models\BookChapter;
+use app\models\BuryatName;
 use app\models\BuryatTranslation;
+use app\models\BuryatWord;
 use app\models\Dictionary;
 use app\models\News;
 use app\models\Page;
 use app\models\RussianTranslation;
-use dektrium\user\models\User as BaseUser;
-use app\models\BuryatName;
-use app\models\BuryatWord;
 use app\models\RussianWord;
+use dektrium\user\models\User as BaseUser;
 
 /**
  * @property BuryatName[] $buryatNames
