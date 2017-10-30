@@ -72,8 +72,8 @@ class BuryatNameController extends Controller
                 ]);
             }
             return $this->render('view', [
-                    'model' => $model,
-                ]);
+                'model' => $model,
+            ]);
         }
         throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
     }
@@ -118,8 +118,8 @@ class BuryatNameController extends Controller
             return $this->redirect(['view', 'id' => $model->id]);
         }
         return $this->render('create', [
-                'model' => $model,
-            ]);
+            'model' => $model,
+        ]);
     }
 
     /**
@@ -136,8 +136,8 @@ class BuryatNameController extends Controller
             return $this->redirect(['view', 'id' => $model->id]);
         }
         return $this->render('update', [
-                'model' => $model,
-            ]);
+            'model' => $model,
+        ]);
     }
 
     /**

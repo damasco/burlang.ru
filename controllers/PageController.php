@@ -70,8 +70,8 @@ class PageController extends Controller
             throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
         }
         return $this->render('view', [
-                'model' => $model,
-            ]);
+            'model' => $model,
+        ]);
     }
 
     /**
@@ -87,8 +87,8 @@ class PageController extends Controller
             return $this->redirect(['view', 'link' => $model->link]);
         }
         return $this->render('create', [
-                'model' => $model,
-            ]);
+            'model' => $model,
+        ]);
     }
 
     /**
@@ -105,8 +105,8 @@ class PageController extends Controller
             return $this->redirect(['view', 'link' => $model->link]);
         }
         return $this->render('update', [
-                'model' => $model,
-            ]);
+            'model' => $model,
+        ]);
     }
 
     /**

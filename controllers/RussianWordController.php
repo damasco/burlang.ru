@@ -69,8 +69,8 @@ class RussianWordController extends Controller
             return $this->redirect(['update', 'id' => $model->id]);
         }
         return $this->render('create', [
-                'model' => $model,
-            ]);
+            'model' => $model,
+        ]);
     }
 
     /**
@@ -95,9 +95,9 @@ class RussianWordController extends Controller
             return $this->refresh();
         }
         return $this->render('update', [
-                'model' => $model,
-                'translationForm' => $translationForm,
-            ]);
+            'model' => $model,
+            'translationForm' => $translationForm,
+        ]);
     }
 
     /**

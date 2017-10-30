@@ -77,8 +77,8 @@ class BookController extends Controller
             throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
         }
         return $this->render('view', [
-                'model' => $model,
-            ]);
+            'model' => $model,
+        ]);
     }
 
     /**
@@ -94,8 +94,8 @@ class BookController extends Controller
             return $this->redirect(['view', 'slug' => $model->slug]);
         }
         return $this->render('create', [
-                'model' => $model,
-            ]);
+            'model' => $model,
+        ]);
     }
 
     /**
@@ -112,8 +112,8 @@ class BookController extends Controller
             return $this->redirect(['view', 'slug' => $model->slug]);
         }
         return $this->render('update', [
-                'model' => $model,
-            ]);
+            'model' => $model,
+        ]);
     }
 
     /**
@@ -144,9 +144,9 @@ class BookController extends Controller
             return $this->redirect(['chapter', 'slug' => $book->slug, 'slug_chapter' => $model->slug]);
         }
         return $this->render('chapter/create', [
-                'model' => $model,
-                'book' => $book,
-            ]);
+            'model' => $model,
+            'book' => $book,
+        ]);
     }
 
     /**
@@ -163,8 +163,8 @@ class BookController extends Controller
             return $this->redirect(['chapter', 'slug' => $model->book->slug, 'slug_chapter' => $model->slug]);
         }
         return $this->render('chapter/update', [
-                'model' => $model,
-            ]);
+            'model' => $model,
+        ]);
     }
 
     /**
@@ -186,8 +186,8 @@ class BookController extends Controller
             throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
         }
         return $this->render('chapter/view', [
-                'model' => $model,
-            ]);
+            'model' => $model,
+        ]);
     }
 
     /**

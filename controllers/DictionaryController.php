@@ -79,8 +79,8 @@ class DictionaryController extends Controller
             return $this->redirect(['view', 'id' => $model->id]);
         }
         return $this->render('create', [
-                'model' => $model,
-            ]);
+            'model' => $model,
+        ]);
     }
 
     /**
@@ -97,8 +97,8 @@ class DictionaryController extends Controller
             return $this->redirect(['view', 'id' => $model->id]);
         }
         return $this->render('update', [
-                'model' => $model,
-            ]);
+            'model' => $model,
+        ]);
     }
 
     /**

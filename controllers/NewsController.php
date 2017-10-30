@@ -76,8 +76,8 @@ class NewsController extends Controller
             throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
         }
         return $this->render('view', [
-                'model' => $model,
-            ]);
+            'model' => $model,
+        ]);
     }
 
     /**
@@ -93,8 +93,8 @@ class NewsController extends Controller
             return $this->redirect(['view', 'slug' => $model->slug]);
         }
         return $this->render('create', [
-                'model' => $model,
-            ]);
+            'model' => $model,
+        ]);
     }
 
     /**
@@ -111,8 +111,8 @@ class NewsController extends Controller
             return $this->redirect(['view', 'slug' => $model->slug]);
         }
         return $this->render('update', [
-                'model' => $model,
-            ]);
+            'model' => $model,
+        ]);
     }
 
     /**

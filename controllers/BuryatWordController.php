@@ -71,8 +71,8 @@ class BuryatWordController extends Controller
             return $this->redirect(['update', 'id' => $model->id]);
         }
         return $this->render('create', [
-                'model' => $model,
-            ]);
+            'model' => $model,
+        ]);
     }
 
     /**
@@ -99,10 +99,10 @@ class BuryatWordController extends Controller
             return $this->refresh();
         }
         return $this->render('update', [
-                'model' => $model,
-                'dictionaries' => $dictionaries,
-                'translationForm' => $translationForm
-            ]);
+            'model' => $model,
+            'dictionaries' => $dictionaries,
+            'translationForm' => $translationForm
+        ]);
     }
 
     /**
