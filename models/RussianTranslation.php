@@ -41,9 +41,27 @@ class RussianTranslation extends \yii\db\ActiveRecord
             [['ruword_id', 'name'], 'required'],
             [['ruword_id', 'created_by', 'updated_by', 'created_at', 'updated_at'], 'integer'],
             [['name'], 'string', 'max' => 100],
-            [['ruword_id'], 'exist', 'skipOnError' => true, 'targetClass' => RussianWord::class, 'targetAttribute' => ['ruword_id' => 'id']],
-            [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['created_by' => 'id']],
-            [['updated_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['updated_by' => 'id']],
+            [
+                ['ruword_id'],
+                'exist',
+                'skipOnError' => true,
+                'targetClass' => RussianWord::class,
+                'targetAttribute' => ['ruword_id' => 'id']
+            ],
+            [
+                ['created_by'],
+                'exist',
+                'skipOnError' => true,
+                'targetClass' => User::class,
+                'targetAttribute' => ['created_by' => 'id']
+            ],
+            [
+                ['updated_by'],
+                'exist',
+                'skipOnError' => true,
+                'targetClass' => User::class,
+                'targetAttribute' => ['updated_by' => 'id']
+            ],
         ];
     }
 

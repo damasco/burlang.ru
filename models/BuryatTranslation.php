@@ -43,9 +43,27 @@ class BuryatTranslation extends \yii\db\ActiveRecord
             [['name', 'burword_id'], 'required'],
             [['burword_id', 'dict_id', 'created_by', 'updated_by', 'created_at', 'updated_at'], 'integer'],
             [['name'], 'string', 'max' => 2000],
-            [['burword_id'], 'exist', 'skipOnError' => true, 'targetClass' => BuryatWord::class, 'targetAttribute' => ['burword_id' => 'id']],
-            [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['created_by' => 'id']],
-            [['updated_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['updated_by' => 'id']],
+            [
+                ['burword_id'],
+                'exist',
+                'skipOnError' => true,
+                'targetClass' => BuryatWord::class,
+                'targetAttribute' => ['burword_id' => 'id']
+            ],
+            [
+                ['created_by'],
+                'exist',
+                'skipOnError' => true,
+                'targetClass' => User::class,
+                'targetAttribute' => ['created_by' => 'id']
+            ],
+            [
+                ['updated_by'],
+                'exist',
+                'skipOnError' => true,
+                'targetClass' => User::class,
+                'targetAttribute' => ['updated_by' => 'id']
+            ],
         ];
     }
 

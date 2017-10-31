@@ -12,6 +12,7 @@
 namespace app\modules\user\controllers;
 
 use dektrium\user\Finder;
+use yii\base\InvalidParamException;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -68,8 +69,9 @@ class ProfileController extends Controller
      *
      * @param int $id
      *
-     * @return \yii\web\Response
+     * @return \yii\web\Response|string
      * @throws \yii\web\NotFoundHttpException
+     * @throws InvalidParamException
      */
     public function actionShow($id)
     {

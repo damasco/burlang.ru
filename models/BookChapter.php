@@ -46,9 +46,27 @@ class BookChapter extends \yii\db\ActiveRecord
             [['book_id', 'created_by', 'updated_by', 'created_at', 'updated_at'], 'integer'],
             ['title', 'uniqueTitle'],
             [['title', 'slug'], 'string', 'max' => 255],
-            [['book_id'], 'exist', 'skipOnError' => true, 'targetClass' => Book::class, 'targetAttribute' => ['book_id' => 'id']],
-            [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['created_by' => 'id']],
-            [['updated_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['updated_by' => 'id']],
+            [
+                ['book_id'],
+                'exist',
+                'skipOnError' => true,
+                'targetClass' => Book::class,
+                'targetAttribute' => ['book_id' => 'id']
+            ],
+            [
+                ['created_by'],
+                'exist',
+                'skipOnError' => true,
+                'targetClass' => User::class,
+                'targetAttribute' => ['created_by' => 'id']
+            ],
+            [
+                ['updated_by'],
+                'exist',
+                'skipOnError' => true,
+                'targetClass' => User::class,
+                'targetAttribute' => ['updated_by' => 'id']
+            ],
         ];
     }
 

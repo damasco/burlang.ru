@@ -44,8 +44,20 @@ class Dictionary extends \yii\db\ActiveRecord
             [['info'], 'string', 'max' => 255],
             [['isbn'], 'string', 'max' => 30],
             [['created_by', 'updated_by', 'created_at', 'updated_at'], 'integer'],
-            [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['created_by' => 'id']],
-            [['updated_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['updated_by' => 'id']],
+            [
+                ['created_by'],
+                'exist',
+                'skipOnError' => true,
+                'targetClass' => User::class,
+                'targetAttribute' => ['created_by' => 'id']
+            ],
+            [
+                ['updated_by'],
+                'exist',
+                'skipOnError' => true,
+                'targetClass' => User::class,
+                'targetAttribute' => ['updated_by' => 'id']
+            ],
         ];
     }
 

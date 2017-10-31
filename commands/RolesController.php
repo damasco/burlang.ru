@@ -15,6 +15,7 @@ class RolesController extends Controller
 {
     /**
      * Adds role to user
+     * @throws \Exception
      */
     public function actionAssign()
     {
@@ -29,6 +30,7 @@ class RolesController extends Controller
 
     /**
      * Removes role from user
+     * @throws InvalidParamException
      */
     public function actionRevoke()
     {
@@ -37,9 +39,9 @@ class RolesController extends Controller
         $roleName = $this->select(
             'Role:',
             ArrayHelper::merge(
-            ['all' => 'All Roles'],
-            ArrayHelper::map(Yii::$app->authManager->getRolesByUser($user->id), 'name', 'description')
-        )
+                ['all' => 'All Roles'],
+                ArrayHelper::map(Yii::$app->authManager->getRolesByUser($user->id), 'name', 'description')
+            )
         );
         $authManager = Yii::$app->getAuthManager();
         if ($roleName === 'all') {
@@ -54,12 +56,13 @@ class RolesController extends Controller
     /**
      * @param string $username
      * @return User
+     * @throws InvalidParamException
      */
     private function getUser($username)
     {
         $user = User::findOne(['username' => $username]);
         if (!$user) {
-            throw new InvalidParamException("There is no user \"$username\".");
+            throw new InvalidParamException('There is no user ' . $username);
         }
         return $user;
     }
