@@ -166,17 +166,39 @@
             "type": "bower-asset"
         },
         {
-            "name": "bower-asset/jquery",
-            "version": "2.2.4",
+            "name": "bower-asset/inputmask",
+            "version": "3.3.10",
             "source": {
                 "type": "git",
-                "url": "https://github.com/jquery/jquery-dist.git",
-                "reference": "c0185ab7c75aab88762c5aae780b9d83b80eda72"
+                "url": "git@github.com:RobinHerbots/Inputmask.git",
+                "reference": "14873e5775964275d13621cbe2b52e4448af3707"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jquery/jquery-dist/zipball/c0185ab7c75aab88762c5aae780b9d83b80eda72",
-                "reference": "c0185ab7c75aab88762c5aae780b9d83b80eda72",
+                "url": "https://api.github.com/repos/RobinHerbots/Inputmask/zipball/14873e5775964275d13621cbe2b52e4448af3707",
+                "reference": "14873e5775964275d13621cbe2b52e4448af3707",
+                "shasum": null
+            },
+            "require": {
+                "bower-asset/jquery": ">=1.7"
+            },
+            "type": "bower-asset",
+            "license": [
+                "http://opensource.org/licenses/mit-license.php"
+            ]
+        },
+        {
+            "name": "bower-asset/jquery",
+            "version": "3.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jquery/jquery-dist.git",
+                "reference": "77d2a51d0520d2ee44173afdf4e40a9201f5964e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jquery/jquery-dist/zipball/77d2a51d0520d2ee44173afdf4e40a9201f5964e",
+                "reference": "77d2a51d0520d2ee44173afdf4e40a9201f5964e",
                 "shasum": null
             },
             "type": "bower-asset",
@@ -202,28 +224,6 @@
                 "bower-asset/jquery": ">=1.6"
             },
             "type": "bower-asset"
-        },
-        {
-            "name": "bower-asset/jquery.inputmask",
-            "version": "3.3.10",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/RobinHerbots/Inputmask.git",
-                "reference": "14873e5775964275d13621cbe2b52e4448af3707"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/RobinHerbots/Inputmask/zipball/14873e5775964275d13621cbe2b52e4448af3707",
-                "reference": "14873e5775964275d13621cbe2b52e4448af3707",
-                "shasum": null
-            },
-            "require": {
-                "bower-asset/jquery": ">=1.7"
-            },
-            "type": "bower-asset",
-            "license": [
-                "http://opensource.org/licenses/mit-license.php"
-            ]
         },
         {
             "name": "bower-asset/punycode",
@@ -709,21 +709,21 @@
         },
         {
             "name": "yiisoft/yii2",
-            "version": "2.0.12",
+            "version": "2.0.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "70acbecc75cb26b6cd66d16be0b06e4b73db190d"
+                "reference": "9f82b8f0df9adb4b8a410be5aaa97818153689d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/70acbecc75cb26b6cd66d16be0b06e4b73db190d",
-                "reference": "70acbecc75cb26b6cd66d16be0b06e4b73db190d",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/9f82b8f0df9adb4b8a410be5aaa97818153689d9",
+                "reference": "9f82b8f0df9adb4b8a410be5aaa97818153689d9",
                 "shasum": ""
             },
             "require": {
-                "bower-asset/jquery": "2.2.*@stable | 2.1.*@stable | 1.11.*@stable | 1.12.*@stable",
-                "bower-asset/jquery.inputmask": "~3.2.2 | ~3.3.5",
+                "bower-asset/inputmask": "~3.2.2 | ~3.3.5",
+                "bower-asset/jquery": "3.2.*@stable | 3.1.*@stable | 2.2.*@stable | 2.1.*@stable | 1.11.*@stable | 1.12.*@stable",
                 "bower-asset/punycode": "1.3.*",
                 "bower-asset/yii2-pjax": "~2.0.1",
                 "cebe/markdown": "~1.0.0 | ~1.1.0",
@@ -805,24 +805,24 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2017-06-05T14:33:41+00:00"
+            "time": "2017-11-02T22:09:29+00:00"
         },
         {
             "name": "yiisoft/yii2-authclient",
-            "version": "2.1.3",
+            "version": "2.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-authclient.git",
-                "reference": "eec33d8584558aac1ec8d68ba605a898cee2d6e8"
+                "reference": "22463dbfd4a53b16fec9b6286e762e31d3fdeee0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-authclient/zipball/eec33d8584558aac1ec8d68ba605a898cee2d6e8",
-                "reference": "eec33d8584558aac1ec8d68ba605a898cee2d6e8",
+                "url": "https://api.github.com/repos/yiisoft/yii2-authclient/zipball/22463dbfd4a53b16fec9b6286e762e31d3fdeee0",
+                "reference": "22463dbfd4a53b16fec9b6286e762e31d3fdeee0",
                 "shasum": ""
             },
             "require": {
-                "yiisoft/yii2-httpclient": "~2.0.1"
+                "yiisoft/yii2-httpclient": "~2.0.5"
             },
             "suggest": {
                 "spomky-labs/jose": "required for JWS,JWT or JWK related flows like OpenIDConnect"
@@ -857,7 +857,7 @@
                 "oauth",
                 "yii2"
             ],
-            "time": "2017-06-23T09:45:49+00:00"
+            "time": "2017-11-03T12:32:29+00:00"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
@@ -957,20 +957,20 @@
         },
         {
             "name": "yiisoft/yii2-httpclient",
-            "version": "2.0.4",
+            "version": "2.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-httpclient.git",
-                "reference": "720e3c9bdda260abffe61babfe39b91c4308ac4c"
+                "reference": "0417cb05f810890297f79877ccf51865834fb394"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-httpclient/zipball/720e3c9bdda260abffe61babfe39b91c4308ac4c",
-                "reference": "720e3c9bdda260abffe61babfe39b91c4308ac4c",
+                "url": "https://api.github.com/repos/yiisoft/yii2-httpclient/zipball/0417cb05f810890297f79877ccf51865834fb394",
+                "reference": "0417cb05f810890297f79877ccf51865834fb394",
                 "shasum": ""
             },
             "require": {
-                "yiisoft/yii2": "~2.0.0"
+                "yiisoft/yii2": "~2.0.13"
             },
             "type": "yii2-extension",
             "extra": {
@@ -1000,7 +1000,7 @@
                 "httpclient",
                 "yii2"
             ],
-            "time": "2017-06-23T09:36:13+00:00"
+            "time": "2017-11-03T11:22:03+00:00"
         },
         {
             "name": "yiisoft/yii2-jui",
@@ -1644,16 +1644,16 @@
         },
         {
             "name": "friendsofphp/php-cs-fixer",
-            "version": "v2.7.1",
+            "version": "v2.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfPHP/PHP-CS-Fixer.git",
-                "reference": "ab2e189d94698178988f9732bc75bb4ce8d16f77"
+                "reference": "89e7b083f27241e03dd776cb8d6781c77e341db6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/ab2e189d94698178988f9732bc75bb4ce8d16f77",
-                "reference": "ab2e189d94698178988f9732bc75bb4ce8d16f77",
+                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/89e7b083f27241e03dd776cb8d6781c77e341db6",
+                "reference": "89e7b083f27241e03dd776cb8d6781c77e341db6",
                 "shasum": ""
             },
             "require": {
@@ -1661,29 +1661,29 @@
                 "doctrine/annotations": "^1.2",
                 "ext-json": "*",
                 "ext-tokenizer": "*",
-                "gecko-packages/gecko-php-unit": "^2.0",
+                "gecko-packages/gecko-php-unit": "^2.0 || ^3.0",
                 "php": "^5.6 || >=7.0 <7.3",
-                "php-cs-fixer/diff": "^1.0",
-                "symfony/console": "^3.2",
-                "symfony/event-dispatcher": "^3.0",
-                "symfony/filesystem": "^3.0",
-                "symfony/finder": "^3.0",
-                "symfony/options-resolver": "^3.0",
+                "php-cs-fixer/diff": "^1.2",
+                "symfony/console": "^3.2 || ^4.0",
+                "symfony/event-dispatcher": "^3.0 || ^4.0",
+                "symfony/filesystem": "^3.0 || ^4.0",
+                "symfony/finder": "^3.0 || ^4.0",
+                "symfony/options-resolver": "^3.0 || ^4.0",
                 "symfony/polyfill-php70": "^1.0",
                 "symfony/polyfill-php72": "^1.4",
-                "symfony/process": "^3.0",
-                "symfony/stopwatch": "^3.0"
+                "symfony/process": "^3.0 || ^4.0",
+                "symfony/stopwatch": "^3.0 || ^4.0"
             },
             "conflict": {
                 "hhvm": "*"
             },
             "require-dev": {
-                "johnkary/phpunit-speedtrap": "^1.1",
+                "johnkary/phpunit-speedtrap": "^1.1 || ^2.0@dev",
                 "justinrainbow/json-schema": "^5.0",
+                "php-coveralls/php-coveralls": "^1.0.2",
                 "php-cs-fixer/accessible-object": "^1.0",
-                "phpunit/phpunit": "^4.8.35 || ^5.4.3",
-                "satooshi/php-coveralls": "^1.0",
-                "symfony/phpunit-bridge": "^3.2.2"
+                "phpunit/phpunit": "^5.7.23 || ^6.4.3",
+                "symfony/phpunit-bridge": "^3.2.2 || ^4.0"
             },
             "suggest": {
                 "ext-mbstring": "For handling non-UTF8 characters in cache signature.",
@@ -1720,7 +1720,7 @@
                 }
             ],
             "description": "A tool to automatically fix PHP code style",
-            "time": "2017-10-02T12:16:05+00:00"
+            "time": "2017-11-03T02:21:46+00:00"
         },
         {
             "name": "fzaninotto/faker",
@@ -1774,23 +1774,23 @@
         },
         {
             "name": "gecko-packages/gecko-php-unit",
-            "version": "v2.2",
+            "version": "v3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GeckoPackages/GeckoPHPUnit.git",
-                "reference": "ab525fac9a9ffea219687f261b02008b18ebf2d1"
+                "reference": "6a866551dffc2154c1b091bae3a7877d39c25ca3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GeckoPackages/GeckoPHPUnit/zipball/ab525fac9a9ffea219687f261b02008b18ebf2d1",
-                "reference": "ab525fac9a9ffea219687f261b02008b18ebf2d1",
+                "url": "https://api.github.com/repos/GeckoPackages/GeckoPHPUnit/zipball/6a866551dffc2154c1b091bae3a7877d39c25ca3",
+                "reference": "6a866551dffc2154c1b091bae3a7877d39c25ca3",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3.6 || ^7.0"
+                "php": "^7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.8.35 || ^5.4.3"
+                "phpunit/phpunit": "^6.0"
             },
             "suggest": {
                 "ext-dom": "When testing with xml.",
@@ -1798,6 +1798,11 @@
                 "phpunit/phpunit": "This is an extension for it so make sure you have it some way."
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "GeckoPackages\\PHPUnit\\": "src/PHPUnit"
@@ -1814,7 +1819,7 @@
                 "filesystem",
                 "phpunit"
             ],
-            "time": "2017-08-23T07:39:54+00:00"
+            "time": "2017-08-23T07:46:41+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -2595,16 +2600,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "5.2.2",
+            "version": "5.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "8ed1902a57849e117b5651fc1a5c48110946c06b"
+                "reference": "8e1d2397d8adf59a3f12b2878a3aaa66d1ab189d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/8ed1902a57849e117b5651fc1a5c48110946c06b",
-                "reference": "8ed1902a57849e117b5651fc1a5c48110946c06b",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/8e1d2397d8adf59a3f12b2878a3aaa66d1ab189d",
+                "reference": "8e1d2397d8adf59a3f12b2878a3aaa66d1ab189d",
                 "shasum": ""
             },
             "require": {
@@ -2613,7 +2618,7 @@
                 "php": "^7.0",
                 "phpunit/php-file-iterator": "^1.4.2",
                 "phpunit/php-text-template": "^1.2.1",
-                "phpunit/php-token-stream": "^1.4.11 || ^2.0",
+                "phpunit/php-token-stream": "^2.0",
                 "sebastian/code-unit-reverse-lookup": "^1.0.1",
                 "sebastian/environment": "^3.0",
                 "sebastian/version": "^2.0.1",
@@ -2655,7 +2660,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-08-03T12:40:43+00:00"
+            "time": "2017-11-03T13:47:33+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -3179,30 +3184,30 @@
         },
         {
             "name": "sebastian/comparator",
-            "version": "2.0.2",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/comparator.git",
-                "reference": "ae068fede81d06e7bb9bb46a367210a3d3e1fe6a"
+                "reference": "1174d9018191e93cb9d719edec01257fc05f8158"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/ae068fede81d06e7bb9bb46a367210a3d3e1fe6a",
-                "reference": "ae068fede81d06e7bb9bb46a367210a3d3e1fe6a",
+                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/1174d9018191e93cb9d719edec01257fc05f8158",
+                "reference": "1174d9018191e93cb9d719edec01257fc05f8158",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.0",
                 "sebastian/diff": "^2.0",
-                "sebastian/exporter": "^3.0"
+                "sebastian/exporter": "^3.1"
             },
             "require-dev": {
-                "phpunit/phpunit": "^6.0"
+                "phpunit/phpunit": "^6.4"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "2.1.x-dev"
                 }
             },
             "autoload": {
@@ -3233,13 +3238,13 @@
                 }
             ],
             "description": "Provides the functionality to compare PHP values for equality",
-            "homepage": "http://www.github.com/sebastianbergmann/comparator",
+            "homepage": "https://github.com/sebastianbergmann/comparator",
             "keywords": [
                 "comparator",
                 "compare",
                 "equality"
             ],
-            "time": "2017-08-03T07:14:59+00:00"
+            "time": "2017-11-03T07:16:52+00:00"
         },
         {
             "name": "sebastian/diff",
