@@ -2,7 +2,7 @@
 
 namespace app\controllers;
 
-use app\filters\AjaxFilter;
+use yii\filters\AjaxFilter;
 use app\services\BuryatWordManager;
 use app\services\RussianWordManager;
 use Yii;
