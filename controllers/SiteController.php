@@ -2,10 +2,10 @@
 
 namespace app\controllers;
 
-use yii\filters\AjaxFilter;
 use app\services\BuryatWordManager;
 use app\services\RussianWordManager;
 use Yii;
+use yii\filters\AjaxFilter;
 use yii\filters\ContentNegotiator;
 use yii\web\Controller;
 use yii\web\Response;
