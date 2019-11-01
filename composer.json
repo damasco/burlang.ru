@@ -1,5 +1,5 @@
 {
-    "name": "burlang",
+    "name": "damasco/burlang",
     "description": "burlang",
     "keywords": ["buryat language", "burlang", "buryat-lang"],
     "homepage": "http://burlang.ru/",
@@ -38,24 +38,7 @@
         "sort-packages": true
     },
     "scripts": {
-        "post-create-project-cmd": [
-            "yii\\composer\\Installer::postCreateProject"
-        ],
         "phpcs-fixer": "./vendor/bin/php-cs-fixer fix --config .php_cs"
-    },
-    "extra": {
-        "yii\\composer\\Installer::postCreateProject": {
-            "setPermission": [
-                {
-                    "runtime": "0777",
-                    "web/assets": "0777",
-                    "yii": "0755"
-                }
-            ],
-            "generateCookieValidationKey": [
-                "config/web.php"
-            ]
-        }
     },
     "repositories": [
         {
