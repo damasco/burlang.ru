@@ -1,22 +1,19 @@
-'use strict';
-
-var gulp = require('gulp'),
-    watch = require('gulp-watch'),
-    autoprefixer = require('gulp-autoprefixer'),
-    uglify = require('gulp-uglify'),
-    sass = require('gulp-sass'),
-    sourcemaps = require('gulp-sourcemaps'),
-    rigger = require('gulp-rigger'),
-    cleanCSS = require('gulp-clean-css'),
-    imagemin = require('gulp-imagemin'),
-    gulpif = require('gulp-if'),
-    pngquant = require('imagemin-pngquant'),
-    del = require('del'),
-    argv = require('yargs').argv;
+const { src, dest, parallel, watch, series} = require('gulp');
+const autoprefixer = require('gulp-autoprefixer');
+const uglify = require('gulp-uglify');
+const sass = require('gulp-sass');
+const sourcemaps = require('gulp-sourcemaps');
+const rigger = require('gulp-rigger');
+const cleanCSS = require('gulp-clean-css');
+const imagemin = require('gulp-imagemin');
+const gulpif = require('gulp-if');
+const pngquant = require('imagemin-pngquant');
+const del = require('del');
+const argv = require('yargs').argv;
 
 const PRODUCTION = !!(argv.production);
 
-var path = {
+let path = {
     build: {
         js: 'web/js/',
         css: 'web/css/',
@@ -34,7 +31,7 @@ var path = {
     }
 };
 
-var config = {
+let config = {
     sass: {
         outputStyle: 'compressed',
         sourceMap: true,
@@ -46,55 +43,49 @@ var config = {
         use: [pngquant()],
         interlaced: true
     },
-    autoprefixer: {
-        browsers: ['last 2 versions', '> 5%', 'Firefox ESR']
-    },
     cleanCss: {
         compatibility: 'ie8'
     }
 };
 
-gulp.task('styles', function () {
-    gulp.src(path.src.style)
+function css() {
+    return src(path.src.style)
         .pipe(gulpif(!PRODUCTION, sourcemaps.init()))
         .pipe(sass(config.sass))
-        .pipe(autoprefixer(config.autoprefixer))
+        .pipe(autoprefixer())
         .pipe(cleanCSS(config.cleanCss))
         .pipe(gulpif(!PRODUCTION, sourcemaps.write()))
-        .pipe(gulp.dest(path.build.css));
-});
+        .pipe(dest(path.build.css));
+}
 
-gulp.task('scripts', function () {
-    gulp.src(path.src.js)
+function js() {
+    return src(path.src.js)
         .pipe(rigger())
         .pipe(gulpif(!PRODUCTION, sourcemaps.init()))
         .pipe(uglify())
         .pipe(gulpif(!PRODUCTION, sourcemaps.write()))
-        .pipe(gulp.dest(path.build.js));
-});
+        .pipe(dest(path.build.js));
+}
 
-gulp.task('images', function () {
-    gulp.src(path.src.img)
+function images() {
+    return src(path.src.img)
         .pipe(imagemin(config.imagemin))
-        .pipe(gulp.dest(path.build.img));
-});
+        .pipe(dest(path.build.img));
+}
 
-gulp.task('build', ['styles', 'scripts', 'images']);
+function clean() {
+    return del(['web/css/*', 'web/js/*', 'web/img/*']);
+}
 
-gulp.task('watch', function() {
-    watch(path.watch.style, function() {
-        gulp.start('styles');
-    });
-    watch(path.watch.js, function() {
-        gulp.start('scripts');
-    });
-    watch(path.watch.img, function() {
-        gulp.start('images');
-    });
-});
+function watchFiles() {
+    watch(path.watch.style, css);
+    watch(path.watch.js, js);
+    watch(path.watch.img, images);
+}
 
-gulp.task('clean', function() {
-    del(['web/css/*', 'web/js/*', 'web/img/*']);
-});
-
-gulp.task('default', ['build', 'watch']);
+exports.js = js;
+exports.css = css;
+exports.images = images;
+exports.clean = clean;
+exports.watch = series(clean, watchFiles);
+exports.default = series(clean, parallel(images, css, js));
