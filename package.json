@@ -9,11 +9,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/damasco/burlang2.ru.git"
+    "url": "git+https://github.com/damasco/burlang.ru.git"
   },
   "author": "Bulat Damdinov",
   "bugs": {
-    "url": "https://github.com/damasco/burlang2.ru/issues"
+    "url": "https://github.com/damasco/burlang.ru/issues"
   },
   "homepage": "http://burlang.ru",
   "devDependencies": {
