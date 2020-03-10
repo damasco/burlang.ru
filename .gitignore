@@ -40,6 +40,6 @@ phpunit.phar
 /web/index.php
 
 # files automatically generated on dev platform
-/web/js/*
-/web/css/*
-/web/img/*
+#/web/js/*
+#/web/css/*
+#/web/img/*
