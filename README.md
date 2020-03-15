@@ -9,7 +9,6 @@ Installation
 You can then install this application template using the following command:
 
 ```bash
-composer global require "fxp/composer-asset-plugin"
 composer install
 ```
 

@@ -4,7 +4,6 @@
     "keywords": ["buryat language", "burlang", "buryat-lang"],
     "homepage": "http://burlang.ru/",
     "type": "project",
-    "license": "BSD-3-Clause",
     "minimum-stability": "stable",
     "require": {
         "php": ">=5.6.0",
