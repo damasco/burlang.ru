@@ -2,12 +2,14 @@
 
 namespace app\controllers;
 
+use app\models\Dictionary;
 use app\models\RussianTranslation;
 use app\models\RussianWord;
 use app\models\search\RussianWordSearch;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
+use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 
@@ -64,12 +66,19 @@ class RussianWordController extends Controller
     {
         $model = new RussianWord();
 
+        $dictionaries = ArrayHelper::map(
+            Dictionary::find()->asArray()->all(),
+            'id',
+            'name'
+        );
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             Yii::$app->session->setFlash('success', Yii::t('app', 'The word is added'));
             return $this->redirect(['update', 'id' => $model->id]);
         }
         return $this->render('create', [
             'model' => $model,
+            'dictionaries' => $dictionaries,
         ]);
     }
 
@@ -82,6 +91,12 @@ class RussianWordController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+
+        $dictionaries = ArrayHelper::map(
+            Dictionary::find()->asArray()->all(),
+            'id',
+            'name'
+        );
 
         $translationForm = new RussianTranslation();
         $translationForm->ruword_id = $model->id;
@@ -97,6 +112,7 @@ class RussianWordController extends Controller
         return $this->render('update', [
             'model' => $model,
             'translationForm' => $translationForm,
+            'dictionaries' => $dictionaries,
         ]);
     }
 

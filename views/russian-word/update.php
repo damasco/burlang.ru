@@ -1,11 +1,16 @@
 <?php
 
+use app\models\RussianTranslation;
+use app\models\RussianWord;
+use app\widgets\Alert;
 use yii\bootstrap\Html;
+use yii\web\View;
 
 /**
- * @var yii\web\View $this
- * @var app\models\RussianWord $model
- * @var app\models\RussianTranslation $translationForm
+ * @var View $this
+ * @var RussianWord $model
+ * @var RussianTranslation $translationForm
+ * @var array $dictionaries
  */
 
 $this->title = Yii::t('app', 'Edit') . ': ' . $model->name;
@@ -13,18 +18,14 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Russian words'), 'ur
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="russian-word-update">
-
     <h1 class="hidden-xs"><?= Html::encode($this->title) ?></h1>
-
-    <?= \app\widgets\Alert::widget() ?>
-
+    <?= Alert::widget() ?>
     <?= $this->render('_form', [
         'model' => $model,
+        'dictionaries' => $dictionaries,
     ]) ?>
-
     <?= $this->render('_translation_form', [
         'model' => $model,
         'translationForm' => $translationForm,
     ]) ?>
-
 </div>

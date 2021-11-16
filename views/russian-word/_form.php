@@ -4,9 +4,9 @@ use yii\bootstrap\Html;
 use yii\widgets\ActiveForm;
 
 /**
- * @var yii\web\View $this
- * @var app\models\RussianWord $model
- * @var yii\widgets\ActiveForm $form
+ * @var \yii\web\View $this
+ * @var \app\models\RussianWord $model
+ * @var array $dictionaries
  */
 ?>
 <div class="russian-word-form">
@@ -14,6 +14,8 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'dict_id')->dropDownList($dictionaries, ['prompt' => '-']) ?>
 
     <div class="form-group">
         <?= Html::submitButton(

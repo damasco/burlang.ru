@@ -12,6 +12,7 @@ use yii\behaviors\TimestampBehavior;
  *
  * @property integer $id
  * @property string $name
+ * @property integer|null $dict_id
  * @property integer $created_by
  * @property integer $updated_by
  * @property integer $created_at
@@ -40,7 +41,7 @@ class RussianWord extends \yii\db\ActiveRecord
             [['name'], 'required'],
             [['name'], 'string', 'max' => 50],
             [['name'], 'unique'],
-            [['created_by', 'updated_by', 'created_at', 'updated_at'], 'integer'],
+            [['dict_id', 'created_by', 'updated_by', 'created_at', 'updated_at'], 'integer'],
             [
                 ['created_by'],
                 'exist',
@@ -66,6 +67,7 @@ class RussianWord extends \yii\db\ActiveRecord
         return [
             'id' => Yii::t('app', 'ID'),
             'name' => Yii::t('app', 'Name'),
+            'dict_id' => Yii::t('app', 'Dictionary'),
             'created_by' => Yii::t('app', 'Created By'),
             'updated_by' => Yii::t('app', 'Updated By'),
             'created_at' => Yii::t('app', 'Created At'),
@@ -82,6 +84,14 @@ class RussianWord extends \yii\db\ActiveRecord
             TimestampBehavior::class,
             BlameableBehavior::class,
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getDictionary()
+    {
+        return $this->hasOne(Dictionary::class, ['id' => 'dict_id']);
     }
 
     /**
