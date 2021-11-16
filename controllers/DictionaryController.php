@@ -32,6 +32,12 @@ class DictionaryController extends Controller
                 'rules' => [
                     [
                         'allow' => true,
+                        'actions' => ['index', 'view', 'update', 'create'],
+                        'roles' => ['moderator'],
+                    ],
+                    [
+                        'allow' => true,
+                        'actions' => ['delete'],
                         'roles' => ['admin'],
                     ],
                 ],
