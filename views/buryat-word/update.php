@@ -1,33 +1,32 @@
 <?php
 
+use app\models\BuryatTranslation;
+use app\models\BuryatWord;
+use app\widgets\Alert;
 use yii\bootstrap\Html;
+use yii\web\View;
 
 /**
- * @var yii\web\View $this
- * @var app\models\BuryatWord $model
- * @var app\models\BuryatTranslation $translationForm
- * @var app\models\Dictionary[] $dictionaries
+ * @var View $this
+ * @var BuryatWord $model
+ * @var BuryatTranslation $translationForm
+ * @var array $dictionaries
  */
 
 $this->title = Yii::t('app', 'Edit') . ': ' . $model->name;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Buryat words'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
-
 ?>
 <div class="buryat-word-update">
-
     <h1 class="hidden-xs"><?= Html::encode($this->title) ?></h1>
-
-    <?= \app\widgets\Alert::widget() ?>
-
+    <?= Alert::widget() ?>
     <?= $this->render('_form', [
         'model' => $model,
+        'dictionaries' => $dictionaries,
     ]) ?>
-
     <?= $this->render('_translation_form', [
         'model' => $model,
         'translationForm' => $translationForm,
         'dictionaries' => $dictionaries
     ]) ?>
-
 </div>

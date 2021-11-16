@@ -9,6 +9,7 @@ use app\models\search\BuryatWordSearch;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
+use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 
@@ -66,12 +67,19 @@ class BuryatWordController extends Controller
     {
         $model = new BuryatWord();
 
+        $dictionaries = ArrayHelper::map(
+            Dictionary::find()->asArray()->all(),
+            'id',
+            'name'
+        );
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             Yii::$app->session->setFlash('success', Yii::t('app', 'The word is added'));
             return $this->redirect(['update', 'id' => $model->id]);
         }
         return $this->render('create', [
             'model' => $model,
+            'dictionaries' => $dictionaries,
         ]);
     }
 
@@ -85,7 +93,11 @@ class BuryatWordController extends Controller
     {
         $model = $this->findModel($id);
 
-        $dictionaries = Dictionary::find()->asArray()->all();
+        $dictionaries = ArrayHelper::map(
+            Dictionary::find()->asArray()->all(),
+            'id',
+            'name'
+        );
 
         $translationForm = new BuryatTranslation();
         $translationForm->burword_id = $model->id;

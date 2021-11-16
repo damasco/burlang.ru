@@ -5,6 +5,7 @@ use yii\helpers\Html;
 /**
  * @var yii\web\View $this
  * @var app\models\BuryatWord $model
+ * @var array $dictionaries
  */
 
 $this->title = Yii::t('app', 'New word');
@@ -18,6 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= $this->render('_form', [
         'model' => $model,
+        'dictionaries' => $dictionaries,
     ]) ?>
 
 </div>

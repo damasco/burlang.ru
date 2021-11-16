@@ -1,12 +1,13 @@
 <?php
 
+use app\widgets\InputCharts;
 use yii\bootstrap\Html;
 use yii\widgets\ActiveForm;
 
 /**
  * @var yii\web\View $this
  * @var app\models\BuryatWord $model
- * @var yii\widgets\ActiveForm $form
+ * @var array $dictionaries
  */
 
 ?>
@@ -14,7 +15,9 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'name')->widget(\app\widgets\InputCharts::class, ['options' => ['maxlength' => true]]) ?>
+    <?= $form->field($model, 'name')->widget(InputCharts::class, ['options' => ['maxlength' => true]]) ?>
+
+    <?= $form->field($model, 'dict_id')->dropDownList($dictionaries, ['prompt' => '-']) ?>
 
     <div class="form-group">
         <?= Html::submitButton(

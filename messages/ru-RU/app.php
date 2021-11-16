@@ -24,7 +24,7 @@ return [
     'Isbn' => '',
     'Ruword ID' => '',
     'Slug' => '',
-    'The word is not found' => '',
+    'The word is not found' => 'Слово не найдено',
     'Updated By' => '',
     'Active' => 'Активный',
     'Add' => 'Добавить',
