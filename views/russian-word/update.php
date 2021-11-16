@@ -27,5 +27,6 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= $this->render('_translation_form', [
         'model' => $model,
         'translationForm' => $translationForm,
+        'dictionaries' => $dictionaries,
     ]) ?>
 </div>

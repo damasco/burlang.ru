@@ -28,7 +28,7 @@ use yii\widgets\ActiveForm;
             [
                 'attribute' => 'dict_id',
                 'value' => 'dictionary.name',
-                'visible' => !Yii::$app->get('devicedetect')->isMobile() ? true : false,
+                'visible' => !Yii::$app->get('devicedetect')->isMobile(),
             ],
             [
                 'class' => 'yii\grid\ActionColumn',

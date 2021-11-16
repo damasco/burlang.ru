@@ -1,13 +1,17 @@
 <?php
 
+use app\models\RussianTranslation;
+use app\models\RussianWord;
+use app\widgets\InputCharts;
 use yii\bootstrap\Html;
 use yii\data\ActiveDataProvider;
 use yii\grid\GridView;
 use yii\widgets\ActiveForm;
 
 /**
- * @var mixed $translationForm
- * @var \app\models\RussianWord $model
+ * @var RussianTranslation $translationForm
+ * @var RussianWord $model
+ * @var array $dictionaries
  */
 ?>
 <hr>
@@ -24,6 +28,11 @@ use yii\widgets\ActiveForm;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
             'name',
+            [
+                'attribute' => 'dict_id',
+                'value' => 'dictionary.name',
+                'visible' => !Yii::$app->get('devicedetect')->isMobile(),
+            ],
             [
                 'class' => 'yii\grid\ActionColumn',
                 'template' => '{delete}',
@@ -48,25 +57,30 @@ use yii\widgets\ActiveForm;
                 ]
             ],
         ],
-    ]); ?>
+    ]) ?>
 </div>
-
 <div class="panel panel-default">
     <div class="panel-heading">
         <h4 class="panel-title"><?= Yii::t('app', 'Add translation') ?></h4>
     </div>
     <div class="panel-body">
         <?php $form = ActiveForm::begin() ?>
-
-        <?= $form->field($translationForm, 'name')->widget(
-            \app\widgets\InputCharts::class,
-            ['options' => ['maxlength' => true]]
+        <div class="row">
+            <div class="col-sm-6">
+                <?= $form->field($translationForm, 'name')
+                    ->widget(InputCharts::class) ?>
+            </div>
+            <div class="col-sm-6">
+                <?= $form->field($translationForm, 'dict_id')
+                    ->dropDownList($dictionaries, ['prompt' => '-']) ?>
+            </div>
+        </div>
+        <?= $form->field($translationForm, 'ruword_id')
+            ->hiddenInput(['value' => $model->id])->label(false) ?>
+        <?= Html::submitButton(
+                Html::icon('plus') . ' ' . Yii::t('app', 'Add'),
+                ['class' => 'btn btn-success']
         ) ?>
-
-        <?= $form->field($translationForm, 'ruword_id')->hiddenInput(['value' => $model->id])->label(false) ?>
-
-        <?= Html::submitButton(Html::icon('plus') . ' ' . Yii::t('app', 'Add'), ['class' => 'btn btn-success']) ?>
-
         <?php ActiveForm::end() ?>
     </div>
 </div>

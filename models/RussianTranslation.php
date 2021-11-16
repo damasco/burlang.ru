@@ -13,6 +13,7 @@ use yii\behaviors\TimestampBehavior;
  * @property integer $id
  * @property integer $ruword_id
  * @property string $name
+ * @property integer|null $dict_id
  * @property integer $created_by
  * @property integer $updated_by
  * @property integer $created_at
@@ -39,7 +40,7 @@ class RussianTranslation extends \yii\db\ActiveRecord
     {
         return [
             [['ruword_id', 'name'], 'required'],
-            [['ruword_id', 'created_by', 'updated_by', 'created_at', 'updated_at'], 'integer'],
+            [['ruword_id', 'dict_id', 'created_by', 'updated_by', 'created_at', 'updated_at'], 'integer'],
             [['name'], 'string', 'max' => 100],
             [
                 ['ruword_id'],
@@ -74,6 +75,7 @@ class RussianTranslation extends \yii\db\ActiveRecord
             'id' => Yii::t('app', 'ID'),
             'ruword_id' => Yii::t('app', 'Ruword ID'),
             'name' => Yii::t('app', 'Translation'),
+            'dict_id' => Yii::t('app', 'Dictionary'),
             'created_by' => Yii::t('app', 'Created By'),
             'updated_by' => Yii::t('app', 'Updated By'),
             'created_at' => Yii::t('app', 'Created At'),
@@ -98,6 +100,14 @@ class RussianTranslation extends \yii\db\ActiveRecord
     public function getRussianWord()
     {
         return $this->hasOne(RussianWord::class, ['id' => 'ruword_id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getDictionary()
+    {
+        return $this->hasOne(Dictionary::class, ['id' => 'dict_id']);
     }
 
     /**
