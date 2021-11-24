@@ -22,9 +22,9 @@
         "yiisoft/yii2-swiftmailer": "~2.0.5"
     },
     "require-dev": {
-        "codeception/codeception": "^2.2.9",
-        "codeception/specify": "~0.4.3",
-        "codeception/verify": "~0.3.1",
+        "codeception/codeception": "^4.1.22",
+        "codeception/specify": "^1.4.0",
+        "codeception/verify": "^2.1.1",
         "friendsofphp/php-cs-fixer": "^2.0",
         "phpmd/phpmd": "^2.6",
         "squizlabs/php_codesniffer": "3.*",
