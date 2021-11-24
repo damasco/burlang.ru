@@ -32,7 +32,7 @@ php yii migrate
 ### 4. Create user
 
 ```bash
-php yii user/create <email> <username> [password] [...options...]
+php yii user/create <email> <username> [password]
 ```
 
 ### 5. Role configuration
@@ -54,14 +54,8 @@ php yii roles/revoke
 - `npm run build`
 - `npm run build-dev`
 
-### 7. PHP_CodeSniffer
+### 7. PHPCS fixer
 
-Example: `./vendor/bin/phpcs -s --colors --extensions=php --standard=PSR2 ./folder-name`
-
-### 8. PHP Code fixer
-
-For folder: `./vendor/bin/php-cs-fixer fix ./folder-name --config .php_cs`
-
-For project: `./vendor/bin/php-cs-fixer fix --config .php_cs`
-
-Composer script: `composer phpcs-fixer`
+```
+composer phpcs-fixer
+```
