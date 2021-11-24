@@ -8,7 +8,7 @@ use yii\db\Migration;
 class m211116_090447_add_column_dict_id_in_buryat_word_table extends Migration
 {
     /**
-     * @var string 
+     * @var string
      */
     private $tableName = '{{%buryat_word}}';
     /**
