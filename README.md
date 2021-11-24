@@ -65,9 +65,3 @@ For folder: `./vendor/bin/php-cs-fixer fix ./folder-name --config .php_cs`
 For project: `./vendor/bin/php-cs-fixer fix --config .php_cs`
 
 Composer script: `composer phpcs-fixer`
-
-
-### 9. PHP Mess Detector
-
-`./vendor/bin/phpmd ./folder-name text codesize,unusedcode,naming,design,controversial,cleancode`
-
