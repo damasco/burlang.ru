@@ -31,5 +31,8 @@ RUN curl -sS https://getcomposer.org/installer | php -- \
 # Install nodejs
 RUN apt-get update && apt-get install -y nodejs npm
 
+# Create python symlink
+RUN ln -s /usr/bin/python3 /usr/bin/python
+
 # Application environment
 WORKDIR /app

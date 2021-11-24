@@ -49,9 +49,10 @@ php yii roles/assign
 php yii roles/revoke
 ```
 
-### 6. Build
+### 6. Build target CSS/JS files
 
-Run `gulp build` - automatically build target CSS/JS files
+- `npm run build`
+- `npm run build-dev`
 
 ### 7. PHP_CodeSniffer
 
