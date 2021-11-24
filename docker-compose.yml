@@ -4,9 +4,7 @@ volumes:
   mysql_data:
 
 services:
-  php:
-    container_name: php
-    image: burlang/php:latest
+  app:
     build: 
       context: ./
       dockerfile: ./docker/images/php/Dockerfile
@@ -15,7 +13,6 @@ services:
       - ./:/app:delegated
 
   nginx:
-    container_name: nginx
     platform: linux/x86_64
     image: nginx:latest
     ports:
@@ -26,7 +23,6 @@ services:
       - ./docker/env/log/nginx:/var/log/nginx/
 
   mysql:
-    container_name: mysql
     image: mariadb:10.3
     environment:
       MYSQL_DATABASE: burlang
@@ -37,3 +33,4 @@ services:
       - mysql_data:/var/lib/mysql
       - ./docker/env/etc/mysql/custom.cnf:/etc/mysql/conf.d/custom.cnf:cached
       - ./docker/env/log/mysql:/var/log/mariadb:cached
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql:ro

@@ -1,5 +1,7 @@
 FROM php:7.4-fpm
 
+MAINTAINER Burlang
+
 COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/local/bin/
 RUN install-php-extensions \
         soap \
