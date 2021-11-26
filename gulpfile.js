@@ -54,12 +54,6 @@ function js() {
         .pipe(dest(path.build.js));
 }
 
-function images() {
-    return src(path.src.img)
-        .pipe(imagemin(config.imagemin))
-        .pipe(dest(path.build.img));
-}
-
 function clean() {
     return del(['web/css/*', 'web/js/*']);
 }
