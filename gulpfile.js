@@ -8,8 +8,6 @@ const gulpif = require('gulp-if');
 const del = require('del');
 const argv = require('yargs').argv;
 
-console.log(argv);
-
 const PRODUCTION = !!(argv.production);
 
 let path = {
