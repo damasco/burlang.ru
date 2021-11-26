@@ -1,70 +1,32 @@
-const { src, dest, parallel, watch, series} = require('gulp');
+const { src, dest, parallel, watch} = require('gulp');
 const autoprefixer = require('gulp-autoprefixer');
 const uglify = require('gulp-uglify');
 const sass = require('gulp-sass')(require('sass'));
 const sourcemaps = require('gulp-sourcemaps');
 const cleanCSS = require('gulp-clean-css');
-const gulpif = require('gulp-if');
-const del = require('del');
-const argv = require('yargs').argv;
+const mode = require('gulp-mode')({
+  modes: ["prod", "dev"],
+  default: "dev"
+});
 
-const PRODUCTION = !!(argv.production);
-
-let path = {
-    build: {
-        js: 'web/js/',
-        css: 'web/css/',
-    },
-    src: {
-        js: 'assets/src/js/main.js',
-        style: 'assets/src/scss/main.scss',
-    },
-    watch: {
-        js: 'assets/src/js/**/*.js',
-        style: 'assets/src/scss/**/*.scss',
-    }
-};
-
-let config = {
-    sass: {
-        outputStyle: 'compressed',
-        sourceMap: true,
-        errLogToConsole: true
-    },
-    cleanCss: {
-        compatibility: 'ie8'
-    }
-};
-
-function css() {
-    return src(path.src.style)
-        .pipe(gulpif(!PRODUCTION, sourcemaps.init()))
-        .pipe(sass(config.sass))
+function buildStyles() {
+    return src('./assets/src/scss/main.scss')
+        .pipe(mode.dev(sourcemaps.init()))
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
         .pipe(autoprefixer())
-        .pipe(cleanCSS(config.cleanCss))
-        .pipe(gulpif(!PRODUCTION, sourcemaps.write()))
-        .pipe(dest(path.build.css));
+        .pipe(cleanCSS({compatibility: 'ie8'}))
+        .pipe(mode.dev(sourcemaps.write()))
+        .pipe(dest('./web/css/'));
 }
 
-function js() {
-    return src(path.src.js)
-        .pipe(gulpif(!PRODUCTION, sourcemaps.init()))
-        .pipe(uglify())
-        .pipe(gulpif(!PRODUCTION, sourcemaps.write()))
-        .pipe(dest(path.build.js));
+function buildJs() {
+    return src('./assets/src/js/main.js')
+        .pipe(mode.prod(uglify()))
+        .pipe(dest('./web/js/'));
 }
 
-function clean() {
-    return del(['web/css/*', 'web/js/*']);
-}
-
-function watchFiles() {
-    watch(path.watch.style, css);
-    watch(path.watch.js, js);
-}
-
-exports.js = js;
-exports.css = css;
-exports.clean = clean;
-exports.watch = series(clean, watchFiles);
-exports.build = series(clean, parallel(css, js));
+exports.watch = function() {
+    watch('./assets/src/js/**/*.js', buildJs);
+    watch('./assets/src/scss/**/*.scss', buildStyles);
+};
+exports.build = parallel(buildStyles, buildJs);

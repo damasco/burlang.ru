@@ -5,8 +5,9 @@
   "main": "gulpfile.js",
   "license": "BSD-3-Clause",
   "scripts": {
-    "build": "./node_modules/.bin/gulp build --production=1",
-    "build-dev": "./node_modules/.bin/gulp build"
+    "build": "./node_modules/.bin/gulp build --prod",
+    "build-dev": "./node_modules/.bin/gulp build",
+    "watch": "./node_modules/.bin/gulp watch --prod"
   },
   "repository": {
     "type": "git",
@@ -22,13 +23,12 @@
     "gulp": "^4.0.0",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-clean-css": "^4.3.0",
-    "gulp-if": "3.0.0",
+    "gulp-mode": "^1.1.0",
     "gulp-sass": "^5.0.0",
     "gulp-sourcemaps": "^3.0.0",
     "gulp-uglify": "^3.0.0",
     "gulp-watch": "^5.0.0",
-    "sass": "^1.0.0",
-    "yargs": "^17.0.0"
+    "sass": "^1.0.0"
   },
   "browserslist": [
     "last 2 versions",

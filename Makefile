@@ -25,14 +25,17 @@ app-composer-install:
 	docker-compose run --rm app composer install
 app-composer-update:
 	docker-compose run --rm app composer install
+app-migrate:
+	docker-compose run --rm app yii migrate --interactive=0
+app-cs-fix:
+	docker-compose run --rm app composer phpcs-fixer
 app-npm-install: 
 	docker-compose run --rm app npm install
 app-npm-update:
 	docker-compose run --rm app npm update
-app-migrate:
-	docker-compose run --rm app yii migrate --interactive=0
 app-assets-build:
-	docker-compose run --rm app npn run build
-app-cs-fix:
-	docker-compose run --rm app composer phpcs-fixer
-
+	docker-compose run --rm app npm run build
+app-assets-build-dev:
+	docker-compose run --rm app npm run build-dev
+app-assets-watch:
+	docker-compose run --rm app npm run watch	
