@@ -1,21 +1,19 @@
 <?php
 
 use app\components\DeviceDetect\DeviceDetectInterface;
-use app\widgets\AlphabetNames;
 use yii\helpers\Html;
 use yii\helpers\Url;
 
 /**
  * @var yii\web\View $this
  * @var array $names
- * @var string|null $letter
+ * @var string $letter
  * @var DeviceDetectInterface $deviceDetect
- * @var array $alphabet
+ * @var array $firstLetters
  */
 
 $this->title = Yii::t('app', 'Names');
-
-if ($letter !== null) {
+if ($letter) {
     $this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['index']];
     $this->params['breadcrumbs'][] = $letter;
 } else {
@@ -25,9 +23,9 @@ if ($letter !== null) {
 <div class="buryat-name-list" data-url="<?= Url::to(['buryat-name/view-name']) ?>">
     <h1 class="hidden-xs"><?= Html::encode($this->title) ?></h1>
     <?php if (!$letter || $deviceDetect->isDesktop() || $deviceDetect->isTablet()): ?>
-        <?= $this->render('_alphabet', [
-            'letter' => $letter,
-            'alphabet' => $alphabet,
+        <?= $this->render('_first_letters', [
+            'currentLetter' => $letter,
+            'firstLetters' => $firstLetters,
         ]) ?>
     <?php endif ?>
     <?php if (!empty($names)): ?>
@@ -35,8 +33,8 @@ if ($letter !== null) {
             <?php foreach ($names as $name): ?>
                 <li>
                     <?= Html::a(
-                        $name['name'],
-                        ['view-name', 'name' => $name['name']],
+                        $name,
+                        ['view-name', 'name' => $name],
                         ['class' => 'btn btn-default js-link-name']
                     ) ?>
                 </li>
@@ -62,5 +60,4 @@ if ($letter !== null) {
             </div>
         </div>
     <?php endif ?>
-
 </div>

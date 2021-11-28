@@ -26,6 +26,7 @@ return [
     'Slug' => '',
     'The word is not found' => 'Слово не найдено',
     'Updated By' => '',
+    'A letter is not one symbol' => 'Буква не один символ',
     'Active' => 'Активный',
     'Add' => 'Добавить',
     'Add chapter' => 'Добавить главу',

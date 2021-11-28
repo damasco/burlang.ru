@@ -20,14 +20,17 @@ use yii\widgets\Pjax;
 
 $this->title = Yii::t('app', 'Buryat names');
 $this->params['breadcrumbs'][] = $this->title;
-
 $isDesktop = $deviceDetect->isDesktop();
 ?>
 <div class="buryat-name-index">
     <h1 class="hidden-xs"><?= Html::encode($this->title) ?></h1>
     <?= Alert::widget() ?>
     <p>
-        <?= Html::a(Html::icon('plus') . ' ' . Yii::t('app', 'Add name'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(
+            Html::icon('plus') . ' ' . Yii::t('app', 'Add name'),
+            ['create'],
+            ['class' => 'btn btn-success']
+        ) ?>
     </p>
     <?= $this->render('_search', ['model' => $searchModel]) ?>
     <?php Pjax::begin(); ?>

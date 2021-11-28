@@ -1,12 +1,15 @@
 <?php
 
+use app\models\search\BuryatNameSearch;
+use app\widgets\InputCharts;
 use yii\helpers\Html;
+use yii\web\View;
 use yii\widgets\ActiveForm;
 
 /**
- * @var yii\web\View $this
- * @var app\models\search\BuryatNameSearch $model
- * @var yii\widgets\ActiveForm $form
+ * @var View $this
+ * @var BuryatNameSearch $model
+ * @var ActiveForm $form
  */
 ?>
 <div class="buryat-word-search">
@@ -19,10 +22,9 @@ use yii\widgets\ActiveForm;
                 'action' => ['admin'],
                 'method' => 'get',
             ]); ?>
-
             <div class="row">
                 <div class="col-sm-6 col-md-4">
-                    <?= $form->field($model, 'name')->widget(\app\widgets\InputCharts::class) ?>
+                    <?= $form->field($model, 'name')->widget(InputCharts::class) ?>
                 </div>
                 <div class="col-sm-6 col-md-4">
                     <?= $form->field($model, 'description') ?>
@@ -44,10 +46,8 @@ use yii\widgets\ActiveForm;
                     </div>
                 </div>
             </div>
-
             <?= Html::submitButton(Yii::t('app', 'Find'), ['class' => 'btn btn-primary']) ?>
             <?= Html::resetButton(Yii::t('app', 'Reset'), ['class' => 'btn btn-default']) ?>
-
             <?php ActiveForm::end(); ?>
         </div>
     </div>

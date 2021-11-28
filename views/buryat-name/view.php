@@ -1,10 +1,12 @@
 <?php
 
+use app\models\BuryatName;
 use yii\bootstrap\Html;
+use yii\web\View;
 
 /**
- * @var yii\web\View $this
- * @var app\models\BuryatName $model
+ * @var View $this
+ * @var BuryatName $model
  */
 
 $this->title = $model->name;
@@ -13,21 +15,18 @@ $this->params['breadcrumbs'][] = [
     'url' => Yii::$app->user->isGuest ? ['index'] : ['admin'],
 ];
 $this->params['breadcrumbs'][] = $this->title;
-
 ?>
 <div class="buryat-name-view">
-
     <h1><?= Html::encode($this->title) ?></h1>
-
     <?php if (Yii::$app->user->can('moderator')): ?>
         <p>
             <?= Html::a(
-                Html::icon('pencil'). ' ' . Yii::t('app', 'Edit'),
+                Html::icon('pencil') . ' ' . Yii::t('app', 'Edit'),
                 ['update', 'id' => $model->id],
-    ['class' => 'btn btn-primary']
+                ['class' => 'btn btn-primary']
             ) ?>
             <?= Html::a(
-                Html::icon('trash'). ' ' . Yii::t('app', 'Delete'),
+                Html::icon('trash') . ' ' . Yii::t('app', 'Delete'),
                 ['delete', 'id' => $model->id],
                 [
                     'class' => 'btn btn-danger',
@@ -39,9 +38,5 @@ $this->params['breadcrumbs'][] = $this->title;
             ) ?>
         </p>
     <?php endif ?>
-
-    <?= $this->render('_description_name', [
-        'model' => $model
-    ]) ?>
-
+    <?= $this->render('_description_name', ['model' => $model]) ?>
 </div>

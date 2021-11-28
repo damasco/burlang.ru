@@ -5,16 +5,14 @@ namespace app\controllers;
 use app\components\DeviceDetect\DeviceDetectInterface;
 use app\models\BuryatName;
 use app\models\search\BuryatNameSearch;
-use app\services\BuryatNameManager;
+use app\services\BuryatNameService;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
+use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 
-/**
- * BuryatNameController implements the CRUD actions for BuryatName model.
- */
 class BuryatNameController extends Controller
 {
     /**
@@ -43,52 +41,62 @@ class BuryatNameController extends Controller
     }
 
     /**
-     * Lists all BuryatName models.
-     * @param BuryatNameManager $buryatNameManager
+     * Lists all buryat names.
+     * @param BuryatNameService $buryatNameService
+     * @param DeviceDetectInterface $deviceDetect
      * @param string|null $letter
      * @return mixed
      * @throws NotFoundHttpException if the first letter cannot be found
      */
     public function actionIndex(
-        BuryatNameManager $buryatNameManager,
+        BuryatNameService     $buryatNameService,
         DeviceDetectInterface $deviceDetect,
-        string $letter = null
+        string                $letter = null
     )
     {
-        $names = $buryatNameManager->getNames($letter);
-        $alphabet = $buryatNameManager->getFirstLetters();
+        $letter = trim((string)$letter);
+        $firstLetters = $buryatNameService->findFirstLetters();
+        $names = [];
+
+        if ($letter) {
+            if (!in_array($letter, ArrayHelper::getColumn($firstLetters, 'letter'), true)) {
+                throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+            }
+            $names = $buryatNameService->findNamesByFirstLetter($letter);
+        }
 
         return $this->render('index', [
             'letter' => $letter,
             'names' => $names,
-            'alphabet' => $alphabet,
+            'firstLetters' => $firstLetters,
             'deviceDetect' => $deviceDetect,
         ]);
     }
 
     /**
-     * Displays a single BuryatName model.
+     * Displays a single buryat name.
      * @param string $name
      * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
+     * @throws NotFoundHttpException
      */
-    public function actionViewName($name)
+    public function actionViewName(string $name)
     {
-        if (($model = BuryatName::findOne(['name' => $name])) !== null) {
-            if (Yii::$app->request->isAjax) {
-                return $this->renderAjax('_description_name', [
-                    'model' => $model,
-                ]);
-            }
-            return $this->render('view', [
+        $model = BuryatName::findOne(['name' => $name]);
+        if (!$model) {
+            throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+        }
+        if (Yii::$app->request->isAjax) {
+            return $this->renderAjax('_description_name', [
                 'model' => $model,
             ]);
         }
-        throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+        return $this->render('view', [
+            'model' => $model,
+        ]);
     }
 
     /**
-     * Lists all BuryatName models.
+     * Lists all buryat names
      * @param DeviceDetectInterface $deviceDetect
      * @return string
      */
@@ -105,11 +113,12 @@ class BuryatNameController extends Controller
     }
 
     /**
-     * Displays a single BuryatName model.
-     * @param integer $id
+     * Displays a single buryat name
+     * @param int $id
      * @return mixed
+     * @throws NotFoundHttpException
      */
-    public function actionView($id)
+    public function actionView(int $id)
     {
         return $this->render('view', [
             'model' => $this->findModel($id),
@@ -117,8 +126,7 @@ class BuryatNameController extends Controller
     }
 
     /**
-     * Creates a new BuryatName model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
+     * Creates a new buryat name.
      * @return mixed
      */
     public function actionCreate()
@@ -134,12 +142,12 @@ class BuryatNameController extends Controller
     }
 
     /**
-     * Updates an existing BuryatName model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
+     * Update a buryat name
+     * @param int $id
      * @return mixed
+     * @throws NotFoundHttpException
      */
-    public function actionUpdate($id)
+    public function actionUpdate(int $id)
     {
         $model = $this->findModel($id);
 
@@ -152,12 +160,11 @@ class BuryatNameController extends Controller
     }
 
     /**
-     * Deletes an existing BuryatName model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
+     * @param int $id
      * @return mixed
+     * @throws NotFoundHttpException
      */
-    public function actionDelete($id)
+    public function actionDelete(int $id)
     {
         $this->findModel($id)->delete();
 
@@ -167,17 +174,16 @@ class BuryatNameController extends Controller
     }
 
     /**
-     * Finds the BuryatName model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
+     * @param int $id
      * @return BuryatName the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($id)
+    protected function findModel(int $id): BuryatName
     {
-        if (($model = BuryatName::findOne($id)) !== null) {
-            return $model;
+        $model = BuryatName::findOne($id);
+        if (!$model) {
+            throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
         }
-        throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+        return $model;
     }
 }

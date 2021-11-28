@@ -6,28 +6,30 @@ use dektrium\user\models\User;
 use Yii;
 use yii\behaviors\BlameableBehavior;
 use yii\behaviors\TimestampBehavior;
+use yii\db\ActiveQuery;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "buryat_name".
  *
- * @property integer $id
+ * @property int $id
  * @property string $name
  * @property string $description
  * @property string $note
- * @property integer $male
- * @property integer $female
- * @property integer $created_by
- * @property integer $updated_by
- * @property integer $created_at
- * @property integer $updated_at
+ * @property int $male
+ * @property int $female
+ * @property int $created_by
+ * @property int $updated_by
+ * @property int $created_at
+ * @property int $updated_at
  *
  * @property User $createdBy
  * @property User $updatedBy
  */
-class BuryatName extends \yii\db\ActiveRecord
+class BuryatName extends ActiveRecord
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public static function tableName()
     {
@@ -35,7 +37,7 @@ class BuryatName extends \yii\db\ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function rules()
     {
@@ -64,7 +66,7 @@ class BuryatName extends \yii\db\ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function attributeLabels()
     {
@@ -83,7 +85,7 @@ class BuryatName extends \yii\db\ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function behaviors()
     {
@@ -94,7 +96,7 @@ class BuryatName extends \yii\db\ActiveRecord
     }
 
     /**
-     * @return \yii\db\ActiveQuery
+     * @return ActiveQuery
      */
     public function getCreatedBy()
     {
@@ -102,7 +104,7 @@ class BuryatName extends \yii\db\ActiveRecord
     }
 
     /**
-     * @return \yii\db\ActiveQuery
+     * @return ActiveQuery
      */
     public function getUpdatedBy()
     {

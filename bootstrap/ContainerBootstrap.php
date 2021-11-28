@@ -4,7 +4,7 @@ namespace app\bootstrap;
 
 use app\components\DeviceDetect\DeviceDetect;
 use app\components\DeviceDetect\DeviceDetectInterface;
-use app\services\BuryatNameManager;
+use app\services\BuryatNameService;
 use Detection\MobileDetect;
 use Yii;
 use yii\base\Application;
@@ -30,6 +30,6 @@ class ContainerBootstrap implements BootstrapInterface
             );
         });
 
-        $container->set(BuryatNameManager::class, BuryatNameManager::class);
+        $container->set(BuryatNameService::class, BuryatNameService::class);
     }
 }
