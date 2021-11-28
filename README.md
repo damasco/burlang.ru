@@ -23,6 +23,8 @@ make init
 
 ### Open `burlang.local`
 
+Login: `admin`
+Password: `admin1`
 
 ## Usage
 
