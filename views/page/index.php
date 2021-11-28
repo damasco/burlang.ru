@@ -1,12 +1,17 @@
 <?php
 
+use app\models\search\PageSearch;
 use yii\bootstrap\Html;
+use yii\data\ActiveDataProvider;
+use yii\grid\ActionColumn;
 use yii\grid\GridView;
+use yii\grid\SerialColumn;
+use yii\web\View;
 
 /**
- * @var yii\web\View $this
- * @var app\models\search\PageSearch $searchModel
- * @var yii\data\ActiveDataProvider $dataProvider
+ * @var View $this
+ * @var PageSearch $searchModel
+ * @var ActiveDataProvider $dataProvider
  */
 
 $this->title = Yii::t('app', 'Pages');
@@ -29,7 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'dataProvider' => $dataProvider,
             'filterModel' => $searchModel,
             'columns' => [
-                ['class' => \yii\grid\SerialColumn::class],
+                ['class' => SerialColumn::class],
 
                 'menu_name',
                 'title',
@@ -47,7 +52,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 ],
 
                 [
-                    'class' => \app\grid\ActionColumn::class,
+                    'class' => ActionColumn::class,
                     'template' => '{view} {update} {delete}',
                     'buttons' => [
                         'view' => function ($url, $model) {

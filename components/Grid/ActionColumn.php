@@ -1,6 +1,6 @@
 <?php
 
-namespace app\grid;
+namespace app\components\Grid;
 
 use Yii;
 use yii\bootstrap\Html;

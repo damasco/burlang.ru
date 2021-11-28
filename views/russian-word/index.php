@@ -1,12 +1,12 @@
 <?php
 
 use app\components\DeviceDetect\DeviceDetectInterface;
-use app\grid\ActionColumn;
 use app\models\RussianWord;
 use app\models\search\RussianWordSearch;
 use app\widgets\Alert;
 use yii\bootstrap\Html;
 use yii\data\ActiveDataProvider;
+use yii\grid\ActionColumn;
 use yii\grid\GridView;
 use yii\grid\SerialColumn;
 use yii\helpers\ArrayHelper;
@@ -43,7 +43,6 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             'columns' => [
                 ['class' => SerialColumn::class],
-
                 'name',
                 [
                     'label' => Yii::t('app', 'Translations'),

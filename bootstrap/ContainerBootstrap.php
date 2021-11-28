@@ -20,7 +20,7 @@ class ContainerBootstrap implements BootstrapInterface
     {
         $container = Yii::$container;
 
-        $container->set(ActionColumn::class, \app\grid\ActionColumn::class);
+        $container->set(ActionColumn::class, \app\components\Grid\ActionColumn::class);
 
         $container->setSingleton(DeviceDetectInterface::class, function () {
             $mobileDetect = new MobileDetect();
