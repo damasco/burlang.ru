@@ -1,54 +1,61 @@
 <?php
 
+use app\components\DeviceDetect\DeviceDetectInterface;
+use app\grid\ActionColumn;
+use app\models\RussianWord;
+use app\models\search\RussianWordSearch;
+use app\widgets\Alert;
 use yii\bootstrap\Html;
+use yii\data\ActiveDataProvider;
 use yii\grid\GridView;
+use yii\grid\SerialColumn;
 use yii\helpers\ArrayHelper;
+use yii\web\View;
 use yii\widgets\Pjax;
 
 /**
- * @var yii\web\View $this
- * @var yii\data\ActiveDataProvider $dataProvider
- * @var app\models\search\RussianWordSearch $searchModel
+ * @var View $this
+ * @var ActiveDataProvider $dataProvider
+ * @var RussianWordSearch $searchModel
+ * @var DeviceDetectInterface $deviceDetect
  */
 
 $this->title = Yii::t('app', 'Russian words');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="russian-word-index">
-
     <h1 class="hidden-xs"><?= Html::encode($this->title) ?></h1>
-
-    <?= \app\widgets\Alert::widget() ?>
-
+    <?= Alert::widget() ?>
     <p>
-        <?= Html::a(Html::icon('plus') . ' ' . Yii::t('app', 'Add word'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(
+            Html::icon('plus') . ' ' . Yii::t('app', 'Add word'),
+            ['create'],
+            ['class' => 'btn btn-success']
+        ) ?>
     </p>
-
     <?= $this->render('_search', ['model' => $searchModel]) ?>
-
     <?php Pjax::begin(); ?>
     <div class="table-responsive">
         <?= GridView::widget([
             'dataProvider' => $dataProvider,
             'pager' => [
-                'maxButtonCount' => !Yii::$app->get('devicedetect')->isMobile() ? 10 : 5,
+                'maxButtonCount' => $deviceDetect->isDesktop() ? 10 : 5,
             ],
             'columns' => [
-                ['class' => \yii\grid\SerialColumn::class],
+                ['class' => SerialColumn::class],
 
                 'name',
                 [
                     'label' => Yii::t('app', 'Translations'),
                     'value' => function ($model) {
-                        /** @var \app\models\RussianWord $model */
+                        /** @var RussianWord $model */
                         return Html::ul(ArrayHelper::getColumn($model->translations, 'name'));
                     },
                     'format' => 'raw',
-                    'visible' => !Yii::$app->get('devicedetect')->isMobile() ? true : false,
+                    'visible' => $deviceDetect->isDesktop(),
                 ],
-
                 [
-                    'class' => \app\grid\ActionColumn::class,
+                    'class' => ActionColumn::class,
                     'template' => '{update} {delete}',
                     'contentOptions' => [
                         'class' => 'action-column-2',
@@ -58,5 +65,4 @@ $this->params['breadcrumbs'][] = $this->title;
         ]); ?>
     </div>
     <?php Pjax::end(); ?>
-
 </div>

@@ -1,20 +1,22 @@
 <?php
 
+use app\components\DeviceDetect\DeviceDetectInterface;
 use yii\bootstrap\Html;
+use yii\data\ActiveDataProvider;
+use yii\web\View;
 use yii\widgets\ListView;
 
 /**
- * @var yii\web\View $this
- * @var yii\data\ActiveDataProvider $dataProvider
+ * @var View $this
+ * @var ActiveDataProvider $dataProvider
+ * @var DeviceDetectInterface $deviceDetect
  */
 
 $this->title = Yii::t('app', 'Books');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="book-index">
-
     <h1 class="hidden-xs"><?= Html::encode($this->title) ?></h1>
-
     <?php if (Yii::$app->user->can('adminBook')): ?>
         <p>
             <?= Html::a(
@@ -24,15 +26,13 @@ $this->params['breadcrumbs'][] = $this->title;
             ) ?>
         </p>
     <?php endif ?>
-
     <?= ListView::widget([
         'dataProvider' => $dataProvider,
         'summary' => false,
         'layout' => "{summary}\n<div class=\"row\">{items}</div>\n{pager}",
-        'itemView' => !Yii::$app->get('devicedetect')->isMobile() ? '_view' : '_view_mobile',
+        'itemView' => $deviceDetect->isDesktop() ? '_view' : '_view_mobile',
         'pager' => [
-            'maxButtonCount' => !Yii::$app->get('devicedetect')->isMobile() ? 10 : 5,
+            'maxButtonCount' => $deviceDetect->isDesktop() ? 10 : 5,
         ],
-    ]); ?>
-
+    ]) ?>
 </div>

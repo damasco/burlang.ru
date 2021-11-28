@@ -1,11 +1,15 @@
 <?php
 
+use app\components\DeviceDetect\DeviceDetectInterface;
 use yii\bootstrap\Html;
 use yii\helpers\Url;
 use yii\jui\AutoComplete;
 use yii\web\JsExpression;
 use yii\widgets\ActiveForm;
 
+/**
+ * @var DeviceDetectInterface $deviceDetect
+ */
 ?>
 <div class="well">
     <h4><?= Yii::t('app', 'Buryat-Russian dictionary') ?></h4>
@@ -40,7 +44,10 @@ use yii\widgets\ActiveForm;
             <button type="button" class="btn btn-default add-input-letter">һ</button>
             <button type="button" class="btn btn-default add-input-letter">ө</button>
             <button type="submit" class="btn btn-custom">
-                <?= Yii::$app->get('devicedetect')->isMobile() ? Html::icon('send') : Yii::t('app', 'Translate') ?>
+                <?= $deviceDetect->isMobile()
+                    ? Html::icon('send')
+                    : Yii::t('app', 'Translate')
+                ?>
             </button>
         </span>
         </div>

@@ -4,60 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b32f516c961ca6f6e38020baeb444497",
+    "content-hash": "9999562624343a697139d6bf54db40cf",
     "packages": [
-        {
-            "name": "alexandernst/yii2-device-detect",
-            "version": "0.0.9",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/alexandernst/yii2-device-detect.git",
-                "reference": "efb05131d0303c8d4ee19d6476d06d031ef88ad9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/alexandernst/yii2-device-detect/zipball/efb05131d0303c8d4ee19d6476d06d031ef88ad9",
-                "reference": "efb05131d0303c8d4ee19d6476d06d031ef88ad9",
-                "shasum": ""
-            },
-            "require": {
-                "mobiledetect/mobiledetectlib": "~2.8",
-                "yiisoft/yii2": "*"
-            },
-            "type": "yii2-extension",
-            "autoload": {
-                "psr-4": {
-                    "alexandernst\\devicedetect\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GNU General Public License v3"
-            ],
-            "authors": [
-                {
-                    "name": "Alexander Nestorov",
-                    "email": "alexandernst@gmail.com"
-                }
-            ],
-            "description": "Yii2 extension for Mobile-Detect library",
-            "keywords": [
-                "desktop",
-                "detect",
-                "device",
-                "extension",
-                "mobile",
-                "phone",
-                "tablet",
-                "widget",
-                "yii2"
-            ],
-            "support": {
-                "issues": "https://github.com/alexandernst/yii2-device-detect/issues",
-                "source": "https://github.com/alexandernst/yii2-device-detect/tree/master"
-            },
-            "time": "2015-04-22T23:30:31+00:00"
-        },
         {
             "name": "bower-asset/bililiterange",
             "version": "v3.2.1",
@@ -6667,7 +6615,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.6.0"
+        "php": ">=7.4.0"
     },
     "platform-dev": [],
     "plugin-api-version": "2.1.0"

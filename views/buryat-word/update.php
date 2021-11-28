@@ -1,5 +1,6 @@
 <?php
 
+use app\components\DeviceDetect\DeviceDetectInterface;
 use app\models\BuryatTranslation;
 use app\models\BuryatWord;
 use app\widgets\Alert;
@@ -11,6 +12,7 @@ use yii\web\View;
  * @var BuryatWord $model
  * @var BuryatTranslation $translationForm
  * @var array $dictionaries
+ * @var DeviceDetectInterface $deviceDetect
  */
 
 $this->title = Yii::t('app', 'Edit') . ': ' . $model->name;
@@ -27,6 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= $this->render('_translation_form', [
         'model' => $model,
         'translationForm' => $translationForm,
-        'dictionaries' => $dictionaries
+        'dictionaries' => $dictionaries,
+        'deviceDetect' => $deviceDetect,
     ]) ?>
 </div>

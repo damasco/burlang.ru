@@ -1,5 +1,7 @@
 <?php
 
+use app\components\DeviceDetect\DeviceDetectInterface;
+use app\models\BuryatTranslation;
 use app\models\BuryatWord;
 use app\widgets\InputCharts;
 use yii\bootstrap\Html;
@@ -8,9 +10,10 @@ use yii\grid\GridView;
 use yii\widgets\ActiveForm;
 
 /**
- * @var mixed $translationForm
+ * @var BuryatTranslation $translationForm
  * @var array $dictionaries
  * @var BuryatWord $model
+ * @var DeviceDetectInterface $deviceDetect
  */
 ?>
 <hr>
@@ -28,7 +31,7 @@ use yii\widgets\ActiveForm;
             [
                 'attribute' => 'dict_id',
                 'value' => 'dictionary.name',
-                'visible' => !Yii::$app->get('devicedetect')->isMobile(),
+                'visible' => $deviceDetect->isDesktop(),
             ],
             [
                 'class' => 'yii\grid\ActionColumn',

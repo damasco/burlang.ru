@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\components\DeviceDetect\DeviceDetectInterface;
 use app\models\BuryatName;
 use app\models\search\BuryatNameSearch;
 use app\services\BuryatNameManager;
@@ -43,17 +44,25 @@ class BuryatNameController extends Controller
 
     /**
      * Lists all BuryatName models.
-     * @param string $letter
+     * @param BuryatNameManager $buryatNameManager
+     * @param string|null $letter
      * @return mixed
      * @throws NotFoundHttpException if the first letter cannot be found
      */
-    public function actionIndex($letter = null)
+    public function actionIndex(
+        BuryatNameManager $buryatNameManager,
+        DeviceDetectInterface $deviceDetect,
+        string $letter = null
+    )
     {
-        $names = Yii::createObject(BuryatNameManager::class)->getNames($letter);
+        $names = $buryatNameManager->getNames($letter);
+        $alphabet = $buryatNameManager->getFirstLetters();
 
         return $this->render('index', [
+            'letter' => $letter,
             'names' => $names,
-            'letter' => $letter
+            'alphabet' => $alphabet,
+            'deviceDetect' => $deviceDetect,
         ]);
     }
 
@@ -80,9 +89,10 @@ class BuryatNameController extends Controller
 
     /**
      * Lists all BuryatName models.
-     * @return mixed
+     * @param DeviceDetectInterface $deviceDetect
+     * @return string
      */
-    public function actionAdmin()
+    public function actionAdmin(DeviceDetectInterface $deviceDetect)
     {
         $searchModel = new BuryatNameSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
@@ -90,6 +100,7 @@ class BuryatNameController extends Controller
         return $this->render('admin', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'deviceDetect' => $deviceDetect,
         ]);
     }
 

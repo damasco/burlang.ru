@@ -1,5 +1,6 @@
 <?php
 
+use app\components\DeviceDetect\DeviceDetectInterface;
 use app\models\RussianTranslation;
 use app\models\RussianWord;
 use app\widgets\InputCharts;
@@ -12,6 +13,7 @@ use yii\widgets\ActiveForm;
  * @var RussianTranslation $translationForm
  * @var RussianWord $model
  * @var array $dictionaries
+ * @var DeviceDetectInterface $deviceDetect
  */
 ?>
 <hr>
@@ -31,7 +33,7 @@ use yii\widgets\ActiveForm;
             [
                 'attribute' => 'dict_id',
                 'value' => 'dictionary.name',
-                'visible' => !Yii::$app->get('devicedetect')->isMobile(),
+                'visible' => $deviceDetect->isDesktop(),
             ],
             [
                 'class' => 'yii\grid\ActionColumn',

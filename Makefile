@@ -16,12 +16,12 @@ docker-pull:
 docker-build:
 	docker-compose build --pull
 docker-ps:
-	docker-compose ps	
+	docker-compose ps
 
 app-init: app-composer-install app-npm-install app-init-files app-migrate
-app-init-files: 
+app-init-files:
 	docker-compose run --rm app init --env=Development --overwrite=n
-app-composer-install: 
+app-composer-install:
 	docker-compose run --rm app composer install
 app-composer-update:
 	docker-compose run --rm app composer install
@@ -29,7 +29,7 @@ app-migrate:
 	docker-compose run --rm app yii migrate --interactive=0
 app-cs-fix:
 	docker-compose run --rm app composer phpcs-fixer
-app-npm-install: 
+app-npm-install:
 	docker-compose run --rm app npm install
 app-npm-update:
 	docker-compose run --rm app npm update

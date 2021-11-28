@@ -7,6 +7,7 @@ use yii\helpers\Html;
  * @var string $letter
  */
 ?>
+<?php if ($alphabet): ?>
 <ul class="list-inline list-letter">
     <?php foreach ($alphabet as $item): ?>
         <li>
@@ -23,3 +24,4 @@ use yii\helpers\Html;
     <?php endforeach ?>
 </ul>
 <br/>
+<?php endif ?>

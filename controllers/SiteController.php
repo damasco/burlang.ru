@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\components\DeviceDetect\DeviceDetectInterface;
 use app\services\BuryatWordManager;
 use app\services\RussianWordManager;
 use Yii;
@@ -53,9 +54,9 @@ class SiteController extends Controller
      * Main page
      * @return mixed
      */
-    public function actionIndex()
+    public function actionIndex(DeviceDetectInterface $deviceDetect)
     {
-        return $this->render('index');
+        return $this->render('index', ['deviceDetect' => $deviceDetect]);
     }
 
     /**

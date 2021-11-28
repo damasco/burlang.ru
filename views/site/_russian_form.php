@@ -1,11 +1,15 @@
 <?php
 
+use app\components\DeviceDetect\DeviceDetectInterface;
 use yii\bootstrap\Html;
 use yii\helpers\Url;
 use yii\jui\AutoComplete;
 use yii\web\JsExpression;
 use yii\widgets\ActiveForm;
 
+/**
+ * @var DeviceDetectInterface $deviceDetect
+ */
 ?>
 <div class="well">
     <h4><?= Yii::t('app', 'Russian-Buryat dictionary') ?></h4>
@@ -37,7 +41,10 @@ use yii\widgets\ActiveForm;
             ]) ?>
             <span class="input-group-btn">
             <button type="submit" class="btn btn-custom">
-                <?= Yii::$app->get('devicedetect')->isMobile() ? Html::icon('send') : Yii::t('app', 'Translate') ?>
+                <?= $deviceDetect->isMobile()
+                    ? Html::icon('send')
+                    : Yii::t('app', 'Translate')
+                ?>
             </button>
         </span>
         </div>

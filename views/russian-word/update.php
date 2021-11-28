@@ -1,5 +1,6 @@
 <?php
 
+use app\components\DeviceDetect\DeviceDetectInterface;
 use app\models\RussianTranslation;
 use app\models\RussianWord;
 use app\widgets\Alert;
@@ -11,6 +12,7 @@ use yii\web\View;
  * @var RussianWord $model
  * @var RussianTranslation $translationForm
  * @var array $dictionaries
+ * @var DeviceDetectInterface $deviceDetect
  */
 
 $this->title = Yii::t('app', 'Edit') . ': ' . $model->name;
@@ -28,5 +30,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'translationForm' => $translationForm,
         'dictionaries' => $dictionaries,
+        'deviceDetect' => $deviceDetect,
     ]) ?>
 </div>

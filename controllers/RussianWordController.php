@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\components\DeviceDetect\DeviceDetectInterface;
 use app\models\Dictionary;
 use app\models\RussianTranslation;
 use app\models\RussianWord;
@@ -44,9 +45,10 @@ class RussianWordController extends Controller
 
     /**
      * Lists all RussianWord models.
+     * @param DeviceDetectInterface $deviceDetect
      * @return mixed
      */
-    public function actionIndex()
+    public function actionIndex(DeviceDetectInterface $deviceDetect)
     {
         $searchModel = new RussianWordSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
@@ -54,6 +56,7 @@ class RussianWordController extends Controller
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'deviceDetect' => $deviceDetect,
         ]);
     }
 
@@ -85,10 +88,11 @@ class RussianWordController extends Controller
     /**
      * Updates an existing RussianWord model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
+     * @param DeviceDetectInterface $deviceDetect
+     * @param int $id
      * @return mixed
      */
-    public function actionUpdate($id)
+    public function actionUpdate(DeviceDetectInterface $deviceDetect, $id)
     {
         $model = $this->findModel($id);
 
@@ -113,6 +117,7 @@ class RussianWordController extends Controller
             'model' => $model,
             'translationForm' => $translationForm,
             'dictionaries' => $dictionaries,
+            'deviceDetect' => $deviceDetect,
         ]);
     }
 

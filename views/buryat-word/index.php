@@ -1,14 +1,23 @@
 <?php
 
+use app\components\DeviceDetect\DeviceDetectInterface;
+use app\models\BuryatWord;
+use app\models\search\BuryatWordSearch;
+use app\widgets\Alert;
 use yii\bootstrap\Html;
+use yii\data\ActiveDataProvider;
+use yii\grid\ActionColumn;
 use yii\grid\GridView;
+use yii\grid\SerialColumn;
 use yii\helpers\ArrayHelper;
+use yii\web\View;
 use yii\widgets\Pjax;
 
 /**
- * @var yii\web\View $this
- * @var app\models\search\BuryatWordSearch $searchModel
- * @var yii\data\ActiveDataProvider $dataProvider
+ * @var View $this
+ * @var BuryatWordSearch $searchModel
+ * @var ActiveDataProvider $dataProvider
+ * @var DeviceDetectInterface $deviceDetect
  */
 
 $this->title = Yii::t('app', 'Buryat words');
@@ -16,44 +25,41 @@ $this->params['breadcrumbs'][] = $this->title;
 
 ?>
 <div class="buryat-word-index">
-
     <h1 class="hidden-xs"><?= Html::encode($this->title) ?></h1>
-
-    <?= \app\widgets\Alert::widget() ?>
-
+    <?= Alert::widget() ?>
     <p>
-        <?= Html::a(Html::icon('plus') . ' ' . Yii::t('app', 'Add word'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(
+            Html::icon('plus') . ' ' . Yii::t('app', 'Add word'),
+            ['create'],
+            ['class' => 'btn btn-success']
+        ) ?>
     </p>
-
     <?= $this->render('_search', ['model' => $searchModel]); ?>
-
     <?php Pjax::begin(); ?>
     <div class="table-responsive">
         <?= GridView::widget([
             'dataProvider' => $dataProvider,
             'pager' => [
-                'maxButtonCount' => !Yii::$app->get('devicedetect')->isMobile() ? 10 : 5,
+                'maxButtonCount' => $deviceDetect->isDesktop() ? 10 : 5,
             ],
             'columns' => [
-                ['class' => \yii\grid\SerialColumn::class],
-
+                ['class' => SerialColumn::class],
                 'name',
                 [
                     'label' => Yii::t('app', 'Translations'),
                     'value' => function ($model) {
-                        /** @var \app\models\BuryatWord $model */
+                        /** @var BuryatWord $model */
                         return Html::ul(ArrayHelper::getColumn($model->translations, 'name'));
                     },
                     'format' => 'raw',
-                    'visible' => !Yii::$app->get('devicedetect')->isMobile() ? true : false,
+                    'visible' => $deviceDetect->isDesktop(),
                 ],
-
                 [
-                    'class' => \yii\grid\ActionColumn::class,
+                    'class' => ActionColumn::class,
                     'template' => '{update} {delete}',
                     'contentOptions' => [
-                        'class' => 'action-column-2'
-                    ]
+                        'class' => 'action-column-2',
+                    ],
                 ],
             ],
         ]); ?>

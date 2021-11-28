@@ -7,7 +7,6 @@
     "minimum-stability": "stable",
     "require": {
         "php": ">=7.4.0",
-        "alexandernst/yii2-device-detect": "0.0.9",
         "bower-asset/bililiterange": "*",
         "bower-asset/bootbox": "~4.4.0",
         "bower-asset/codemirror": "~5.9.0",
