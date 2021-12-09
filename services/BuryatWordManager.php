@@ -36,7 +36,7 @@ class BuryatWordManager
             if ($word && $word->getTranslations()->exists()) {
                 return $word->getTranslations()->asArray()->all();
             }
-            \Yii::createObject(SearchDataManager::class)->insert($q, SearchData::BURYAT_WORD_TYPE);
+            \Yii::createObject(SearchDataService::class)->add($q, SearchData::BURYAT_WORD_TYPE);
             return null;
         }
         return false;

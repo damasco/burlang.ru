@@ -36,7 +36,7 @@ class RussianWordManager
             if ($word && $word->getTranslations()->exists()) {
                 return $word->getTranslations()->asArray()->all();
             }
-            \Yii::createObject(SearchDataManager::class)->insert($q, SearchData::RUSSIAN_WORD_TYPE);
+            \Yii::createObject(SearchDataService::class)->add($q, SearchData::RUSSIAN_WORD_TYPE);
             return null;
         }
         return false;
