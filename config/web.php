@@ -76,7 +76,6 @@ $config = [
                 ],
             ],
         ],
-        'devicedetect' => \alexandernst\devicedetect\DeviceDetect::class,
         'page' => \app\components\Page::class
     ],
     'modules' => [
