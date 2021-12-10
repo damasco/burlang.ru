@@ -4,7 +4,7 @@ namespace app\api\v1\controllers;
 
 use app\api\v1\components\Controller;
 use app\api\v1\models\BuryatWord;
-use app\services\BuryatWordManager;
+use app\services\BuryatWordService;
 use Yii;
 use yii\web\NotFoundHttpException;
 
@@ -13,24 +13,20 @@ class BuryatWordController extends Controller
     /**
      * Get translate
      * @param string $q
-     * @return null|BuryatWord
+     * @return BuryatWord
      * @throws NotFoundHttpException
      */
-    public function actionTranslate($q)
+    public function actionTranslate(string $q): BuryatWord
     {
-        if (($model = BuryatWord::findOne(['name' => $q])) !== null) {
-            return $model;
+        $model = BuryatWord::findOne(['name' => $q]);
+        if (!$model) {
+            throw new NotFoundHttpException(Yii::t('app', 'The word is not found'));
         }
-        throw new NotFoundHttpException(Yii::t('app', 'The word is not found'));
+        return $model;
     }
 
-    /**
-     * Get list words
-     * @param string $q
-     * @return array
-     */
-    public function actionSearch($q)
+    public function actionSearch(BuryatWordService $buryatWordService, string $q): array
     {
-        return Yii::createObject(BuryatWordManager::class)->getWordsWithFilter($q);
+        return $buryatWordService->find($q);
     }
 }

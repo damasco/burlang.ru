@@ -4,7 +4,7 @@ namespace app\api\v1\controllers;
 
 use app\api\v1\components\Controller;
 use app\api\v1\models\RussianWord;
-use app\services\RussianWordManager;
+use app\services\RussianWordService;
 use Yii;
 use yii\web\NotFoundHttpException;
 
@@ -31,6 +31,6 @@ class RussianWordController extends Controller
      */
     public function actionSearch($q)
     {
-        return Yii::createObject(RussianWordManager::class)->getWordsWithFilter($q);
+        return Yii::createObject(RussianWordService::class)->find($q);
     }
 }

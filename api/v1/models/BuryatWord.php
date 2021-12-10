@@ -15,6 +15,7 @@ class BuryatWord extends BaseModel
         unset(
             $fields['id'],
             $fields['name'],
+            $fields['dict_id'],
             $fields['created_by'],
             $fields['updated_by'],
             $fields['created_at'],

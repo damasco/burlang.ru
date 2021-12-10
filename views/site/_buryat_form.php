@@ -21,18 +21,18 @@ use yii\widgets\ActiveForm;
     <div class="form-group">
         <div class="input-group">
             <?= AutoComplete::widget([
-                'name' => 'buryat_word',
+                'name' => 'q',
                 'options' => [
                     'class' => 'form-control',
                     'placeholder' => Yii::t('app', 'Enter the word'),
                     'required' => true
                 ],
                 'clientOptions' => [
-                    'source' => Url::to(['/site/get-buryat-words']),
+                    'source' => Url::to(['/site/find-buryat-words']),
                     'select' => new JsExpression("function (event, ui) {
                         $.ajax({
                             url: '" . Url::to(['/site/buryat-translate']) . "',
-                            data: { buryat_word: ui.item.value }
+                            data: { q: ui.item.value }
                         }).done(function(response) {
                             $('#buryat-translation').html(response);
                         });

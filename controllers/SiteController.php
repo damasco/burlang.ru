@@ -3,11 +3,13 @@
 namespace app\controllers;
 
 use app\components\DeviceDetect\DeviceDetectInterface;
-use app\services\BuryatWordManager;
-use app\services\RussianWordManager;
-use Yii;
+use app\models\SearchData;
+use app\services\BuryatWordService;
+use app\services\RussianWordService;
+use app\services\SearchDataService;
 use yii\filters\AjaxFilter;
 use yii\filters\ContentNegotiator;
+use yii\helpers\StringHelper;
 use yii\web\Controller;
 use yii\web\Response;
 
@@ -34,15 +36,15 @@ class SiteController extends Controller
             'ajaxFilter' => [
                 'class' => AjaxFilter::class,
                 'only' => [
-                    'get-russian-words',
-                    'get-buryat-words',
+                    'find-russian-words',
+                    'find-buryat-words',
                     'russian-translate',
                     'buryat-translate',
                 ]
             ],
             'contentNegotiator' => [
                 'class' => ContentNegotiator::class,
-                'only' => ['get-russian-words', 'get-buryat-words'],
+                'only' => ['find-russian-words', 'find-buryat-words'],
                 'formats' => [
                     'application/json' => Response::FORMAT_JSON,
                 ],
@@ -59,49 +61,53 @@ class SiteController extends Controller
         return $this->render('index', ['deviceDetect' => $deviceDetect]);
     }
 
-    /**
-     * Get list russian words for autocomplete
-     * @param string $term
-     * @return string
-     */
-    public function actionGetRussianWords($term)
+    public function actionFindRussianWords(
+        RussianWordService $russianWordService,
+        string $term
+    )
     {
-        return Yii::createObject(RussianWordManager::class)->getWordsWithFilter($term);
+        return $russianWordService->find($term);
     }
 
-    /**
-     * Get list buryat words for autocomplete
-     * @param string $term
-     * @return string
-     */
-    public function actionGetBuryatWords($term)
+    public function actionFindBuryatWords(
+        BuryatWordService $buryatWordService,
+        string            $term
+    )
     {
-        return Yii::createObject(BuryatWordManager::class)->getWordsWithFilter($term);
+        return $buryatWordService->find($term);
     }
 
-    /**
-     * Get translate for russian word
-     * @param string $russian_word
-     * @return mixed
-     */
-    public function actionRussianTranslate($russian_word)
+    public function actionRussianTranslate(
+        RussianWordService $russianWordService,
+        SearchDataService  $searchDataService,
+        string             $q
+    )
     {
-        $translations = Yii::createObject(RussianWordManager::class)->getTranslations($russian_word);
-
+        if (StringHelper::countWords($q) > 1) {
+            return $this->renderAjax('_error_translate');
+        }
+        $translations = $russianWordService->findTranslations($q);
+        if (!$translations) {
+            $searchDataService->add($q, SearchData::TYPE_RUSSIAN);
+        }
         return $this->renderAjax('_translation', [
             'translations' => $translations
         ]);
     }
 
-    /**
-     * Get translate for buryat word
-     * @param string $buryat_word
-     * @return mixed
-     */
-    public function actionBuryatTranslate($buryat_word)
+    public function actionBuryatTranslate(
+        BuryatWordService $buryatWordService,
+        SearchDataService $searchDataService,
+        string            $q
+    )
     {
-        $translations = Yii::createObject(BuryatWordManager::class)->getTranslations($buryat_word);
-
+        if (StringHelper::countWords($q) > 1) {
+            return $this->renderAjax('_error_translate');
+        }
+        $translations = $buryatWordService->findTranslations($q);
+        if (!$translations) {
+            $searchDataService->add($q, SearchData::TYPE_BURYAT);
+        }
         return $this->renderAjax('_translation', [
             'translations' => $translations
         ]);

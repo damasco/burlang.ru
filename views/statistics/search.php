@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 [
                     'attribute' => 'type',
                     'value' => function ($model) {
-                        return $model->type === SearchData::RUSSIAN_WORD_TYPE ?
+                        return $model->type === SearchData::TYPE_RUSSIAN ?
                             Yii::t('app', 'Buryat word') :
                             Yii::t('app', 'Russian word');
                     }

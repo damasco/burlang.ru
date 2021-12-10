@@ -5,6 +5,8 @@ namespace app\bootstrap;
 use app\components\DeviceDetect\DeviceDetect;
 use app\components\DeviceDetect\DeviceDetectInterface;
 use app\services\BuryatNameService;
+use app\services\BuryatWordService;
+use app\services\RussianWordService;
 use app\services\SearchDataService;
 use Detection\MobileDetect;
 use Yii;
@@ -32,6 +34,8 @@ class ContainerBootstrap implements BootstrapInterface
         });
 
         $container->set(BuryatNameService::class, BuryatNameService::class);
+        $container->set(BuryatWordService::class, BuryatWordService::class);
+        $container->set(RussianWordService::class, RussianWordService::class);
         $container->set(SearchDataService::class, SearchDataService::class);
     }
 }

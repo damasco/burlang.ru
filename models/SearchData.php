@@ -16,8 +16,8 @@ use yii\behaviors\TimestampBehavior;
  */
 class SearchData extends \yii\db\ActiveRecord
 {
-    const BURYAT_WORD_TYPE = 0;
-    const RUSSIAN_WORD_TYPE = 1;
+    const TYPE_BURYAT = 0;
+    const TYPE_RUSSIAN = 1;
 
     /**
      * @inheritdoc
