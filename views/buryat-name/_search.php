@@ -1,7 +1,7 @@
 <?php
 
 use app\models\search\BuryatNameSearch;
-use app\widgets\InputCharts;
+use app\widgets\InputWithBuryatLetters;
 use yii\helpers\Html;
 use yii\web\View;
 use yii\widgets\ActiveForm;
@@ -24,7 +24,7 @@ use yii\widgets\ActiveForm;
             ]); ?>
             <div class="row">
                 <div class="col-sm-6 col-md-4">
-                    <?= $form->field($model, 'name')->widget(InputCharts::class) ?>
+                    <?= $form->field($model, 'name')->widget(InputWithBuryatLetters::class) ?>
                 </div>
                 <div class="col-sm-6 col-md-4">
                     <?= $form->field($model, 'description') ?>

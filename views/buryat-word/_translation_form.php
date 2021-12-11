@@ -3,7 +3,7 @@
 use app\components\DeviceDetect\DeviceDetectInterface;
 use app\models\BuryatTranslation;
 use app\models\BuryatWord;
-use app\widgets\InputCharts;
+use app\widgets\InputWithBuryatLetters;
 use yii\bootstrap\Html;
 use yii\data\ActiveDataProvider;
 use yii\grid\GridView;
@@ -68,7 +68,7 @@ use yii\widgets\ActiveForm;
         <div class="row">
             <div class="col-sm-6">
                 <?= $form->field($translationForm, 'name')
-                    ->widget(InputCharts::class) ?>
+                    ->widget(InputWithBuryatLetters::class) ?>
             </div>
             <div class="col-sm-6">
                 <?= $form->field($translationForm, 'dict_id')

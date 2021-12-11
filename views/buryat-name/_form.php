@@ -1,7 +1,7 @@
 <?php
 
 use app\models\BuryatName;
-use app\widgets\InputCharts;
+use app\widgets\InputWithBuryatLetters;
 use app\widgets\TextareaCharts;
 use yii\bootstrap\Html;
 use yii\web\View;
@@ -15,8 +15,8 @@ use yii\widgets\ActiveForm;
 ?>
 <div class="buryat-name-form">
     <?php $form = ActiveForm::begin(); ?>
-    <?= $form->field($model, 'name')->widget(InputCharts::class, ['options' => ['maxlength' => true]]) ?>
-    <?= $form->field($model, 'description')->widget(InputCharts::class, ['options' => ['maxlength' => true]]) ?>
+    <?= $form->field($model, 'name')->widget(InputWithBuryatLetters::class, ['options' => ['maxlength' => true]]) ?>
+    <?= $form->field($model, 'description')->widget(InputWithBuryatLetters::class, ['options' => ['maxlength' => true]]) ?>
     <?= $form->field($model, 'note')->widget(TextareaCharts::class, ['options' => ['rows' => 5]]) ?>
     <?= $form->field($model, 'male')->checkbox() ?>
     <?= $form->field($model, 'female')->checkbox() ?>

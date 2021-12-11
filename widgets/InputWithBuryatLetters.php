@@ -5,7 +5,7 @@ namespace app\widgets;
 use yii\helpers\Html;
 use yii\widgets\InputWidget;
 
-class InputWithBuryatCharts extends InputWidget
+class InputWithBuryatLetters extends InputWidget
 {
     /**
      * {@inheritdoc}

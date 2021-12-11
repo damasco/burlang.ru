@@ -3,7 +3,7 @@
 use app\components\DeviceDetect\DeviceDetectInterface;
 use app\models\RussianTranslation;
 use app\models\RussianWord;
-use app\widgets\InputCharts;
+use app\widgets\InputWithBuryatLetters;
 use yii\bootstrap\Html;
 use yii\data\ActiveDataProvider;
 use yii\grid\GridView;
@@ -17,9 +17,7 @@ use yii\widgets\ActiveForm;
  */
 ?>
 <hr>
-
 <h4><?= Yii::t('app', 'Translations') ?></h4>
-
 <div class="table-responsive">
     <?= GridView::widget([
         'dataProvider' => (new ActiveDataProvider([
@@ -70,7 +68,7 @@ use yii\widgets\ActiveForm;
         <div class="row">
             <div class="col-sm-6">
                 <?= $form->field($translationForm, 'name')
-                    ->widget(InputCharts::class) ?>
+                    ->widget(InputWithBuryatLetters::class) ?>
             </div>
             <div class="col-sm-6">
                 <?= $form->field($translationForm, 'dict_id')
@@ -80,8 +78,8 @@ use yii\widgets\ActiveForm;
         <?= $form->field($translationForm, 'ruword_id')
             ->hiddenInput(['value' => $model->id])->label(false) ?>
         <?= Html::submitButton(
-                Html::icon('plus') . ' ' . Yii::t('app', 'Add'),
-                ['class' => 'btn btn-success']
+            Html::icon('plus') . ' ' . Yii::t('app', 'Add'),
+            ['class' => 'btn btn-success']
         ) ?>
         <?php ActiveForm::end() ?>
     </div>

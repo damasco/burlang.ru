@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use app\models\queries\NewsQuery;
 use app\modules\user\models\User;
 use Yii;
 use yii\behaviors\BlameableBehavior;
@@ -111,5 +112,13 @@ class News extends \yii\db\ActiveRecord
     public function getUpdatedBy()
     {
         return $this->hasOne(User::class, ['id' => 'updated_by']);
+    }
+
+    /**
+     * @return NewsQuery
+     */
+    public static function find()
+    {
+        return new NewsQuery(get_called_class());
     }
 }

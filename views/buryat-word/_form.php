@@ -1,24 +1,21 @@
 <?php
 
-use app\widgets\InputCharts;
+use app\models\BuryatWord;
+use app\widgets\InputWithBuryatLetters;
 use yii\bootstrap\Html;
+use yii\web\View;
 use yii\widgets\ActiveForm;
 
 /**
- * @var yii\web\View $this
- * @var app\models\BuryatWord $model
+ * @var View $this
+ * @var BuryatWord $model
  * @var array $dictionaries
  */
-
 ?>
 <div class="buryat-word-form">
-
     <?php $form = ActiveForm::begin(); ?>
-
-    <?= $form->field($model, 'name')->widget(InputCharts::class, ['options' => ['maxlength' => true]]) ?>
-
+    <?= $form->field($model, 'name')->widget(InputWithBuryatLetters::class, ['options' => ['maxlength' => true]]) ?>
     <?= $form->field($model, 'dict_id')->dropDownList($dictionaries, ['prompt' => '-']) ?>
-
     <div class="form-group">
         <?= Html::submitButton(
             $model->isNewRecord ?
@@ -26,7 +23,6 @@ use yii\widgets\ActiveForm;
                 Html::icon('floppy-disk') . ' ' . Yii::t('app', 'Save'),
             ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']
         ) ?>
-
         <?php if (!$model->isNewRecord): ?>
             <?= Html::a(Html::icon('trash') . ' ' . Yii::t('app', 'Delete'), ['delete', 'id' => $model->id], [
                 'class' => 'btn btn-danger',
@@ -37,7 +33,5 @@ use yii\widgets\ActiveForm;
             ]) ?>
         <?php endif ?>
     </div>
-
     <?php ActiveForm::end(); ?>
-
 </div>
