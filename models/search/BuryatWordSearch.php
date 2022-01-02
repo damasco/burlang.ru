@@ -3,7 +3,6 @@
 namespace app\models\search;
 
 use app\models\BuryatWord;
-use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
@@ -43,8 +42,6 @@ class BuryatWordSearch extends BuryatWord
     {
         $query = BuryatWord::find();
 
-        // add conditions that should always apply here
-
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
@@ -52,12 +49,9 @@ class BuryatWordSearch extends BuryatWord
         $this->load($params);
 
         if (!$this->validate()) {
-            // uncomment the following line if you do not want to return any records when validation fails
-            // $query->where('0=1');
             return $dataProvider;
         }
 
-        // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
         ]);

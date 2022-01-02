@@ -3,7 +3,6 @@
 namespace app\models\search;
 
 use app\models\Page;
-use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
@@ -28,7 +27,6 @@ class PageSearch extends Page
      */
     public function scenarios()
     {
-        // bypass scenarios() implementation in the parent class
         return Model::scenarios();
     }
 
@@ -43,8 +41,6 @@ class PageSearch extends Page
     {
         $query = Page::find();
 
-        // add conditions that should always apply here
-
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
@@ -52,12 +48,9 @@ class PageSearch extends Page
         $this->load($params);
 
         if (!$this->validate()) {
-            // uncomment the following line if you do not want to return any records when validation fails
-            // $query->where('0=1');
             return $dataProvider;
         }
 
-        // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
             'active' => $this->active,

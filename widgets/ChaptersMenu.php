@@ -8,7 +8,7 @@ use yii\base\Widget;
 class ChaptersMenu extends Widget
 {
     public Book $book;
-    public ?int $activeId;
+    public ?int $activeId = null;
 
     /**
      * {@inheritdoc}
