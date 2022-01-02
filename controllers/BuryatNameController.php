@@ -7,16 +7,18 @@ use app\models\BuryatName;
 use app\models\search\BuryatNameSearch;
 use app\services\BuryatNameService;
 use Yii;
+use yii\db\Exception;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use yii\web\Response;
 
 class BuryatNameController extends Controller
 {
     /**
-     * @inheritdoc
+     * {@inheritDoc}
      */
     public function behaviors()
     {
@@ -24,15 +26,35 @@ class BuryatNameController extends Controller
             'verbs' => [
                 'class' => VerbFilter::class,
                 'actions' => [
+                    'index' => ['GET'],
+                    'view-name' => ['GET'],
+                    'admin' => ['GET'],
+                    'view' => ['GET'],
+                    'create' => ['GET', 'POST'],
+                    'update' => ['GET', 'POST'],
                     'delete' => ['POST'],
                 ],
             ],
             'access' => [
                 'class' => AccessControl::class,
-                'except' => ['index', 'view-name'],
                 'rules' => [
                     [
                         'allow' => true,
+                        'actions' => [
+                            'index',
+                            'view-name',
+                        ],
+                        'roles' => ['?', '@'],
+                    ],
+                    [
+                        'allow' => true,
+                        'actions' => [
+                            'admin',
+                            'view',
+                            'create',
+                            'update',
+                            'delete',
+                        ],
                         'roles' => ['moderator'],
                     ],
                 ],
@@ -41,29 +63,26 @@ class BuryatNameController extends Controller
     }
 
     /**
-     * Lists all buryat names.
      * @param BuryatNameService $buryatNameService
      * @param DeviceDetectInterface $deviceDetect
      * @param string|null $letter
-     * @return mixed
-     * @throws NotFoundHttpException if the first letter cannot be found
+     * @return string
+     * @throws NotFoundHttpException
      */
     public function actionIndex(
         BuryatNameService     $buryatNameService,
         DeviceDetectInterface $deviceDetect,
         string                $letter = null
-    ) {
+    ): string {
         $letter = trim((string)$letter);
         $firstLetters = $buryatNameService->findFirstLetters();
         $names = [];
-
         if ($letter) {
             if (!in_array($letter, ArrayHelper::getColumn($firstLetters, 'letter'), true)) {
                 throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
             }
             $names = $buryatNameService->findNamesByFirstLetter($letter);
         }
-
         return $this->render('index', [
             'letter' => $letter,
             'names' => $names,
@@ -73,37 +92,34 @@ class BuryatNameController extends Controller
     }
 
     /**
-     * Displays a single buryat name.
      * @param string $name
-     * @return mixed
+     * @return string
      * @throws NotFoundHttpException
      */
-    public function actionViewName(string $name)
+    public function actionViewName(string $name): string
     {
-        $model = BuryatName::findOne(['name' => $name]);
-        if (!$model) {
+        $buraytName = BuryatName::findOne(['name' => $name]);
+        if (!$buraytName) {
             throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
         }
         if (Yii::$app->request->isAjax) {
             return $this->renderAjax('_description_name', [
-                'model' => $model,
+                'model' => $buraytName,
             ]);
         }
         return $this->render('view', [
-            'model' => $model,
+            'model' => $buraytName,
         ]);
     }
 
     /**
-     * Lists all buryat names
      * @param DeviceDetectInterface $deviceDetect
      * @return string
      */
-    public function actionAdmin(DeviceDetectInterface $deviceDetect)
+    public function actionAdmin(DeviceDetectInterface $deviceDetect): string
     {
         $searchModel = new BuryatNameSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
         return $this->render('admin', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
@@ -112,77 +128,73 @@ class BuryatNameController extends Controller
     }
 
     /**
-     * Displays a single buryat name
      * @param int $id
-     * @return mixed
+     * @return string
      * @throws NotFoundHttpException
      */
-    public function actionView(int $id)
+    public function actionView(int $id): string
     {
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $this->getName($id),
         ]);
     }
 
     /**
-     * Creates a new buryat name.
-     * @return mixed
+     * @return string|Response
      */
     public function actionCreate()
     {
-        $model = new BuryatName();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        $buryatName = new BuryatName();
+        if ($buryatName->load(Yii::$app->request->post()) && $buryatName->save()) {
+            return $this->redirect(['view', 'id' => $buryatName->id]);
         }
         return $this->render('create', [
-            'model' => $model,
+            'model' => $buryatName,
         ]);
     }
 
     /**
-     * Update a buryat name
      * @param int $id
-     * @return mixed
+     * @return string|Response
      * @throws NotFoundHttpException
      */
     public function actionUpdate(int $id)
     {
-        $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        $buryatName = $this->getName($id);
+        if ($buryatName->load(Yii::$app->request->post()) && $buryatName->save()) {
+            return $this->redirect(['view', 'id' => $buryatName->id]);
         }
         return $this->render('update', [
-            'model' => $model,
+            'model' => $buryatName,
         ]);
     }
 
     /**
      * @param int $id
-     * @return mixed
+     * @return Response
      * @throws NotFoundHttpException
      */
     public function actionDelete(int $id)
     {
-        $this->findModel($id)->delete();
-
+        $buryatName = $this->getName($id);
+        if (!$buryatName->delete()) {
+            throw new Exception(Yii::t('app', 'Can not delete name'));
+        }
         Yii::$app->session->setFlash('success', Yii::t('app', 'Name deleted'));
-
         return $this->redirect(['admin']);
     }
 
     /**
      * @param int $id
-     * @return BuryatName the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
+     * @return BuryatName
+     * @throws NotFoundHttpException
      */
-    protected function findModel(int $id): BuryatName
+    protected function getName(int $id): BuryatName
     {
-        $model = BuryatName::findOne($id);
-        if (!$model) {
+        $name = BuryatName::findOne($id);
+        if (!$name) {
             throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
         }
-        return $model;
+        return $name;
     }
 }

@@ -8,19 +8,18 @@ use app\models\BuryatWord;
 use app\models\Dictionary;
 use app\models\search\BuryatWordSearch;
 use Yii;
+use yii\db\Exception;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use yii\web\Response;
 
-/**
- * BuryatWordController implements the CRUD actions for BuryatWord model.
- */
 class BuryatWordController extends Controller
 {
     /**
-     * @inheritdoc
+     * {@inheritDoc}
      */
     public function behaviors()
     {
@@ -28,6 +27,9 @@ class BuryatWordController extends Controller
             'verbs' => [
                 'class' => VerbFilter::class,
                 'actions' => [
+                    'index' => ['GET'],
+                    'create' => ['GET', 'POST'],
+                    'update' => ['GET', 'POST'],
                     'delete' => ['POST'],
                     'delete-translate' => ['POST'],
                 ],
@@ -37,6 +39,13 @@ class BuryatWordController extends Controller
                 'rules' => [
                     [
                         'allow' => true,
+                        'actions' => [
+                            'index',
+                            'create',
+                            'update',
+                            'delete',
+                            'delete-translate',
+                        ],
                         'roles' => ['moderator'],
                     ],
                 ],
@@ -44,12 +53,7 @@ class BuryatWordController extends Controller
         ];
     }
 
-    /**
-     * Lists all BuryatWord models.
-     * @param DeviceDetectInterface $deviceDetect
-     * @return string
-     */
-    public function actionIndex(DeviceDetectInterface $deviceDetect)
+    public function actionIndex(DeviceDetectInterface $deviceDetect): string
     {
         $searchModel = new BuryatWordSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
@@ -62,13 +66,11 @@ class BuryatWordController extends Controller
     }
 
     /**
-     * Creates a new BuryatWord model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
+     * @return string|Response
      */
     public function actionCreate()
     {
-        $model = new BuryatWord();
+        $word = new BuryatWord();
 
         $dictionaries = ArrayHelper::map(
             Dictionary::find()->asArray()->all(),
@@ -76,25 +78,25 @@ class BuryatWordController extends Controller
             'name'
         );
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($word->load(Yii::$app->request->post()) && $word->save()) {
             Yii::$app->session->setFlash('success', Yii::t('app', 'The word is added'));
-            return $this->redirect(['update', 'id' => $model->id]);
+            return $this->redirect(['update', 'id' => $word->id]);
         }
         return $this->render('create', [
-            'model' => $model,
+            'model' => $word,
             'dictionaries' => $dictionaries,
         ]);
     }
 
     /**
-     * Updates an existing BuryatWord model.
-     * If update is successful, the browser will be redirected to the 'view' page.
+     * @param DeviceDetectInterface $deviceDetect
      * @param int $id
-     * @return mixed
+     * @return string|Response
+     * @throws NotFoundHttpException
      */
-    public function actionUpdate(DeviceDetectInterface $deviceDetect, $id)
+    public function actionUpdate(DeviceDetectInterface $deviceDetect, int $id)
     {
-        $model = $this->findModel($id);
+        $word = $this->getWord($id);
 
         $dictionaries = ArrayHelper::map(
             Dictionary::find()->asArray()->all(),
@@ -103,18 +105,18 @@ class BuryatWordController extends Controller
         );
 
         $translationForm = new BuryatTranslation();
-        $translationForm->burword_id = $model->id;
+        $translationForm->burword_id = $word->id;
         if ($translationForm->load(Yii::$app->request->post()) && $translationForm->save()) {
             Yii::$app->session->setFlash('success', Yii::t('app', 'Translation added'));
             return $this->refresh();
         }
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($word->load(Yii::$app->request->post()) && $word->save()) {
             Yii::$app->session->setFlash('success', Yii::t('app', 'Data updated'));
             return $this->refresh();
         }
         return $this->render('update', [
-            'model' => $model,
+            'model' => $word,
             'dictionaries' => $dictionaries,
             'translationForm' => $translationForm,
             'deviceDetect' => $deviceDetect,
@@ -122,14 +124,17 @@ class BuryatWordController extends Controller
     }
 
     /**
-     * Deletes an existing BuryatWord model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @return mixed
+     * @param int $id
+     * @return Response
+     * @throws Exception
+     * @throws NotFoundHttpException
      */
-    public function actionDelete($id)
+    public function actionDelete(int $id): Response
     {
-        $this->findModel($id)->delete();
+        $word = $this->getWord($id);
+        if (!$word->delete()) {
+            throw new Exception(Yii::t('app', 'Can not delete word'));
+        }
 
         Yii::$app->session->setFlash('success', Yii::t('app', 'Word deleted'));
 
@@ -137,35 +142,48 @@ class BuryatWordController extends Controller
     }
 
     /**
-     * Deletes an existing BuryatTranslation model
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the translate cannot be found
+     * @param int $id
+     * @return Response
+     * @throws Exception
+     * @throws NotFoundHttpException
      */
-    public function actionDeleteTranslation($id)
+    public function actionDeleteTranslation(int $id): Response
     {
-        /** @var BuryatTranslation $translate */
-        if (($translate = BuryatTranslation::findOne($id)) !== null) {
-            Yii::$app->session->setFlash('success', Yii::t('app', 'Translation removed'));
-            $translate->delete();
-            return $this->redirect(['update', 'id' => $translate->burword_id]);
+        $translation = $this->getTranslation($id);
+        if (!$translation->delete()) {
+            throw new Exception(Yii::t('app', 'Can not delete translation'));
         }
-        throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+
+        Yii::$app->session->setFlash('success', Yii::t('app', 'Translation removed'));
+
+        return $this->redirect(['update', 'id' => $translation->burword_id]);
     }
 
     /**
-     * Finds the BuryatWord model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
-     * @return BuryatWord the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
+     * @param int $id
+     * @return BuryatWord
+     * @throws NotFoundHttpException
      */
-    protected function findModel($id)
+    private function getWord(int $id): BuryatWord
     {
-        if (($model = BuryatWord::findOne($id)) !== null) {
-            return $model;
+        $word = BuryatWord::findOne($id);
+        if (!$word) {
+            throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
         }
-        throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+        return $word;
+    }
+
+    /**
+     * @param int $id
+     * @return BuryatTranslation
+     * @throws NotFoundHttpException
+     */
+    private function getTranslation(int $id): BuryatTranslation
+    {
+        $translation = BuryatTranslation::findOne($id);
+        if (!$translation) {
+            throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+        }
+        return $translation;
     }
 }

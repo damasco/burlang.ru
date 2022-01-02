@@ -17,7 +17,7 @@ use yii\bootstrap\Html;
     <?php foreach ($model->chapters as $chapter): ?>
         <?= Html::a(
             Html::encode($chapter->title),
-            ['chapter', 'slug' => $chapter->book->slug, 'slug_chapter' => $chapter->slug],
+            ['chapter', 'slug' => $chapter->book->slug, 'chapterSlug' => $chapter->slug],
             ['class' => $chapter->id === $activeId ? 'list-group-item active' : 'list-group-item']
         ) ?>
     <?php endforeach ?>

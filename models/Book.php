@@ -7,6 +7,8 @@ use Yii;
 use yii\behaviors\BlameableBehavior;
 use yii\behaviors\SluggableBehavior;
 use yii\behaviors\TimestampBehavior;
+use yii\db\ActiveQuery;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "book".
@@ -26,10 +28,10 @@ use yii\behaviors\TimestampBehavior;
  * @property User $updatedBy
  * @property BookChapter[] $chapters
  */
-class Book extends \yii\db\ActiveRecord
+class Book extends ActiveRecord
 {
     /**
-     * @inheritdoc
+     * {@inheritDoc}
      */
     public static function tableName()
     {
@@ -37,7 +39,7 @@ class Book extends \yii\db\ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritDoc}
      */
     public function rules()
     {
@@ -65,7 +67,7 @@ class Book extends \yii\db\ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritDoc}
      */
     public function attributeLabels()
     {
@@ -84,7 +86,7 @@ class Book extends \yii\db\ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritDoc}
      */
     public function behaviors()
     {
@@ -98,26 +100,17 @@ class Book extends \yii\db\ActiveRecord
         ];
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getCreatedBy()
+    public function getCreatedBy(): ActiveQuery
     {
         return $this->hasOne(User::class, ['id' => 'created_by']);
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getUpdatedBy()
+    public function getUpdatedBy(): ActiveQuery
     {
         return $this->hasOne(User::class, ['id' => 'updated_by']);
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getChapters()
+    public function getChapters(): ActiveQuery
     {
         return $this->hasMany(BookChapter::class, ['book_id' => 'id']);
     }

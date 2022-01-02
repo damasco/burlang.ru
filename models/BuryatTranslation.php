@@ -6,6 +6,7 @@ use app\modules\user\models\User;
 use Yii;
 use yii\behaviors\BlameableBehavior;
 use yii\behaviors\TimestampBehavior;
+use yii\db\ActiveQuery;
 
 /**
  * This is the model class for table "buryat_translation".
@@ -27,7 +28,7 @@ use yii\behaviors\TimestampBehavior;
 class BuryatTranslation extends \yii\db\ActiveRecord
 {
     /**
-     * @inheritdoc
+     * {@inheritDoc}
      */
     public static function tableName()
     {
@@ -35,7 +36,7 @@ class BuryatTranslation extends \yii\db\ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritDoc}
      */
     public function rules()
     {
@@ -68,7 +69,7 @@ class BuryatTranslation extends \yii\db\ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritDoc}
      */
     public function attributeLabels()
     {
@@ -85,7 +86,7 @@ class BuryatTranslation extends \yii\db\ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritDoc}
      */
     public function behaviors()
     {
@@ -95,34 +96,22 @@ class BuryatTranslation extends \yii\db\ActiveRecord
         ];
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getBuryatWord()
+    public function getBuryatWord(): ActiveQuery
     {
         return $this->hasOne(BuryatWord::class, ['id' => 'burword_id']);
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getDictionary()
+    public function getDictionary(): ActiveQuery
     {
         return $this->hasOne(Dictionary::class, ['id' => 'dict_id']);
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getCreatedBy()
+    public function getCreatedBy(): ActiveQuery
     {
         return $this->hasOne(User::class, ['id' => 'created_by']);
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getUpdatedBy()
+    public function getUpdatedBy(): ActiveQuery
     {
         return $this->hasOne(User::class, ['id' => 'updated_by']);
     }

@@ -1,9 +1,13 @@
 <?php
+
+use yii\web\View;
+use yii\widgets\Menu;
+
 /**
- * @var \yii\web\View $this
+ * @var View $this
  */
 ?>
-<?= \yii\widgets\Menu::widget([
+<?= Menu::widget([
     'items' => [
         [
             'label' => Yii::t('app', 'Data'),

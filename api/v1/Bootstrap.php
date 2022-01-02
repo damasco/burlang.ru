@@ -9,7 +9,7 @@ use yii\web\GroupUrlRule;
 class Bootstrap implements BootstrapInterface
 {
     /**
-     * @inheritdoc
+     * {@inheritDoc}
      */
     public function bootstrap($app)
     {

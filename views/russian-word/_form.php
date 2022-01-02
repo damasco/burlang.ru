@@ -1,22 +1,20 @@
 <?php
 
+use app\models\RussianWord;
 use yii\bootstrap\Html;
+use yii\web\View;
 use yii\widgets\ActiveForm;
 
 /**
- * @var \yii\web\View $this
- * @var \app\models\RussianWord $model
+ * @var View $this
+ * @var RussianWord $model
  * @var array $dictionaries
  */
 ?>
 <div class="russian-word-form">
-
     <?php $form = ActiveForm::begin(); ?>
-
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
-
     <?= $form->field($model, 'dict_id')->dropDownList($dictionaries, ['prompt' => '-']) ?>
-
     <div class="form-group">
         <?= Html::submitButton(
             $model->isNewRecord ?
@@ -24,7 +22,6 @@ use yii\widgets\ActiveForm;
                 Html::icon('floppy-disk') . ' ' . Yii::t('app', 'Save'),
             ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']
         ) ?>
-
         <?php if (!$model->isNewRecord): ?>
             <?= Html::a(Html::icon('trash') . ' ' . Yii::t('app', 'Delete'), ['delete', 'id' => $model->id], [
                 'class' => 'btn btn-danger',
@@ -34,9 +31,6 @@ use yii\widgets\ActiveForm;
                 ],
             ]) ?>
         <?php endif ?>
-
     </div>
-
     <?php ActiveForm::end(); ?>
-
 </div>

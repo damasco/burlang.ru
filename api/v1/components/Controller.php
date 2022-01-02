@@ -8,7 +8,7 @@ use yii\helpers\ArrayHelper;
 class Controller extends \yii\rest\Controller
 {
     /**
-     * @inheritdoc
+     * {@inheritDoc}
      */
     public function behaviors()
     {

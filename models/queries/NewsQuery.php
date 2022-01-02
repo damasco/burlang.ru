@@ -2,7 +2,9 @@
 
 namespace app\models\queries;
 
-class NewsQuery extends \yii\db\ActiveQuery
+use yii\db\ActiveQuery;
+
+class NewsQuery extends ActiveQuery
 {
     public function active(): self
     {

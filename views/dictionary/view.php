@@ -1,10 +1,13 @@
 <?php
 
+use app\models\Dictionary;
 use yii\bootstrap\Html;
+use yii\web\View;
+use yii\widgets\DetailView;
 
 /**
- * @var yii\web\View $this
- * @var app\models\Dictionary $model
+ * @var View $this
+ * @var Dictionary $model
  */
 
 $this->title = $model->name;
@@ -13,9 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 ?>
 <div class="dictionary-view">
-
     <h1><?= Html::encode($this->title) ?></h1>
-
     <p>
         <?= Html::a(
             Html::icon('pencil') . ' ' . Yii::t('app', 'Edit'),
@@ -30,9 +31,8 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ]) ?>
     </p>
-
     <div class="table-responsive">
-        <?= \yii\widgets\DetailView::widget([
+        <?= DetailView::widget([
             'model' => $model,
             'attributes' => [
                 'name',
@@ -41,5 +41,4 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ]) ?>
     </div>
-
 </div>

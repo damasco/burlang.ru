@@ -16,14 +16,6 @@ class RussianWordController extends Controller
 {
     private const SEARCH_LIMIT = 10;
 
-    protected function verbs(): array
-    {
-        return [
-            'search' => ['GET'],
-            'translate' => ['GET'],
-        ];
-    }
-
     public function actionSearch(string $q): array
     {
         $words = RussianWord::find()
@@ -61,5 +53,13 @@ class RussianWordController extends Controller
             throw new NotFoundHttpException(Yii::t('app', 'The word is not found'));
         }
         return $word;
+    }
+
+    protected function verbs(): array
+    {
+        return [
+            'search' => ['GET'],
+            'translate' => ['GET'],
+        ];
     }
 }

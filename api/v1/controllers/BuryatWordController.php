@@ -16,14 +16,6 @@ class BuryatWordController extends Controller
 {
     private const SEARCH_LIMIT = 10;
 
-    protected function verbs(): array
-    {
-        return [
-            'search' => ['GET'],
-            'translate' => ['GET'],
-        ];
-    }
-
     public function actionSearch(string $q): array
     {
         $words = BuryatWord::find()
@@ -47,6 +39,14 @@ class BuryatWordController extends Controller
         return (new Manager())
             ->createData(new Item($word, new BuryatWordTranslationsTransformer()))
             ->toArray()['data'];
+    }
+
+    protected function verbs(): array
+    {
+        return [
+            'search' => ['GET'],
+            'translate' => ['GET'],
+        ];
     }
 
     /**

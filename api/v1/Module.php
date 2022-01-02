@@ -8,7 +8,7 @@ namespace app\api\v1;
 class Module extends \yii\base\Module
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public $controllerNamespace = 'app\api\v1\controllers';
 

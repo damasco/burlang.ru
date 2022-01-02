@@ -9,34 +9,34 @@ use yii\web\View;
 
 /**
  * @var View $this
- * @var BookChapter $model
+ * @var BookChapter $chapter
  */
 
-$this->title = $model->title;
+$this->title = $chapter->title;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Books'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->book->title, 'url' => ['view', 'slug' => $model->book->slug]];
+$this->params['breadcrumbs'][] = ['label' => $chapter->book->title, 'url' => ['view', 'slug' => $chapter->book->slug]];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="book-view">
     <h1 class="hidden-xs">
-        <?= Html::encode($model->book->title) ?>
+        <?= Html::encode($chapter->book->title) ?>
     </h1>
-    <?= $this->render('/book/_header', ['model' => $model->book]) ?>
+    <?= $this->render('/book/_header', ['model' => $chapter->book]) ?>
     <div class="row">
         <div class="col-sm-3 hidden-xs">
-            <?= ChaptersMenu::widget(['book' => $model->book, 'activeId' => $model->id]) ?>
+            <?= ChaptersMenu::widget(['book' => $chapter->book, 'activeId' => $chapter->id]) ?>
         </div>
         <div class="col-sm-9 col-xs-12">
             <?php if (Yii::$app->user->can('adminBook')): ?>
                 <p>
                     <?= Html::a(
                         Html::icon('pencil') . ' ' . Yii::t('app', 'Edit chapter'),
-                        ['chapter-update', 'id' => $model->id],
+                        ['chapter-update', 'id' => $chapter->id],
                         ['class' => 'btn btn-sm btn-default']
                     ) ?>
                     <?= Html::a(
                         Html::icon('trash') . ' ' . Yii::t('app', 'Delete chapter'),
-                        ['chapter-delete', 'id' => $model->id],
+                        ['chapter-delete', 'id' => $chapter->id],
                         [
                             'class' => 'btn btn-sm btn-default',
                             'data' => [
@@ -48,7 +48,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </p>
             <?php endif ?>
             <div class="image-responsive-container">
-                <?= HtmlPurifier::process(Markdown::process($model->content, 'gfm')) ?>
+                <?= HtmlPurifier::process(Markdown::process($chapter->content, 'gfm')) ?>
             </div>
         </div>
     </div>

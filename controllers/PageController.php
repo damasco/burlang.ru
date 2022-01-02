@@ -5,14 +5,13 @@ namespace app\controllers;
 use app\models\Page;
 use app\models\search\PageSearch;
 use Yii;
+use yii\db\Exception;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use yii\web\Response;
 
-/**
- * PageController implements the CRUD actions for Page model.
- */
 class PageController extends Controller
 {
     /**
@@ -24,6 +23,10 @@ class PageController extends Controller
             'verbs' => [
                 'class' => VerbFilter::class,
                 'actions' => [
+                    'index' => ['GET'],
+                    'view' => ['GET'],
+                    'create' => ['GET', 'POST'],
+                    'update' => ['GET', 'POST'],
                     'delete' => ['POST'],
                 ],
             ],
@@ -33,6 +36,17 @@ class PageController extends Controller
                 'rules' => [
                     [
                         'allow' => true,
+                        'actions' => ['view'],
+                        'roles' => ['?', '@'],
+                    ],
+                    [
+                        'allow' => true,
+                        'actions' => [
+                            'index',
+                            'create',
+                            'update',
+                            'delete',
+                        ],
                         'roles' => ['admin'],
                     ],
                 ],
@@ -40,15 +54,10 @@ class PageController extends Controller
         ];
     }
 
-    /**
-     * Lists all Page models.
-     * @return mixed
-     */
-    public function actionIndex()
+    public function actionIndex(): string
     {
         $searchModel = new PageSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
@@ -56,87 +65,79 @@ class PageController extends Controller
     }
 
     /**
-     * Displays a single Page model.
      * @param string $link
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
+     * @return string
+     * @throws NotFoundHttpException
      */
-    public function actionView($link)
+    public function actionView(string $link): string
     {
-        $model = Page::findOne(['link' => $link]);
-
-        /** @var Page $model */
-        if (!$model || (!$model->active && !Yii::$app->user->can('admin'))) {
+        $page = Page::findOne(['link' => $link]);
+        if (!$page || (!$page->active && !Yii::$app->user->can('admin'))) {
             throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
         }
         return $this->render('view', [
-            'model' => $model,
+            'model' => $page,
         ]);
     }
 
     /**
-     * Creates a new Page model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
+     * @return string|Response
      */
     public function actionCreate()
     {
-        $model = new Page();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'link' => $model->link]);
+        $page = new Page();
+        if ($page->load(Yii::$app->request->post()) && $page->save()) {
+            return $this->redirect(['view', 'link' => $page->link]);
         }
         return $this->render('create', [
-            'model' => $model,
+            'model' => $page,
         ]);
     }
 
     /**
-     * Updates an existing Page model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
-     * @return mixed
+     * @param int $id
+     * @return string|Response
+     * @throws NotFoundHttpException
      */
-    public function actionUpdate($id)
+    public function actionUpdate(int $id)
     {
-        $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'link' => $model->link]);
+        $page = $this->getPage($id);
+        if ($page->load(Yii::$app->request->post()) && $page->save()) {
+            return $this->redirect(['view', 'link' => $page->link]);
         }
         return $this->render('update', [
-            'model' => $model,
+            'model' => $page,
         ]);
     }
 
     /**
-     * Deletes an existing Page model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @return mixed
+     * @param int $id
+     * @return Response
+     * @throws Exception
+     * @throws NotFoundHttpException
      */
-    public function actionDelete($id)
+    public function actionDelete(int $id): Response
     {
-        $model = $this->findModel($id);
+        $model = $this->getPage($id);
         if (!$model->static) {
-            $model->delete();
+            if (!$model->delete()) {
+                throw new Exception(Yii::t('app', 'Can not delete page'));
+            }
         }
-
         return $this->redirect(['index']);
     }
 
     /**
-     * Finds the Page model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
-     * @return Page the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
+     * @param int $id
+     * @return Page
+     * @throws NotFoundHttpException
      */
-    protected function findModel($id)
+    private function getPage(int $id): Page
     {
-        if (($model = Page::findOne($id)) !== null) {
-            return $model;
+        $page = Page::findOne($id);
+        if ($page) {
+            throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
         }
-        throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+        return $page;
     }
 }

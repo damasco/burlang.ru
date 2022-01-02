@@ -9,12 +9,9 @@ use yii\widgets\Menu;
 
 $this->title = 'Api v1';
 $this->params['breadcrumbs'][] = $this->title;
-
 ?>
 <div class="v1-default-index">
-
     <h1><?= $this->title ?></h1>
-
     <div class="panel panel-default">
         <div class="panel-heading">
             <h4 class="panel-title">
@@ -31,7 +28,6 @@ $this->params['breadcrumbs'][] = $this->title;
             ]) ?>
         </div>
     </div>
-
     <div class="panel panel-default">
         <div class="panel-heading">
             <h4 class="panel-title">
@@ -48,7 +44,6 @@ $this->params['breadcrumbs'][] = $this->title;
             ]) ?>
         </div>
     </div>
-
     <div class="panel panel-default">
         <div class="panel-heading">
             <h4 class="panel-title">
@@ -65,5 +60,4 @@ $this->params['breadcrumbs'][] = $this->title;
             ]) ?>
         </div>
     </div>
-
 </div>

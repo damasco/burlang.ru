@@ -1,6 +1,7 @@
 <?php
 
 use yii\bootstrap\Html;
+use yii\widgets\ListView;
 
 /**
  * @var yii\web\View $this
@@ -9,12 +10,9 @@ use yii\bootstrap\Html;
 
 $this->title = Yii::t('app', 'News');
 $this->params['breadcrumbs'][] = $this->title;
-
 ?>
 <div class="news-index">
-
     <h1 class="hidden-xs"><?= Html::encode($this->title) ?></h1>
-
     <?php if (Yii::$app->user->can('adminNews')): ?>
         <p>
             <?= Html::a(
@@ -24,8 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ) ?>
         </p>
     <?php endif ?>
-
-    <?= \yii\widgets\ListView::widget([
+    <?= ListView::widget([
         'dataProvider' => $dataProvider,
         'summary' => false,
         'itemView' => '_view'

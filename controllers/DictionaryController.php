@@ -5,18 +5,17 @@ namespace app\controllers;
 use app\models\Dictionary;
 use Yii;
 use yii\data\ActiveDataProvider;
+use yii\db\Exception;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use yii\web\Response;
 
-/**
- * DictionariesController implements the CRUD actions for Dictionaries model.
- */
 class DictionaryController extends Controller
 {
     /**
-     * @inheritdoc
+     * {@inheritDoc}
      */
     public function behaviors()
     {
@@ -24,6 +23,10 @@ class DictionaryController extends Controller
             'verbs' => [
                 'class' => VerbFilter::class,
                 'actions' => [
+                    'index' => ['GET'],
+                    'view' => ['GET'],
+                    'create' => ['GET', 'POST'],
+                    'update' => ['GET', 'POST'],
                     'delete' => ['POST'],
                 ],
             ],
@@ -45,11 +48,7 @@ class DictionaryController extends Controller
         ];
     }
 
-    /**
-     * Lists all Dictionaries models.
-     * @return mixed
-     */
-    public function actionIndex()
+    public function actionIndex(): string
     {
         $dataProvider = new ActiveDataProvider([
             'query' => Dictionary::find(),
@@ -60,78 +59,70 @@ class DictionaryController extends Controller
         ]);
     }
 
-    /**
-     * Displays a single Dictionaries model.
-     * @param integer $id
-     * @return mixed
-     */
-    public function actionView($id)
+    public function actionView(int $id): string
     {
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $this->getDictionary($id),
         ]);
     }
 
     /**
-     * Creates a new Dictionaries model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
+     * @return string|Response
      */
     public function actionCreate()
     {
-        $model = new Dictionary();
+        $dictionary = new Dictionary();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($dictionary->load(Yii::$app->request->post()) && $dictionary->save()) {
+            return $this->redirect(['view', 'id' => $dictionary->id]);
         }
         return $this->render('create', [
-            'model' => $model,
+            'model' => $dictionary,
         ]);
     }
 
     /**
-     * Updates an existing Dictionaries model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
-     * @return mixed
+     * @param int $id
+     * @return string|Response
+     * @throws NotFoundHttpException
      */
-    public function actionUpdate($id)
+    public function actionUpdate(int $id)
     {
-        $model = $this->findModel($id);
+        $dictionary = $this->getDictionary($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($dictionary->load(Yii::$app->request->post()) && $dictionary->save()) {
+            return $this->redirect(['view', 'id' => $dictionary->id]);
         }
         return $this->render('update', [
-            'model' => $model,
+            'model' => $dictionary,
         ]);
     }
 
     /**
-     * Deletes an existing Dictionaries model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @return mixed
+     * @param int $id
+     * @return Response
+     * @throws NotFoundHttpException
      */
-    public function actionDelete($id)
+    public function actionDelete(int $id): Response
     {
-        $this->findModel($id)->delete();
-
+        $dictionary = $this->getDictionary($id);
+        if (!$dictionary->delete()) {
+            throw new Exception(Yii::t('app', 'Can not delete dictionary'));
+        }
         return $this->redirect(['index']);
     }
 
     /**
-     * Finds the Dictionaries model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
-     * @return Dictionary the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
+     * @param int $id
+     * @return Dictionary
+     * @throws NotFoundHttpException
      */
-    protected function findModel($id)
+    private function getDictionary(int $id): Dictionary
     {
-        if (($model = Dictionary::findOne($id)) !== null) {
-            return $model;
+        $dictionary = Dictionary::findOne($id);
+        if (!$dictionary) {
+            throw new NotFoundHttpException('The requested page does not exist.');
         }
-        throw new NotFoundHttpException('The requested page does not exist.');
+        return $dictionary;
     }
 }

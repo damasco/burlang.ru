@@ -16,14 +16,6 @@ class BuryatNameController extends Controller
 {
     private const SEARCH_LIMIT = 10;
 
-    protected function verbs(): array
-    {
-        return [
-            'search' => ['GET'],
-            'get-name' => ['GET'],
-        ];
-    }
-
     /**
      * @param string $q
      * @return array
@@ -51,6 +43,14 @@ class BuryatNameController extends Controller
         return (new Manager())
             ->createData(new Item($name, new BuryatNameTransformer()))
             ->toArray()['data'];
+    }
+
+    protected function verbs(): array
+    {
+        return [
+            'search' => ['GET'],
+            'get-name' => ['GET'],
+        ];
     }
 
     /**

@@ -6,13 +6,10 @@ use app\models\RussianWord;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
-/**
- * Search represents the model behind the search form about `app\models\RussianWord`.
- */
 class RussianWordSearch extends RussianWord
 {
     /**
-     * @inheritdoc
+     * {@inheritDoc}
      */
     public function rules()
     {
@@ -22,22 +19,7 @@ class RussianWordSearch extends RussianWord
         ];
     }
 
-    /**
-     * @inheritdoc
-     */
-    public function scenarios()
-    {
-        return Model::scenarios();
-    }
-
-    /**
-     * Creates data provider instance with search query applied
-     *
-     * @param array $params
-     *
-     * @return ActiveDataProvider
-     */
-    public function search($params)
+    public function search(array $params): ActiveDataProvider
     {
         $query = RussianWord::find();
 

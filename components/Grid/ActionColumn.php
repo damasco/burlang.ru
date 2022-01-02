@@ -9,7 +9,7 @@ use yii\grid\ActionColumn as Column;
 class ActionColumn extends Column
 {
     /**
-     * @inheritdoc
+     * {@inheritDoc}
      */
     protected function initDefaultButtons()
     {

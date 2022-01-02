@@ -1,21 +1,22 @@
 <?php
 
 use yii\bootstrap\Html;
+use yii\data\ActiveDataProvider;
+use yii\grid\ActionColumn;
 use yii\grid\GridView;
+use yii\grid\SerialColumn;
+use yii\web\View;
 
 /**
- * @var yii\web\View $this
- * @var yii\data\ActiveDataProvider $dataProvider
+ * @var View $this
+ * @var ActiveDataProvider $dataProvider
  */
 
 $this->title = Yii::t('app', 'Dictionaries');
 $this->params['breadcrumbs'][] = $this->title;
-
 ?>
 <div class="dictionary-index">
-
     <h1><?= Html::encode($this->title) ?></h1>
-
     <p>
         <?= Html::a(
             Html::icon('plus') . ' ' . Yii::t('app', 'Add dictionary'),
@@ -23,23 +24,21 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'btn btn-success']
         ) ?>
     </p>
-
     <div class="table-responsive">
         <?= GridView::widget([
             'dataProvider' => $dataProvider,
             'columns' => [
-                ['class' => \yii\grid\SerialColumn::class],
+                ['class' => SerialColumn::class],
                 'name',
                 'info',
                 'isbn',
                 [
-                    'class' => \yii\grid\ActionColumn::class,
+                    'class' => ActionColumn::class,
                     'contentOptions' => [
-                        'class' => 'action-column-3'
-                    ]
+                        'class' => 'action-column-3',
+                    ],
                 ],
             ],
         ]); ?>
     </div>
-
 </div>

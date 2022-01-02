@@ -4,15 +4,15 @@ use yii\helpers\Html;
 
 /**
  * @var yii\web\View $this
- * @var app\models\BookChapter $model
+ * @var app\models\BookChapter $chapter
  */
 
-$this->title = Yii::t('app', 'Edit') . ': ' . $model->title;
+$this->title = Yii::t('app', 'Edit') . ': ' . $chapter->title;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Books'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->book->title, 'url' => ['view', 'slug' => $model->book->slug]];
+$this->params['breadcrumbs'][] = ['label' => $chapter->book->title, 'url' => ['view', 'slug' => $chapter->book->slug]];
 $this->params['breadcrumbs'][] = [
-    'label' => $model->title,
-    'url' => ['chapter', 'slug' => $model->book->slug, 'slug_chapter' => $model->slug]
+    'label' => $chapter->title,
+    'url' => ['chapter', 'slug' => $chapter->book->slug, 'chapterSlug' => $chapter->slug]
 ];
 $this->params['breadcrumbs'][] = Yii::t('app', 'Edit');
 ?>
@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = Yii::t('app', 'Edit');
     <h1><?= Html::encode($this->title) ?></h1>
 
     <?= $this->render('_form', [
-        'model' => $model,
+        'chapter' => $chapter,
     ]) ?>
 
 </div>

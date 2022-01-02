@@ -4,7 +4,7 @@ use yii\helpers\Html;
 
 /**
  * @var yii\web\View $this
- * @var app\models\BookChapter $model
+ * @var app\models\BookChapter $chapter
  * @var app\models\Book $book
  */
 
@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <?= $this->render('_form', [
-        'model' => $model,
+        'chapter' => $chapter,
     ]) ?>
 
 </div>

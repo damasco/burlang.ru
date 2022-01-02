@@ -29,7 +29,7 @@ use yii\db\ActiveRecord;
 class BuryatName extends ActiveRecord
 {
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public static function tableName()
     {
@@ -37,7 +37,7 @@ class BuryatName extends ActiveRecord
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function rules()
     {
@@ -66,7 +66,7 @@ class BuryatName extends ActiveRecord
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function attributeLabels()
     {
@@ -85,7 +85,7 @@ class BuryatName extends ActiveRecord
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function behaviors()
     {
@@ -95,18 +95,12 @@ class BuryatName extends ActiveRecord
         ];
     }
 
-    /**
-     * @return ActiveQuery
-     */
-    public function getCreatedBy()
+    public function getCreatedBy(): ActiveQuery
     {
         return $this->hasOne(User::class, ['id' => 'created_by']);
     }
 
-    /**
-     * @return ActiveQuery
-     */
-    public function getUpdatedBy()
+    public function getUpdatedBy(): ActiveQuery
     {
         return $this->hasOne(User::class, ['id' => 'updated_by']);
     }

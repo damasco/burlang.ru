@@ -3,9 +3,10 @@
 use app\components\DeviceDetect\DeviceDetectInterface;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\web\View;
 
 /**
- * @var yii\web\View $this
+ * @var View $this
  * @var array $names
  * @var string $letter
  * @var DeviceDetectInterface $deviceDetect

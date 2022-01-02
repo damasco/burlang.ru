@@ -8,24 +8,35 @@ use app\models\BuryatWord;
 use app\models\RussianTranslation;
 use app\models\RussianWord;
 use app\models\SearchData;
-use Yii;
 use yii\data\ActiveDataProvider;
 use yii\filters\AccessControl;
+use yii\filters\VerbFilter;
 use yii\web\Controller;
 
 class StatisticsController extends Controller
 {
     /**
-     * @inheritdoc
+     * {@inheritDoc}
      */
     public function behaviors()
     {
         return [
+            'verbs' => [
+                'class' => VerbFilter::class,
+                'actions' => [
+                    'index' => ['GET'],
+                    'search' => ['GET'],
+                ],
+            ],
             'access' => [
                 'class' => AccessControl::class,
                 'rules' => [
                     [
                         'allow' => true,
+                        'actions' => [
+                            'index',
+                            'search',
+                        ],
                         'roles' => ['admin'],
                     ],
                 ],
@@ -33,10 +44,7 @@ class StatisticsController extends Controller
         ];
     }
 
-    /**
-     * @return mixed
-     */
-    public function actionIndex()
+    public function actionIndex(): string
     {
         $buryatWords = [];
         $buryatWords['amount'] = BuryatWord::find()->count();
@@ -56,10 +64,7 @@ class StatisticsController extends Controller
         ]);
     }
 
-    /**
-     * @return mixed
-     */
-    public function actionSearch()
+    public function actionSearch(): string
     {
         $dataProvider = new ActiveDataProvider([
             'query' => SearchData::find()->orderBy('created_at DESC')

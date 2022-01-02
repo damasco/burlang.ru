@@ -1,24 +1,21 @@
 <?php
 
+use app\models\Dictionary;
 use yii\bootstrap\Html;
+use yii\web\View;
 use yii\widgets\ActiveForm;
 
 /**
- * @var yii\web\View $this
- * @var app\models\Dictionary $model
- * @var yii\widgets\ActiveForm $form
+ * @var View $this
+ * @var Dictionary $model
+ * @var ActiveForm $form
  */
 ?>
 <div class="dictionaries-form">
-
     <?php $form = ActiveForm::begin(); ?>
-
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
-
     <?= $form->field($model, 'info')->textInput(['maxlength' => true]) ?>
-
     <?= $form->field($model, 'isbn')->textInput(['maxlength' => true]) ?>
-
     <div class="form-group">
         <?= Html::submitButton(
             $model->isNewRecord 
@@ -27,7 +24,5 @@ use yii\widgets\ActiveForm;
             ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']
         ) ?>
     </div>
-
     <?php ActiveForm::end(); ?>
-
 </div>

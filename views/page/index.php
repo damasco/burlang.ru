@@ -18,9 +18,7 @@ $this->title = Yii::t('app', 'Pages');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="page-index">
-
     <h1><?= Html::encode($this->title) ?></h1>
-
     <p>
         <?= Html::a(
             Html::icon('plus') . ' ' . Yii::t('app', 'Create page'),
@@ -28,7 +26,6 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'btn btn-success']
         ) ?>
     </p>
-
     <div class="table-responsive">
         <?= GridView::widget([
             'dataProvider' => $dataProvider,
@@ -91,5 +88,4 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ]); ?>
     </div>
-
 </div>

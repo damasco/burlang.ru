@@ -3,6 +3,7 @@
 namespace app\commands;
 
 use dektrium\user\models\User;
+use Exception;
 use Yii;
 use yii\console\Controller;
 use yii\helpers\ArrayHelper;
@@ -14,9 +15,9 @@ class RolesController extends Controller
 {
     /**
      * Adds role to user
-     * @throws \Exception
+     * @throws Exception
      */
-    public function actionAssign()
+    public function actionAssign(): void
     {
         $username = $this->prompt('Username:', ['required' => true]);
         $user = $this->getUser($username);
@@ -29,9 +30,9 @@ class RolesController extends Controller
 
     /**
      * Removes role from user
-     * @throws \Exception
+     * @throws Exception
      */
-    public function actionRevoke()
+    public function actionRevoke(): void
     {
         $username = $this->prompt('Username:', ['required' => true]);
         $user = $this->getUser($username);
@@ -55,13 +56,13 @@ class RolesController extends Controller
     /**
      * @param string $username
      * @return User
-     * @throws \Exception
+     * @throws Exception
      */
     private function getUser(string $username): User
     {
         $user = User::findOne(['username' => $username]);
         if (!$user) {
-            throw new \Exception('There is no user ' . $username);
+            throw new Exception('There is no user ' . $username);
         }
         return $user;
     }

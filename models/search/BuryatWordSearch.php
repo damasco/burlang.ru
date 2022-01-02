@@ -3,16 +3,12 @@
 namespace app\models\search;
 
 use app\models\BuryatWord;
-use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
-/**
- * BuryatWordSearch represents the model behind the search form about `app\models\BuryatWord`.
- */
 class BuryatWordSearch extends BuryatWord
 {
     /**
-     * @inheritdoc
+     * {@inheritDoc}
      */
     public function rules()
     {
@@ -22,23 +18,7 @@ class BuryatWordSearch extends BuryatWord
         ];
     }
 
-    /**
-     * @inheritdoc
-     */
-    public function scenarios()
-    {
-        // bypass scenarios() implementation in the parent class
-        return Model::scenarios();
-    }
-
-    /**
-     * Creates data provider instance with search query applied
-     *
-     * @param array $params
-     *
-     * @return ActiveDataProvider
-     */
-    public function search($params)
+    public function search(array $params): ActiveDataProvider
     {
         $query = BuryatWord::find();
 

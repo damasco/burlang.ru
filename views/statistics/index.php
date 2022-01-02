@@ -1,7 +1,9 @@
 <?php
 
+use yii\web\View;
+
 /**
- * @var \yii\web\View $this
+ * @var View $this
  * @var array $buryatWords
  * @var array $russianWords
  * @var array $names
@@ -11,11 +13,8 @@ $this->title = Yii::t('app', 'Statistics');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="statistics-index">
-
     <h1 class="hidden-xs"><?= $this->title ?></h1>
-
     <?= $this->render('_menu') ?>
-
     <div class="row">
         <div class="col-sm-6">
             <div class="panel panel-default">

@@ -1,37 +1,26 @@
 <?php
 
-/*
- * This file is part of the Dektrium project.
- *
- * (c) Dektrium project <http://github.com/dektrium/>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 namespace app\modules\user\controllers;
 
 use dektrium\user\Finder;
-use yii\base\InvalidParamException;
+use dektrium\user\Module;
+use Yii;
+use yii\base\Module as BaseModule;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use yii\web\Response;
 
 /**
- * ProfileController shows users profiles.
- *
- * @property \dektrium\user\Module $module
- *
- * @author Dmitry Erofeev <dmeroff@gmail.com>
+ * @property Module $module
  */
 class ProfileController extends Controller
 {
-    /** @var Finder */
-    protected $finder;
+    protected Finder $finder;
 
     /**
      * @param string $id
-     * @param \yii\base\Module $module
+     * @param BaseModule $module
      * @param Finder $finder
      * @param array $config
      */
@@ -41,7 +30,9 @@ class ProfileController extends Controller
         parent::__construct($id, $module, $config);
     }
 
-    /** @inheritdoc */
+    /**
+     * {@inheritDoc}
+     */
     public function behaviors()
     {
         return [
@@ -54,30 +45,21 @@ class ProfileController extends Controller
         ];
     }
 
-    /**
-     * Redirects to current user's profile.
-     *
-     * @return \yii\web\Response
-     */
-    public function actionIndex()
+    public function actionIndex(): Response
     {
-        return $this->redirect(['show', 'id' => \Yii::$app->user->getId()]);
+        return $this->redirect(['show', 'id' => Yii::$app->user->getId()]);
     }
 
     /**
-     * Shows user's profile.
-     *
      * @param int $id
-     *
-     * @return \yii\web\Response|string
-     * @throws \yii\web\NotFoundHttpException
-     * @throws InvalidParamException
+     * @return string
+     * @throws NotFoundHttpException
      */
-    public function actionShow($id)
+    public function actionShow(int $id): string
     {
         $profile = $this->finder->findProfileById($id);
 
-        if ($profile === null) {
+        if (!$profile) {
             throw new NotFoundHttpException();
         }
 

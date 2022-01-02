@@ -21,7 +21,7 @@ class SearchData extends ActiveRecord
     const TYPE_RUSSIAN = 1;
 
     /**
-     * @inheritdoc
+     * {@inheritDoc}
      */
     public static function tableName()
     {
@@ -29,7 +29,7 @@ class SearchData extends ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritDoc}
      */
     public function rules()
     {
@@ -41,7 +41,7 @@ class SearchData extends ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritDoc}
      */
     public function attributeLabels()
     {
@@ -55,7 +55,7 @@ class SearchData extends ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritDoc}
      */
     public function behaviors()
     {

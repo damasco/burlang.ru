@@ -1,15 +1,17 @@
 <?php
 
 use app\assets\AppAsset;
+use app\components\PageMenu;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\web\View;
 use yii\widgets\Breadcrumbs;
 use yii\widgets\Menu;
 
 /**
- * @var \yii\web\View $this
+ * @var View $this
  * @var string $content
  */
 
@@ -104,8 +106,8 @@ AppAsset::register($this);
                 'active' => Yii::$app->controller->id === 'news'
             ],
 
-            \app\components\PageMenu::getUrl('services'),
-            \app\components\PageMenu::getUrl('about'),
+            PageMenu::getUrl('services'),
+            PageMenu::getUrl('about'),
 
             Yii::$app->user->can('moderator') ?
             [

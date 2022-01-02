@@ -5,13 +5,10 @@ namespace app\models\search;
 use app\models\BuryatName;
 use yii\data\ActiveDataProvider;
 
-/**
- * BuryatNameSearch represents the model behind the search form about `app\models\BuryatName`.
- */
 class BuryatNameSearch extends BuryatName
 {
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function rules()
     {

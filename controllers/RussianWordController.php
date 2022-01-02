@@ -8,19 +8,18 @@ use app\models\RussianTranslation;
 use app\models\RussianWord;
 use app\models\search\RussianWordSearch;
 use Yii;
+use yii\db\Exception;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use yii\web\Response;
 
-/**
- * RussianWordController implements the CRUD actions for RussianWord model.
- */
 class RussianWordController extends Controller
 {
     /**
-     * @inheritdoc
+     * {@inheritDoc}
      */
     public function behaviors()
     {
@@ -28,7 +27,11 @@ class RussianWordController extends Controller
             'verbs' => [
                 'class' => VerbFilter::class,
                 'actions' => [
+                    'index' => ['GET'],
+                    'create' => ['GET', 'POST'],
+                    'update' => ['GET', 'POST'],
                     'delete' => ['POST'],
+                    'delete-translation' => ['POST'],
                 ],
             ],
             'access' => [
@@ -36,6 +39,13 @@ class RussianWordController extends Controller
                 'rules' => [
                     [
                         'allow' => true,
+                        'actions' => [
+                            'index',
+                            'create',
+                            'update',
+                            'delete',
+                            'delete-translation',
+                        ],
                         'roles' => ['moderator'],
                     ],
                 ],
@@ -43,16 +53,10 @@ class RussianWordController extends Controller
         ];
     }
 
-    /**
-     * Lists all RussianWord models.
-     * @param DeviceDetectInterface $deviceDetect
-     * @return mixed
-     */
-    public function actionIndex(DeviceDetectInterface $deviceDetect)
+    public function actionIndex(DeviceDetectInterface $deviceDetect): string
     {
         $searchModel = new RussianWordSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
@@ -61,60 +65,52 @@ class RussianWordController extends Controller
     }
 
     /**
-     * Creates a new RussianWord model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
+     * @return string|Response
      */
     public function actionCreate()
     {
-        $model = new RussianWord();
-
+        $word = new RussianWord();
         $dictionaries = ArrayHelper::map(
             Dictionary::find()->asArray()->all(),
             'id',
             'name'
         );
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($word->load(Yii::$app->request->post()) && $word->save()) {
             Yii::$app->session->setFlash('success', Yii::t('app', 'The word is added'));
-            return $this->redirect(['update', 'id' => $model->id]);
+            return $this->redirect(['update', 'id' => $word->id]);
         }
         return $this->render('create', [
-            'model' => $model,
+            'model' => $word,
             'dictionaries' => $dictionaries,
         ]);
     }
 
     /**
-     * Updates an existing RussianWord model.
-     * If update is successful, the browser will be redirected to the 'view' page.
      * @param DeviceDetectInterface $deviceDetect
      * @param int $id
-     * @return mixed
+     * @return string|Response
+     * @throws NotFoundHttpException
      */
-    public function actionUpdate(DeviceDetectInterface $deviceDetect, $id)
+    public function actionUpdate(DeviceDetectInterface $deviceDetect, int $id)
     {
-        $model = $this->findModel($id);
-
+        $word = $this->getWord($id);
         $dictionaries = ArrayHelper::map(
             Dictionary::find()->asArray()->all(),
             'id',
             'name'
         );
-
         $translationForm = new RussianTranslation();
-        $translationForm->ruword_id = $model->id;
+        $translationForm->ruword_id = $word->id;
         if ($translationForm->load(Yii::$app->request->post()) && $translationForm->save()) {
             Yii::$app->session->setFlash('success', Yii::t('app', 'Translation added'));
             return $this->refresh();
         }
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($word->load(Yii::$app->request->post()) && $word->save()) {
             Yii::$app->session->setFlash('success', Yii::t('app', 'Data updated'));
             return $this->refresh();
         }
         return $this->render('update', [
-            'model' => $model,
+            'model' => $word,
             'translationForm' => $translationForm,
             'dictionaries' => $dictionaries,
             'deviceDetect' => $deviceDetect,
@@ -122,50 +118,57 @@ class RussianWordController extends Controller
     }
 
     /**
-     * Deletes an existing RussianWord model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @return mixed
+     * @param int $id
+     * @return Response
+     * @throws Exception
+     * @throws NotFoundHttpException
      */
-    public function actionDelete($id)
+    public function actionDelete(int $id): Response
     {
-        $this->findModel($id)->delete();
-
+        $word = $this->getWord($id);
+        if (!$word->delete()) {
+            throw new Exception(Yii::t('app', 'Can not delete word'));
+        }
         Yii::$app->session->setFlash('success', Yii::t('app', 'Word deleted'));
-
         return $this->redirect(['index']);
     }
 
     /**
-     * Deletes an existing RussianTranslation model
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the translate cannot be found
+     * @param int $id
+     * @return Response
+     * @throws Exception
+     * @throws NotFoundHttpException
      */
-    public function actionDeleteTranslation($id)
+    public function actionDeleteTranslation(int $id): Response
     {
-        /** @var RussianTranslation $translate */
-        if (($translate = RussianTranslation::findOne($id)) !== null) {
-            $translate->delete();
-            Yii::$app->session->setFlash('success', Yii::t('app', 'Translation removed'));
-            return $this->redirect(['update', 'id' => $translate->ruword_id]);
+        $translation = $this->getTranslation($id);
+        if (!$translation->delete()) {
+            throw new Exception(Yii::t('app', 'Can not delete word'));
         }
-        throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+        Yii::$app->session->setFlash('success', Yii::t('app', 'Translation removed'));
+        return $this->redirect(['update', 'id' => $translation->ruword_id]);
     }
 
     /**
-     * Finds the RussianWord model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
-     * @return RussianWord the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
+     * @param int $id
+     * @return RussianWord
+     * @throws NotFoundHttpException
      */
-    protected function findModel($id)
+    private function getWord(int $id): RussianWord
     {
-        if (($model = RussianWord::findOne($id)) !== null) {
-            return $model;
+        $word = RussianWord::findOne($id);
+        if (!$word) {
+            throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
         }
-        throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+        return $word;
+    }
+
+    private function getTranslation(int $id): RussianTranslation
+    {
+        $translation = RussianTranslation::findOne($id);
+        if (!$translation) {
+            throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+        }
+        return $translation;
     }
 }

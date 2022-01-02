@@ -7,7 +7,7 @@ return [
     'book/<action:(create|update|delete|chapter-create|chapter-update|chapter-delete)>' => 'book/<action>',
     'books' => 'book/index',
     'book/<slug:[\w-]+>' => 'book/view',
-    'book/<slug:[\w-]+>/<slug_chapter:[\w-]+>' => 'book/chapter',
+    'book/<slug:[\w-]+>/<chapterSlug:[\w-]+>' => 'book/chapter',
 
     'names/letter/<letter>' => 'buryat-name/index',
     'names' => 'buryat-name/index',

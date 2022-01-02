@@ -13,6 +13,7 @@ use app\models\Page;
 use app\models\RussianTranslation;
 use app\models\RussianWord;
 use dektrium\user\models\User as BaseUser;
+use yii\db\ActiveQuery;
 
 /**
  * @property BuryatName[] $buryatNames
@@ -38,162 +39,102 @@ use dektrium\user\models\User as BaseUser;
  */
 class User extends BaseUser
 {
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getBuryatNames()
+    public function getBuryatNames(): ActiveQuery
     {
         return $this->hasMany(BuryatName::class, ['created_by' => 'id']);
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getBuryatNamesUpdated()
+    public function getBuryatNamesUpdated(): ActiveQuery
     {
         return $this->hasMany(BuryatName::class, ['created_by' => 'id']);
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getBuryatWords()
+    public function getBuryatWords(): ActiveQuery
     {
         return $this->hasMany(BuryatWord::class, ['created_by' => 'id']);
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getBuryatWordsUpdated()
+    public function getBuryatWordsUpdated(): ActiveQuery
     {
         return $this->hasMany(BuryatWord::class, ['created_by' => 'id']);
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getRussianWords()
+    public function getRussianWords(): ActiveQuery
     {
         return $this->hasMany(RussianWord::class, ['created_by' => 'id']);
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getRussianWordsUpdated()
+    public function getRussianWordsUpdated(): ActiveQuery
     {
         return $this->hasMany(RussianWord::class, ['created_by' => 'id']);
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getBuryatTranslations()
+    public function getBuryatTranslations(): ActiveQuery
     {
         return $this->hasMany(BuryatTranslation::class, ['created_by' => 'id']);
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getBuryatTranslationsUpdated()
+    public function getBuryatTranslationsUpdated(): ActiveQuery
     {
         return $this->hasMany(BuryatTranslation::class, ['created_by' => 'id']);
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getRussianTranslations()
+    public function getRussianTranslations(): ActiveQuery
     {
         return $this->hasMany(RussianTranslation::class, ['created_by' => 'id']);
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getRussianTranslationsUpdated()
+    public function getRussianTranslationsUpdated(): ActiveQuery
     {
         return $this->hasMany(RussianTranslation::class, ['created_by' => 'id']);
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getDictionaries()
+    public function getDictionaries(): ActiveQuery
     {
         return $this->hasMany(Dictionary::class, ['created_by' => 'id']);
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getDictionariesUpdated()
+    public function getDictionariesUpdated(): ActiveQuery
     {
         return $this->hasMany(Dictionary::class, ['created_by' => 'id']);
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getNews()
+    public function getNews(): ActiveQuery
     {
         return $this->hasMany(News::class, ['created_by' => 'id']);
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getNewsUpdated()
+    public function getNewsUpdated(): ActiveQuery
     {
         return $this->hasMany(News::class, ['created_by' => 'id']);
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getPages()
+    public function getPages(): ActiveQuery
     {
         return $this->hasMany(Page::class, ['created_by' => 'id']);
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getPagesUpdated()
+    public function getPagesUpdated(): ActiveQuery
     {
         return $this->hasMany(Page::class, ['created_by' => 'id']);
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getBooks()
+    public function getBooks(): ActiveQuery
     {
         return $this->hasMany(Book::class, ['created_by' => 'id']);
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getBooksUpdated()
+    public function getBooksUpdated(): ActiveQuery
     {
         return $this->hasMany(Book::class, ['created_by' => 'id']);
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getBookChapters()
+    public function getBookChapters(): ActiveQuery
     {
         return $this->hasMany(BookChapter::class, ['created_by' => 'id']);
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getBookChaptersUpdated()
+    public function getBookChaptersUpdated(): ActiveQuery
     {
         return $this->hasMany(BookChapter::class, ['created_by' => 'id']);
     }

@@ -12,7 +12,7 @@ class BuryatWordTranslationsTransformer extends TransformerAbstract
     {
         return [
             'translations' => array_map(
-                fn(BuryatTranslation $translation) => ['value' => $translation->name],
+                fn (BuryatTranslation $translation) => ['value' => $translation->name],
                 $word->translations
             ),
         ];

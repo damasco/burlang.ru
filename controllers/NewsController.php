@@ -5,18 +5,17 @@ namespace app\controllers;
 use app\models\News;
 use Yii;
 use yii\data\ActiveDataProvider;
+use yii\db\Exception;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use yii\web\Response;
 
-/**
- * NewsController implements the CRUD actions for News model.
- */
 class NewsController extends Controller
 {
     /**
-     * @inheritdoc
+     * {@inheritDoc}
      */
     public function behaviors()
     {
@@ -24,15 +23,31 @@ class NewsController extends Controller
             'verbs' => [
                 'class' => VerbFilter::class,
                 'actions' => [
+                    'index' => ['GET'],
+                    'view' => ['GET'],
+                    'create' => ['GET', 'POST'],
+                    'update' => ['GET', 'POST'],
                     'delete' => ['POST'],
                 ],
             ],
             'access' => [
                 'class' => AccessControl::class,
-                'except' => ['index', 'view'],
                 'rules' => [
                     [
                         'allow' => true,
+                        'actions' => [
+                            'index',
+                            'view',
+                        ],
+                        'roles' => ['?', '@'],
+                    ],
+                    [
+                        'allow' => true,
+                        'actions' => [
+                            'create',
+                            'update',
+                            'delete',
+                        ],
                         'roles' => ['adminNews'],
                     ],
                 ],
@@ -40,106 +55,93 @@ class NewsController extends Controller
         ];
     }
 
-    /**
-     * Lists all News models.
-     * @return mixed
-     */
-    public function actionIndex()
+    public function actionIndex(): string
     {
         $query = News::find()->orderBy('created_at DESC');
-
         if (!Yii::$app->user->can('adminNews')) {
             $query->where(['active' => 1]);
         }
-
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
             'pagination' => ['pageSize' => 5],
         ]);
-
         return $this->render('index', [
             'dataProvider' => $dataProvider,
         ]);
     }
 
     /**
-     * Displays a single News model.
      * @param string $slug
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
+     * @return string
+     * @throws NotFoundHttpException
      */
-    public function actionView($slug)
+    public function actionView(string $slug): string
     {
-        /** @var News $model */
-        $model = News::findOne(['slug' => $slug]);
-        if (!$model || (!$model->active && !Yii::$app->user->can('adminNews'))) {
+        $news = News::findOne(['slug' => $slug]);
+        if (!$news || (!$news->active && !Yii::$app->user->can('adminNews'))) {
             throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
         }
         return $this->render('view', [
-            'model' => $model,
+            'model' => $news,
         ]);
     }
 
     /**
-     * Creates a new News model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
+     * @return string|Response
      */
     public function actionCreate()
     {
-        $model = new News();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'slug' => $model->slug]);
+        $news = new News();
+        if ($news->load(Yii::$app->request->post()) && $news->save()) {
+            return $this->redirect(['view', 'slug' => $news->slug]);
         }
         return $this->render('create', [
-            'model' => $model,
+            'model' => $news,
         ]);
     }
 
     /**
-     * Updates an existing News model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
-     * @return mixed
+     * @param int $id
+     * @return string|Response
+     * @throws NotFoundHttpException
      */
-    public function actionUpdate($id)
+    public function actionUpdate(int $id)
     {
-        $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'slug' => $model->slug]);
+        $news = $this->getNews($id);
+        if ($news->load(Yii::$app->request->post()) && $news->save()) {
+            return $this->redirect(['view', 'slug' => $news->slug]);
         }
         return $this->render('update', [
-            'model' => $model,
+            'model' => $news,
         ]);
     }
 
     /**
-     * Deletes an existing News model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @return mixed
+     * @param int $id
+     * @return Response
+     * @throws Exception
+     * @throws NotFoundHttpException
      */
-    public function actionDelete($id)
+    public function actionDelete(int $id): Response
     {
-        $this->findModel($id)->delete();
-
+        $news = $this->getNews($id);
+        if (!$news->delete()) {
+            throw new Exception(Yii::t('app', 'Can not delete news'));
+        }
         return $this->redirect(['index']);
     }
 
     /**
-     * Finds the News model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
-     * @return News the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
+     * @param int $id
+     * @return News
+     * @throws NotFoundHttpException
      */
-    protected function findModel($id)
+    private function getNews(int $id): News
     {
-        if (($model = News::findOne($id)) !== null) {
-            return $model;
+        $news = News::findOne($id);
+        if (!$news) {
+            throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
         }
-        throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+        return $news;
     }
 }

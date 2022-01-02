@@ -12,7 +12,7 @@ class RussianWordTranslationsTransformer extends TransformerAbstract
     {
         return [
             'translations' => array_map(
-                fn(RussianTranslation $translation) => ['value' => $translation->name],
+                fn (RussianTranslation $translation) => ['value' => $translation->name],
                 $word->translations
             ),
         ];
