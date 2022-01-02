@@ -15,12 +15,12 @@ $config = [
     'bootstrap' => [
         'log',
         \app\api\v1\Bootstrap::class,
-        \app\bootstrap\ContainerBootstrap::class,
     ],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
+    'container' => require __DIR__ . '/container.php',
     'components' => [
         'db' => $params['components.db'],
         'cache' => $params['components.cache'],
