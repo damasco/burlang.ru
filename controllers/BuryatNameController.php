@@ -52,8 +52,7 @@ class BuryatNameController extends Controller
         BuryatNameService     $buryatNameService,
         DeviceDetectInterface $deviceDetect,
         string                $letter = null
-    )
-    {
+    ) {
         $letter = trim((string)$letter);
         $firstLetters = $buryatNameService->findFirstLetters();
         $names = [];

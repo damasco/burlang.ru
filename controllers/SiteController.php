@@ -64,16 +64,14 @@ class SiteController extends Controller
     public function actionFindRussianWords(
         RussianWordService $russianWordService,
         string $term
-    )
-    {
+    ) {
         return $russianWordService->find($term);
     }
 
     public function actionFindBuryatWords(
         BuryatWordService $buryatWordService,
         string            $term
-    )
-    {
+    ) {
         return $buryatWordService->find($term);
     }
 
@@ -81,8 +79,7 @@ class SiteController extends Controller
         RussianWordService $russianWordService,
         SearchDataService  $searchDataService,
         string             $q
-    )
-    {
+    ) {
         if (StringHelper::countWords($q) > 1) {
             return $this->renderAjax('_error_translate');
         }
@@ -99,8 +96,7 @@ class SiteController extends Controller
         BuryatWordService $buryatWordService,
         SearchDataService $searchDataService,
         string            $q
-    )
-    {
+    ) {
         if (StringHelper::countWords($q) > 1) {
             return $this->renderAjax('_error_translate');
         }
