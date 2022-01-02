@@ -4,39 +4,31 @@ namespace app\api\v1\controllers;
 
 use app\api\v1\components\Controller;
 use app\api\v1\models\BuryatName;
+use app\services\BuryatWordService;
 use Yii;
 use yii\web\NotFoundHttpException;
 
 class BuryatNameController extends Controller
 {
-    /**
-     * Get list names
-     * @param string $q
-     * @return array
-     */
-    public function actionSearch($q)
+    protected function verbs(): array
     {
-        $names = BuryatName::find()
-            ->select(['name as value'])
-            ->where(['like', 'name', $q . '%', false])
-            ->orderBy('name')
-            ->limit(10)
-            ->asArray()
-            ->all();
-
-        return $names;
+        return [
+            'search' => ['GET'],
+            'get-name' => ['GET'],
+        ];
     }
 
-    /**
-     * @param string $q
-     * @return BuryatName
-     * @throws NotFoundHttpException
-     */
+    public function actionSearch(BuryatWordService $buryatWordService, $q)
+    {
+        return $buryatWordService->find($q);
+    }
+
     public function actionGetName($q)
     {
-        if (($model = BuryatName::findOne(['name' => $q])) !== null) {
-            return $model;
+        $model = BuryatName::findOne(['name' => $q]);
+        if (!$model) {
+            throw new NotFoundHttpException(Yii::t('app', 'The word is not found'));
         }
-        throw new NotFoundHttpException(Yii::t('app', 'The word is not found'));
+        return $model;
     }
 }

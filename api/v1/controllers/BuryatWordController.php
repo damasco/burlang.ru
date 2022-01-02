@@ -10,12 +10,19 @@ use yii\web\NotFoundHttpException;
 
 class BuryatWordController extends Controller
 {
-    /**
-     * Get translate
-     * @param string $q
-     * @return BuryatWord
-     * @throws NotFoundHttpException
-     */
+    protected function verbs(): array
+    {
+        return [
+            'search' => ['GET'],
+            'translate' => ['GET'],
+        ];
+    }
+
+    public function actionSearch(BuryatWordService $buryatWordService, string $q): array
+    {
+        return $buryatWordService->find($q);
+    }
+
     public function actionTranslate(string $q): BuryatWord
     {
         $model = BuryatWord::findOne(['name' => $q]);
@@ -23,10 +30,5 @@ class BuryatWordController extends Controller
             throw new NotFoundHttpException(Yii::t('app', 'The word is not found'));
         }
         return $model;
-    }
-
-    public function actionSearch(BuryatWordService $buryatWordService, string $q): array
-    {
-        return $buryatWordService->find($q);
     }
 }

@@ -10,27 +10,25 @@ use yii\web\NotFoundHttpException;
 
 class RussianWordController extends Controller
 {
-    /**
-     * Get translate
-     * @param string $q
-     * @return null|RussianWord
-     * @throws NotFoundHttpException
-     */
-    public function actionTranslate($q)
+    protected function verbs(): array
     {
-        if (($model = RussianWord::findOne(['name' => $q])) !== null) {
-            return $model;
-        }
-        throw new NotFoundHttpException(Yii::t('app', 'The word is not found'));
+        return [
+            'search' => ['GET'],
+            'translate' => ['GET'],
+        ];
     }
 
-    /**
-     * Get list words
-     * @param string $q
-     * @return array
-     */
-    public function actionSearch($q)
+    public function actionSearch(RussianWordService $russianWordService, $q)
     {
-        return Yii::createObject(RussianWordService::class)->find($q);
+        return $russianWordService->find($q);
+    }
+
+    public function actionTranslate($q)
+    {
+        $model = RussianWord::findOne(['name' => $q]);
+        if (!$model) {
+            throw new NotFoundHttpException(Yii::t('app', 'The word is not found'));
+        }
+        return $model;
     }
 }
