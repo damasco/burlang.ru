@@ -3,13 +3,19 @@
 namespace app\api\v1\controllers;
 
 use app\api\v1\components\Controller;
-use app\api\v1\models\BuryatName;
-use app\services\BuryatWordService;
+use app\api\v1\transformer\BuryatNamesTransformer;
+use app\api\v1\transformer\BuryatNameTransformer;
+use app\models\BuryatName;
+use League\Fractal\Manager;
+use League\Fractal\Resource\Collection;
+use League\Fractal\Resource\Item;
 use Yii;
 use yii\web\NotFoundHttpException;
 
 class BuryatNameController extends Controller
 {
+    private const SEARCH_LIMIT = 10;
+
     protected function verbs(): array
     {
         return [
@@ -18,17 +24,46 @@ class BuryatNameController extends Controller
         ];
     }
 
-    public function actionSearch(BuryatWordService $buryatWordService, $q)
+    /**
+     * @param string $q
+     * @return array
+     */
+    public function actionSearch(string $q): array
     {
-        return $buryatWordService->find($q);
+        $names = BuryatName::find()
+            ->filterWhere(['like', 'name', $q . '%', false])
+            ->orderBy('name')
+            ->limit(self::SEARCH_LIMIT)
+            ->all();
+        return (new Manager())
+            ->createData(new Collection($names, new BuryatNamesTransformer()))
+            ->toArray()['data'];
     }
 
-    public function actionGetName($q)
+    /**
+     * @param string $q
+     * @return array
+     * @throws NotFoundHttpException
+     */
+    public function actionGetName(string $q): array
     {
-        $model = BuryatName::findOne(['name' => $q]);
-        if (!$model) {
+        $name = $this->getBuryatName($q);
+        return (new Manager())
+            ->createData(new Item($name, new BuryatNameTransformer()))
+            ->toArray()['data'];
+    }
+
+    /**
+     * @param string $name
+     * @return BuryatName
+     * @throws NotFoundHttpException
+     */
+    private function getBuryatName(string $name): BuryatName
+    {
+        $name = BuryatName::findOne(['name' => $name]);
+        if (!$name) {
             throw new NotFoundHttpException(Yii::t('app', 'The word is not found'));
         }
-        return $model;
+        return $name;
     }
 }
