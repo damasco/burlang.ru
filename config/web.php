@@ -76,7 +76,6 @@ $config = [
                 ],
             ],
         ],
-        'page' => \app\components\Page::class
     ],
     'modules' => [
         'user' => [

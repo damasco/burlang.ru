@@ -3,9 +3,6 @@ namespace app\assets;
 
 use yii\web\AssetBundle;
 
-/**
- * MarkdownEditorAsset groups assets for markdown editor
- */
 class MarkdownEditorAsset extends AssetBundle
 {
     public $sourcePath = '@app/assets/markdown';

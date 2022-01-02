@@ -2,25 +2,21 @@
 
 namespace app\components;
 
-use app\models\Page as PageModel;
+use app\models\Page;
 use Yii;
-use yii\base\BaseObject;
 use yii\helpers\Url;
 
-class Page extends BaseObject
+class PageMenu
 {
     /**
      * @param string $link
      * @return array|string
      */
-    public function menuItem($link)
+    public static function getUrl(string $link)
     {
-        /** @var $model PageModel */
-        $model = PageModel::findOne(['link' => $link]);
-
+        $model = Page::findOne(['link' => $link]);
         if ($model && $model->active) {
             $url = ['/page/view', 'link' => $link];
-
             return [
                 'label' => $model->menu_name,
                 'url' => $url,

@@ -4,9 +4,6 @@ namespace app\assets;
 
 use yii\web\AssetBundle;
 
-/**
- * CodeMirrorAsset groups assets for code editing areas
- */
 class CodeMirrorAsset extends AssetBundle
 {
     public $sourcePath = '@bower/codemirror';

@@ -4,7 +4,6 @@ namespace app\commands;
 
 use dektrium\user\models\User;
 use Yii;
-use yii\base\InvalidParamException;
 use yii\console\Controller;
 use yii\helpers\ArrayHelper;
 
@@ -30,7 +29,7 @@ class RolesController extends Controller
 
     /**
      * Removes role from user
-     * @throws InvalidParamException
+     * @throws \Exception
      */
     public function actionRevoke()
     {
@@ -56,13 +55,13 @@ class RolesController extends Controller
     /**
      * @param string $username
      * @return User
-     * @throws InvalidParamException
+     * @throws \Exception
      */
-    private function getUser($username)
+    private function getUser(string $username): User
     {
         $user = User::findOne(['username' => $username]);
         if (!$user) {
-            throw new InvalidParamException('There is no user ' . $username);
+            throw new \Exception('There is no user ' . $username);
         }
         return $user;
     }
