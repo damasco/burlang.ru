@@ -30,7 +30,7 @@ class TextareaWithBuryatLetters extends InputWidget
             });
         ");
 
-        return $this->render('textarea-charts', [
+        return $this->render('textarea-with-buryat-letters', [
             'textarea' => $textarea,
             'selector' => $selector,
         ]);

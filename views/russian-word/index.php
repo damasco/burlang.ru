@@ -3,7 +3,7 @@
 use app\components\DeviceDetect\DeviceDetectInterface;
 use app\models\RussianWord;
 use app\models\search\RussianWordSearch;
-use app\widgets\Alert;
+use app\widgets\FlashMessages;
 use yii\bootstrap\Html;
 use yii\data\ActiveDataProvider;
 use yii\grid\ActionColumn;
@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="russian-word-index">
     <h1 class="hidden-xs"><?= Html::encode($this->title) ?></h1>
-    <?= Alert::widget() ?>
+    <?= FlashMessages::widget() ?>
     <p>
         <?= Html::a(
             Html::icon('plus') . ' ' . Yii::t('app', 'Add word'),

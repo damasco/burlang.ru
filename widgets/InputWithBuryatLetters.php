@@ -8,9 +8,9 @@ use yii\widgets\InputWidget;
 class InputWithBuryatLetters extends InputWidget
 {
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
-    public function run()
+    public function run(): string
     {
         $this->options['class'] = 'form-control';
 
@@ -18,7 +18,7 @@ class InputWithBuryatLetters extends InputWidget
             ? Html::activeTextInput($this->model, $this->attribute, $this->options)
             : Html::textInput($this->name, $this->value, $this->options);
 
-        return $this->render('input-charts', [
+        return $this->render('input-with-buryat-letters', [
             'textInput' => $textInput,
         ]);
     }

@@ -3,7 +3,7 @@
 use app\components\DeviceDetect\DeviceDetectInterface;
 use app\models\BuryatTranslation;
 use app\models\BuryatWord;
-use app\widgets\Alert;
+use app\widgets\FlashMessages;
 use yii\bootstrap\Html;
 use yii\web\View;
 
@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="buryat-word-update">
     <h1 class="hidden-xs"><?= Html::encode($this->title) ?></h1>
-    <?= Alert::widget() ?>
+    <?= FlashMessages::widget() ?>
     <?= $this->render('_form', [
         'model' => $model,
         'dictionaries' => $dictionaries,

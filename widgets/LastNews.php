@@ -3,7 +3,6 @@
 namespace app\widgets;
 
 use app\models\News;
-use Yii;
 use yii\base\Widget;
 
 class LastNews extends Widget
@@ -11,9 +10,9 @@ class LastNews extends Widget
     public int $limit = 3;
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
-    public function run()
+    public function run(): string
     {
         return $this->render('last-news', [
             'lastNews' => News::find()

@@ -11,9 +11,9 @@ class ChaptersMenu extends Widget
     public ?int $activeId = null;
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
-    public function run()
+    public function run(): string
     {
         return $this->render('chapters-menu', [
             'model' => $this->book,
