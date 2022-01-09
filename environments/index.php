@@ -36,7 +36,7 @@ return [
             '/web/assets',
         ],
         'setExecutable' => [
-            'yii',
+            'bin/yii',
             'tests/codeception/bin/yii',
         ],
         'setCookieValidationKey' => [
@@ -50,7 +50,7 @@ return [
             '/web/assets'
         ],
         'setExecutable' => [
-            'yii',
+            'bin/yii',
         ],
         'setCookieValidationKey' => [
             '/config/web.php',

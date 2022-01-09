@@ -26,7 +26,7 @@ app-composer-install:
 app-composer-update:
 	docker-compose run --rm app composer update
 app-migrate:
-	docker-compose run --rm app yii migrate --interactive=0
+	docker-compose run --rm app bin/yii migrate --interactive=0
 app-cs-fix:
 	docker-compose run --rm app composer phpcs-fixer
 app-npm-install:
