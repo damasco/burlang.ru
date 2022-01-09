@@ -1,6 +1,7 @@
 <?php
 
 use app\components\DeviceDetect\DeviceDetectInterface;
+use app\widgets\Comments;
 use app\widgets\LastNews;
 use yii\web\View;
 
@@ -25,7 +26,7 @@ $this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-R
             <?= LastNews::widget() ?>
         </div>
         <div class="col-sm-8 col-sm-pull-4">
-            <?= $this->render('/_comments') ?>
+            <?= Comments::widget() ?>
         </div>
     </div>
 </div>

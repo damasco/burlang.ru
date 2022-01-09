@@ -1,6 +1,7 @@
 <?php
 
 use app\models\Page;
+use app\widgets\Comments;
 use yii\bootstrap\Html;
 use yii\helpers\HtmlPurifier;
 use yii\helpers\Markdown;
@@ -51,7 +52,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="row">
         <div class="col-sm-8 col-sm-offset-2">
             <div class="mt-20 comment-block">
-                <?= $this->render('/_comments') ?>
+                <?= Comments::widget() ?>
             </div>
         </div>
     </div>
