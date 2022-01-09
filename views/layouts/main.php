@@ -2,6 +2,7 @@
 
 use app\assets\AppAsset;
 use app\components\PageMenu;
+use app\widgets\Counters;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\helpers\Html;
@@ -179,7 +180,7 @@ AppAsset::register($this);
         </h5>
     </div>
 </footer>
-<?= $this->render('//_end_body') ?>
+<?= Counters::widget() ?>
 <?php $this->endBody() ?>
 </body>
 </html>
