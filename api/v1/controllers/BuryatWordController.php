@@ -6,6 +6,8 @@ use app\api\v1\components\Controller;
 use app\api\v1\transformer\BuryatWordsTransformer;
 use app\api\v1\transformer\BuryatWordTranslationsTransformer;
 use app\models\BuryatWord;
+use app\models\SearchData;
+use app\services\SearchDataService;
 use League\Fractal\Manager;
 use League\Fractal\Resource\Collection;
 use League\Fractal\Resource\Item;
@@ -29,18 +31,34 @@ class BuryatWordController extends Controller
     }
 
     /**
+     * @param SearchDataService $searchDataService
      * @param string $q
      * @return array
      * @throws NotFoundHttpException
      */
-    public function actionTranslate(string $q): array
-    {
-        $word = $this->getWord($q);
-        return (new Manager())
-            ->createData(new Item($word, new BuryatWordTranslationsTransformer()))
-            ->toArray()['data'];
+    public function actionTranslate(
+        SearchDataService $searchDataService,
+        string $q
+    ): array {
+        try {
+            $word = $this->getWord($q);
+            return (new Manager())
+                ->createData(
+                    new Item(
+                        $word,
+                        new BuryatWordTranslationsTransformer()
+                    )
+                )
+                ->toArray()['data'];
+        } catch (NotFoundHttpException $exception) {
+            $searchDataService->add($q, SearchData::TYPE_BURYAT);
+            throw $exception;
+        }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     protected function verbs(): array
     {
         return [

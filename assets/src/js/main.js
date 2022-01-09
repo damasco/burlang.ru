@@ -1,12 +1,35 @@
 $(document).ready(function () {
+    var renderNotFoundTranslations = function (block) {
+        block.html('<div class=\"alert alert-danger\">Перевода нет</div>');
+    };
+    var clearTranslations = function (block) {
+        block.html('');
+    };
+    var renderTranslations = function (block, translations) {
+        if (translations.length > 0) {
+            var html = '<div class=\"alert alert-success\"><ul class=\"translate-list\">';
+            translations.forEach(function (translation) {
+                html += '<li>' + translation.value + '</li>';
+            });
+            html += '</ul></div';
+            block.html(html);
+        } else {
+            renderNotFoundTranslations(block);
+        }
+    };
+
     $('#russian-form').on('beforeSubmit', function (e) {
         e.preventDefault();
         var $form = $(this);
+        var translationsBlock = $('#russian-translation');
+        clearTranslations(translationsBlock);
         $.ajax({
             url: $form.attr('action'),
-            data: $form.serialize()
+            data: {q: $form.find('input[name=\'q\']').val()}
         }).done(function (response) {
-            $('#russian-translation').html(response);
+            renderTranslations(translationsBlock, response.translations);
+        }).fail(function () {
+            renderNotFoundTranslations(translationsBlock);
         });
         return false;
     });
@@ -14,11 +37,15 @@ $(document).ready(function () {
     $('#buryat-form').on('beforeSubmit', function (e) {
         e.preventDefault();
         var $form = $(this);
+        var translationsBlock = $('#buryat-translation');
+        clearTranslations(translationsBlock);
         $.ajax({
             url: $form.attr('action'),
-            data: $form.serialize()
+            data: {q: $form.find('input[name=\'q\']').val()}
         }).done(function (response) {
-            $('#buryat-translation').html(response);
+            renderTranslations(translationsBlock, response.translations);
+        }).fail(function () {
+            renderNotFoundTranslations(translationsBlock);
         });
         return false;
     });
@@ -28,7 +55,7 @@ $(document).ready(function () {
         $this.parent('span').siblings('input').sendkeys($this.text());
     });
 
-    $('a.js-link-name').on('click', function(e) {
+    $('a.js-link-name').on('click', function (e) {
         e.preventDefault();
         var url = $('.buryat-name-list').data('url');
         var name = $(this).text();

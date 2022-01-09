@@ -6,6 +6,8 @@ use app\api\v1\components\Controller;
 use app\api\v1\transformer\RussianWordsTransformer;
 use app\api\v1\transformer\RussianWordTranslationsTransformer;
 use app\models\RussianWord;
+use app\models\SearchData;
+use app\services\SearchDataService;
 use League\Fractal\Manager;
 use League\Fractal\Resource\Collection;
 use League\Fractal\Resource\Item;
@@ -33,12 +35,30 @@ class RussianWordController extends Controller
      * @return array
      * @throws NotFoundHttpException
      */
-    public function actionTranslate(string $q): array
+    public function actionTranslate(
+        SearchDataService $searchDataService,
+        string $q
+    ): array {
+        try {
+            $word = $this->getWord($q);
+            return (new Manager())
+                ->createData(new Item($word, new RussianWordTranslationsTransformer()))
+                ->toArray()['data'];
+        } catch (NotFoundHttpException $exception) {
+            $searchDataService->add($q, SearchData::TYPE_RUSSIAN);
+            throw $exception;
+        }
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    protected function verbs(): array
     {
-        $word = $this->getWord($q);
-        return (new Manager())
-            ->createData(new Item($word, new RussianWordTranslationsTransformer()))
-            ->toArray()['data'];
+        return [
+            'search' => ['GET'],
+            'translate' => ['GET'],
+        ];
     }
 
     /**
@@ -46,20 +66,12 @@ class RussianWordController extends Controller
      * @return RussianWord
      * @throws NotFoundHttpException
      */
-    public function getWord(string $name): RussianWord
+    private function getWord(string $name): RussianWord
     {
         $word = RussianWord::findOne(['name' => $name]);
         if (!$word) {
             throw new NotFoundHttpException(Yii::t('app', 'The word is not found'));
         }
         return $word;
-    }
-
-    protected function verbs(): array
-    {
-        return [
-            'search' => ['GET'],
-            'translate' => ['GET'],
-        ];
     }
 }

@@ -1,8 +1,8 @@
-init: docker-down-clear docker-pull docker-build docker-up app-init
 up: docker-up
 down: docker-down
 restart: down up
 ps: docker-ps
+init: docker-down-clear docker-pull docker-build docker-up app-init
 update-deps: app-composer-update app-npm-update restart
 
 docker-up:
@@ -24,7 +24,7 @@ app-init-files:
 app-composer-install:
 	docker-compose run --rm app composer install
 app-composer-update:
-	docker-compose run --rm app composer install
+	docker-compose run --rm app composer update
 app-migrate:
 	docker-compose run --rm app yii migrate --interactive=0
 app-cs-fix:

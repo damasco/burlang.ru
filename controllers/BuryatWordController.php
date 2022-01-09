@@ -31,7 +31,7 @@ class BuryatWordController extends Controller
                     'create' => ['GET', 'POST'],
                     'update' => ['GET', 'POST'],
                     'delete' => ['POST'],
-                    'delete-translate' => ['POST'],
+                    'delete-translation' => ['POST'],
                 ],
             ],
             'access' => [
@@ -44,7 +44,7 @@ class BuryatWordController extends Controller
                             'create',
                             'update',
                             'delete',
-                            'delete-translate',
+                            'delete-translation',
                         ],
                         'roles' => ['moderator'],
                     ],

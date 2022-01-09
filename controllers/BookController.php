@@ -203,7 +203,7 @@ class BookController extends Controller
             throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
         }
         return $this->render('chapter/view', [
-            'model' => $chapter,
+            'chapter' => $chapter,
         ]);
     }
 

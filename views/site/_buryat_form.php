@@ -15,7 +15,7 @@ use yii\widgets\ActiveForm;
     <h4><?= Yii::t('app', 'Buryat-Russian dictionary') ?></h4>
     <hr>
     <?php $form = ActiveForm::begin([
-        'action' => ['site/buryat-translate'],
+        'action' => ['/v1/buryat-word/translate'],
         'options' => ['id' => 'buryat-form']
     ]) ?>
     <div class="form-group">
@@ -28,15 +28,17 @@ use yii\widgets\ActiveForm;
                     'required' => true
                 ],
                 'clientOptions' => [
-                    'source' => Url::to(['/site/find-buryat-words']),
-                    'select' => new JsExpression("function (event, ui) {
-                        $.ajax({
-                            url: '" . Url::to(['/site/buryat-translate']) . "',
-                            data: { q: ui.item.value }
-                        }).done(function(response) {
-                            $('#buryat-translation').html(response);
-                        });
-                    }")
+                    'source' => new JsExpression("function (request, response) {
+                         $.ajax({
+                             url: '" . Url::to(['/v1/buryat-word/search']) . "',
+                             data: { q: request.term },
+                             dataType: 'json',
+                             success: response,
+                             error: function () {
+                                 response([]);
+                             }
+                         });
+                    }"),
                 ]
             ]) ?>
             <span class="input-group-btn">

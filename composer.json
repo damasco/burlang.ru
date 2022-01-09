@@ -33,7 +33,10 @@
     },
     "config": {
         "process-timeout": 1800,
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "yiisoft/yii2-composer": true
+        }
     },
     "scripts": {
         "phpcs-fixer": "./vendor/bin/php-cs-fixer fix --config .php_cs"
