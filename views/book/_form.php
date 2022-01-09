@@ -3,7 +3,7 @@
 use app\assets\MarkdownEditorAsset;
 use app\models\Book;
 use app\widgets\InputWithBuryatLetters;
-use app\widgets\TextareaCharts;
+use app\widgets\TextareaWithBuryatLetters;
 use yii\bootstrap\Html;
 use yii\web\View;
 use yii\widgets\ActiveForm;
@@ -21,7 +21,7 @@ MarkdownEditorAsset::register($this);
     <?= $form->errorSummary($model); ?>
     <?= $form->field($model, 'active')->checkbox() ?>
     <?= $form->field($model, 'title')->widget(InputWithBuryatLetters::class, ['options' => ['maxlength' => true]]) ?>
-    <?= $form->field($model, 'description')->widget(TextareaCharts::class, ['options' => ['rows' => 5]]) ?>
+    <?= $form->field($model, 'description')->widget(TextareaWithBuryatLetters::class, ['options' => ['rows' => 5]]) ?>
     <?= $form->field($model, 'content')->textarea(['id' => 'markdown-editor']) ?>
     <div class="form-group">
         <?= Html::submitButton(

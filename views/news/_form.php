@@ -3,7 +3,7 @@
 use app\assets\MarkdownEditorAsset;
 use app\models\News;
 use app\widgets\InputWithBuryatLetters;
-use app\widgets\TextareaCharts;
+use app\widgets\TextareaWithBuryatLetters;
 use yii\bootstrap\Html;
 use yii\web\View;
 use yii\widgets\ActiveForm;
@@ -25,7 +25,7 @@ MarkdownEditorAsset::register($this);
         ['options' => ['maxlength' => true]]
     ) ?>
     <?= $form->field($model, 'description')->widget(
-        TextareaCharts::class,
+        TextareaWithBuryatLetters::class,
         ['options' => ['rows' => 5]]
     ) ?>
     <?= $form->field($model, 'content')->textarea(['id' => 'markdown-editor']) ?>
