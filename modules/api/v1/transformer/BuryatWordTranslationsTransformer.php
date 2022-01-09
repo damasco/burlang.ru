@@ -1,6 +1,6 @@
 <?php
 
-namespace app\api\v1\transformer;
+namespace app\modules\api\v1\transformer;
 
 use app\models\BuryatTranslation;
 use app\models\BuryatWord;

@@ -160,7 +160,7 @@ AppAsset::register($this);
                         ],
                         [
                             'label' => 'Api',
-                            'url' => ['/v1'],
+                            'url' => ['/api/v1'],
                         ]
                     ],
                     'options' => [

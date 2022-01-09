@@ -1,10 +1,10 @@
 <?php
 
-namespace app\api\v1\controllers;
+namespace app\modules\api\v1\controllers;
 
-use app\api\v1\components\Controller;
-use app\api\v1\transformer\BuryatNamesTransformer;
-use app\api\v1\transformer\BuryatNameTransformer;
+use app\modules\api\v1\components\Controller;
+use app\modules\api\v1\transformer\BuryatNamesTransformer;
+use app\modules\api\v1\transformer\BuryatNameTransformer;
 use app\models\BuryatName;
 use League\Fractal\Manager;
 use League\Fractal\Resource\Collection;

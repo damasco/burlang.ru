@@ -14,7 +14,7 @@ $config = [
     'basePath' => dirname(__DIR__),
     'bootstrap' => [
         'log',
-        \app\api\v1\Bootstrap::class,
+        \app\modules\api\v1\Bootstrap::class,
     ],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
@@ -90,7 +90,12 @@ $config = [
             ],
         ],
         'rbac' => \dektrium\rbac\RbacWebModule::class,
-        'v1' => \app\api\v1\Module::class,
+        'api' => [
+            'class' => \app\modules\api\Module::class,
+            'modules' => [
+                'v1' => \app\modules\api\v1\Module::class,
+            ],
+        ],
     ],
     'params' => $params,
 ];

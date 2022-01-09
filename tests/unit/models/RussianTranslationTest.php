@@ -2,7 +2,7 @@
 
 namespace test\unit\models;
 
-use app\api\v1\models\RussianWord;
+use app\modules\api\v1\models\RussianWord;
 use app\models\RussianTranslation;
 use Codeception\Specify;
 use app\modules\user\models\User;

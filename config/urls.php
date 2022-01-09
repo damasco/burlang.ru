@@ -15,4 +15,9 @@ return [
 
     'page/<action:(create|update|delete|index)>' => 'page/<action>',
     'page/<link:[\w-]+>' => 'page/view',
+
+    // for old api
+    'v1/names/<action>' => 'api/v1/buryat-name/<action>',
+    'v1/buryat-word/<action>' => 'api/v1/buryat-word/<action>',
+    'v1/russian-word/<action>' => 'api/v1/russian-word/<action>',
 ];
