@@ -20,7 +20,7 @@ docker-ps:
 
 app-init: app-composer-install app-npm-install app-init-files app-migrate
 app-init-files:
-	docker-compose run --rm app init --env=Development --overwrite=n
+	docker-compose run --rm app bin/init --env=Development --overwrite=n
 app-composer-install:
 	docker-compose run --rm app composer install
 app-composer-update:
