@@ -11,7 +11,6 @@
         "bower-asset/bootbox": "~4.4.0",
         "bower-asset/codemirror": "~5.9.0",
         "bower-asset/codemirror-buttons": "~1.0.0",
-        "bower-asset/html5shiv": "*",
         "bower-asset/respond": "*",
         "dektrium/yii2-rbac": "dev-master",
         "dektrium/yii2-user": "dev-master",

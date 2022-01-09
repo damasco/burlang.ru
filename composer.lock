@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b1634da3698e2def1e237da093780235",
+    "content-hash": "167574fed10826661228f55a671441bd",
     "packages": [
         {
             "name": "bower-asset/bililiterange",
@@ -95,21 +95,6 @@
             "license": [
                 "BSD"
             ]
-        },
-        {
-            "name": "bower-asset/html5shiv",
-            "version": "3.7.3",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:aFarkas/html5shiv.git",
-                "reference": "ed28c56c071bddfe7d635ad88995674957a016be"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/aFarkas/html5shiv/zipball/ed28c56c071bddfe7d635ad88995674957a016be",
-                "reference": "ed28c56c071bddfe7d635ad88995674957a016be"
-            },
-            "type": "bower-asset"
         },
         {
             "name": "bower-asset/inputmask",
