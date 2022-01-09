@@ -6,7 +6,6 @@ use app\widgets\Counters;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\helpers\Html;
-use yii\helpers\Url;
 use yii\web\View;
 use yii\widgets\Breadcrumbs;
 use yii\widgets\Menu;
