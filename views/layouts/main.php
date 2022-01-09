@@ -106,8 +106,8 @@ AppAsset::register($this);
                 'active' => Yii::$app->controller->id === 'news'
             ],
 
-            PageMenu::getUrl('services'),
-            PageMenu::getUrl('about'),
+            PageMenu::getItem('services'),
+            PageMenu::getItem('about'),
 
             Yii::$app->user->can('moderator') ?
             [

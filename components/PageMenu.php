@@ -12,7 +12,7 @@ class PageMenu
      * @param string $link
      * @return array|string
      */
-    public static function getUrl(string $link)
+    public static function getItem(string $link)
     {
         $model = Page::findOne(['link' => $link]);
         if ($model && $model->active) {

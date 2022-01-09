@@ -135,7 +135,7 @@ class PageController extends Controller
     private function getPage(int $id): Page
     {
         $page = Page::findOne($id);
-        if ($page) {
+        if (!$page) {
             throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
         }
         return $page;
