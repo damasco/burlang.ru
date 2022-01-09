@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "167574fed10826661228f55a671441bd",
+    "content-hash": "5f17e7ac2fcfb767b8ca9e684d475dc3",
     "packages": [
         {
             "name": "bower-asset/bililiterange",
@@ -168,21 +168,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/mathiasbynens/punycode.js/zipball/38c8d3131a82567bfef18da09f7f4db68c84f8a3",
                 "reference": "38c8d3131a82567bfef18da09f7f4db68c84f8a3"
-            },
-            "type": "bower-asset"
-        },
-        {
-            "name": "bower-asset/respond",
-            "version": "1.4.2",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:scottjehl/Respond.git",
-                "reference": "20b7f4a192bb910c8c7e067b961de38519d334e4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/scottjehl/Respond/zipball/20b7f4a192bb910c8c7e067b961de38519d334e4",
-                "reference": "20b7f4a192bb910c8c7e067b961de38519d334e4"
             },
             "type": "bower-asset"
         },
