@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5f17e7ac2fcfb767b8ca9e684d475dc3",
+    "content-hash": "d03dba9a274c8b449a222a518ada855a",
     "packages": [
         {
             "name": "bower-asset/bililiterange",
@@ -18,24 +18,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/dwachss/bililiteRange/zipball/c9b0faaaa4ce85272d2ad6c0e81de1cd01938a33",
                 "reference": "c9b0faaaa4ce85272d2ad6c0e81de1cd01938a33"
-            },
-            "type": "bower-asset"
-        },
-        {
-            "name": "bower-asset/bootbox",
-            "version": "v4.4.0",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:makeusabrew/bootbox.git",
-                "reference": "cb756203e250ed0ff2539359ff0ad1c3ffb8e8d3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/makeusabrew/bootbox/zipball/cb756203e250ed0ff2539359ff0ad1c3ffb8e8d3",
-                "reference": "cb756203e250ed0ff2539359ff0ad1c3ffb8e8d3"
-            },
-            "require": {
-                "bower-asset/bootstrap": ">=3.0.0"
             },
             "type": "bower-asset"
         },

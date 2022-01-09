@@ -20,6 +20,5 @@ class AppAsset extends AssetBundle
         YiiAsset::class,
         BootstrapAsset::class,
         SendKeysAsset::class,
-        BootboxAsset::class,
     ];
 }
