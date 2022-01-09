@@ -2,22 +2,20 @@
 namespace app\assets;
 
 use yii\web\AssetBundle;
+use yii\web\JqueryAsset;
 
 class MarkdownEditorAsset extends AssetBundle
 {
     public $sourcePath = '@app/assets/markdown';
-
     public $js = [
         'editor.js',
     ];
-
     public $css = [
         'editor.css',
     ];
-
     public $depends = [
-        'yii\web\JqueryAsset',
-        'app\assets\CodeMirrorAsset',
-        'app\assets\CodeMirrorButtonsAsset',
+        JqueryAsset::class,
+        CodeMirrorAsset::class,
+        CodeMirrorButtonsAsset::class,
     ];
 }
