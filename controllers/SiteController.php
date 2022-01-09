@@ -31,7 +31,6 @@ class SiteController extends Controller
             'verbs' => [
                 'class' => VerbFilter::class,
                 'actions' => [
-                    'error' => ['GET', 'POST'],
                     'index' => ['GET'],
                 ],
             ],
