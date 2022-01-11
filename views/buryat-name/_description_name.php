@@ -13,10 +13,10 @@ use app\models\BuryatName;
     <?php endif ?>
     <div class="mt-10">
         <?php if ($model->male): ?>
-            <span class="label label-default"><?= Yii::t('app', 'Male name') ?></span>
+            <span class="label label-default">Мужское имя</span>
         <?php endif ?>
         <?php if ($model->female): ?>
-            <span class="label label-default"><?= Yii::t('app', 'Female name') ?></span>
+            <span class="label label-default">Женское имя</span>
         <?php endif ?>
     </div>
 </div>

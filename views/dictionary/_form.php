@@ -18,9 +18,9 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'isbn')->textInput(['maxlength' => true]) ?>
     <div class="form-group">
         <?= Html::submitButton(
-            $model->isNewRecord 
-                ? Html::icon('plus') . ' ' . Yii::t('app', 'Add')
-                : Html::icon('floppy-disk') . ' ' . Yii::t('app', 'Save'),
+            $model->isNewRecord
+                ? Html::icon('plus') . ' Добавить'
+                : Html::icon('floppy-disk') . ' Сохранить',
             ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']
         ) ?>
     </div>

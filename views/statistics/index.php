@@ -9,7 +9,7 @@ use yii\web\View;
  * @var array $names
  */
 
-$this->title = Yii::t('app', 'Statistics');
+$this->title = 'Статистика';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="statistics-index">
@@ -19,16 +19,16 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="col-sm-6">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h1 class="panel-title"><?= Yii::t('app', 'Buryat words') ?></h1>
+                    <h1 class="panel-title">Бурятские слова</h1>
                 </div>
                 <ul class="list-group">
                     <li class="list-group-item">
                         <span class="badge"><?= $buryatWords['amount'] ?></span>
-                        <?= Yii::t('app', 'Amount') ?>
+                        Количество
                     </li>
                     <li class="list-group-item">
                         <span class="badge"><?= $buryatWords['amountTranslations'] ?></span>
-                        <?= Yii::t('app', 'Amount of translations') ?>
+                        Количество переводов
                     </li>
                 </ul>
             </div>
@@ -36,16 +36,16 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="col-sm-6">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h1 class="panel-title"><?= Yii::t('app', 'Russian words') ?></h1>
+                    <h1 class="panel-title">Русские слова</h1>
                 </div>
                 <ul class="list-group">
                     <li class="list-group-item">
                         <span class="badge"><?= $russianWords['amount'] ?></span>
-                        <?= Yii::t('app', 'Amount') ?>
+                        Количество
                     </li>
                     <li class="list-group-item">
                         <span class="badge"><?= $russianWords['amountTranslations'] ?></span>
-                        <?= Yii::t('app', 'Amount of translations') ?>
+                        Количество переводов
                     </li>
                 </ul>
             </div>
@@ -55,12 +55,12 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="col-sm-6">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h1 class="panel-title"><?= Yii::t('app', 'Names') ?></h1>
+                    <h1 class="panel-title">Имена</h1>
                 </div>
                 <ul class="list-group">
                     <li class="list-group-item">
                         <span class="badge"><?= $names['amount'] ?></span>
-                        <?= Yii::t('app', 'Amount') ?>
+                        Количество
                     </li>
                 </ul>
             </div>

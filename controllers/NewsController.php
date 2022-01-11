@@ -79,7 +79,7 @@ class NewsController extends Controller
     {
         $news = News::findOne(['slug' => $slug]);
         if (!$news || (!$news->active && !Yii::$app->user->can('adminNews'))) {
-            throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+            throw new NotFoundHttpException('Запрашиваемая страница не существует');
         }
         return $this->render('view', [
             'model' => $news,
@@ -126,7 +126,7 @@ class NewsController extends Controller
     {
         $news = $this->getNews($id);
         if (!$news->delete()) {
-            throw new Exception(Yii::t('app', 'Can not delete news'));
+            throw new Exception('Не удалось удалить Новость');
         }
         return $this->redirect(['index']);
     }
@@ -140,7 +140,7 @@ class NewsController extends Controller
     {
         $news = News::findOne($id);
         if (!$news) {
-            throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+            throw new NotFoundHttpException('Запрашиваемая страница не существует');
         }
         return $news;
     }

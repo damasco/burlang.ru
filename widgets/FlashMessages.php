@@ -13,7 +13,7 @@ class FlashMessages extends Widget
         'danger' => 'alert-danger',
         'success' => 'alert-success',
         'info' => 'alert-info',
-        'warning' => 'alert-warning'
+        'warning' => 'alert-warning',
     ];
 
     public array $closeButton = [];

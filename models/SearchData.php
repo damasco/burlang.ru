@@ -2,7 +2,6 @@
 
 namespace app\models;
 
-use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 
@@ -17,8 +16,8 @@ use yii\db\ActiveRecord;
  */
 class SearchData extends ActiveRecord
 {
-    const TYPE_BURYAT = 0;
-    const TYPE_RUSSIAN = 1;
+    public const TYPE_BURYAT = 0;
+    public const TYPE_RUSSIAN = 1;
 
     /**
      * {@inheritDoc}
@@ -46,11 +45,11 @@ class SearchData extends ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'name' => Yii::t('app', 'Name'),
-            'type' => Yii::t('app', 'Type'),
-            'created_at' => Yii::t('app', 'Created At'),
-            'updated_at' => Yii::t('app', 'Updated At'),
+            'id' => 'ID',
+            'name' => 'Название',
+            'type' => 'Тип',
+            'created_at' => 'Создано',
+            'updated_at' => 'Изменено',
         ];
     }
 

@@ -4,7 +4,6 @@ namespace app\models;
 
 use app\models\queries\NewsQuery;
 use app\modules\user\models\User;
-use Yii;
 use yii\behaviors\BlameableBehavior;
 use yii\behaviors\SluggableBehavior;
 use yii\behaviors\TimestampBehavior;
@@ -53,14 +52,14 @@ class News extends \yii\db\ActiveRecord
                 'exist',
                 'skipOnError' => true,
                 'targetClass' => User::class,
-                'targetAttribute' => ['created_by' => 'id']
+                'targetAttribute' => ['created_by' => 'id'],
             ],
             [
                 ['updated_by'],
                 'exist',
                 'skipOnError' => true,
                 'targetClass' => User::class,
-                'targetAttribute' => ['updated_by' => 'id']
+                'targetAttribute' => ['updated_by' => 'id'],
             ],
         ];
     }
@@ -76,7 +75,7 @@ class News extends \yii\db\ActiveRecord
             [
                 'class' => SluggableBehavior::class,
                 'attribute' => 'title',
-            ]
+            ],
         ];
     }
 
@@ -86,16 +85,16 @@ class News extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'title' => Yii::t('app', 'Title'),
-            'slug' => Yii::t('app', 'Slug'),
-            'description' => Yii::t('app', 'Description'),
-            'content' => Yii::t('app', 'Content'),
-            'active' => Yii::t('app', 'Active'),
-            'created_by' => Yii::t('app', 'Created By'),
-            'updated_by' => Yii::t('app', 'Updated By'),
-            'created_at' => Yii::t('app', 'Created At'),
-            'updated_at' => Yii::t('app', 'Updated At'),
+            'id' => 'ID',
+            'title' => 'Заголовок',
+            'slug' => 'Slug',
+            'description' => 'Описание',
+            'content' => 'Контент',
+            'active' => 'Активный',
+            'created_by' => 'Создал',
+            'updated_by' => 'Изменил',
+            'created_at' => 'Создано',
+            'updated_at' => 'Изменено',
         ];
     }
 

@@ -3,7 +3,6 @@
 namespace app\models;
 
 use app\modules\user\models\User;
-use Yii;
 use yii\behaviors\BlameableBehavior;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveQuery;
@@ -49,21 +48,21 @@ class BuryatTranslation extends \yii\db\ActiveRecord
                 'exist',
                 'skipOnError' => true,
                 'targetClass' => BuryatWord::class,
-                'targetAttribute' => ['burword_id' => 'id']
+                'targetAttribute' => ['burword_id' => 'id'],
             ],
             [
                 ['created_by'],
                 'exist',
                 'skipOnError' => true,
                 'targetClass' => User::class,
-                'targetAttribute' => ['created_by' => 'id']
+                'targetAttribute' => ['created_by' => 'id'],
             ],
             [
                 ['updated_by'],
                 'exist',
                 'skipOnError' => true,
                 'targetClass' => User::class,
-                'targetAttribute' => ['updated_by' => 'id']
+                'targetAttribute' => ['updated_by' => 'id'],
             ],
         ];
     }
@@ -74,14 +73,14 @@ class BuryatTranslation extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'burword_id' => Yii::t('app', 'Burword ID'),
-            'dict_id' => Yii::t('app', 'Dictionary'),
-            'name' => Yii::t('app', 'Translation'),
-            'created_by' => Yii::t('app', 'Created By'),
-            'updated_by' => Yii::t('app', 'Updated By'),
-            'created_at' => Yii::t('app', 'Created At'),
-            'updated_at' => Yii::t('app', 'Updated At'),
+            'id' => 'ID',
+            'burword_id' => 'Бурятское слово',
+            'dict_id' => 'Словарь',
+            'name' => 'Перевод',
+            'created_by' => 'Создал',
+            'updated_by' => 'Изменил',
+            'created_at' => 'Создано',
+            'updated_at' => 'Изменено',
         ];
     }
 

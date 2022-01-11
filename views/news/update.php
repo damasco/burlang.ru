@@ -9,10 +9,10 @@ use yii\web\View;
  * @var News $model
  */
 
-$this->title = Yii::t('app', 'Edit') . ': ' . $model->title;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'News'), 'url' => ['index']];
+$this->title = 'Редактировать: ' . $model->title;
+$this->params['breadcrumbs'][] = ['label' => 'Новости', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'slug' => $model->slug]];
-$this->params['breadcrumbs'][] = Yii::t('app', 'Edit');
+$this->params['breadcrumbs'][] = 'Редактировать';
 ?>
 <div class="news-update">
     <h1 class="hidden-xs"><?= Html::encode($this->title) ?></h1>

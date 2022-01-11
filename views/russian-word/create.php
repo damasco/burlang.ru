@@ -10,8 +10,8 @@ use yii\web\View;
  * @var array $dictionaries
  */
 
-$this->title = Yii::t('app', 'New word');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Russian words'), 'url' => ['index']];
+$this->title = 'Новое слово';
+$this->params['breadcrumbs'][] = ['label' => 'Русские слова', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="russian-word-create">

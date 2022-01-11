@@ -9,8 +9,8 @@ use yii\web\View;
  * @var Dictionary $model
  */
 
-$this->title = Yii::t('app', 'Add dictionary');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Dictionaries'), 'url' => ['index']];
+$this->title = 'Добавить словарь';
+$this->params['breadcrumbs'][] = ['label' => 'Словари', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="dictionary-create">

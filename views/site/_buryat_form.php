@@ -12,7 +12,7 @@ use yii\widgets\ActiveForm;
  */
 ?>
 <div class="well">
-    <h4><?= Yii::t('app', 'Buryat-Russian dictionary') ?></h4>
+    <h4>Бурятско-Русский словарь</h4>
     <hr>
     <?php $form = ActiveForm::begin([
         'action' => ['/v1/buryat-word/translate'],
@@ -24,8 +24,8 @@ use yii\widgets\ActiveForm;
                 'name' => 'q',
                 'options' => [
                     'class' => 'form-control',
-                    'placeholder' => Yii::t('app', 'Enter the word'),
-                    'required' => true
+                    'placeholder' => 'Введите слово',
+                    'required' => true,
                 ],
                 'clientOptions' => [
                     'source' => new JsExpression("function (request, response) {
@@ -39,17 +39,14 @@ use yii\widgets\ActiveForm;
                              }
                          });
                     }"),
-                ]
+                ],
             ]) ?>
             <span class="input-group-btn">
             <button type="button" class="btn btn-default add-input-letter">ү</button>
             <button type="button" class="btn btn-default add-input-letter">һ</button>
             <button type="button" class="btn btn-default add-input-letter">ө</button>
             <button type="submit" class="btn btn-custom">
-                <?= $deviceDetect->isMobile()
-                    ? Html::icon('send')
-                    : Yii::t('app', 'Translate')
-                ?>
+                <?= $deviceDetect->isMobile() ? Html::icon('send') : 'Перевести' ?>
             </button>
         </span>
         </div>

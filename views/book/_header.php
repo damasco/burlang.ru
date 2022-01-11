@@ -9,24 +9,23 @@ use yii\bootstrap\Html;
 ?>
 <?php if (!$model->active): ?>
     <p>
-        <span class="label label-default"><?= Yii::t('app', 'Inactive') ?></span>
+        <span class="label label-default">Неактивный</span>
     </p>
 <?php endif ?>
-
 <?php if (Yii::$app->user->can('adminBook')): ?>
     <p>
         <?= Html::a(
-            Html::icon('pencil') . ' ' . Yii::t('app', 'Edit'),
+            Html::icon('pencil') . ' Редактировать',
             ['update', 'id' => $model->id],
             ['class' => 'btn btn-primary']
         ) ?>
         <?= Html::a(
-            Html::icon('trash') . ' ' . Yii::t('app', 'Delete'),
+            Html::icon('trash') . ' Удалить',
             ['delete', 'id' => $model->id],
             [
                 'class' => 'btn btn-danger',
                 'data' => [
-                    'confirm' => Yii::t('app', 'Are you sure you want to delete?'),
+                    'confirm' => 'Вы уверены, что хотите удалить?',
                     'method' => 'post',
                 ],
             ]

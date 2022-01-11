@@ -12,10 +12,9 @@ use yii\helpers\Html;
         <h2>
             <?= Html::a(Html::encode($model->title), ['book/view', 'slug' => $model->slug]) ?>
         </h2>
-
         <?php if (!$model->active): ?>
             <p>
-                <span class="label label-default"><?= Yii::t('app', 'Inactive') ?></span>
+                <span class="label label-default">Неактивный</span>
             </p>
         <?php endif ?>
     </div>

@@ -17,16 +17,16 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'dict_id')->dropDownList($dictionaries, ['prompt' => '-']) ?>
     <div class="form-group">
         <?= Html::submitButton(
-            $model->isNewRecord ?
-                Html::icon('plus') . ' ' . Yii::t('app', 'Create') :
-                Html::icon('floppy-disk') . ' ' . Yii::t('app', 'Save'),
+            $model->isNewRecord
+                ? Html::icon('plus') . ' Создать'
+                : Html::icon('floppy-disk') . ' Сохранить',
             ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']
         ) ?>
         <?php if (!$model->isNewRecord): ?>
-            <?= Html::a(Html::icon('trash') . ' ' . Yii::t('app', 'Delete'), ['delete', 'id' => $model->id], [
+            <?= Html::a(Html::icon('trash') . ' Удалить', ['delete', 'id' => $model->id], [
                 'class' => 'btn btn-danger',
                 'data' => [
-                    'confirm' => Yii::t('app', 'Are you sure you want to delete?'),
+                    'confirm' => 'Вы уверены, что хотите удалить?',
                     'method' => 'post',
                 ],
             ]) ?>

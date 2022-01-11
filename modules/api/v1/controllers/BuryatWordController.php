@@ -2,16 +2,15 @@
 
 namespace app\modules\api\v1\controllers;
 
+use app\models\BuryatWord;
+use app\models\SearchData;
 use app\modules\api\v1\components\Controller;
 use app\modules\api\v1\transformer\BuryatWordsTransformer;
 use app\modules\api\v1\transformer\BuryatWordTranslationsTransformer;
-use app\models\BuryatWord;
-use app\models\SearchData;
 use app\services\SearchDataService;
 use League\Fractal\Manager;
 use League\Fractal\Resource\Collection;
 use League\Fractal\Resource\Item;
-use Yii;
 use yii\web\NotFoundHttpException;
 
 class BuryatWordController extends Controller
@@ -76,7 +75,7 @@ class BuryatWordController extends Controller
     {
         $word = BuryatWord::findOne(['name' => $value]);
         if (!$word) {
-            throw new NotFoundHttpException(Yii::t('app', 'The word is not found'));
+            throw new NotFoundHttpException('Слово не найдено');
         }
         return $word;
     }

@@ -9,8 +9,8 @@ use yii\web\View;
  * @var Page $model
  */
 
-$this->title = Yii::t('app', 'Create page');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Pages'), 'url' => ['index']];
+$this->title = 'Создать страницу';
+$this->params['breadcrumbs'][] = ['label' => 'Страницы', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="page-create">

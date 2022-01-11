@@ -41,21 +41,11 @@ $config = [
         'request' => [
             'cookieValidationKey' => $params['components.request.key'],
             'parsers' => [
-                'application/json' => yii\web\JsonParser::class,
-            ]
+                'application/json' => \yii\web\JsonParser::class,
+            ],
         ],
         'response' => [
             'class' => \yii\web\Response::class,
-        ],
-        'i18n' => [
-            'translations' => [
-                'app*' => [
-                    'class' => \yii\i18n\PhpMessageSource::class,
-                    'fileMap' => [
-                        'app' => 'app.php',
-                    ],
-                ],
-            ],
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
@@ -72,7 +62,7 @@ $config = [
         'view' => [
             'theme' => [
                 'pathMap' => [
-                    '@dektrium/user/views' => '@app/modules/user/views'
+                    '@dektrium/user/views' => '@app/modules/user/views',
                 ],
             ],
         ],

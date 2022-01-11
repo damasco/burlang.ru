@@ -3,7 +3,6 @@
 namespace app\models\search;
 
 use app\models\RussianWord;
-use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
 class RussianWordSearch extends RussianWord

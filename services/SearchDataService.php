@@ -3,7 +3,6 @@
 namespace app\services;
 
 use app\models\SearchData;
-use Yii;
 use yii\db\Exception;
 
 class SearchDataService
@@ -22,7 +21,7 @@ class SearchDataService
             : $word;
         $model->type = $type;
         if (!$model->save()) {
-            throw new Exception(Yii::t('app', 'Can not add search data'));
+            throw new Exception('Не удалось добавить данные');
         }
     }
 }

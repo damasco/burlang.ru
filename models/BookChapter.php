@@ -3,7 +3,6 @@
 namespace app\models;
 
 use app\modules\user\models\User;
-use Yii;
 use yii\behaviors\BlameableBehavior;
 use yii\behaviors\SluggableBehavior;
 use yii\behaviors\TimestampBehavior;
@@ -52,21 +51,21 @@ class BookChapter extends \yii\db\ActiveRecord
                 'exist',
                 'skipOnError' => true,
                 'targetClass' => Book::class,
-                'targetAttribute' => ['book_id' => 'id']
+                'targetAttribute' => ['book_id' => 'id'],
             ],
             [
                 ['created_by'],
                 'exist',
                 'skipOnError' => true,
                 'targetClass' => User::class,
-                'targetAttribute' => ['created_by' => 'id']
+                'targetAttribute' => ['created_by' => 'id'],
             ],
             [
                 ['updated_by'],
                 'exist',
                 'skipOnError' => true,
                 'targetClass' => User::class,
-                'targetAttribute' => ['updated_by' => 'id']
+                'targetAttribute' => ['updated_by' => 'id'],
             ],
         ];
     }
@@ -77,15 +76,15 @@ class BookChapter extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'title' => Yii::t('app', 'Title'),
-            'slug' => Yii::t('app', 'Slug'),
-            'content' => Yii::t('app', 'Content'),
-            'book_id' => Yii::t('app', 'Book ID'),
-            'created_by' => Yii::t('app', 'Created By'),
-            'updated_by' => Yii::t('app', 'Updated By'),
-            'created_at' => Yii::t('app', 'Created At'),
-            'updated_at' => Yii::t('app', 'Updated At'),
+            'id' => 'ID',
+            'title' => 'Заголовок',
+            'slug' => 'Slug',
+            'content' => 'Контент',
+            'book_id' => 'Книга',
+            'created_by' => 'Создал',
+            'updated_by' => 'Изменил',
+            'created_at' => 'Создано',
+            'updated_at' => 'Изменено',
         ];
     }
 
@@ -100,7 +99,7 @@ class BookChapter extends \yii\db\ActiveRecord
             [
                 'class' => SluggableBehavior::class,
                 'attribute' => 'title',
-            ]
+            ],
         ];
     }
 

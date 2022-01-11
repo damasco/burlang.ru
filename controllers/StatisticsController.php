@@ -67,11 +67,11 @@ class StatisticsController extends Controller
     public function actionSearch(): string
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => SearchData::find()->orderBy('created_at DESC')
+            'query' => SearchData::find()->orderBy('created_at DESC'),
         ]);
 
         return $this->render('search', [
-            'dataProvider' => $dataProvider
+            'dataProvider' => $dataProvider,
         ]);
     }
 }

@@ -44,7 +44,7 @@ class SiteController extends Controller
                             'index',
                         ],
                         'roles' => ['?', '@'],
-                    ]
+                    ],
                 ],
             ],
         ];

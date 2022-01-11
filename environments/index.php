@@ -46,7 +46,7 @@ return [
         'path' => 'prod',
         'setWritable' => [
             '/runtime',
-            '/web/assets'
+            '/web/assets',
         ],
         'setExecutable' => [
             'bin/yii',

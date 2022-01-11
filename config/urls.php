@@ -1,4 +1,5 @@
 <?php
+
 return [
     'news/<action:(create|update|delete)>' => 'news/<action>',
     'news' => 'news/index',

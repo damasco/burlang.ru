@@ -32,10 +32,13 @@ AppAsset::register($this);
     <title><?= Html::encode($this->title) ?></title>
 
     <?php $this->head() ?>
-    <?php $this->registerMetaTag(['name' => 'keywords', 'content' => Yii::t('app', 'meta.keywords')]) ?>
+    <?php $this->registerMetaTag([
+        'name' => 'keywords',
+        'content' => 'burlang, burlang.ru, buryat-lang, buryat-lang.ru, buryat, бурятский словарь, бурятские имена, онлайн словарь',
+    ]) ?>
     <?php $this->registerMetaTag([
         'name' => 'description',
-        'content' => Yii::t('app', 'Russian-Buryat, Buryat-Russian electronic dictionary')
+        'content' => 'Русско-Бурятский, Бурятско-Русский электронный словарь',
     ]) ?>
 
     <?php if (isset($this->blocks['head'])): ?>
@@ -56,23 +59,23 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             [
-                'label' => Yii::t('app', 'Main'),
+                'label' => 'Главная',
                 'url' => Yii::$app->homeUrl,
                 'active' => Yii::$app->controller->id === 'site' && Yii::$app->controller->action->id === 'index'
             ],
             [
-                'label' => Yii::t('app', 'Names'),
+                'label' => 'Имена',
                 'url' => ['/buryat-name/index'],
                 'active' => Yii::$app->controller->id === 'buryat-name' &&
                     (Yii::$app->controller->action->id === 'index' || Yii::$app->controller->action->id === 'view-name')
             ],
             [
-                'label' => Yii::t('app', 'Books'),
+                'label' => 'Книги',
                 'url' => ['/book/index'],
                 'active' => Yii::$app->controller->id === 'book',
             ],
             [
-                'label' => Yii::t('app', 'News'),
+                'label' => 'Новости',
                 'url' => ['/news/index'],
                 'active' => Yii::$app->controller->id === 'news'
             ],
@@ -80,41 +83,39 @@ AppAsset::register($this);
             PageMenu::getItem('services'),
             PageMenu::getItem('about'),
 
-            Yii::$app->user->can('moderator') ?
-            [
-                'label' => Yii::t('app', 'Control'),
-                'items' => [
-                    ['label' => Yii::t('app', 'Buryat names'), 'url' => ['/buryat-name/admin']],
-                    ['label' => Yii::t('app', 'Buryat words'), 'url' => ['/buryat-word/index']],
-                    ['label' => Yii::t('app', 'Russian words'), 'url' => ['/russian-word/index']],
-                    ['label' => Yii::t('app', 'Dictionaries'), 'url' => ['/dictionary/index']],
-                    Yii::$app->user->can('admin') ? '<li role="separator" class="divider"></li>' : '',
-                    ['label' => Yii::t('app', 'Pages'), 'url' => ['/page/index'], 'visible' => Yii::$app->user->can('admin')],
-                    ['label' => Yii::t('app', 'Statistics'), 'url' => ['/statistics'], 'visible' => Yii::$app->user->can('admin')],
-                    ['label' => Yii::t('user', 'Users'), 'url' => ['/user/admin/index'], 'visible' => Yii::$app->user->can('admin')],
+            Yii::$app->user->can('moderator')
+                ? [
+                    'label' => 'Управление',
+                    'items' => [
+                        ['label' => 'Бурятские имена', 'url' => ['/buryat-name/admin']],
+                        ['label' => 'Бурятские слова', 'url' => ['/buryat-word/index']],
+                        ['label' => 'Русские слова', 'url' => ['/russian-word/index']],
+                        ['label' => 'Словари', 'url' => ['/dictionary/index']],
+                        Yii::$app->user->can('admin') ? '<li role="separator" class="divider"></li>' : '',
+                        ['label' => 'Страницы', 'url' => ['/page/index'], 'visible' => Yii::$app->user->can('admin')],
+                        ['label' => 'Статистика', 'url' => ['/statistics'], 'visible' => Yii::$app->user->can('admin')],
+                        ['label' => 'Пользователи', 'url' => ['/user/admin/index'], 'visible' => Yii::$app->user->can('admin')],
+                    ]
                 ]
-            ] : '',
-
-            Yii::$app->user->isGuest ?
-                ['label' => Yii::t('app', 'Login'), 'url' => ['/user/security/login']] :
-                [
+                : '',
+            Yii::$app->user->isGuest
+                ? ['label' => 'Войти', 'url' => ['/user/security/login']]
+                : [
                     'label' => Yii::$app->user->identity->username,
                     'items' => [
-                        ['label' => Yii::t('user', 'Profile'), 'url' => ['/user/profile/show', 'id' => Yii::$app->user->identity->id]],
+                        ['label' => 'Профиль', 'url' => ['/user/profile/show', 'id' => Yii::$app->user->identity->id]],
                         '<li role="separator" class="divider"></li>',
-                        ['label' => Yii::t('user', 'Logout'), 'url' => ['/user/security/logout'], 'linkOptions' => ['data-method' => 'post']]
+                        ['label' => 'Выйти', 'url' => ['/user/security/logout'], 'linkOptions' => ['data-method' => 'post']]
                     ],
                     'options' => [
                         'id' => 'dropdown-profile',
-                    ]
-                ]
+                    ],
+                ],
         ],
     ]) ?>
     <?php NavBar::end() ?>
     <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
+        <?= Breadcrumbs::widget(['links' => $this->params['breadcrumbs'] ?? []]) ?>
         <?= $content ?>
     </div>
 </div>
@@ -131,11 +132,11 @@ AppAsset::register($this);
                         [
                             'label' => 'Api',
                             'url' => ['/api/v1'],
-                        ]
+                        ],
                     ],
                     'options' => [
                         'class' => 'list-inline',
-                    ]
+                    ],
                 ]) ?>
             </div>
             <div class="col-sm-6 text-right">

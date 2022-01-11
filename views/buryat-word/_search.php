@@ -15,13 +15,13 @@ use yii\widgets\ActiveForm;
 <div class="buryat-word-search">
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h4 class="panel-title"><?= Yii::t('app', 'Search') ?></h4>
+            <h4 class="panel-title">Поиск</h4>
         </div>
         <div class="panel-body">
             <?php $form = ActiveForm::begin(['action' => ['index'], 'method' => 'get']); ?>
             <?= $form->field($model, 'name')->widget(InputWithBuryatLetters::class) ?>
-            <?= Html::submitButton(Yii::t('app', 'Find'), ['class' => 'btn btn-primary']) ?>
-            <?= Html::resetButton(Yii::t('app', 'Reset'), ['class' => 'btn btn-default']) ?>
+            <?= Html::submitButton('Найти', ['class' => 'btn btn-primary']) ?>
+            <?= Html::resetButton('Сбросить', ['class' => 'btn btn-default']) ?>
             <?php ActiveForm::end(); ?>
         </div>
     </div>

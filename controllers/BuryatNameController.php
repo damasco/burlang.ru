@@ -79,7 +79,7 @@ class BuryatNameController extends Controller
         $names = [];
         if ($letter) {
             if (!in_array($letter, ArrayHelper::getColumn($firstLetters, 'letter'), true)) {
-                throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+                throw new NotFoundHttpException('Запрашиваемая страница не существует');
             }
             $names = $buryatNameService->findNamesByFirstLetter($letter);
         }
@@ -100,7 +100,7 @@ class BuryatNameController extends Controller
     {
         $buraytName = BuryatName::findOne(['name' => $name]);
         if (!$buraytName) {
-            throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+            throw new NotFoundHttpException('Запрашиваемая страница не существует');
         }
         if (Yii::$app->request->isAjax) {
             return $this->renderAjax('_description_name', [
@@ -178,9 +178,9 @@ class BuryatNameController extends Controller
     {
         $buryatName = $this->getName($id);
         if (!$buryatName->delete()) {
-            throw new Exception(Yii::t('app', 'Can not delete name'));
+            throw new Exception('Не удалось удалить Имя');
         }
-        Yii::$app->session->setFlash('success', Yii::t('app', 'Name deleted'));
+        Yii::$app->session->setFlash('success', 'Имя удалено');
         return $this->redirect(['admin']);
     }
 
@@ -193,7 +193,7 @@ class BuryatNameController extends Controller
     {
         $name = BuryatName::findOne($id);
         if (!$name) {
-            throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+            throw new NotFoundHttpException('Запрашиваемая страница не существует');
         }
         return $name;
     }

@@ -90,7 +90,7 @@ class BookController extends Controller
     {
         $model = Book::findOne(['slug' => $slug]);
         if (!$model || (!$model->active && !Yii::$app->user->can('adminBook'))) {
-            throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+            throw new NotFoundHttpException('Запрашиваемая страница не существует');
         }
         return $this->render('view', [
             'model' => $model,
@@ -138,7 +138,7 @@ class BookController extends Controller
     {
         $book = $this->getBook($id);
         if (!$book->delete()) {
-            throw new Exception(Yii::t('app', 'Can not delete book'));
+            throw new Exception('Не удлалось удалить книгу');
         }
         return $this->redirect(['index']);
     }
@@ -200,7 +200,7 @@ class BookController extends Controller
             ->one();
 
         if (!$chapter || (!$chapter->book->active && !Yii::$app->user->can('adminBook'))) {
-            throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+            throw new NotFoundHttpException('Запрашиваемая страница не существует');
         }
         return $this->render('chapter/view', [
             'chapter' => $chapter,
@@ -216,7 +216,7 @@ class BookController extends Controller
     {
         $chapter = $this->getChapter($id);
         if (!$chapter->delete()) {
-            throw new Exception(Yii::t('app', 'Can not delete Book chapter'));
+            throw new Exception('Не удалось удалить главу');
         }
 
         return $this->redirect(['view', 'slug' => $chapter->book->slug]);
@@ -231,7 +231,7 @@ class BookController extends Controller
     {
         $book = Book::findOne($id);
         if (!$book) {
-            throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+            throw new NotFoundHttpException('Запрашиваемая страница не существует');
         }
         return $book;
     }
@@ -245,7 +245,7 @@ class BookController extends Controller
     {
         $chapter = BookChapter::findOne($id);
         if (!$chapter) {
-            throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+            throw new NotFoundHttpException('Запрашиваемая страница не существует');
         }
         return $chapter;
     }

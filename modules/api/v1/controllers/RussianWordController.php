@@ -2,16 +2,15 @@
 
 namespace app\modules\api\v1\controllers;
 
+use app\models\RussianWord;
+use app\models\SearchData;
 use app\modules\api\v1\components\Controller;
 use app\modules\api\v1\transformer\RussianWordsTransformer;
 use app\modules\api\v1\transformer\RussianWordTranslationsTransformer;
-use app\models\RussianWord;
-use app\models\SearchData;
 use app\services\SearchDataService;
 use League\Fractal\Manager;
 use League\Fractal\Resource\Collection;
 use League\Fractal\Resource\Item;
-use Yii;
 use yii\web\NotFoundHttpException;
 
 class RussianWordController extends Controller
@@ -70,7 +69,7 @@ class RussianWordController extends Controller
     {
         $word = RussianWord::findOne(['name' => $name]);
         if (!$word) {
-            throw new NotFoundHttpException(Yii::t('app', 'The word is not found'));
+            throw new NotFoundHttpException('Слово не найдено');
         }
         return $word;
     }

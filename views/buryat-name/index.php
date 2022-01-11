@@ -13,7 +13,7 @@ use yii\web\View;
  * @var array $firstLetters
  */
 
-$this->title = Yii::t('app', 'Names');
+$this->title = 'Имена';
 if ($letter) {
     $this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['index']];
     $this->params['breadcrumbs'][] = $letter;
@@ -54,7 +54,7 @@ if ($letter) {
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">
-                            <?= Yii::t('app', 'Close') ?>
+                            Закрыть
                         </button>
                     </div>
                 </div>

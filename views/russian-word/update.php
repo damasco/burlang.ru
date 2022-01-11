@@ -15,8 +15,8 @@ use yii\web\View;
  * @var DeviceDetectInterface $deviceDetect
  */
 
-$this->title = Yii::t('app', 'Edit') . ': ' . $model->name;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Russian words'), 'url' => ['index']];
+$this->title = 'Редактировать: ' . $model->name;
+$this->params['breadcrumbs'][] = ['label' => 'Русские слова', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="russian-word-update">

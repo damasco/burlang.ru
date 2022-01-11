@@ -23,7 +23,7 @@ class m160517_052118_create_page_table extends Migration
             'description' => $this->string()->notNull(),
             'content' => $this->text()->notNull(),
             'created_at' => $this->integer()->notNull(),
-            'updated_at' => $this->integer()->notNull()
+            'updated_at' => $this->integer()->notNull(),
         ]);
     }
 

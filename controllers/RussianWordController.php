@@ -76,7 +76,7 @@ class RussianWordController extends Controller
             'name'
         );
         if ($word->load(Yii::$app->request->post()) && $word->save()) {
-            Yii::$app->session->setFlash('success', Yii::t('app', 'The word is added'));
+            Yii::$app->session->setFlash('success', 'Слово добавлено');
             return $this->redirect(['update', 'id' => $word->id]);
         }
         return $this->render('create', [
@@ -102,11 +102,11 @@ class RussianWordController extends Controller
         $translationForm = new RussianTranslation();
         $translationForm->ruword_id = $word->id;
         if ($translationForm->load(Yii::$app->request->post()) && $translationForm->save()) {
-            Yii::$app->session->setFlash('success', Yii::t('app', 'Translation added'));
+            Yii::$app->session->setFlash('success', 'Перевод добавлен');
             return $this->refresh();
         }
         if ($word->load(Yii::$app->request->post()) && $word->save()) {
-            Yii::$app->session->setFlash('success', Yii::t('app', 'Data updated'));
+            Yii::$app->session->setFlash('success', 'Данные обновлены');
             return $this->refresh();
         }
         return $this->render('update', [
@@ -127,9 +127,9 @@ class RussianWordController extends Controller
     {
         $word = $this->getWord($id);
         if (!$word->delete()) {
-            throw new Exception(Yii::t('app', 'Can not delete word'));
+            throw new Exception('Не удалось удалить Слово');
         }
-        Yii::$app->session->setFlash('success', Yii::t('app', 'Word deleted'));
+        Yii::$app->session->setFlash('success', 'Слово удалено');
         return $this->redirect(['index']);
     }
 
@@ -143,9 +143,9 @@ class RussianWordController extends Controller
     {
         $translation = $this->getTranslation($id);
         if (!$translation->delete()) {
-            throw new Exception(Yii::t('app', 'Can not delete word'));
+            throw new Exception('Не удалось удалить перевод');
         }
-        Yii::$app->session->setFlash('success', Yii::t('app', 'Translation removed'));
+        Yii::$app->session->setFlash('success', 'Перевод удален');
         return $this->redirect(['update', 'id' => $translation->ruword_id]);
     }
 
@@ -158,7 +158,7 @@ class RussianWordController extends Controller
     {
         $word = RussianWord::findOne($id);
         if (!$word) {
-            throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+            throw new NotFoundHttpException('Запрашиваемая страница не существует');
         }
         return $word;
     }
@@ -167,7 +167,7 @@ class RussianWordController extends Controller
     {
         $translation = RussianTranslation::findOne($id);
         if (!$translation) {
-            throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+            throw new NotFoundHttpException('Запрашиваемая страница не существует');
         }
         return $translation;
     }

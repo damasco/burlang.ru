@@ -18,7 +18,7 @@ use yii\widgets\Pjax;
  * @var DeviceDetectInterface $deviceDetect
  */
 
-$this->title = Yii::t('app', 'Buryat names');
+$this->title = 'Бурятские имена';
 $this->params['breadcrumbs'][] = $this->title;
 $isDesktop = $deviceDetect->isDesktop();
 ?>
@@ -27,7 +27,7 @@ $isDesktop = $deviceDetect->isDesktop();
     <?= FlashMessages::widget() ?>
     <p>
         <?= Html::a(
-            Html::icon('plus') . ' ' . Yii::t('app', 'Add name'),
+            Html::icon('plus') . ' Добавить имя',
             ['create'],
             ['class' => 'btn btn-success']
         ) ?>
@@ -50,13 +50,13 @@ $isDesktop = $deviceDetect->isDesktop();
                 [
                     'attribute' => 'male',
                     'format' => 'boolean',
-                    'filter' => ['1' => Yii::t('app', 'Yes'), '0' => Yii::t('app', 'No')],
+                    'filter' => ['0' => 'Нет', '1' => 'Да'],
                     'visible' => $isDesktop,
                 ],
                 [
                     'attribute' => 'female',
                     'format' => 'boolean',
-                    'filter' => ['1' => Yii::t('app', 'Yes'), '0' => Yii::t('app', 'No')],
+                    'filter' => ['0' => 'Нет', '1' => 'Да'],
                     'visible' => $isDesktop,
                 ],
                 [

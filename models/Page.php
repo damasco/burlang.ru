@@ -3,7 +3,6 @@
 namespace app\models;
 
 use app\modules\user\models\User;
-use Yii;
 use yii\behaviors\BlameableBehavior;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveQuery;
@@ -57,14 +56,14 @@ class Page extends \yii\db\ActiveRecord
                 'exist',
                 'skipOnError' => true,
                 'targetClass' => User::class,
-                'targetAttribute' => ['created_by' => 'id']
+                'targetAttribute' => ['created_by' => 'id'],
             ],
             [
                 ['updated_by'],
                 'exist',
                 'skipOnError' => true,
                 'targetClass' => User::class,
-                'targetAttribute' => ['updated_by' => 'id']
+                'targetAttribute' => ['updated_by' => 'id'],
             ],
         ];
     }
@@ -86,18 +85,18 @@ class Page extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'menu_name' => Yii::t('app', 'Menu name'),
-            'title' => Yii::t('app', 'Title'),
-            'link' => Yii::t('app', 'Link'),
-            'description' => Yii::t('app', 'Description'),
-            'content' => Yii::t('app', 'Content'),
-            'active' => Yii::t('app', 'Active'),
-            'static' => Yii::t('app', 'Static'),
-            'created_by' => Yii::t('app', 'Created By'),
-            'updated_by' => Yii::t('app', 'Updated By'),
-            'created_at' => Yii::t('app', 'Created At'),
-            'updated_at' => Yii::t('app', 'Updated At'),
+            'id' => 'ID',
+            'menu_name' => 'Название меню',
+            'title' => 'Заголовок',
+            'link' => 'Ссылка',
+            'description' => 'Описание',
+            'content' => 'Контент',
+            'active' => 'Активный',
+            'static' => 'Статический',
+            'created_by' => 'Создал',
+            'updated_by' => 'Изменил',
+            'created_at' => 'Создано',
+            'updated_at' => 'Изменено',
         ];
     }
 

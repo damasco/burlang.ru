@@ -63,17 +63,17 @@ $this->params['breadcrumbs'][] = $this->title;
         <?php endif; ?>
 
         <div class="panel panel-default">
-            <div class="panel-heading"><?= Yii::t('app', 'Statistics') ?></div>
+            <div class="panel-heading">Статистика</div>
             <div class="panel-body">
                 <ul>
-                    <li><?= Yii::t('app', 'Names') ?>: <?= $user->getBuryatNames()->count() ?></li>
+                    <li>Имена: <?= $user->getBuryatNames()->count() ?></li>
                     <li>
-                        <?= Yii::t('app', 'Buryat words') ?>: <?= $user->getBuryatWords()->count() ?>,
-                        <?= Yii::t('app', 'Translations') ?>: <?= $user->getBuryatTranslations()->count() ?>
+                        Бурятские слова: <?= $user->getBuryatWords()->count() ?>,
+                        Переводы: <?= $user->getBuryatTranslations()->count() ?>
                     </li>
                     <li>
-                        <?= Yii::t('app', 'Russian words') ?>: <?= $user->getRussianWords()->count() ?>,
-                        <?= Yii::t('app', 'Translations') ?>: <?= $user->getRussianTranslations()->count() ?>
+                        Русские слова: <?= $user->getRussianWords()->count() ?>,
+                        Переводы: <?= $user->getRussianTranslations()->count() ?>
                     </li>
                 </ul>
             </div>
