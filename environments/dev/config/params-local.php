@@ -7,7 +7,7 @@ return [
         'username' => 'root',
         'password' => 'root',
         'charset' => 'utf8',
-        'enableSchemaCache' => true
+        'enableSchemaCache' => true,
     ],
 
     'components.mailer' => [

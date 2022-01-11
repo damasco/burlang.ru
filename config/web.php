@@ -42,7 +42,7 @@ $config = [
             'cookieValidationKey' => $params['components.request.key'],
             'parsers' => [
                 'application/json' => \yii\web\JsonParser::class,
-            ]
+            ],
         ],
         'response' => [
             'class' => \yii\web\Response::class,
@@ -62,7 +62,7 @@ $config = [
         'view' => [
             'theme' => [
                 'pathMap' => [
-                    '@dektrium/user/views' => '@app/modules/user/views'
+                    '@dektrium/user/views' => '@app/modules/user/views',
                 ],
             ],
         ],

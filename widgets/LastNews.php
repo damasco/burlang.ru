@@ -19,7 +19,7 @@ class LastNews extends Widget
                 ->active()
                 ->orderBy('created_at DESC')
                 ->limit($this->limit)
-                ->all()
+                ->all(),
         ]);
     }
 }
