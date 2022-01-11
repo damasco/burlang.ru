@@ -17,9 +17,9 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'dict_id')->dropDownList($dictionaries, ['prompt' => '-']) ?>
     <div class="form-group">
         <?= Html::submitButton(
-            $model->isNewRecord ?
-                Html::icon('plus')  . ' Создать' :
-                Html::icon('floppy-disk') . ' Сохранить',
+            $model->isNewRecord
+                ? Html::icon('plus')  . ' Создать'
+                : Html::icon('floppy-disk') . ' Сохранить',
             ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']
         ) ?>
         <?php if (!$model->isNewRecord): ?>

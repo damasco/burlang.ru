@@ -46,8 +46,8 @@ use yii\widgets\ActiveForm;
                     </div>
                 </div>
             </div>
-            <?= Html::submitButton( 'Найти', ['class' => 'btn btn-primary']) ?>
-            <?= Html::resetButton( 'Сбросить', ['class' => 'btn btn-default']) ?>
+            <?= Html::submitButton('Найти', ['class' => 'btn btn-primary']) ?>
+            <?= Html::resetButton('Сбросить', ['class' => 'btn btn-default']) ?>
             <?php ActiveForm::end(); ?>
         </div>
     </div>

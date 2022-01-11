@@ -11,7 +11,7 @@ use yii\web\View;
 
 $this->title = $model->name;
 $this->params['breadcrumbs'][] = [
-    'label' => Yii::$app->user->isGuest ? 'Имена' :  'Бурятские имена',
+    'label' => Yii::$app->user->isGuest ? 'Имена' : 'Бурятские имена',
     'url' => Yii::$app->user->isGuest ? ['index'] : ['admin'],
 ];
 $this->params['breadcrumbs'][] = $this->title;

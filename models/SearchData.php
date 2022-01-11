@@ -16,8 +16,8 @@ use yii\db\ActiveRecord;
  */
 class SearchData extends ActiveRecord
 {
-    const TYPE_BURYAT = 0;
-    const TYPE_RUSSIAN = 1;
+    public const TYPE_BURYAT = 0;
+    public const TYPE_RUSSIAN = 1;
 
     /**
      * {@inheritDoc}
