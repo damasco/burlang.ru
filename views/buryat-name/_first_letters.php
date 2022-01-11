@@ -18,7 +18,7 @@ use yii\helpers\Html;
                         'class' => sprintf(
                             'btn btn-default btn-lg%s',
                             $currentLetter === $firstLetter['letter'] ? ' active' : ''
-                        )
+                        ),
                     ]
                 ) ?>
             </li>

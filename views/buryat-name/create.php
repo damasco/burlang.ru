@@ -10,7 +10,7 @@ use yii\web\View;
  */
 
 $this->title = 'Создать';
-$this->params['breadcrumbs'][] = ['label' =>  'Бурятские имена', 'url' => ['admin']];
+$this->params['breadcrumbs'][] = ['label' => 'Бурятские имена', 'url' => ['admin']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="buryat-name-create">

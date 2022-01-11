@@ -12,7 +12,6 @@ use yii\bootstrap\Html;
         <span class="label label-default">Неактивный</span>
     </p>
 <?php endif ?>
-
 <?php if (Yii::$app->user->can('adminBook')): ?>
     <p>
         <?= Html::a(

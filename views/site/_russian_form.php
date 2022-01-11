@@ -25,7 +25,7 @@ use yii\widgets\ActiveForm;
                 'options' => [
                     'class' => 'form-control',
                     'placeholder' => 'Введите слово',
-                    'required' => true
+                    'required' => true,
                 ],
                 'clientOptions' => [
                     'source' => new JsExpression("function (request, response) {
@@ -43,10 +43,7 @@ use yii\widgets\ActiveForm;
             ]) ?>
             <span class="input-group-btn">
             <button type="submit" class="btn btn-custom">
-                <?= $deviceDetect->isMobile()
-                    ? Html::icon('send')
-                    : 'Перевести'
-                ?>
+                <?= $deviceDetect->isMobile() ? Html::icon('send') : 'Перевести' ?>
             </button>
         </span>
         </div>

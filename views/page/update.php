@@ -9,7 +9,7 @@ use yii\web\View;
  * @var Page $model
  */
 
-$this->title =  'Редактировать';
+$this->title = 'Редактировать';
 $this->params['breadcrumbs'][] = ['label' => 'Страницы', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'link' => $model->link]];
 $this->params['breadcrumbs'][] = $this->title;

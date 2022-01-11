@@ -22,7 +22,7 @@ use yii\widgets\ActiveForm;
     <?= GridView::widget([
         'dataProvider' => (new ActiveDataProvider([
             'query' => $model->getTranslations(),
-            'pagination' => false
+            'pagination' => false,
         ])),
         'summary' => false,
         'columns' => [
@@ -47,14 +47,14 @@ use yii\widgets\ActiveForm;
                                 'data' => [
                                     'confirm' => 'Вы уверены, что хотите удалить?',
                                     'method' => 'post',
-                                ]
+                                ],
                             ]
                         );
-                    }
+                    },
                 ],
                 'contentOptions' => [
-                    'class' => 'action-column-1'
-                ]
+                    'class' => 'action-column-1',
+                ],
             ],
         ],
     ]) ?>

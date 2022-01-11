@@ -22,7 +22,6 @@ use yii\bootstrap\Html;
         ) ?>
     <?php endforeach ?>
 </div>
-
 <?php if (Yii::$app->user->can('adminBook')): ?>
     <p>
         <?= Html::a(

@@ -1,14 +1,16 @@
 <?php
 
 use yii\bootstrap\Html;
+use yii\data\ActiveDataProvider;
+use yii\web\View;
 use yii\widgets\ListView;
 
 /**
- * @var yii\web\View $this
- * @var yii\data\ActiveDataProvider $dataProvider
+ * @var View $this
+ * @var ActiveDataProvider $dataProvider
  */
 
-$this->title =  'Новости';
+$this->title = 'Новости';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="news-index">
@@ -16,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php if (Yii::$app->user->can('adminNews')): ?>
         <p>
             <?= Html::a(
-                Html::icon('plus')  .  ' Создать новость',
+                Html::icon('plus') . ' Создать новость',
                 ['create'],
                 ['class' => 'btn btn-success']
             ) ?>
@@ -25,6 +27,6 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= ListView::widget([
         'dataProvider' => $dataProvider,
         'summary' => false,
-        'itemView' => '_view'
+        'itemView' => '_view',
     ]) ?>
 </div>

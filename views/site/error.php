@@ -1,9 +1,10 @@
 <?php
 
 use yii\helpers\Html;
+use yii\web\View;
 
 /**
- * @var yii\web\View $this
+ * @var View $this
  * @var string $name
  * @var string $message
  */

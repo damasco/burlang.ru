@@ -83,24 +83,24 @@ AppAsset::register($this);
             PageMenu::getItem('services'),
             PageMenu::getItem('about'),
 
-            Yii::$app->user->can('moderator') ?
-            [
-                'label' => 'Управление',
-                'items' => [
-                    ['label' =>  'Бурятские имена', 'url' => ['/buryat-name/admin']],
-                    ['label' => 'Бурятские слова', 'url' => ['/buryat-word/index']],
-                    ['label' => 'Русские слова', 'url' => ['/russian-word/index']],
-                    ['label' => 'Словари', 'url' => ['/dictionary/index']],
-                    Yii::$app->user->can('admin') ? '<li role="separator" class="divider"></li>' : '',
-                    ['label' => 'Страницы', 'url' => ['/page/index'], 'visible' => Yii::$app->user->can('admin')],
-                    ['label' => 'Статистика', 'url' => ['/statistics'], 'visible' => Yii::$app->user->can('admin')],
-                    ['label' => 'Пользователи', 'url' => ['/user/admin/index'], 'visible' => Yii::$app->user->can('admin')],
+            Yii::$app->user->can('moderator')
+                ? [
+                    'label' => 'Управление',
+                    'items' => [
+                        ['label' => 'Бурятские имена', 'url' => ['/buryat-name/admin']],
+                        ['label' => 'Бурятские слова', 'url' => ['/buryat-word/index']],
+                        ['label' => 'Русские слова', 'url' => ['/russian-word/index']],
+                        ['label' => 'Словари', 'url' => ['/dictionary/index']],
+                        Yii::$app->user->can('admin') ? '<li role="separator" class="divider"></li>' : '',
+                        ['label' => 'Страницы', 'url' => ['/page/index'], 'visible' => Yii::$app->user->can('admin')],
+                        ['label' => 'Статистика', 'url' => ['/statistics'], 'visible' => Yii::$app->user->can('admin')],
+                        ['label' => 'Пользователи', 'url' => ['/user/admin/index'], 'visible' => Yii::$app->user->can('admin')],
+                    ]
                 ]
-            ] : '',
-
-            Yii::$app->user->isGuest ?
-                ['label' => 'Войти', 'url' => ['/user/security/login']] :
-                [
+                : '',
+            Yii::$app->user->isGuest
+                ? ['label' => 'Войти', 'url' => ['/user/security/login']]
+                : [
                     'label' => Yii::$app->user->identity->username,
                     'items' => [
                         ['label' => 'Профиль', 'url' => ['/user/profile/show', 'id' => Yii::$app->user->identity->id]],
@@ -109,15 +109,13 @@ AppAsset::register($this);
                     ],
                     'options' => [
                         'id' => 'dropdown-profile',
-                    ]
-                ]
+                    ],
+                ],
         ],
     ]) ?>
     <?php NavBar::end() ?>
     <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
+        <?= Breadcrumbs::widget(['links' => $this->params['breadcrumbs'] ?? []]) ?>
         <?= $content ?>
     </div>
 </div>
@@ -134,11 +132,11 @@ AppAsset::register($this);
                         [
                             'label' => 'Api',
                             'url' => ['/api/v1'],
-                        ]
+                        ],
                     ],
                     'options' => [
                         'class' => 'list-inline',
-                    ]
+                    ],
                 ]) ?>
             </div>
             <div class="col-sm-6 text-right">

@@ -18,7 +18,7 @@ use yii\widgets\Pjax;
  * @var DeviceDetectInterface $deviceDetect
  */
 
-$this->title =  'Бурятские имена';
+$this->title = 'Бурятские имена';
 $this->params['breadcrumbs'][] = $this->title;
 $isDesktop = $deviceDetect->isDesktop();
 ?>
@@ -50,13 +50,13 @@ $isDesktop = $deviceDetect->isDesktop();
                 [
                     'attribute' => 'male',
                     'format' => 'boolean',
-                    'filter' => ['1' =>  'Да', '0' =>  'Нет'],
+                    'filter' => ['0' => 'Нет', '1' => 'Да'],
                     'visible' => $isDesktop,
                 ],
                 [
                     'attribute' => 'female',
                     'format' => 'boolean',
-                    'filter' => ['1' =>  'Да', '0' =>  'Нет'],
+                    'filter' => ['0' => 'Нет', '1' => 'Да'],
                     'visible' => $isDesktop,
                 ],
                 [

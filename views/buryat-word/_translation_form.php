@@ -50,11 +50,11 @@ use yii\widgets\ActiveForm;
                                 ]
                             ]
                         );
-                    }
+                    },
                 ],
                 'contentOptions' => [
                     'class' => 'action-column-1',
-                ]
+                ],
             ],
         ],
     ]) ?>

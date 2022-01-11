@@ -15,7 +15,7 @@ use yii\web\Response;
 class PageController extends Controller
 {
     /**
-     * @inheritdoc
+     * {@inheritDoc}
      */
     public function behaviors()
     {

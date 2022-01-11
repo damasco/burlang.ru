@@ -13,7 +13,6 @@ use yii\web\View;
  */
 
 $this->title = $model->title;
-
 if (!Yii::$app->user->isGuest) {
     $this->params['breadcrumbs'][] = ['label' => 'Страницы', 'url' => ['index']];
 }

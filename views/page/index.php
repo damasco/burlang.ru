@@ -32,22 +32,20 @@ $this->params['breadcrumbs'][] = $this->title;
             'filterModel' => $searchModel,
             'columns' => [
                 ['class' => SerialColumn::class],
-
                 'menu_name',
                 'title',
                 'link',
                 'description',
                 [
                     'attribute' => 'active',
-                    'filter' => ['0' =>  'Нет', '1' =>  'Да'],
+                    'filter' => ['0' => 'Нет', '1' => 'Да'],
                     'format' => 'boolean',
                 ],
                 [
                     'attribute' => 'static',
-                    'filter' => ['0' =>  'Нет', '1' =>  'Да'],
+                    'filter' => ['0' => 'Нет', '1' => 'Да'],
                     'format' => 'boolean',
                 ],
-
                 [
                     'class' => ActionColumn::class,
                     'template' => '{view} {update} {delete}',
