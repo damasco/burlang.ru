@@ -10,12 +10,12 @@ use yii\widgets\Menu;
 <?= Menu::widget([
     'items' => [
         [
-            'label' => Yii::t('app', 'Data'),
+            'label' => 'Данные',
             'url' => ['index'],
             'active' => Yii::$app->controller->action->id === 'index'
         ],
         [
-            'label' => Yii::t('app', 'Search'),
+            'label' => 'Поиск',
             'url' => ['search'],
             'active' => Yii::$app->controller->action->id === 'search'
         ],

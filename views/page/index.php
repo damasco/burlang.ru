@@ -14,14 +14,14 @@ use yii\web\View;
  * @var ActiveDataProvider $dataProvider
  */
 
-$this->title = Yii::t('app', 'Pages');
+$this->title = 'Страницы';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="page-index">
     <h1><?= Html::encode($this->title) ?></h1>
     <p>
         <?= Html::a(
-            Html::icon('plus') . ' ' . Yii::t('app', 'Create page'),
+            Html::icon('plus') . ' Создать страницу',
             ['create'],
             ['class' => 'btn btn-success']
         ) ?>
@@ -39,12 +39,12 @@ $this->params['breadcrumbs'][] = $this->title;
                 'description',
                 [
                     'attribute' => 'active',
-                    'filter' => ['0' => Yii::t('app', 'No'), '1' => Yii::t('app', 'Yes')],
+                    'filter' => ['0' =>  'Нет', '1' =>  'Да'],
                     'format' => 'boolean',
                 ],
                 [
                     'attribute' => 'static',
-                    'filter' => ['0' => Yii::t('app', 'No'), '1' => Yii::t('app', 'Yes')],
+                    'filter' => ['0' =>  'Нет', '1' =>  'Да'],
                     'format' => 'boolean',
                 ],
 

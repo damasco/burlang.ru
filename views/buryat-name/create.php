@@ -9,8 +9,8 @@ use yii\web\View;
  * @var BuryatName $model
  */
 
-$this->title = Yii::t('app', 'Create');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Buryat names'), 'url' => ['admin']];
+$this->title = 'Создать';
+$this->params['breadcrumbs'][] = ['label' =>  'Бурятские имена', 'url' => ['admin']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="buryat-name-create">

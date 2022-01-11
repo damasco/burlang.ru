@@ -3,7 +3,6 @@
 namespace app\models;
 
 use app\modules\user\models\User;
-use Yii;
 use yii\behaviors\BlameableBehavior;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveQuery;
@@ -66,13 +65,13 @@ class BuryatWord extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'name' => Yii::t('app', 'Name'),
-            'dict_id' => Yii::t('app', 'Dictionary'),
-            'created_by' => Yii::t('app', 'Created By'),
-            'updated_by' => Yii::t('app', 'Updated By'),
-            'created_at' => Yii::t('app', 'Created At'),
-            'updated_at' => Yii::t('app', 'Updated At'),
+            'id' => 'ID',
+            'name' => 'Название',
+            'dict_id' => 'Словарь',
+            'created_by' => 'Создал',
+            'updated_by' => 'Изменил',
+            'created_at' => 'Создано',
+            'updated_at' => 'Изменено',
         ];
     }
 

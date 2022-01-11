@@ -107,7 +107,7 @@ class DictionaryController extends Controller
     {
         $dictionary = $this->getDictionary($id);
         if (!$dictionary->delete()) {
-            throw new Exception(Yii::t('app', 'Can not delete dictionary'));
+            throw new Exception('Не удалось удалить Словарь');
         }
         return $this->redirect(['index']);
     }
@@ -121,7 +121,7 @@ class DictionaryController extends Controller
     {
         $dictionary = Dictionary::findOne($id);
         if (!$dictionary) {
-            throw new NotFoundHttpException('The requested page does not exist.');
+            throw new NotFoundHttpException('Запрашиваемая страница не существует');
         }
         return $dictionary;
     }

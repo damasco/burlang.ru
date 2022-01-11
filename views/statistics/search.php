@@ -13,7 +13,7 @@ use yii\web\View;
  * @var ActiveDataProvider $dataProvider
  */
 
-$this->title = Yii::t('app', 'Statistics');
+$this->title = 'Статистика';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="statistics-search">
@@ -24,15 +24,14 @@ $this->params['breadcrumbs'][] = $this->title;
             'dataProvider' => $dataProvider,
             'columns' => [
                 ['class' => 'yii\grid\SerialColumn'],
-
                 'name',
                 [
                     'attribute' => 'type',
                     'value' => function ($model) {
-                        return $model->type === SearchData::TYPE_RUSSIAN ?
-                            Yii::t('app', 'Buryat word') :
-                            Yii::t('app', 'Russian word');
-                    }
+                        return $model->type === SearchData::TYPE_RUSSIAN
+                            ? 'Русское слово'
+                            : 'Бурятское слово';
+                    },
                 ],
                 'created_at:datetime',
             ],

@@ -10,7 +10,7 @@ use yii\bootstrap\Html;
 ?>
 <div class="list-group">
     <?= Html::a(
-        Yii::t('app', 'Main'),
+        'Главная',
         ['view', 'slug' => $model->slug],
         ['class' => $activeId === null ? 'list-group-item active' : 'list-group-item']
     ) ?>
@@ -26,7 +26,7 @@ use yii\bootstrap\Html;
 <?php if (Yii::$app->user->can('adminBook')): ?>
     <p>
         <?= Html::a(
-            Html::icon('plus') . ' ' . Yii::t('app', 'Add chapter'),
+            Html::icon('plus') . ' Добавить главу',
             ['chapter-create', 'id' => $model->id],
             ['class' => 'btn btn-sm btn-success']
         ) ?>

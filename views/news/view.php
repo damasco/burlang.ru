@@ -13,27 +13,27 @@ use yii\web\View;
  */
 
 $this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'News'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' =>  'Новости', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="news-view">
     <h1 class="hidden-xs"><?= Html::encode($this->title) ?></h1>
     <?php if (!$model->active): ?>
         <p>
-            <span class="label label-default"><?= Yii::t('app', 'Inactive') ?></span>
+            <span class="label label-default">Неактивный</span>
         </p>
     <?php endif ?>
     <?php if (Yii::$app->user->can('adminNews')): ?>
         <p>
             <?= Html::a(
-                Html::icon('pencil') . ' ' . Yii::t('app', 'Edit'),
+                Html::icon('pencil') . ' Редактировать',
                 ['update', 'id' => $model->id],
                 ['class' => 'btn btn-primary']
             ) ?>
-            <?= Html::a(Html::icon('trash') . ' ' . Yii::t('app', 'Delete'), ['delete', 'id' => $model->id], [
+            <?= Html::a(Html::icon('trash') . ' Удалить', ['delete', 'id' => $model->id], [
                 'class' => 'btn btn-danger',
                 'data' => [
-                    'confirm' => Yii::t('app', 'Are you sure you want to delete?'),
+                    'confirm' => 'Вы уверены, что хотите удалить?',
                     'method' => 'post',
                 ],
             ]) ?>

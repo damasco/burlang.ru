@@ -13,7 +13,7 @@ use yii\web\View;
  */
 
 $this->title = $chapter->title;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Books'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Книги', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $chapter->book->title, 'url' => ['view', 'slug' => $chapter->book->slug]];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -30,17 +30,17 @@ $this->params['breadcrumbs'][] = $this->title;
             <?php if (Yii::$app->user->can('adminBook')): ?>
                 <p>
                     <?= Html::a(
-                        Html::icon('pencil') . ' ' . Yii::t('app', 'Edit chapter'),
+                        Html::icon('pencil') . ' Редактировать главу',
                         ['chapter-update', 'id' => $chapter->id],
                         ['class' => 'btn btn-sm btn-default']
                     ) ?>
                     <?= Html::a(
-                        Html::icon('trash') . ' ' . Yii::t('app', 'Delete chapter'),
+                        Html::icon('trash') . ' Удалить главу',
                         ['chapter-delete', 'id' => $chapter->id],
                         [
                             'class' => 'btn btn-sm btn-default',
                             'data' => [
-                                'confirm' => Yii::t('app', 'Are you sure you want to delete?'),
+                                'confirm' => 'Вы уверены, что хотите удалить?',
                                 'method' => 'post',
                             ],
                         ]

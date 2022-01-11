@@ -7,14 +7,14 @@ use yii\helpers\Html;
  * @var app\models\BookChapter $chapter
  */
 
-$this->title = Yii::t('app', 'Edit') . ': ' . $chapter->title;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Books'), 'url' => ['index']];
+$this->title = 'Редактировать: ' .$chapter->title;
+$this->params['breadcrumbs'][] = ['label' => 'Книги', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $chapter->book->title, 'url' => ['view', 'slug' => $chapter->book->slug]];
 $this->params['breadcrumbs'][] = [
     'label' => $chapter->title,
     'url' => ['chapter', 'slug' => $chapter->book->slug, 'chapterSlug' => $chapter->slug]
 ];
-$this->params['breadcrumbs'][] = Yii::t('app', 'Edit');
+$this->params['breadcrumbs'][] = 'Редактировать';
 ?>
 <div class="book-update">
 

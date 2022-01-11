@@ -10,7 +10,7 @@ use yii\web\View;
  * @var DeviceDetectInterface $deviceDetect
  */
 
-$this->title = Yii::$app->name . ' - ' . Yii::t('app', 'Russian-Buryat, Buryat-Russian electronic dictionary');
+$this->title = Yii::$app->name . ' - Русско-Бурятский, Бурятско-Русский электронный словарь';
 ?>
 <div class="site-index">
     <div class="row mt-10">

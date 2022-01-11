@@ -2,14 +2,13 @@
 
 namespace app\modules\api\v1\controllers;
 
+use app\models\BuryatName;
 use app\modules\api\v1\components\Controller;
 use app\modules\api\v1\transformer\BuryatNamesTransformer;
 use app\modules\api\v1\transformer\BuryatNameTransformer;
-use app\models\BuryatName;
 use League\Fractal\Manager;
 use League\Fractal\Resource\Collection;
 use League\Fractal\Resource\Item;
-use Yii;
 use yii\web\NotFoundHttpException;
 
 class BuryatNameController extends Controller
@@ -65,7 +64,7 @@ class BuryatNameController extends Controller
     {
         $name = BuryatName::findOne(['name' => $name]);
         if (!$name) {
-            throw new NotFoundHttpException(Yii::t('app', 'The word is not found'));
+            throw new NotFoundHttpException('Слово не найдено');
         }
         return $name;
     }

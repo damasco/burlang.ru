@@ -15,7 +15,7 @@ use yii\web\View;
 $this->title = $model->title;
 
 if (!Yii::$app->user->isGuest) {
-    $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Pages'), 'url' => ['index']];
+    $this->params['breadcrumbs'][] = ['label' => 'Страницы', 'url' => ['index']];
 }
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -25,21 +25,21 @@ $this->params['breadcrumbs'][] = $this->title;
     </h1>
     <?php if (!$model->active): ?>
         <p>
-            <span class="label label-default"><?= Yii::t('app', 'Inactive') ?></span>
+            <span class="label label-default">Неактивный</span>
         </p>
     <?php endif ?>
     <?php if (Yii::$app->user->can('admin')): ?>
         <p>
             <?= Html::a(
-                Html::icon('pencil') . ' ' . Yii::t('app', 'Edit'),
+                Html::icon('pencil') . ' Редактировать',
                 ['update', 'id' => $model->id],
                 ['class' => 'btn btn-primary']
             ) ?>
             <?php if (!$model->static): ?>
-                <?= Html::a(Html::icon('trash') . ' ' . Yii::t('app', 'Delete'), ['delete', 'id' => $model->id], [
+                <?= Html::a(Html::icon('trash') . ' Удалить', ['delete', 'id' => $model->id], [
                     'class' => 'btn btn-danger',
                     'data' => [
-                        'confirm' => Yii::t('app', 'Are you sure you want to delete?'),
+                        'confirm' => 'Вы уверены, что хотите удалить?',
                         'method' => 'post',
                     ],
                 ]) ?>

@@ -15,7 +15,7 @@ use yii\helpers\Html;
 
         <?php if (!$model->active): ?>
             <p>
-                <span class="label label-default"><?= Yii::t('app', 'Inactive') ?></span>
+                <span class="label label-default">Неактивный</span>
             </p>
         <?php endif ?>
     </div>

@@ -20,7 +20,7 @@ use yii\widgets\Pjax;
  * @var DeviceDetectInterface $deviceDetect
  */
 
-$this->title = Yii::t('app', 'Buryat words');
+$this->title = 'Бурятские слова';
 $this->params['breadcrumbs'][] = $this->title;
 
 ?>
@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= FlashMessages::widget() ?>
     <p>
         <?= Html::a(
-            Html::icon('plus') . ' ' . Yii::t('app', 'Add word'),
+            Html::icon('plus') . ' Добавить слово',
             ['create'],
             ['class' => 'btn btn-success']
         ) ?>
@@ -46,7 +46,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 ['class' => SerialColumn::class],
                 'name',
                 [
-                    'label' => Yii::t('app', 'Translations'),
+                    'label' => 'Переводы',
                     'value' => function ($model) {
                         /** @var BuryatWord $model */
                         return Html::ul(ArrayHelper::getColumn($model->translations, 'name'));

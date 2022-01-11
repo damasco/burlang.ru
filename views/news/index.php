@@ -8,7 +8,7 @@ use yii\widgets\ListView;
  * @var yii\data\ActiveDataProvider $dataProvider
  */
 
-$this->title = Yii::t('app', 'News');
+$this->title =  'Новости';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="news-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php if (Yii::$app->user->can('adminNews')): ?>
         <p>
             <?= Html::a(
-                Html::icon('plus')  . ' ' . Yii::t('app', 'Create news'),
+                Html::icon('plus')  .  ' Создать новость',
                 ['create'],
                 ['class' => 'btn btn-success']
             ) ?>

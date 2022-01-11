@@ -24,9 +24,6 @@ class BuryatNameService
      */
     public function findNamesByFirstLetter(string $letter): array
     {
-        if (mb_strlen($letter) !== 1) {
-            throw new InvalidArgumentException(\Yii::t('app', 'A letter is not one symbol'));
-        }
         return BuryatName::find()
             ->select('name')
             ->where(['like', 'name', $letter . '%', false])

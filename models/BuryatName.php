@@ -3,7 +3,6 @@
 namespace app\models;
 
 use dektrium\user\models\User;
-use Yii;
 use yii\behaviors\BlameableBehavior;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveQuery;
@@ -71,16 +70,16 @@ class BuryatName extends ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'name' => Yii::t('app', 'Name'),
-            'description' => Yii::t('app', 'Description'),
-            'note' => Yii::t('app', 'Note'),
-            'male' => Yii::t('app', 'Male'),
-            'female' => Yii::t('app', 'Female'),
-            'created_by' => Yii::t('app', 'Created By'),
-            'updated_by' => Yii::t('app', 'Updated By'),
-            'created_at' => Yii::t('app', 'Created At'),
-            'updated_at' => Yii::t('app', 'Updated At'),
+            'id' => 'ID',
+            'name' => 'Название',
+            'description' => 'Описание',
+            'note' => 'Заметка',
+            'male' => 'Мужской',
+            'female' => 'Женский',
+            'created_by' => 'Создал',
+            'updated_by' => 'Изменил',
+            'created_at' => 'Создано',
+            'updated_at' => 'Изменено',
         ];
     }
 

@@ -12,7 +12,7 @@ use yii\widgets\ListView;
  * @var DeviceDetectInterface $deviceDetect
  */
 
-$this->title = Yii::t('app', 'Books');
+$this->title = 'Книги';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="book-index">
@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php if (Yii::$app->user->can('adminBook')): ?>
         <p>
             <?= Html::a(
-                Html::icon('plus') . ' ' . Yii::t('app', 'Create book'),
+                Html::icon('plus') . ' Создать книгу',
                 ['create'],
                 ['class' => 'btn btn-success']
             ) ?>

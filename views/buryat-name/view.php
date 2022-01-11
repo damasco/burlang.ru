@@ -11,7 +11,7 @@ use yii\web\View;
 
 $this->title = $model->name;
 $this->params['breadcrumbs'][] = [
-    'label' => Yii::$app->user->isGuest ? Yii::t('app', 'Names') : Yii::t('app', 'Buryat names'),
+    'label' => Yii::$app->user->isGuest ? 'Имена' :  'Бурятские имена',
     'url' => Yii::$app->user->isGuest ? ['index'] : ['admin'],
 ];
 $this->params['breadcrumbs'][] = $this->title;
@@ -21,17 +21,17 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php if (Yii::$app->user->can('moderator')): ?>
         <p>
             <?= Html::a(
-                Html::icon('pencil') . ' ' . Yii::t('app', 'Edit'),
+                Html::icon('pencil') . ' Редактировать',
                 ['update', 'id' => $model->id],
                 ['class' => 'btn btn-primary']
             ) ?>
             <?= Html::a(
-                Html::icon('trash') . ' ' . Yii::t('app', 'Delete'),
+                Html::icon('trash') . ' Удалить',
                 ['delete', 'id' => $model->id],
                 [
                     'class' => 'btn btn-danger',
                     'data' => [
-                        'confirm' => Yii::t('app', 'Are you sure you want to delete?'),
+                        'confirm' => 'Вы уверены, что хотите удалить?',
                         'method' => 'post',
                     ],
                 ]

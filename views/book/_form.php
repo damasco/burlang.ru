@@ -26,8 +26,8 @@ MarkdownEditorAsset::register($this);
     <div class="form-group">
         <?= Html::submitButton(
             $model->isNewRecord
-                ? Html::icon('plus') . ' ' . Yii::t('app', 'Create')
-                : Html::icon('floppy-disk') . ' ' . Yii::t('app', 'Save'),
+                ? Html::icon('plus') . ' Создать'
+                : Html::icon('floppy-disk') . ' Сохранить',
             ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']
         ) ?>
     </div>

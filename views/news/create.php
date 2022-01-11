@@ -9,8 +9,8 @@ use yii\web\View;
  * @var News $model
  */
 
-$this->title = Yii::t('app', 'Create news');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'News'), 'url' => ['index']];
+$this->title = 'Создать новость';
+$this->params['breadcrumbs'][] = ['label' => 'Новости', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="news-create">

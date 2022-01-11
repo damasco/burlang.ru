@@ -73,7 +73,7 @@ class PageController extends Controller
     {
         $page = Page::findOne(['link' => $link]);
         if (!$page || (!$page->active && !Yii::$app->user->can('admin'))) {
-            throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+            throw new NotFoundHttpException('Запрашиваемая страница не существует');
         }
         return $this->render('view', [
             'model' => $page,
@@ -121,7 +121,7 @@ class PageController extends Controller
         $model = $this->getPage($id);
         if (!$model->static) {
             if (!$model->delete()) {
-                throw new Exception(Yii::t('app', 'Can not delete page'));
+                throw new Exception('Не удалось удалить Страницу');
             }
         }
         return $this->redirect(['index']);
@@ -136,7 +136,7 @@ class PageController extends Controller
     {
         $page = Page::findOne($id);
         if (!$page) {
-            throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+            throw new NotFoundHttpException('Запрашиваемая страница не существует');
         }
         return $page;
     }

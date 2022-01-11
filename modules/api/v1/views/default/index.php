@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="panel panel-default">
         <div class="panel-heading">
             <h4 class="panel-title">
-                <?= Yii::t('app', 'Names') ?>
+                Имена
             </h4>
         </div>
         <div class="panel-body">
@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="panel panel-default">
         <div class="panel-heading">
             <h4 class="panel-title">
-                <?= Yii::t('app', 'Buryat words') ?>
+                Бурятские слова
             </h4>
         </div>
         <div class="panel-body">
@@ -47,7 +47,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="panel panel-default">
         <div class="panel-heading">
             <h4 class="panel-title">
-                <?= Yii::t('app', 'Russian words') ?>
+                Русские слова
             </h4>
         </div>
         <div class="panel-body">

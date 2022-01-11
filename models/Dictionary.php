@@ -3,7 +3,6 @@
 namespace app\models;
 
 use app\modules\user\models\User;
-use Yii;
 use yii\behaviors\BlameableBehavior;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveQuery;
@@ -68,14 +67,14 @@ class Dictionary extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'name' => Yii::t('app', 'Name'),
-            'info' => Yii::t('app', 'Information'),
-            'isbn' => Yii::t('app', 'Isbn'),
-            'created_by' => Yii::t('app', 'Created By'),
-            'updated_by' => Yii::t('app', 'Updated By'),
-            'created_at' => Yii::t('app', 'Created At'),
-            'updated_at' => Yii::t('app', 'Updated At'),
+            'id' => 'ID',
+            'name' => 'Название',
+            'info' => 'Информация',
+            'isbn' => 'ISBN',
+            'created_by' => 'Создал',
+            'updated_by' => 'Изменил',
+            'created_at' => 'Создано',
+            'updated_at' => 'Изменено',
         ];
     }
 

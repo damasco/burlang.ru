@@ -11,7 +11,7 @@ use yii\widgets\DetailView;
  */
 
 $this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Dictionaries'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Словари', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 
 ?>
@@ -19,14 +19,14 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
     <p>
         <?= Html::a(
-            Html::icon('pencil') . ' ' . Yii::t('app', 'Edit'),
+            Html::icon('pencil') . ' Редактировать',
             ['update', 'id' => $model->id],
             ['class' => 'btn btn-primary']
         ) ?>
-        <?= Html::a(Html::icon('trash') . ' ' . Yii::t('app', 'Delete'), ['delete', 'id' => $model->id], [
+        <?= Html::a(Html::icon('trash') . ' Удалить', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => Yii::t('app', 'Are you sure you want to delete?'),
+                'confirm' => 'Вы уверены, что хотите удалить?',
                 'method' => 'post',
             ],
         ]) ?>

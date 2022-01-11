@@ -25,9 +25,9 @@ MarkdownEditorAsset::register($this);
     <?= $form->field($chapter, 'content')->textarea(['id' => 'markdown-editor']) ?>
     <div class="form-group">
         <?= Html::submitButton(
-            $chapter->isNewRecord ?
-                Html::icon('plus') . ' ' . Yii::t('app', 'Create') :
-                Html::icon('floppy-disk') . ' ' . Yii::t('app', 'Save'),
+            $chapter->isNewRecord
+                ? Html::icon('plus') . ' Создать'
+                : Html::icon('floppy-disk') . ' Сохранить',
             ['class' => $chapter->isNewRecord ? 'btn btn-success' : 'btn btn-primary']
         ) ?>
     </div>

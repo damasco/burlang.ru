@@ -7,7 +7,7 @@ use app\models\News;
  */
 ?>
 <div class="news-widget">
-    <h3><?= Yii::t('app', 'News') ?></h3>
+    <h3> Новости</h3>
     <?php foreach ($lastNews as $news): ?>
         <?= $this->render('/news/_view', ['model' => $news]) ?>
     <?php endforeach ?>

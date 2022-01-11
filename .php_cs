@@ -13,7 +13,7 @@ return PhpCsFixer\Config::create()
     ->setRules([
         '@PSR2' => true,
         'array_syntax' => ['syntax' => 'short'],
-        'combine_consecutive_unsets' => true,        
+        'combine_consecutive_unsets' => true,
         'no_extra_consecutive_blank_lines' => [
             'break',
             'continue',
@@ -32,5 +32,6 @@ return PhpCsFixer\Config::create()
         'phpdoc_add_missing_param_annotation' => true,
         'psr4' => true,
         'strict_comparison' => true,
+        'no_unused_imports' => true,
     ])
     ->setFinder($finder);
