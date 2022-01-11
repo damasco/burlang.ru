@@ -11,9 +11,6 @@ $finder = PhpCsFixer\Finder::create()
 $config = new PhpCsFixer\Config();
 return $config->setRules([
         '@PSR12' => true,
-        'indentation_type' => true,
-        'method_chaining_indentation' => true,
         'array_syntax' => ['syntax' => 'short'],
     ])
-    ->setIndent('    ')
     ->setFinder($finder);
