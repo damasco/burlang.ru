@@ -1,36 +1,36 @@
 version: '3'
 
 volumes:
-  mysql_data:
+    mysql_data:
 
 services:
-  app:
-    build: 
-      context: ./
-      dockerfile: ./docker/images/php/Dockerfile
-    volumes:
-      - ~/.composer-docker/cache:/root/.composer/cache:delegated
-      - ./:/app:delegated
+    app:
+        build:
+            context: ./
+            dockerfile: ./docker/images/php/Dockerfile
+        volumes:
+            - ~/.composer-docker/cache:/root/.composer/cache:delegated
+            - ./:/app:delegated
 
-  nginx:
-    platform: linux/x86_64
-    image: nginx:latest
-    ports:
-      - 80:80
-    volumes:
-      - ./:/app:delgated
-      - ./docker/env/etc/nginx:/etc/nginx/conf.d
-      - ./docker/env/log/nginx:/var/log/nginx/
+    nginx:
+        platform: linux/x86_64
+        image: nginx:latest
+        ports:
+            - 80:80
+        volumes:
+            - ./:/app:delegated
+            - ./docker/env/etc/nginx:/etc/nginx/conf.d
+            - ./docker/env/log/nginx:/var/log/nginx/
 
-  mysql:
-    image: mariadb:10.3
-    environment:
-      MYSQL_DATABASE: burlang
-      MYSQL_ROOT_PASSWORD: root
-    ports:
-      - 3306:3306
-    volumes:
-      - mysql_data:/var/lib/mysql
-      - ./docker/env/etc/mysql/custom.cnf:/etc/mysql/conf.d/custom.cnf:cached
-      - ./docker/env/log/mysql:/var/log/mariadb:cached
-      - ./docker/db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    mysql:
+        image: mariadb:10.3
+        environment:
+            MYSQL_DATABASE: burlang
+            MYSQL_ROOT_PASSWORD: root
+        ports:
+            - 3306:3306
+        volumes:
+            - mysql_data:/var/lib/mysql
+            - ./docker/env/etc/mysql/custom.cnf:/etc/mysql/conf.d/custom.cnf:cached
+            - ./docker/env/log/mysql:/var/log/mariadb:cached
+            - ./docker/db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
