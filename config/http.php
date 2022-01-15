@@ -12,10 +12,7 @@ $config = [
     'sourceLanguage' => 'en-US',
     'timeZone' => 'Asia/Irkutsk',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => [
-        'log',
-        \app\modules\api\v1\Bootstrap::class,
-    ],
+    'bootstrap' => ['log'],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',

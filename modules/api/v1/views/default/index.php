@@ -1,10 +1,11 @@
 <?php
 
 use yii\helpers\Url;
+use yii\web\View;
 use yii\widgets\Menu;
 
 /**
- * @var yii\web\View $this
+ * @var View $this
  */
 
 $this->title = 'Api v1';
