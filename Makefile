@@ -35,7 +35,3 @@ app-npm-update:
 	docker-compose run --rm app npm update
 app-assets-build:
 	docker-compose run --rm app npm run build
-app-assets-build-dev:
-	docker-compose run --rm app npm run build-dev
-app-assets-watch:
-	docker-compose run --rm app npm run watch	
