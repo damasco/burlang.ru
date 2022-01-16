@@ -13,7 +13,6 @@ use yii\widgets\DetailView;
 $this->title = $model->name;
 $this->params['breadcrumbs'][] = ['label' => 'Словари', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
-
 ?>
 <div class="dictionary-view">
     <h1><?= Html::encode($this->title) ?></h1>

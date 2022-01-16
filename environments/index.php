@@ -35,9 +35,6 @@ return [
             '/runtime',
             '/public/assets',
         ],
-        'setExecutable' => [
-            'bin/yii',
-        ],
         'setCookieValidationKey' => [
             '/config/http.php',
         ],
@@ -47,9 +44,6 @@ return [
         'setWritable' => [
             '/runtime',
             '/public/assets',
-        ],
-        'setExecutable' => [
-            'bin/yii',
         ],
         'setCookieValidationKey' => [
             '/config/http.php',
