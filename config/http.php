@@ -25,7 +25,7 @@ $config = [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'rules' => require __DIR__ . '/urls.php',
+            'rules' => require __DIR__ . '/routes.php',
         ],
         'authManager' => [
             'class' => \yii\rbac\PhpManager::class,
