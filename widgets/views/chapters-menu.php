@@ -22,7 +22,7 @@ use yii\bootstrap\Html;
         ) ?>
     <?php endforeach ?>
 </div>
-<?php if (Yii::$app->user->can('adminBook')): ?>
+<?php if (Yii::$app->user->can('book_management')): ?>
     <p>
         <?= Html::a(
             Html::icon('plus') . ' Добавить главу',

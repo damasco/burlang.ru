@@ -16,7 +16,6 @@ $config = [
         'user' => [
             'class' => \dektrium\user\Module::class,
         ],
-        'rbac' => \dektrium\rbac\RbacConsoleModule::class,
     ],
     'components' => [
         'db' => $params['components.db'],

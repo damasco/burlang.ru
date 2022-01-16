@@ -1,10 +1,12 @@
 <?php
 
+use app\models\BookChapter;
 use yii\helpers\Html;
+use yii\web\View;
 
 /**
- * @var yii\web\View $this
- * @var app\models\BookChapter $chapter
+ * @var View $this
+ * @var BookChapter $chapter
  */
 
 $this->title = 'Редактировать: ' .$chapter->title;

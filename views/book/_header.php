@@ -1,18 +1,18 @@
 <?php
 
+use app\models\Book;
 use yii\bootstrap\Html;
+use yii\web\View;
 
 /**
- * @var \yii\web\View $this
- * @var \app\models\Book $model
+ * @var View $this
+ * @var Book $model
  */
 ?>
 <?php if (!$model->active): ?>
-    <p>
-        <span class="label label-default">Неактивный</span>
-    </p>
+    <p><span class="label label-default">Неактивный</span></p>
 <?php endif ?>
-<?php if (Yii::$app->user->can('adminBook')): ?>
+<?php if (Yii::$app->user->can('book_management')): ?>
     <p>
         <?= Html::a(
             Html::icon('pencil') . ' Редактировать',

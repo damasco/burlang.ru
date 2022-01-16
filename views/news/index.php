@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="news-index">
     <h1 class="hidden-xs"><?= Html::encode($this->title) ?></h1>
-    <?php if (Yii::$app->user->can('adminNews')): ?>
+    <?php if (Yii::$app->user->can('news_management')): ?>
         <p>
             <?= Html::a(
                 Html::icon('plus') . ' Создать новость',

@@ -1,11 +1,14 @@
 <?php
 
+use app\models\Book;
+use app\models\BookChapter;
 use yii\helpers\Html;
+use yii\web\View;
 
 /**
- * @var yii\web\View $this
- * @var app\models\BookChapter $chapter
- * @var app\models\Book $book
+ * @var View $this
+ * @var BookChapter $chapter
+ * @var Book $book
  */
 
 $this->title = 'Добавить главу';

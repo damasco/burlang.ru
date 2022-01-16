@@ -58,7 +58,7 @@ class BookController extends Controller
                             'chapter-update',
                             'chapter-delete',
                         ],
-                        'roles' => ['adminBook'],
+                        'roles' => ['book_management'],
                     ],
                 ],
             ],
@@ -68,7 +68,7 @@ class BookController extends Controller
     public function actionIndex(DeviceDetectInterface $deviceDetect): string
     {
         $query = Book::find()->orderBy('created_at DESC');
-        if (!Yii::$app->user->can('adminBook')) {
+        if (!Yii::$app->user->can('book_management')) {
             $query->where(['active' => 1]);
         }
         $dataProvider = new ActiveDataProvider([
@@ -89,7 +89,7 @@ class BookController extends Controller
     public function actionView(string $slug): string
     {
         $model = Book::findOne(['slug' => $slug]);
-        if (!$model || (!$model->active && !Yii::$app->user->can('adminBook'))) {
+        if (!$model || (!$model->active && !Yii::$app->user->can('book_management'))) {
             throw new NotFoundHttpException('Запрашиваемая страница не существует');
         }
         return $this->render('view', [
@@ -199,7 +199,7 @@ class BookController extends Controller
             ->where(['and', ['book.slug' => $slug], ['book_chapter.slug' => $chapterSlug]])
             ->one();
 
-        if (!$chapter || (!$chapter->book->active && !Yii::$app->user->can('adminBook'))) {
+        if (!$chapter || (!$chapter->book->active && !Yii::$app->user->can('book_management'))) {
             throw new NotFoundHttpException('Запрашиваемая страница не существует');
         }
         return $this->render('chapter/view', [

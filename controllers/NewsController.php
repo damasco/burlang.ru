@@ -48,7 +48,7 @@ class NewsController extends Controller
                             'update',
                             'delete',
                         ],
-                        'roles' => ['adminNews'],
+                        'roles' => ['news_management'],
                     ],
                 ],
             ],
@@ -58,7 +58,7 @@ class NewsController extends Controller
     public function actionIndex(): string
     {
         $query = News::find()->orderBy('created_at DESC');
-        if (!Yii::$app->user->can('adminNews')) {
+        if (!Yii::$app->user->can('news_management')) {
             $query->where(['active' => 1]);
         }
         $dataProvider = new ActiveDataProvider([
@@ -78,7 +78,7 @@ class NewsController extends Controller
     public function actionView(string $slug): string
     {
         $news = News::findOne(['slug' => $slug]);
-        if (!$news || (!$news->active && !Yii::$app->user->can('adminNews'))) {
+        if (!$news || (!$news->active && !Yii::$app->user->can('news_management'))) {
             throw new NotFoundHttpException('Запрашиваемая страница не существует');
         }
         return $this->render('view', [

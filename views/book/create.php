@@ -1,10 +1,12 @@
 <?php
 
+use app\models\Book;
 use yii\helpers\Html;
+use yii\web\View;
 
 /**
- * @var yii\web\View $this
- * @var app\models\Book $model
+ * @var View $this
+ * @var Book $model
  */
 
 $this->title = 'Создать книгу';

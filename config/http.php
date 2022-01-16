@@ -28,8 +28,10 @@ $config = [
             'rules' => require __DIR__ . '/urls.php',
         ],
         'authManager' => [
-            'class' => \dektrium\rbac\components\DbManager::class,
-            'cache' => 'cache',
+            'class' => \yii\rbac\PhpManager::class,
+            'itemFile' => __DIR__ . '/rbac/items.php',
+            'ruleFile' => __DIR__ . '/rbac/rules.php',
+            'assignmentFile' => __DIR__ . '/rbac/assignments.php',
         ],
         'assetManager' => [
             'class' => \yii\web\AssetManager::class,
@@ -76,7 +78,6 @@ $config = [
                 'profile' => \app\modules\user\controllers\ProfileController::class,
             ],
         ],
-        'rbac' => \dektrium\rbac\RbacWebModule::class,
         'api' => [
             'class' => \app\modules\api\Module::class,
             'modules' => [
