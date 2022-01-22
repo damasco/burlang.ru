@@ -20,13 +20,13 @@ docker-ps:
 
 app-init: app-composer-install app-npm-install app-init-files app-migrate
 app-init-files:
-	docker-compose run --rm app bin/init --env=Development --overwrite=n
+	docker-compose run --rm app php bin/init.php --env=Development --overwrite=n
 app-composer-install:
 	docker-compose run --rm app composer install
 app-composer-update:
 	docker-compose run --rm app composer update
 app-migrate:
-	docker-compose run --rm app bin/yii migrate --interactive=0
+	docker-compose run --rm app php bin/app.php migrate --interactive=0
 app-cs-fix:
 	docker-compose run --rm app composer phpcs-fixer
 app-npm-install:
