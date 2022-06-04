@@ -18,6 +18,9 @@ docker-build:
 docker-ps:
 	docker-compose ps
 
+connect:
+	docker exec -it burlangru-app-1 /bin/bash
+
 app-init: app-composer-install app-npm-install app-init-files app-migrate
 app-init-files:
 	docker-compose run --rm app php bin/init.php --env=Development --overwrite=n

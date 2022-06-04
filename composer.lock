@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a3e247ec1e4a42e03016051ae4f0c7cf",
+    "content-hash": "a2dcef7e05fd43334b573f1165e77bf5",
     "packages": [
         {
             "name": "bower-asset/bililiterange",
@@ -483,6 +483,18 @@
                 }
             ],
             "time": "2021-02-19T21:22:57+00:00"
+        },
+        {
+            "name": "npm-asset/htmx.org",
+            "version": "1.7.0",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/htmx.org/-/htmx.org-1.7.0.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "BSD 2-Clause"
+            ]
         },
         {
             "name": "paragonie/random_compat",

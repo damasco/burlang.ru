@@ -1,56 +1,60 @@
 <?php
 
-use app\components\DeviceDetect\DeviceDetectInterface;
-use yii\bootstrap\Html;
+declare(strict_types=1);
+
 use yii\helpers\Url;
-use yii\jui\AutoComplete;
-use yii\web\JsExpression;
+use yii\web\View;
 use yii\widgets\ActiveForm;
 
 /**
- * @var DeviceDetectInterface $deviceDetect
+ * @var View $this
  */
+
+$this->registerJs("
+    $('button.b-letter').on('click', function () {
+        let letter = $(this).text();
+        let input = $(this).parent('span').siblings('input');
+        input.val(input.val() + letter);
+        htmx.trigger('#search-input', 'keyup');
+    });
+", View::POS_LOAD);
 ?>
-<div class="well">
-    <h4>Бурятско-Русский словарь</h4>
+<div class="well" id="b-to-r-block">
+    <h3>
+        Бурятско
+        <button class="btn btn-default btn-sm"
+                hx-get="<?= Url::to(['site/russian-to-buryat']) ?>"
+                hx-trigger="click"
+                hx-target="#b-to-r-block"
+                hx-swap="outerHTML"
+        >
+            <img src="/icon/arrow-left-right.svg" alt="">
+        </button>
+        Русский словарь
+        <span class="htmx-indicator">
+            <img src="/icon/loader.svg" alt="Поиск...">
+        </span>
+    </h3>
     <hr>
     <?php $form = ActiveForm::begin([
-        'action' => ['/v1/buryat-word/translate'],
-        'options' => ['id' => 'buryat-form']
+        'action' => ['/site/buryat-word-translate'],
+        'method' => 'get',
     ]) ?>
-    <div class="form-group">
-        <div class="input-group">
-            <?= AutoComplete::widget([
-                'name' => 'q',
-                'options' => [
-                    'class' => 'form-control',
-                    'placeholder' => 'Введите слово',
-                    'required' => true,
-                ],
-                'clientOptions' => [
-                    'source' => new JsExpression("function (request, response) {
-                         $.ajax({
-                             url: '" . Url::to(['/v1/buryat-word/search']) . "',
-                             data: { q: request.term },
-                             dataType: 'json',
-                             success: response,
-                             error: function () {
-                                 response([]);
-                             }
-                         });
-                    }"),
-                ],
-            ]) ?>
-            <span class="input-group-btn">
-            <button type="button" class="btn btn-default add-input-letter">ү</button>
-            <button type="button" class="btn btn-default add-input-letter">һ</button>
-            <button type="button" class="btn btn-default add-input-letter">ө</button>
-            <button type="submit" class="btn btn-custom">
-                <?= $deviceDetect->isMobile() ? Html::icon('send') : 'Перевести' ?>
-            </button>
+    <div class="input-group">
+        <input type="search" id="search-input" name="q" placeholder="Введите бурятское слово" required="required"
+               autocomplete="off" class="form-control input-lg" onkeydown="return (event.keyCode!=13);"
+               hx-get="<?= Url::to(['/site/buryat-word-translate']) ?>"
+               hx-trigger="keyup changed delay:500ms, search"
+               hx-target="#translations"
+               hx-indicator=".htmx-indicator"
+        >
+        <span class="input-group-btn">
+            <button type="button" class="btn btn-default btn-lg b-letter">ү</button>
+            <button type="button" class="btn btn-default btn-lg b-letter">һ</button>
+            <button type="button" class="btn btn-default btn-lg b-letter">ө</button>
         </span>
-        </div>
     </div>
-    <?php ActiveForm::end() ?>
-    <div id="buryat-translation"></div>
+    <?php
+    ActiveForm::end() ?>
+    <div id="translations"></div>
 </div>

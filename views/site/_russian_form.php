@@ -1,53 +1,38 @@
 <?php
 
-use app\components\DeviceDetect\DeviceDetectInterface;
-use yii\bootstrap\Html;
-use yii\helpers\Url;
-use yii\jui\AutoComplete;
-use yii\web\JsExpression;
-use yii\widgets\ActiveForm;
+declare(strict_types=1);
 
-/**
- * @var DeviceDetectInterface $deviceDetect
- */
+use yii\helpers\Url;
+use yii\widgets\ActiveForm;
 ?>
-<div class="well">
-    <h4>Русско-Бурятский словарь</h4>
+<div class="well" id="r-to-b-block">
+    <h3>
+        Русско
+        <button class="btn btn-default btn-sm"
+                hx-get="<?= Url::to(['site/buryat-to-russian']) ?>"
+                hx-trigger="click"
+                hx-target="#r-to-b-block"
+                hx-swap="outerHTML"
+        >
+            <img src="/icon/arrow-left-right.svg" alt="">
+        </button>
+        Бурятский словарь
+        <span class="htmx-indicator">
+            <img src="/icon/loader.svg" alt="Поиск...">
+        </span>
+    </h3>
     <hr>
     <?php $form = ActiveForm::begin([
-        'action' => ['/v1/russian-word/translate'],
-        'options' => ['id' => 'russian-form']
+        'action' => ['/site/russian-word-translate'],
+        'method' => 'get',
     ]) ?>
-    <div class="form-group">
-        <div class="input-group">
-            <?= AutoComplete::widget([
-                'name' => 'q',
-                'options' => [
-                    'class' => 'form-control',
-                    'placeholder' => 'Введите слово',
-                    'required' => true,
-                ],
-                'clientOptions' => [
-                    'source' => new JsExpression("function (request, response) {
-                         $.ajax({
-                             url: '" . Url::to(['/v1/russian-word/search']) . "',
-                             data: { q: request.term },
-                             dataType: 'json',
-                             success: response,
-                             error: function () {
-                                 response([]);
-                             }
-                         });
-                    }"),
-                ],
-            ]) ?>
-            <span class="input-group-btn">
-            <button type="submit" class="btn btn-custom">
-                <?= $deviceDetect->isMobile() ? Html::icon('send') : 'Перевести' ?>
-            </button>
-        </span>
-        </div>
-    </div>
+    <input type="search" name="q" placeholder="Введите русское слово" required="required"
+           autocomplete="off" class="form-control input-lg" onkeydown="return (event.keyCode!=13);"
+           hx-get="<?= Url::to(['/site/russian-word-translate']) ?>"
+           hx-trigger="keyup changed delay:500ms, search"
+           hx-target="#russian-translations"
+           hx-indicator=".htmx-indicator"
+    >
     <?php ActiveForm::end() ?>
-    <div id="russian-translation"></div>
+    <div id="russian-translations"></div>
 </div>

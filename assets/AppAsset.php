@@ -4,6 +4,7 @@ namespace app\assets;
 
 use yii\bootstrap\BootstrapAsset;
 use yii\web\AssetBundle;
+use yii\web\View;
 use yii\web\YiiAsset;
 
 class AppAsset extends AssetBundle
@@ -16,9 +17,13 @@ class AppAsset extends AssetBundle
     public $js = [
         'js/main.js',
     ];
+    public $jsOptions = [
+        'position'=> View::POS_END
+    ];
     public $depends = [
         YiiAsset::class,
         BootstrapAsset::class,
         SendKeysAsset::class,
+        HtmxAsset::class,
     ];
 }

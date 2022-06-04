@@ -2,18 +2,20 @@
 
 namespace app\controllers;
 
-use app\components\DeviceDetect\DeviceDetectInterface;
-use yii\filters\AccessControl;
+use app\models\RussianWord;
+use app\models\BuryatWord;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\ErrorAction;
 
 class SiteController extends Controller
 {
+    private const SEARCH_LIMIT = 5;
+
     /**
      * {@inheritDoc}
      */
-    public function actions()
+    public function actions(): array
     {
         return [
             'error' => [
@@ -25,35 +27,66 @@ class SiteController extends Controller
     /**
      * {@inheritDoc}
      */
-    public function behaviors()
+    public function behaviors(): array
     {
         return [
             'verbs' => [
                 'class' => VerbFilter::class,
                 'actions' => [
                     'index' => ['GET'],
-                ],
-            ],
-            'access' => [
-                'class' => AccessControl::class,
-                'rules' => [
-                    [
-                        'allow' => true,
-                        'actions' => [
-                            'error',
-                            'index',
-                        ],
-                        'roles' => ['?', '@'],
-                    ],
+                    'russian-to-buryat' => ['GET'],
+                    'buryat-to-russian' => ['GET'],
+                    'russian-word-translate' => ['GET'],
+                    'buryat-word-translate' => ['GET'],
                 ],
             ],
         ];
     }
 
-    public function actionIndex(DeviceDetectInterface $deviceDetect): string
+    public function actionIndex(): string
     {
-        return $this->render('index', [
-            'deviceDetect' => $deviceDetect,
+        return $this->render('index');
+    }
+
+    public function actionBuryatToRussian(): string
+    {
+        return $this->renderAjax('_buryat_form');
+    }
+
+    public function actionRussianToBuryat(): string
+    {
+        return $this->renderAjax('_russian_form');
+    }
+
+    public function actionRussianWordTranslate(string $q): string
+    {
+        $q = trim($q);
+        $words = RussianWord::find()
+            ->with('translations')
+            ->filterWhere(['like', 'name', $q . '%', false])
+            ->orderBy('name')
+            ->limit(self::SEARCH_LIMIT)
+            ->all();
+
+        return $this->renderAjax('_translations', [
+            'q' => $q,
+            'words' => $words,
+        ]);
+    }
+
+    public function actionBuryatWordTranslate(string $q): string
+    {
+        $q = trim($q);
+        $words = BuryatWord::find()
+            ->with('translations')
+            ->filterWhere(['like', 'name', $q . '%', false])
+            ->orderBy('name')
+            ->limit(self::SEARCH_LIMIT)
+            ->all();
+
+        return $this->renderAjax('_translations', [
+            'q' => $q,
+            'words' => $words,
         ]);
     }
 }

@@ -12,7 +12,7 @@ class m220115_191102_drop_rbac_tables extends Migration
      */
     public function up()
     {
-//        $this->dropTable('auth_assignment');
+        $this->dropTable('auth_assignment');
         $this->dropTable('auth_item_child');
         $this->dropTable('auth_item');
         $this->dropTable('auth_rule');
