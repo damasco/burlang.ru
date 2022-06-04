@@ -1,5 +1,7 @@
 .htmx-indicator {
   display: none;
+  position: absolute;
+  margin-left: 3px;
 }
 
 .htmx-request .htmx-indicator {
