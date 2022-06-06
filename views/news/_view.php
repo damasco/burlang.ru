@@ -1,9 +1,10 @@
 <?php
 
+use app\models\News;
 use yii\helpers\Html;
 
 /**
- * @var \app\models\News $model
+ * @var News $model
  */
 ?>
 <div class="news-item">
@@ -16,9 +17,9 @@ use yii\helpers\Html;
         </p>
     <?php endif ?>
     <p><?= Yii::$app->formatter->asDate($model->created_at) ?></p>
-    <p class="description">
+    <div class="description">
         <?= nl2br(Html::encode($model->description)) ?>
-    </p>
+    </div>
 </div>
 
 
