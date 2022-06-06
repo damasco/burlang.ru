@@ -19,13 +19,13 @@ $this->registerJs("
     });
 ", View::POS_LOAD);
 ?>
-<div class="well" id="b-to-r-block">
+<div class="well" id="buryat-words-form">
     <h3>
         Бурятско
         <button class="btn btn-default btn-sm"
-                hx-get="<?= Url::to(['site/russian-to-buryat']) ?>"
+                hx-get="<?= Url::to(['site/russian-words-form']) ?>"
                 hx-trigger="click"
-                hx-target="#b-to-r-block"
+                hx-target="#buryat-words-form"
                 hx-swap="outerHTML"
         >
             <img src="/icon/arrow-left-right.svg" alt="">
@@ -37,13 +37,13 @@ $this->registerJs("
     </h3>
     <hr>
     <?php $form = ActiveForm::begin([
-        'action' => ['/site/buryat-word-translate'],
+        'action' => ['/site/find-buryat-words'],
         'method' => 'get',
     ]) ?>
     <div class="input-group">
         <input type="search" id="search-input" name="q" placeholder="Введите бурятское слово" required="required"
-               autocomplete="off" class="form-control input-lg" onkeydown="return (event.keyCode!=13);"
-               hx-get="<?= Url::to(['/site/buryat-word-translate']) ?>"
+               autocomplete="off" class="form-control input-lg" onkeydown="return (event.keyCode!==13);"
+               hx-get="<?= Url::to(['/site/find-buryat-words']) ?>"
                hx-trigger="keyup changed delay:500ms, search"
                hx-target="#translations"
                hx-indicator=".htmx-indicator"

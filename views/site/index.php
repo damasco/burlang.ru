@@ -13,7 +13,7 @@ $this->title = Yii::$app->name . ' - Русско-Бурятский, Бурят
 <div class="site-index">
     <div class="row mt-10">
         <div class="col-sm-8">
-            <?= $this->render('_buryat_form') ?>
+            <?= $this->render('_buryat_words_form') ?>
             <br>
             <?= Comments::widget() ?>
         </div>

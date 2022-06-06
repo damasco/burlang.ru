@@ -34,10 +34,10 @@ class SiteController extends Controller
                 'class' => VerbFilter::class,
                 'actions' => [
                     'index' => ['GET'],
-                    'russian-to-buryat' => ['GET'],
-                    'buryat-to-russian' => ['GET'],
-                    'russian-word-translate' => ['GET'],
-                    'buryat-word-translate' => ['GET'],
+                    'russian-words-form' => ['GET'],
+                    'buryat-words-form' => ['GET'],
+                    'find-russian-words' => ['GET'],
+                    'find-buryat-words' => ['GET'],
                 ],
             ],
         ];
@@ -48,17 +48,17 @@ class SiteController extends Controller
         return $this->render('index');
     }
 
-    public function actionBuryatToRussian(): string
+    public function actionBuryatWordsForm(): string
     {
-        return $this->renderAjax('_buryat_form');
+        return $this->renderAjax('_buryat_words_form');
     }
 
-    public function actionRussianToBuryat(): string
+    public function actionRussianWordsForm(): string
     {
-        return $this->renderAjax('_russian_form');
+        return $this->renderAjax('_russian_words_form');
     }
 
-    public function actionRussianWordTranslate(string $q): string
+    public function actionFindRussianWords(string $q): string
     {
         $q = trim($q);
         $words = RussianWord::find()
@@ -68,13 +68,13 @@ class SiteController extends Controller
             ->limit(self::SEARCH_LIMIT)
             ->all();
 
-        return $this->renderAjax('_translations', [
+        return $this->renderAjax('_words', [
             'q' => $q,
             'words' => $words,
         ]);
     }
 
-    public function actionBuryatWordTranslate(string $q): string
+    public function actionFindBuryatWords(string $q): string
     {
         $q = trim($q);
         $words = BuryatWord::find()
@@ -84,7 +84,7 @@ class SiteController extends Controller
             ->limit(self::SEARCH_LIMIT)
             ->all();
 
-        return $this->renderAjax('_translations', [
+        return $this->renderAjax('_words', [
             'q' => $q,
             'words' => $words,
         ]);
