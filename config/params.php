@@ -14,10 +14,6 @@ return [
         'class' => \yii\swiftmailer\Mailer::class,
         'useFileTransport' => false,
     ],
-    'components.authClientsCollection' => [
-        'class' => \yii\authclient\Collection::class,
-        'clients' => [],
-    ],
     'components.request.key' => 'l-2C_lNvBwQDe4_LLC5eaUhQmvV9yQRm',
 
     'adminEmail' => 'dbulats88@gmail.com',

@@ -9,13 +9,31 @@ use yii\web\View;
  * @var BuryatName $model
  */
 
-$this->title = sprintf('Бурятское имя "%s"', $model->name);
+$this->title = $model->name;
 $this->params['breadcrumbs'][] = ['label' => 'Бурятские имена', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $model->name;
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="buryat-name-view">
-    <h1><?= Html::encode($model->name) ?></h1>
-    <div class="alert alert-success mb-0">
+    <h1><?= Html::encode($this->title) ?></h1>
+    <div>
+        <?= Html::a(
+            Html::icon('pencil') . ' Редактировать',
+            ['update', 'id' => $model->id],
+            ['class' => 'btn btn-primary']
+        ) ?>
+        <?= Html::a(
+            Html::icon('trash') . ' Удалить',
+            ['delete', 'id' => $model->id],
+            [
+                'class' => 'btn btn-danger',
+                'data' => [
+                    'confirm' => 'Вы уверены, что хотите удалить?',
+                    'method' => 'post',
+                ],
+            ]
+        ) ?>
+    </div>
+    <div class="alert alert-success mt-10">
         <h4><strong><?= $model->description ?></strong></h4>
         <?php if ($model->note): ?>
             <p><?= $model->note ?></p>

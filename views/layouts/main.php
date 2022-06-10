@@ -59,12 +59,12 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             [
-                'label' => 'Главная',
+                'label' => 'Словарь',
                 'url' => Yii::$app->homeUrl,
                 'active' => Yii::$app->controller->id === 'site' && Yii::$app->controller->action->id === 'index'
             ],
             [
-                'label' => 'Имена',
+                'label' => 'Бурятские имена',
                 'url' => ['/buryat-name/index'],
                 'active' => Yii::$app->controller->id === 'buryat-name' &&
                     (Yii::$app->controller->action->id === 'index' || Yii::$app->controller->action->id === 'view-name')
@@ -87,7 +87,7 @@ AppAsset::register($this);
                 ? [
                     'label' => 'Управление',
                     'items' => [
-                        ['label' => 'Бурятские имена', 'url' => ['/buryat-name/admin']],
+                        ['label' => 'Бурятские имена', 'url' => ['/admin/buryat-name/index']],
                         ['label' => 'Бурятские слова', 'url' => ['/buryat-word/index']],
                         ['label' => 'Русские слова', 'url' => ['/russian-word/index']],
                         ['label' => 'Словари', 'url' => ['/dictionary/index']],

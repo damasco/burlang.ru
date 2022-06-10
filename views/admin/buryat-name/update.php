@@ -10,7 +10,7 @@ use yii\web\View;
  */
 
 $this->title = 'Редактировать: ' . $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Бурятские имена', 'url' => ['admin']];
+$this->params['breadcrumbs'][] = ['label' => 'Бурятские имена', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Редактировать'
 ?>

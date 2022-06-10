@@ -10,6 +10,14 @@
   @include margin-bottom(0);
 }
 
+.mb-5 {
+  @include margin-bottom(5px);
+}
+
+.mb-10 {
+  @include margin-bottom(10px);
+}
+
 .mt-20 {
   @include margin-top(20px);
 }

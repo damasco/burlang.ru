@@ -10,9 +10,9 @@ return [
     'book/<slug:[\w-]+>' => 'book/view',
     'book/<slug:[\w-]+>/<chapterSlug:[\w-]+>' => 'book/chapter',
 
-    'names/letter/<letter>' => 'buryat-name/index',
-    'names' => 'buryat-name/index',
-    'names/<name>' => 'buryat-name/view-name',
+    'buryat-names' => 'buryat-name/index',
+    'buryat-names/letter/<letter:\w{1}>' => 'buryat-name/letter',
+    'buryat-name/<name>' => 'buryat-name/view',
 
     'page/<action:(create|update|delete|index)>' => 'page/<action>',
     'page/<link:[\w-]+>' => 'page/view',
