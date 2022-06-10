@@ -25,7 +25,7 @@ use yii\helpers\Html;
         <?php endforeach ?>
     <?php else: ?>
         <div class="alert alert-danger mt-20 mb-0">
-            Не удалось найти
+            Подходящие слова не найдены
         </div>
     <?php endif ?>
 <?php endif ?>
