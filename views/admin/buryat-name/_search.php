@@ -19,7 +19,7 @@ use yii\widgets\ActiveForm;
         </div>
         <div class="panel-body">
             <?php $form = ActiveForm::begin([
-                'action' => ['admin'],
+                'action' => ['index'],
                 'method' => 'get',
             ]); ?>
             <div class="row">
