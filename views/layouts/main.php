@@ -66,8 +66,7 @@ AppAsset::register($this);
             [
                 'label' => 'Бурятские имена',
                 'url' => ['/buryat-name/index'],
-                'active' => Yii::$app->controller->id === 'buryat-name' &&
-                    (Yii::$app->controller->action->id === 'index' || Yii::$app->controller->action->id === 'view-name')
+                'active' => get_class(Yii::$app->controller) === \app\controllers\BuryatNameController::class,
             ],
             [
                 'label' => 'Книги',
