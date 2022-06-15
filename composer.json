@@ -16,7 +16,6 @@
         "npm-asset/htmx.org": "^1.7.0",
         "yiisoft/yii2": "~2.0.9",
         "yiisoft/yii2-bootstrap": "~2.0.6",
-        "yiisoft/yii2-jui": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.0.5"
     },
     "require-dev": {
