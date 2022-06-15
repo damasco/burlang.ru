@@ -11,11 +11,10 @@ use yii\widgets\ActiveForm;
  */
 
 $this->registerJs("
-    $('button.b-letter').on('click', function () {
-        let letter = $(this).text();
-        let input = $(this).parent('span').siblings('input');
-        input.val(input.val() + letter);
-        htmx.trigger('#search-input', 'keyup');
+    $('button.bur-letter').on('click', function () {
+        let input = $('#bur-words-search-input');
+        input.val(input.val() + $(this).text());
+        htmx.trigger('#bur-words-search-input', 'keyup');
     });
 ", View::POS_LOAD);
 ?>
@@ -28,7 +27,7 @@ $this->registerJs("
                 hx-target="#buryat-words-form"
                 hx-swap="outerHTML"
         >
-            <img src="/icon/arrow-left-right.svg" alt="">
+            <img src="/icon/arrow-left-right.svg" alt="switch">
         </button>
         Русский словарь
         <span class="htmx-indicator">
@@ -41,20 +40,21 @@ $this->registerJs("
         'method' => 'get',
     ]) ?>
     <div class="input-group">
-        <input type="search" id="search-input" name="q" placeholder="Введите бурятское слово" required="required"
-               autocomplete="off" class="form-control input-lg" onkeydown="return (event.keyCode!==13);"
+        <input name="q" type="search" required="required" autocomplete="off"
+               id="bur-words-search-input" class="form-control input-lg"
+               placeholder="Введите бурятское слово"
+               onkeydown="return (event.keyCode!==13);"
                hx-get="<?= Url::to(['/site/find-buryat-words']) ?>"
                hx-trigger="keyup changed delay:500ms, search"
                hx-target="#translations"
                hx-indicator=".htmx-indicator"
         >
         <span class="input-group-btn">
-            <button type="button" class="btn btn-default btn-lg b-letter">ү</button>
-            <button type="button" class="btn btn-default btn-lg b-letter">һ</button>
-            <button type="button" class="btn btn-default btn-lg b-letter">ө</button>
+            <button type="button" class="btn btn-default btn-lg bur-letter">ү</button>
+            <button type="button" class="btn btn-default btn-lg bur-letter">һ</button>
+            <button type="button" class="btn btn-default btn-lg bur-letter">ө</button>
         </span>
     </div>
-    <?php
-    ActiveForm::end() ?>
+    <?php ActiveForm::end() ?>
     <div id="translations"></div>
 </div>
