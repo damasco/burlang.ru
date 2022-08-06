@@ -1,12 +1,18 @@
 <?php
 
-namespace app\widgets;
+namespace app\widgets\InputWithBuryatLetters;
 
 use yii\helpers\Html;
 use yii\widgets\InputWidget;
 
-class InputWithBuryatLetters extends InputWidget
+final class InputWithBuryatLetters extends InputWidget
 {
+    public function init()
+    {
+        InputWithBuryatLettersAsset::register($this->getView());
+        parent::init();
+    }
+
     /**
      * {@inheritDoc}
      */

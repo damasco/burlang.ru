@@ -23,7 +23,6 @@ class AppAsset extends AssetBundle
     public $depends = [
         YiiAsset::class,
         BootstrapAsset::class,
-        SendKeysAsset::class,
         HtmxAsset::class,
     ];
 }

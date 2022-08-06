@@ -1,1 +1,1 @@
-$(document).ready(function(){$("button.add-input-letter").on("click",function(){let n=$(this);n.parent("span").siblings("input").sendkeys(n.text())}),$(".image-responsive-container img").addClass("img-responsive")});
+$(document).ready(function(){$(".image-responsive-container img").addClass("img-responsive")});
