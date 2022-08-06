@@ -5,6 +5,7 @@ volumes:
 
 services:
     app:
+        container_name: app
         build:
             context: ./
             dockerfile: ./docker/images/php/Dockerfile
@@ -13,6 +14,7 @@ services:
             - ./:/app:delegated
 
     nginx:
+        container_name: nginx
         platform: linux/x86_64
         image: nginx:latest
         ports:
@@ -23,6 +25,7 @@ services:
             - ./docker/env/log/nginx:/var/log/nginx/
 
     mysql:
+        container_name: mysql
         image: mariadb:10.3
         environment:
             MYSQL_DATABASE: burlang

@@ -19,7 +19,7 @@ docker-ps:
 	docker-compose ps
 
 connect:
-	docker exec -it burlangru-app-1 /bin/bash
+	docker exec -it app /bin/bash
 
 app-init: app-composer-install app-npm-install app-init-files app-migrate
 app-init-files:
