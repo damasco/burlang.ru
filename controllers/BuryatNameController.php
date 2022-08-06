@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\models\BuryatName;
+use Yii;
 use yii\filters\AccessControl;
 use yii\helpers\ArrayHelper;
 use yii\web\Controller;
@@ -22,6 +23,7 @@ class BuryatNameController extends Controller
                             'index',
                             'letter',
                             'view',
+                            'list',
                         ],
                         'verbs' => ['GET'],
                     ],
@@ -32,35 +34,41 @@ class BuryatNameController extends Controller
 
     public function actionIndex(): string
     {
-        $letters = ArrayHelper::map(
-            BuryatName::find()
-                ->select(['letter' => 'LEFT(name, 1)', 'amount' => 'COUNT(id)'])
-                ->groupBy('letter')
-                ->orderBy('letter')
-                ->asArray()
-                ->all(),
-            'letter',
-            'amount'
-        );
+        $letters = Yii::$app->cache->getOrSet('first-letters', function () {
+            return ArrayHelper::map(
+                BuryatName::find()
+                    ->select(['letter' => 'LEFT(name, 1)', 'amount' => 'COUNT(id)'])
+                    ->groupBy('letter')
+                    ->orderBy('letter')
+                    ->asArray()
+                    ->all(),
+                'letter',
+                'amount'
+            );
+        }, 5 * 60);
 
         return $this->render('index', [
             'letters' => $letters,
-            'names' => BuryatName::find()
-                ->select('name')
-                ->column(),
+        ]);
+    }
+
+    public function actionList(string $letter = null): string
+    {
+        $namesQuery = BuryatName::find()
+            ->select('name');
+        if ($letter) {
+            $namesQuery->where(['LEFT(name, 1)' => $letter]);
+        }
+
+        return $this->renderPartial('partials/list', [
+            'names' => $namesQuery->column(),
         ]);
     }
 
     public function actionLetter(string $letter): string
     {
-        $letter = trim($letter);
-        $names = BuryatName::find()
-            ->where(['LEFT(name, 1)' => $letter])
-            ->all();
-
         return $this->render('letter', [
-            'letter' => $letter,
-            'names' => $names,
+            'letter' => trim($letter),
         ]);
     }
 

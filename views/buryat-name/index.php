@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\web\View;
 
 /**
@@ -9,7 +10,6 @@ use yii\web\View;
  * @var string[] $names
  */
 
-$chunkLength = (int)(ceil(count($names) / 4));
 $this->title = 'Бурятские имена';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -33,21 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
         </ul>
     <?php endif ?>
     <hr>
-    <?php if ($names): ?>
-        <div class="row">
-            <?php foreach (array_chunk($names, $chunkLength) as $namesChunk): ?>
-                <div class="col-md-3">
-                    <?php foreach ($namesChunk as $name): ?>
-                        <div>
-                            <?= Html::a(
-                                $name,
-                                ['view', 'name' => $name],
-                                ['class' => 'btn btn-default mb-5']
-                            ) ?>
-                        </div>
-                    <?php endforeach ?>
-                </div>
-            <?php endforeach ?>
-        </div>
-    <?php endif ?>
+    <div hx-get="<?= Url::to(['/buryat-name/list']) ?>" hx-trigger="load">
+        <p class="text-center">Загрузка имен...</p>
+    </div>
 </div>
