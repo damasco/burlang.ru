@@ -30,9 +30,9 @@ use yii\widgets\ActiveForm;
            autocomplete="off" class="form-control input-lg" onkeydown="return (event.keyCode!==13);"
            hx-get="<?= Url::to(['/site/find-russian-words']) ?>"
            hx-trigger="keyup changed delay:500ms, search"
-           hx-target="#russian-translations"
+           hx-target="#russian-words"
            hx-indicator=".htmx-indicator"
     >
     <?php ActiveForm::end() ?>
-    <div id="russian-translations"></div>
+    <div id="russian-words"></div>
 </div>

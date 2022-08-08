@@ -9,14 +9,6 @@ use yii\widgets\ActiveForm;
 /**
  * @var View $this
  */
-
-$this->registerJs("
-    $('button.bur-letter').on('click', function () {
-        let input = $('#bur-words-search-input');
-        input.val(input.val() + $(this).text());
-        htmx.trigger('#bur-words-search-input', 'keyup');
-    });
-", View::POS_LOAD);
 ?>
 <div class="well" id="buryat-words-form">
     <h3>
@@ -41,20 +33,25 @@ $this->registerJs("
     ]) ?>
     <div class="input-group">
         <input name="q" type="search" required="required" autocomplete="off"
-               id="bur-words-search-input" class="form-control input-lg"
+               id="bur-search" class="form-control input-lg"
                placeholder="Введите бурятское слово"
                onkeydown="return (event.keyCode!==13);"
                hx-get="<?= Url::to(['/site/find-buryat-words']) ?>"
                hx-trigger="keyup changed delay:500ms, search"
-               hx-target="#translations"
+               hx-target="#buryat-words"
                hx-indicator=".htmx-indicator"
         >
         <span class="input-group-btn">
-            <button type="button" class="btn btn-default btn-lg bur-letter">ү</button>
-            <button type="button" class="btn btn-default btn-lg bur-letter">һ</button>
-            <button type="button" class="btn btn-default btn-lg bur-letter">ө</button>
+            <?php foreach (['ү', 'һ', 'ө'] as $letter): ?>
+                <button type="button" class="btn btn-default btn-lg bur-letter"
+                        _="on click
+                        set #bur-search.value to #bur-search.value + my.innerText
+                        call htmx.trigger('#bur-search', 'keyup')">
+                    <?= $letter ?>
+                </button>
+            <?php endforeach ?>
         </span>
     </div>
     <?php ActiveForm::end() ?>
-    <div id="translations"></div>
+    <div id="buryat-words"></div>
 </div>

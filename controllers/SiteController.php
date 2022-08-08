@@ -50,12 +50,12 @@ class SiteController extends Controller
 
     public function actionBuryatWordsForm(): string
     {
-        return $this->renderAjax('_buryat_words_form');
+        return $this->renderPartial('partials/buryat_words_form');
     }
 
     public function actionRussianWordsForm(): string
     {
-        return $this->renderAjax('_russian_words_form');
+        return $this->renderPartial('partials/russian_words_form');
     }
 
     public function actionFindRussianWords(string $q): string
@@ -68,7 +68,7 @@ class SiteController extends Controller
             ->limit(self::SEARCH_LIMIT)
             ->all();
 
-        return $this->renderAjax('_words', [
+        return $this->renderPartial('partials/words', [
             'q' => $q,
             'words' => $words,
         ]);
@@ -84,7 +84,7 @@ class SiteController extends Controller
             ->limit(self::SEARCH_LIMIT)
             ->all();
 
-        return $this->renderAjax('_words', [
+        return $this->renderPartial('partials/words', [
             'q' => $q,
             'words' => $words,
         ]);

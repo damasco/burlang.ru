@@ -24,5 +24,6 @@ class AppAsset extends AssetBundle
         YiiAsset::class,
         BootstrapAsset::class,
         HtmxAsset::class,
+        HyperscriptAsset::class,
     ];
 }

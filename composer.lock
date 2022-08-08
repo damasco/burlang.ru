@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e6a49a8627d804e2f0660e69ee4abab5",
+    "content-hash": "c37cb19470bc8542de1150c5d4a71686",
     "packages": [
         {
             "name": "bower-asset/bililiterange",
@@ -464,6 +464,42 @@
             "time": "2021-02-19T21:22:57+00:00"
         },
         {
+            "name": "npm-asset/acorn",
+            "version": "8.8.0",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/acorn/-/acorn-8.8.0.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/buffer-from",
+            "version": "1.1.2",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/buffer-from/-/buffer-from-1.1.2.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/commander",
+            "version": "2.20.3",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/commander/-/commander-2.20.3.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
             "name": "npm-asset/htmx.org",
             "version": "1.7.0",
             "dist": {
@@ -473,6 +509,165 @@
             "type": "npm-asset",
             "license": [
                 "BSD 2-Clause"
+            ]
+        },
+        {
+            "name": "npm-asset/hyperscript.org",
+            "version": "0.9.7",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/hyperscript.org/-/hyperscript.org-0.9.7.tgz"
+            },
+            "require": {
+                "npm-asset/markdown-it-deflist": ">=2.1.0,<3.0.0",
+                "npm-asset/terser": ">=5.14.1,<6.0.0"
+            },
+            "type": "npm-asset",
+            "license": [
+                "BSD 2-Clause"
+            ]
+        },
+        {
+            "name": "npm-asset/jridgewell--gen-mapping",
+            "version": "0.3.2",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/@jridgewell/gen-mapping/-/gen-mapping-0.3.2.tgz"
+            },
+            "require": {
+                "npm-asset/jridgewell--set-array": ">=1.0.1,<2.0.0",
+                "npm-asset/jridgewell--sourcemap-codec": ">=1.4.10,<2.0.0",
+                "npm-asset/jridgewell--trace-mapping": ">=0.3.9,<0.4.0"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/jridgewell--resolve-uri",
+            "version": "3.1.0",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/@jridgewell/resolve-uri/-/resolve-uri-3.1.0.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/jridgewell--set-array",
+            "version": "1.1.2",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/@jridgewell/set-array/-/set-array-1.1.2.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/jridgewell--source-map",
+            "version": "0.3.2",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/@jridgewell/source-map/-/source-map-0.3.2.tgz"
+            },
+            "require": {
+                "npm-asset/jridgewell--gen-mapping": ">=0.3.0,<0.4.0",
+                "npm-asset/jridgewell--trace-mapping": ">=0.3.9,<0.4.0"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/jridgewell--sourcemap-codec",
+            "version": "1.4.14",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.4.14.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/jridgewell--trace-mapping",
+            "version": "0.3.14",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/@jridgewell/trace-mapping/-/trace-mapping-0.3.14.tgz"
+            },
+            "require": {
+                "npm-asset/jridgewell--resolve-uri": ">=3.0.3,<4.0.0",
+                "npm-asset/jridgewell--sourcemap-codec": ">=1.4.10,<2.0.0"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/markdown-it-deflist",
+            "version": "2.1.0",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/markdown-it-deflist/-/markdown-it-deflist-2.1.0.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/source-map",
+            "version": "0.6.1",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/source-map/-/source-map-0.6.1.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "BSD-3-Clause"
+            ]
+        },
+        {
+            "name": "npm-asset/source-map-support",
+            "version": "0.5.21",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/source-map-support/-/source-map-support-0.5.21.tgz"
+            },
+            "require": {
+                "npm-asset/buffer-from": ">=1.0.0,<2.0.0",
+                "npm-asset/source-map": ">=0.6.0,<0.7.0"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/terser",
+            "version": "5.14.1",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/terser/-/terser-5.14.1.tgz"
+            },
+            "require": {
+                "npm-asset/acorn": ">=8.5.0,<9.0.0",
+                "npm-asset/commander": ">=2.20.0,<3.0.0",
+                "npm-asset/jridgewell--source-map": ">=0.3.2,<0.4.0",
+                "npm-asset/source-map-support": "~0.5.20"
+            },
+            "type": "npm-asset",
+            "license": [
+                "BSD-2-Clause"
             ]
         },
         {
