@@ -14,11 +14,11 @@ use yii\widgets\ActiveForm;
                 hx-target="#russian-words-form"
                 hx-swap="outerHTML"
         >
-            <img src="/icon/arrow-left-right.svg" alt="">
+            <img src="<?= Yii::getAlias('@web/icon/arrow-left-right.svg') ?>" alt="">
         </button>
         Бурятский словарь
         <span class="htmx-indicator">
-            <img src="/icon/loader.svg" alt="Поиск...">
+            <img src="<?= Yii::getAlias('@web/icon/loader.svg') ?>" alt="Поиск...">
         </span>
     </h3>
     <hr>
