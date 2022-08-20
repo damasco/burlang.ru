@@ -62,4 +62,20 @@ $this->params['breadcrumbs'][] = $this->title;
             ]) ?>
         </div>
     </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                Новости
+            </h4>
+        </div>
+        <div class="panel-body">
+            <?= Menu::widget([
+                'items' => [
+                    ['label' => Url::to(['/api/v1/news/index'], true)],
+                    ['label' => Url::to(['/api/v1/news/get-news', 'q' => 'slug'], true)]
+                ],
+                'labelTemplate' => '<code>{label}</code>',
+            ]) ?>
+        </div>
+    </div>
 </div>

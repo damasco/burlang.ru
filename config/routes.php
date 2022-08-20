@@ -23,6 +23,8 @@ return [
     'api/v1/names/<action>' => 'api/v1/buryat-name/<action>',
     'api/v1/buryat-word/<action>' => 'api/v1/buryat-word/<action>',
     'api/v1/russian-word/<action>' => 'api/v1/russian-word/<action>',
+    'api/v1/news' => 'api/v1/news/index',
+    'api/v1/news/get-news' => 'api/v1/news/get-news',
     // api v1 old
     'v1/names/<action>' => 'api/v1/buryat-name/<action>',
     'v1/buryat-word/<action>' => 'api/v1/buryat-word/<action>',
