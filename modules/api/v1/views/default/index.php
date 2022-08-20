@@ -71,7 +71,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="panel-body">
             <?= Menu::widget([
                 'items' => [
-                    ['label' => Url::to(['/api/v1/news/index'], true)],
+                    ['label' => Url::to(['/api/v1/news/index?page=1'], true)],
                     ['label' => Url::to(['/api/v1/news/get-news', 'q' => 'slug'], true)]
                 ],
                 'labelTemplate' => '<code>{label}</code>',
