@@ -60,6 +60,7 @@ class BuryatNameController extends Controller
         return [
             'search' => ['GET'],
             'get-name' => ['GET'],
+            'index' => ['GET'],
         ];
     }
 
