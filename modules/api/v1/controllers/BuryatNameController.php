@@ -15,6 +15,14 @@ class BuryatNameController extends Controller
 {
     private const SEARCH_LIMIT = 10;
 
+    public function actionIndex(): array
+    {
+        return BuryatName::find()
+            ->select(['name'])
+            ->asArray()
+            ->column();
+    }
+
     /**
      * @param string $q
      * @return array

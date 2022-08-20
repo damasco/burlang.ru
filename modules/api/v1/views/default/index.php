@@ -22,6 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="panel-body">
             <?= Menu::widget([
                 'items' => [
+                    ['label' => Url::to(['/api/v1/buryat-name/index'], true)],
                     ['label' => Url::to(['/api/v1/buryat-name/search', 'q' => 'begin_search_name'], true)],
                     ['label' => Url::to(['/api/v1/buryat-name/get-name', 'q' => 'Name'], true)]
                 ],

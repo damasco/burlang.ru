@@ -19,6 +19,7 @@ return [
     'page/<link:[\w-]+>' => 'page/view',
 
     // api v1
+    'api/v1/names' => 'api/v1/buryat-name/index',
     'api/v1/names/<action>' => 'api/v1/buryat-name/<action>',
     'api/v1/buryat-word/<action>' => 'api/v1/buryat-word/<action>',
     'api/v1/russian-word/<action>' => 'api/v1/russian-word/<action>',
