@@ -18,9 +18,9 @@ class BuryatNameController extends Controller
     public function actionIndex(): array
     {
         return BuryatName::find()
-            ->select(['name'])
+            ->select(['value' => 'name'])
             ->asArray()
-            ->column();
+            ->all();
     }
 
     /**
